@@ -1,0 +1,1 @@
+"use strict";(self.webpackChunkcreateursdecompagnie_fr=self.webpackChunkcreateursdecompagnie_fr||[]).push([[82],{5852:e=>{e.exports=JSON.parse('{"label":"hola","permalink":"/createursdecompagnie.fr/blog/tags/hola","allTagsPath":"/createursdecompagnie.fr/blog/tags","count":1}')}}]);

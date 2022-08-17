@@ -1,0 +1,1 @@
+"use strict";(self.webpackChunkcreateursdecompagnie_fr=self.webpackChunkcreateursdecompagnie_fr||[]).push([[2437],{532:e=>{e.exports=JSON.parse('{"permalink":"/createursdecompagnie.fr/blog/tags/docusaurus","page":1,"postsPerPage":10,"totalPages":1,"totalCount":4,"blogDescription":"Blog","blogTitle":"Blog"}')}}]);
