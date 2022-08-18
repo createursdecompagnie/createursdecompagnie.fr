@@ -11,8 +11,8 @@ const githubEditUrl = githubUrl + '/edit/main/';
 const config = {
   title: 'Créateurs de Compagnie',
   tagline: 'Plus d\'informations prochainement ...',
-  url: 'https://createursdecompagnie.github.io',
-  baseUrl: '/createursdecompagnie.fr/',
+  url: 'https://createursdecompagnie.fr',
+  baseUrl: '/',
   onBrokenLinks: 'throw',
   onBrokenMarkdownLinks: 'warn',
   favicon: 'img/favicon.ico',
