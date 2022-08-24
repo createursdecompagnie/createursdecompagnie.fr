@@ -10,12 +10,8 @@ const HomepageHeader = () => {
         <div className="row">
           <div className="col col--6 margin-bottom--lg">
             <h1 className="hero__title">Une association de créateurs pour la protection animale</h1>
-            <p className="hero__subtitle">Un texte descriptif un peu plus complet avec quelques informations sur l'association.</p>
             <div>
               <a className="button button--secondary button--lg" href="https://bit.ly/3PE0icI">Nous rejoindre</a>
-              <button className="button button--secondary button--outline button--lg margin-left--md">
-                En savoir plus...
-              </button>
             </div>
           </div>
           <div className="col col--6">
