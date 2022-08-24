@@ -16,7 +16,7 @@
   background-position: right 10% top 10%;
 } */
 
-video {
+.player {
   border: 0.3em solid var(--ifm-color-secondary);
   padding: 0px;
   background: var(--ifm-color-secondary);

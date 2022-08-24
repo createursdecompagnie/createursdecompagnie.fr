@@ -27,6 +27,7 @@ const HomepageHeader = () => {
                 width="100%"
                 controls
                 id={"demo-video-player"}
+                className={styles.player}
               >
                 <source src="video/event2022.webm" type="video/webm"/>
                 <source src="video/event2022.mp4" type="video/mp4"/>
