@@ -1,6 +1,9 @@
 // @ts-check
 // Note: type annotations allow type checking and IDEs autocompletion
 
+const utils = require('@docusaurus/utils');
+const path = require('path');
+
 const lightCodeTheme = require('prism-react-renderer/themes/github');
 const darkCodeTheme = require('prism-react-renderer/themes/dracula');
 
@@ -87,6 +90,28 @@ const config = {
         respectPrefersColorScheme: true,
       },
     }),
+    plugins: [],
 };
 
-module.exports = config;
+async function createConfig() {
+
+  /** @type {import('@docusaurus/types').PluginModule} */
+  const socialCommunityPlugin = (
+    await import('./src/plugins/social-community/index.mjs')
+  ).default;
+
+  /** @type {import('./src/plugins/social-community/data/types').SocialCommunityPluginOptions} */
+  const socialCommunityPluginOptions = {
+    members: (await import('./src/data/members.js')).default,
+    module_key: 'Members',
+    routes: [{
+      path: utils.normalizeUrl([config.baseUrl,'/',]),
+      component: path.resolve('./src/pages/index/'),
+    }]
+  };
+
+  config.plugins?.push([socialCommunityPlugin, socialCommunityPluginOptions]);
+  return config;
+}
+
+module.exports = createConfig;
