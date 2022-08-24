@@ -56,6 +56,28 @@ const config = {
       footer: {
         style: 'dark',
         copyright: `Copyright © ${new Date().getFullYear()} - Créateurs de Compagnie`,
+        links: [
+          {
+            label: 'Discord',
+            href: 'https://discord.gg/PN5anHT6P8',
+          },
+          {
+            label: 'Twitter',
+            href: 'https://twitter.com/createursdecomp',
+          },
+          {
+            label: 'Youtube',
+            href: 'https://www.youtube.com/channel/UC8uLofoMzQCFLPTf_YRZcpA',
+          },
+          {
+            label: 'Instagram',
+            href: 'https://www.instagram.com/createursdecompagnie/',
+          },
+          {
+            label: 'Nos Membres',
+            href: 'https://linktr.ee/createursdecompagnie.membres',
+          },
+        ],
       },
       prism: {
         theme: lightCodeTheme,
