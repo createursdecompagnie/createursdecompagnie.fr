@@ -103,7 +103,7 @@ async function createConfig() {
   /** @type {import('./src/plugins/social-community/data/types').SocialCommunityPluginOptions} */
   const socialCommunityPluginOptions = {
     members: (await import('./src/data/members.js')).default,
-    module_key: 'Members',
+    module_key: 'members',
     routes: [{
       path: utils.normalizeUrl([config.baseUrl,'/',]),
       component: path.resolve('./src/pages/index/'),
