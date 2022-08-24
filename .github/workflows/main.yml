@@ -1,5 +1,9 @@
 name: Deploy to github pages
 
+env:
+  TWITCH_CLIENTID: '${{ secrets.TWITCH_CLIENTID }}'
+  TWITCH_CLIENTSECRET: '${{ secrets.TWITCH_CLIENTSECRET }}'
+
 on:
   workflow_dispatch:
   pull_request:
