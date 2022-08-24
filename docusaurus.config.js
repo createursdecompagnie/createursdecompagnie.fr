@@ -62,9 +62,7 @@ const config = {
         darkTheme: darkCodeTheme,
       },
       colorMode: {
-        defaultMode: 'light',
-        disableSwitch: true,
-        respectPrefersColorScheme: false,
+        respectPrefersColorScheme: true,
       },
     }),
 };
