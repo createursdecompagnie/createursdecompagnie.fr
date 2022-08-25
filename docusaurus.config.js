@@ -73,6 +73,10 @@ const config = {
             href: 'https://www.youtube.com/channel/UC8uLofoMzQCFLPTf_YRZcpA',
           },
           {
+            label: 'Twitch',
+            href: 'https://www.twitch.tv/createursdecomp',
+          },
+          {
             label: 'Instagram',
             href: 'https://www.instagram.com/createursdecompagnie/',
           },
