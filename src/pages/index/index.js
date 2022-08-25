@@ -40,7 +40,7 @@ const MemberPicture = ({ member }) => {
       {member && member.social.twitch && member.social.twitch.user_data &&
         <a href={"https://www.twitch.tv/" + member.social.twitch.login} className={styles.teamlistmember}>
           <div className="avatar">
-            <img className="avatar__photo avatar__photo--xl" alt={member.name} src={member.social.twitch.user_data.profile_image_url} />
+            <img className="avatar__photo" alt={member.name} src={member.social.twitch.user_data.profile_image_url} />
           </div>
         </a>
       }
