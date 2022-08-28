@@ -11,6 +11,8 @@ export const enum Social {
 
 export const enum Group {
     member = 'member', 
+    sct = 'sct', 
+    event2022 = 'event2022'
   }
 
 export type TwitchUserData = {
