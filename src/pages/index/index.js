@@ -2,6 +2,7 @@ import React from 'react';
 import Layout from '@theme/Layout';
 
 import styles from './index.module.css';
+import useBaseUrl from '@docusaurus/useBaseUrl';
 
 const HomepageHeader = () => {
   return (
@@ -34,13 +35,63 @@ const HomepageHeader = () => {
   );
 };
 
+function MemberSocialLink(member) {
+  if (member && member.socials) {
+    switch (member.socials.main_social) {
+      case 'twitch':
+        if (member.socials.twitch && member.socials.twitch.user_data) {
+          return 'https://www.twitch.tv/' + member.socials.twitch.login;
+        }
+        break;
+      case 'twitter':
+        if (member.socials.twitch && member.socials.twitch.user_data) {
+          return 'https://twitter.com/' + member.socials.twitch.login;
+        }
+        break;
+      case 'instagram':
+        if (member.socials.twitch && member.socials.twitch.user_data) {
+          return 'https://www.instagram.com/' + member.socials.twitch.login;
+        }
+        break;
+        case 'tiktok':
+          if (member.socials.twitch && member.socials.twitch.user_data) {
+            return 'https://www.tiktok.com/@' + member.socials.twitch.login;
+          }
+          break;
+      case 'youtube':
+      case 'discord':
+        if (member.socials[member.socials.main_social] && member.socials[member.socials.main_social].link) {
+          return member.socials[member.socials.main_social].link;
+        }
+        break;
+    }
+  }
+
+  return "#";
+}
+
+function MemberAvatar(member) {
+  if (member && member.socials) {
+    switch (member.socials.main_social) {
+      case 'twitch':
+        if (member.socials.twitch && member.socials.twitch.user_data) return member.socials.twitch.user_data.profile_image_url;
+        break;
+      default:
+        if (member.avatar) return useBaseUrl(member.avatar);
+        break;
+    }
+  }
+
+  return "#";
+}
+
 const MemberPicture = ({ member }) => {
   return (
     <>
-      {member && member.social.twitch && member.social.twitch.user_data &&
-        <a href={"https://www.twitch.tv/" + member.social.twitch.login} className={styles.teamlistmember}>
+      {member &&
+        <a href={MemberSocialLink(member)} className={styles.teamlistmember}>
           <div className="avatar">
-            <img className="avatar__photo" alt={member.name} src={member.social.twitch.user_data.profile_image_url} />
+            <img className="avatar__photo" alt={member.name} src={MemberAvatar(member)} />
           </div>
         </a>
       }

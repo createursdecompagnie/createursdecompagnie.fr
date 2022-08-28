@@ -7,7 +7,7 @@ import 'dotenv/config'
  * @returns {import('./data/types').Member}
  */
 function FindMemberByTwitchLogin(members, login) {
-    return members.find(member => member.social && member.social.twitch && login == member.social.twitch.login);
+    return members.find(member => member.socials && member.socials.twitch && login == member.socials.twitch.login);
 }
 
 /**
@@ -49,8 +49,8 @@ export default function SocialCommunityPlugin(context, options) {
                     });
 
                 members.forEach(member => {
-                    if (member.social && member.social.twitch) {
-                        req.query(`login=${member.social.twitch.login}`);
+                    if (member.socials && member.socials.twitch) {
+                        req.query(`login=${member.socials.twitch.login}`);
                     }
                 });
 
@@ -59,7 +59,7 @@ export default function SocialCommunityPlugin(context, options) {
                     response.body.data.forEach(user_data => {
                         var member = FindMemberByTwitchLogin(members, user_data.login);
                         if (member) {
-                            member.social.twitch.user_data = {
+                            member.socials.twitch.user_data = {
                                 id: user_data.id,
                                 display_name: user_data.display_name,
                                 profile_image_url: user_data.profile_image_url,

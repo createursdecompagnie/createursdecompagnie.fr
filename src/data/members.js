@@ -1,11 +1,14 @@
 // @ts-check
 'use strict';
 
-/** @type {import('../plugins/social-community/data/types').Members} */
+
+// /** @type {import('../plugins/social-community/data/types').Members} */
 var members = [
     {
         name: 'MisterNooton',
-        social: {
+        groups: ['member'],
+        socials: {
+            main_social: 'twitch',
             twitch: {
                 login: 'misternooton'
             },
@@ -13,7 +16,9 @@ var members = [
     },
     {
         name: 'PresidentKevas',
-        social: {
+        groups: ['member'],
+        socials: {
+            main_social: 'twitch',
             twitch: {
                 login: 'presidentkevas',
             },
@@ -21,7 +26,9 @@ var members = [
     },
     {
         name: 'Pomdap',
-        social: {
+        groups: ['member'],
+        socials: {
+            main_social: 'twitch',
             twitch: {
                 login: 'pomdap',
             },
@@ -29,7 +36,9 @@ var members = [
     },
     {
         name: 'H00LIC',
-        social: {
+        groups: ['member'],
+        socials: {
+            main_social: 'twitch',
             twitch: {
                 login: 'h00lic',
             },
@@ -37,7 +46,9 @@ var members = [
     },
     {
         name: 'Vinn\'K',
-        social: {
+        groups: ['member'],
+        socials: {
+            main_social: 'twitch',
             twitch: {
                 login: 'vinnk',
             },
@@ -45,7 +56,9 @@ var members = [
     },
     {
         name: 'Netouss',
-        social: {
+        groups: ['member'],
+        socials: {
+            main_social: 'twitch',
             twitch: {
                 login: 'netouss',
             },
@@ -53,7 +66,9 @@ var members = [
     },
     {
         name: 'DNADNL',
-        social: {
+        groups: ['member'],
+        socials: {
+            main_social: 'twitch',
             twitch: {
                 login: 'dnadnl',
             },
@@ -61,7 +76,9 @@ var members = [
     },
     {
         name: 'NicoValmont',
-        social: {
+        groups: ['member'],
+        socials: {
+            main_social: 'twitch',
             twitch: {
                 login: 'nicovalmont',
             },
@@ -69,7 +86,9 @@ var members = [
     },
     {
         name: 'SoKyutie',
-        social: {
+        groups: ['member'],
+        socials: {
+            main_social: 'twitch',
             twitch: {
                 login: 'sokyutie',
             },
@@ -77,7 +96,9 @@ var members = [
     },
     {
         name: 'RenegadesLive',
-        social: {
+        groups: ['member'],
+        socials: {
+            main_social: 'twitch',
             twitch: {
                 login: 'renegadeslive',
             },
@@ -85,7 +106,9 @@ var members = [
     },
     {
         name: 'JoPe',
-        social: {
+        groups: ['member'],
+        socials: {
+            main_social: 'twitch',
             twitch: {
                 login: 'tuyatrojouey',
             },
@@ -93,7 +116,9 @@ var members = [
     },
     {
         name: 'Ghost_Deus',
-        social: {
+        groups: ['member'],
+        socials: {
+            main_social: 'twitch',
             twitch: {
                 login: 'ghost_deus',
             },
@@ -101,7 +126,9 @@ var members = [
     },
     {
         name: 'MilySterique',
-        social: {
+        groups: ['member'],
+        socials: {
+            main_social: 'twitch',
             twitch: {
                 login: 'milysterique',
             },
@@ -109,7 +136,9 @@ var members = [
     },
     {
         name: 'Mallicette',
-        social: {
+        groups: ['member'],
+        socials: {
+            main_social: 'twitch',
             twitch: {
                 login: 'mallicette',
             },
@@ -117,7 +146,9 @@ var members = [
     },
     {
         name: 'Keensess',
-        social: {
+        groups: ['member'],
+        socials: {
+            main_social: 'twitch',
             twitch: {
                 login: 'keensess',
             },
@@ -125,7 +156,9 @@ var members = [
     },
     {
         name: 'Haz',
-        social: {
+        groups: ['member'],
+        socials: {
+            main_social: 'twitch',
             twitch: {
                 login: 'haz_live_',
             },
@@ -133,7 +166,9 @@ var members = [
     },
     {
         name: 'Buddakhiin',
-        social: {
+        groups: ['member'],
+        socials: {
+            main_social: 'twitch',
             twitch: {
                 login: 'buddakhiin',
             },
@@ -141,7 +176,9 @@ var members = [
     },
     {
         name: 'Little_anneso',
-        social: {
+        groups: ['member'],
+        socials: {
+            main_social: 'twitch',
             twitch: {
                 login: 'little_anneso',
             },
@@ -149,7 +186,9 @@ var members = [
     },
     {
         name: 'Papykiva',
-        social: {
+        groups: ['member'],
+        socials: {
+            main_social: 'twitch',
             twitch: {
                 login: 'papykiva',
             },
@@ -157,7 +196,9 @@ var members = [
     },
     {
         name: 'Alexwill1993',
-        social: {
+        groups: ['member'],
+        socials: {
+            main_social: 'twitch',
             twitch: {
                 login: 'alexwill1993',
             },
