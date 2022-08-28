@@ -6,7 +6,7 @@
 var members = [
     {
         name: 'MisterNooton',
-        groups: ['member'],
+        groups: ['member', 'sct'],
         socials: {
             main_social: 'twitch',
             twitch: {
@@ -16,7 +16,7 @@ var members = [
     },
     {
         name: 'PresidentKevas',
-        groups: ['member'],
+        groups: ['member', 'sct'],
         socials: {
             main_social: 'twitch',
             twitch: {
@@ -26,7 +26,7 @@ var members = [
     },
     {
         name: 'Pomdap',
-        groups: ['member'],
+        groups: ['member', 'sct'],
         socials: {
             main_social: 'twitch',
             twitch: {
@@ -36,7 +36,7 @@ var members = [
     },
     {
         name: 'H00LIC',
-        groups: ['member'],
+        groups: ['member', 'sct'],
         socials: {
             main_social: 'twitch',
             twitch: {
@@ -46,7 +46,7 @@ var members = [
     },
     {
         name: 'Vinn\'K',
-        groups: ['member'],
+        groups: ['member', 'sct'],
         socials: {
             main_social: 'twitch',
             twitch: {
@@ -56,7 +56,7 @@ var members = [
     },
     {
         name: 'Netouss',
-        groups: ['member'],
+        groups: ['member', 'sct'],
         socials: {
             main_social: 'twitch',
             twitch: {
@@ -66,7 +66,7 @@ var members = [
     },
     {
         name: 'DNADNL',
-        groups: ['member'],
+        groups: ['member', 'sct'],
         socials: {
             main_social: 'twitch',
             twitch: {
@@ -76,7 +76,7 @@ var members = [
     },
     {
         name: 'NicoValmont',
-        groups: ['member'],
+        groups: ['member', 'sct'],
         socials: {
             main_social: 'twitch',
             twitch: {
@@ -86,7 +86,7 @@ var members = [
     },
     {
         name: 'SoKyutie',
-        groups: ['member'],
+        groups: ['member', 'sct'],
         socials: {
             main_social: 'twitch',
             twitch: {
@@ -96,7 +96,7 @@ var members = [
     },
     {
         name: 'RenegadesLive',
-        groups: ['member'],
+        groups: ['member', 'sct'],
         socials: {
             main_social: 'twitch',
             twitch: {
@@ -106,7 +106,7 @@ var members = [
     },
     {
         name: 'JoPe',
-        groups: ['member'],
+        groups: ['member', 'sct'],
         socials: {
             main_social: 'twitch',
             twitch: {
@@ -116,7 +116,7 @@ var members = [
     },
     {
         name: 'Ghost_Deus',
-        groups: ['member'],
+        groups: ['member', 'sct'],
         socials: {
             main_social: 'twitch',
             twitch: {
@@ -136,7 +136,7 @@ var members = [
     },
     {
         name: 'Mallicette',
-        groups: ['member'],
+        groups: ['member', 'sct'],
         socials: {
             main_social: 'twitch',
             twitch: {
@@ -146,7 +146,7 @@ var members = [
     },
     {
         name: 'Keensess',
-        groups: ['member'],
+        groups: ['member', 'sct'],
         socials: {
             main_social: 'twitch',
             twitch: {
@@ -156,7 +156,7 @@ var members = [
     },
     {
         name: 'Haz',
-        groups: ['member'],
+        groups: ['member', 'sct'],
         socials: {
             main_social: 'twitch',
             twitch: {
@@ -166,7 +166,7 @@ var members = [
     },
     {
         name: 'Buddakhiin',
-        groups: ['member'],
+        groups: ['member', 'sct'],
         socials: {
             main_social: 'twitch',
             twitch: {
@@ -176,7 +176,7 @@ var members = [
     },
     {
         name: 'Little_anneso',
-        groups: ['member'],
+        groups: ['member', 'sct'],
         socials: {
             main_social: 'twitch',
             twitch: {
@@ -186,7 +186,7 @@ var members = [
     },
     {
         name: 'Papykiva',
-        groups: ['member'],
+        groups: ['member', 'sct'],
         socials: {
             main_social: 'twitch',
             twitch: {
@@ -196,11 +196,141 @@ var members = [
     },
     {
         name: 'Alexwill1993',
-        groups: ['member'],
+        groups: ['member', 'sct'],
         socials: {
             main_social: 'twitch',
             twitch: {
                 login: 'alexwill1993',
+            },
+        }
+    },
+    {
+        name: 'Nymphelya',
+        groups: ['sct'],
+        socials: {
+            main_social: 'twitch',
+            twitch: {
+                login: 'nymphelya',
+            },
+        }
+    },
+    {
+        name: 'c1emen7',
+        groups: ['sct'],
+        socials: {
+            main_social: 'twitch',
+            twitch: {
+                login: 'c1emen7',
+            },
+        }
+    },
+    {
+        name: 'pookihunter',
+        groups: ['sct'],
+        socials: {
+            main_social: 'twitch',
+            twitch: {
+                login: 'pookihunter',
+            },
+        }
+    },
+    {
+        name: 'shinyouw',
+        groups: ['sct'],
+        socials: {
+            main_social: 'twitch',
+            twitch: {
+                login: 'shinyouw',
+            },
+        }
+    },
+    {
+        name: 'ileso_',
+        groups: ['sct'],
+        socials: {
+            main_social: 'twitch',
+            twitch: {
+                login: 'ileso_',
+            },
+        }
+    },
+    {
+        name: 'LaPepouzerie',
+        groups: ['sct'],
+        socials: {
+            main_social: 'twitch',
+            twitch: {
+                login: 'lapepouzerie',
+            },
+        }
+    },
+    {
+        name: 'Acengel',
+        groups: ['sct'],
+        socials: {
+            main_social: 'twitch',
+            twitch: {
+                login: 'acengel',
+            },
+        }
+    },
+    {
+        name: 'SouricetteFTW',
+        groups: ['sct'],
+        socials: {
+            main_social: 'twitch',
+            twitch: {
+                login: 'souricetteftw',
+            },
+        }
+    },
+    {
+        name: 'mama_loutre',
+        groups: ['sct'],
+        socials: {
+            main_social: 'twitch',
+            twitch: {
+                login: 'mama_loutre',
+            },
+        }
+    },
+    {
+        name: 'Ckat_A',
+        groups: ['sct'],
+        socials: {
+            main_social: 'twitch',
+            twitch: {
+                login: 'ckat_a',
+            },
+        }
+    },
+    {
+        name: 'agharta_tv',
+        groups: ['sct'],
+        socials: {
+            main_social: 'twitch',
+            twitch: {
+                login: 'agharta_tv',
+            },
+        }
+    },
+    {
+        name: 'kleroc',
+        groups: ['sct'],
+        socials: {
+            main_social: 'twitch',
+            twitch: {
+                login: 'kleroc',
+            },
+        }
+    },
+    {
+        name: 'EmiSetsuna',
+        groups: ['sct'],
+        socials: {
+            main_social: 'twitch',
+            twitch: {
+                login: 'emisetsuna',
             },
         }
     },

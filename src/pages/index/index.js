@@ -53,11 +53,11 @@ function MemberSocialLink(member) {
           return 'https://www.instagram.com/' + member.socials.twitch.login;
         }
         break;
-        case 'tiktok':
-          if (member.socials.twitch && member.socials.twitch.user_data) {
-            return 'https://www.tiktok.com/@' + member.socials.twitch.login;
-          }
-          break;
+      case 'tiktok':
+        if (member.socials.twitch && member.socials.twitch.user_data) {
+          return 'https://www.tiktok.com/@' + member.socials.twitch.login;
+        }
+        break;
       case 'youtube':
       case 'discord':
         if (member.socials[member.socials.main_social] && member.socials[member.socials.main_social].link) {
@@ -105,7 +105,11 @@ const HomepageMembers = ({ members }) => {
       <h2 className="margin-bottom--lg text--center">Les membres</h2>
       <div className={styles.teamlist}>
         {members?.map((member) => (
-          <MemberPicture key={member.name} member={member} />
+          <>
+            {member.groups.includes('member') &&
+              <MemberPicture key={member.name} member={member} />
+            }
+          </>
         ))}
       </div>
     </div>
