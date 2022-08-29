@@ -69,23 +69,26 @@ export default function SocialCommunityPlugin(context, options) {
                 });
             }
 
-            const { createData, addRoute } = actions;
+            const { createData, setGlobalData, addRoute } = actions;
 
-            // Create members.json
-            const membersDataJsonPath = await createData(
-                'members.json',
-                JSON.stringify(members),
-            );
+            // Create members global data
+            setGlobalData({members: members});
 
-            if (options && options.routes && options.module_key) {
-                options.routes.forEach(route => {
+            // // Create members.json
+            // const membersDataJsonPath = await createData(
+            //     'members.json',
+            //     JSON.stringify(members),
+            // );
 
-                    route.modules = route.modules || {};
-                    route.modules[options.module_key] = membersDataJsonPath;
+            // if (options && options.routes && options.module_key) {
+            //     options.routes.forEach(route => {
 
-                    addRoute(route);
-                });
-            }
+            //         route.modules = route.modules || {};
+            //         route.modules[options.module_key] = membersDataJsonPath;
+
+            //         addRoute(route);
+            //     });
+            // }
         },
     };
 }

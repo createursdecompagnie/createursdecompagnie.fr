@@ -1,0 +1,28 @@
+.communityList {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+}
+
+.communityMember {
+  color: inherit;
+  flex-grow: 0;
+  padding: 0 0.3em 0.3em;
+}
+
+.communityMember:hover img {
+  transform: scale(1.05);
+  transition-duration: 75ms;
+}
+
+.communityHome {
+  justify-content: center;
+}
+
+.communityHome .communityMember {
+  padding: 0 1% 2%;
+}
+
+.communityHome .communityMember img {
+  --ifm-avatar-photo-size: calc(max(48px,min(100vw/6,96px)));
+}

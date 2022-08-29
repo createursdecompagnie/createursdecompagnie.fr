@@ -22,12 +22,13 @@ last_update:
   date: 1/1/2000
   author: custom author name
 ---
+import { CommunityList } from '/src/components/social-community'
 
 <h1 className="text--center"><img src="/img/sct/header.png" style={{maxHeight: "110px"}} /></h1>
 
 ## L'évènement
 
-***Sans Croquettes Twitch*** est un évènement caritatif qui s'est tenu sur [***Twitch***](https://www.twitch.tv/createursdecomp) du **21 au 24 mai 2021** au profit de l'association [***Sans Croquettes Fixes***](https://sanscroquettesfixes.fr). Celui-ci a permis de récolter **12.200 €** et a impliqué plus d'une trentaine de créateurs.
+***Sans Croquettes Twitch*** est un évènement caritatif qui s'est tenu sur [***Twitch***](https://www.twitch.tv/createursdecomp) du **21 au 24 mai 2021** au profit de l'association [***Sans Croquettes Fixes***](https://sanscroquettesfixes.fr). Celui-ci a permis de récolter **12.000 €** et a impliqué plus d'une trentaine de créateurs.
 
 Pendant **plus de 72h** auront eu lieu plusieurs **sessions de jeu** entre les créateurs, des **matinales** sur les différents animaux de compagnie, mais aussi des **interviews** avec de nombreux représentant de l'association.
 
@@ -39,4 +40,4 @@ Infos sur l'association -->
 
 ## Les participants
 
-Liste des participants
+<CommunityList group='sct' />
