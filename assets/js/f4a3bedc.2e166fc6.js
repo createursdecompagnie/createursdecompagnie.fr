@@ -1,1 +1,0 @@
-"use strict";(self.webpackChunkcreateursdecompagnie_fr=self.webpackChunkcreateursdecompagnie_fr||[]).push([[709],{6571:e=>{e.exports=JSON.parse('{"name":"social-community-plugin","id":"default"}')}}]);
