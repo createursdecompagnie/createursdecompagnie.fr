@@ -9,9 +9,9 @@ title: Sans Croquettes Twitch
 # sidebar_position: 3
 # pagination_label: Markdown features
 # custom_edit_url: https://github.com/facebook/docusaurus/edit/main/docs/api-doc-markdown.md
-description: L'évènement caritatif au profit de DDF Sans Croquettes Fixes qui donna naissance à Créateurs de Compagnie
+description: L'évènement caritatif au profit de Sans Croquettes Fixes qui donna naissance à Créateurs de Compagnie
 keywords:
-  - DDF Sans Croquettes Fixes
+  - Sans Croquettes Fixes
   - évènement
   - caritatif
   - animaux
@@ -23,20 +23,19 @@ last_update:
   author: custom author name
 ---
 
-<!-- # Sans Croquettes Twitch -->
 <h1 className="text--center"><img src="/img/sct/header.png" style={{maxHeight: "110px"}} /></h1>
 
 ## L'évènement
 
-***Sans Croquettes Twitch*** est un évènement caritatif qui s'est tenu sur [***Twitch***](https://www.twitch.tv/createursdecomp) du **21 au 24 mai 2021** au profit de l'association [***Sans Croquettes Fixes***](https://sanscroquettesfixes.fr). Celui-ci a permis de récolter **12.200 €** et a impliqué plus d'une vingtaine de créateurs.
+***Sans Croquettes Twitch*** est un évènement caritatif qui s'est tenu sur [***Twitch***](https://www.twitch.tv/createursdecomp) du **21 au 24 mai 2021** au profit de l'association [***Sans Croquettes Fixes***](https://sanscroquettesfixes.fr). Celui-ci a permis de récolter **12.200 €** et a impliqué plus d'une trentaine de créateurs.
 
-Pendant plus de 72h auront eu lieu plusieurs sessions de jeu entre les créateurs, des matinales sur les différents animaux de compagnie, mais aussi des interviews avec de nombreux représentant de l'association.
+Pendant **plus de 72h** auront eu lieu plusieurs **sessions de jeu** entre les créateurs, des **matinales** sur les différents animaux de compagnie, mais aussi des **interviews** avec de nombreux représentant de l'association.
 
 Sous l'impulsion de cet évènement, l'initiateur du projet [***MisterNooton***](https://www.twitch.tv/misternooton) décide de créer le collectif ***Créateurs de Compagnie***.
 
-## L'association
+<!-- ## L'association
 
-Infos sur l'association
+Infos sur l'association -->
 
 ## Les participants
 
