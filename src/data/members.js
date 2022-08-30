@@ -76,7 +76,7 @@ var members = [
     },
     {
         name: 'NicoValmont',
-        groups: ['member', 'sct', 'event2022'],
+        groups: ['sct', 'event2022'],
         socials: {
             main_social: 'twitch',
             twitch: {
@@ -96,7 +96,7 @@ var members = [
     },
     {
         name: 'RenegadesLive',
-        groups: ['member', 'sct'],
+        groups: ['member', 'sct', 'event2022'],
         socials: {
             main_social: 'twitch',
             twitch: {
@@ -106,7 +106,7 @@ var members = [
     },
     {
         name: 'JoPe',
-        groups: ['member', 'sct'],
+        groups: ['member', 'sct', 'event2022'],
         socials: {
             main_social: 'twitch',
             twitch: {
@@ -216,7 +216,7 @@ var members = [
     },
     {
         name: 'c1emen7',
-        groups: ['sct', 'event2022'],
+        groups: ['member', 'sct', 'event2022'],
         socials: {
             main_social: 'twitch',
             twitch: {
