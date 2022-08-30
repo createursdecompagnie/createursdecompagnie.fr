@@ -6,7 +6,7 @@
 var members = [
     {
         name: 'MisterNooton',
-        groups: ['member', 'sct'],
+        groups: ['member', 'sct', 'event2022'],
         socials: {
             main_social: 'twitch',
             twitch: {
@@ -16,7 +16,7 @@ var members = [
     },
     {
         name: 'PresidentKevas',
-        groups: ['member', 'sct'],
+        groups: ['member', 'sct', 'event2022'],
         socials: {
             main_social: 'twitch',
             twitch: {
@@ -26,7 +26,7 @@ var members = [
     },
     {
         name: 'Pomdap',
-        groups: ['member', 'sct'],
+        groups: ['member', 'sct', 'event2022'],
         socials: {
             main_social: 'twitch',
             twitch: {
@@ -36,7 +36,7 @@ var members = [
     },
     {
         name: 'H00LIC',
-        groups: ['member', 'sct'],
+        groups: ['member', 'sct', 'event2022'],
         socials: {
             main_social: 'twitch',
             twitch: {
@@ -56,7 +56,7 @@ var members = [
     },
     {
         name: 'Netouss',
-        groups: ['member', 'sct'],
+        groups: ['member', 'sct', 'event2022'],
         socials: {
             main_social: 'twitch',
             twitch: {
@@ -66,7 +66,7 @@ var members = [
     },
     {
         name: 'DNADNL',
-        groups: ['member', 'sct'],
+        groups: ['member', 'sct', 'event2022'],
         socials: {
             main_social: 'twitch',
             twitch: {
@@ -76,7 +76,7 @@ var members = [
     },
     {
         name: 'NicoValmont',
-        groups: ['member', 'sct'],
+        groups: ['member', 'sct', 'event2022'],
         socials: {
             main_social: 'twitch',
             twitch: {
@@ -86,7 +86,7 @@ var members = [
     },
     {
         name: 'SoKyutie',
-        groups: ['member', 'sct'],
+        groups: ['member', 'sct', 'event2022'],
         socials: {
             main_social: 'twitch',
             twitch: {
@@ -126,7 +126,7 @@ var members = [
     },
     {
         name: 'MilySterique',
-        groups: ['member'],
+        groups: ['member', 'event2022'],
         socials: {
             main_social: 'twitch',
             twitch: {
@@ -146,7 +146,7 @@ var members = [
     },
     {
         name: 'Keensess',
-        groups: ['member', 'sct'],
+        groups: ['member', 'sct', 'event2022'],
         socials: {
             main_social: 'twitch',
             twitch: {
@@ -196,7 +196,7 @@ var members = [
     },
     {
         name: 'Alexwill1993',
-        groups: ['member', 'sct'],
+        groups: ['member', 'sct', 'event2022'],
         socials: {
             main_social: 'twitch',
             twitch: {
@@ -216,7 +216,7 @@ var members = [
     },
     {
         name: 'c1emen7',
-        groups: ['sct'],
+        groups: ['sct', 'event2022'],
         socials: {
             main_social: 'twitch',
             twitch: {
