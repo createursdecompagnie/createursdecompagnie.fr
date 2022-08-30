@@ -57,6 +57,23 @@ const config = {
           src: 'img/logo.png',
           srcDark: 'img/logo_dark.png',
         },
+        items: [
+          {
+            type: 'dropdown',
+            label: 'Nos évènements',
+            position: 'left',
+            items: [
+              {
+                label: 'Évènement 2022',
+                to: '/evenement/2022',
+              },
+              {
+                label: 'Sans Croquettes Twitch',
+                to: '/evenement/sans-croquettes-twitch',
+              },
+            ],
+          },
+        ],
       },
       footer: {
         style: 'dark',
