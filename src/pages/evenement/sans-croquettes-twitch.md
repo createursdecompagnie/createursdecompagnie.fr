@@ -4,7 +4,7 @@ description: L'évènement caritatif au profit de Sans Croquettes Fixes qui donn
 ---
 import { CommunityList } from '/src/components/social-community'
 
-<h1 className="text--center"><img src="/img/sct/header.png" style={{maxHeight: "110px"}} /></h1>
+<h1 className="text--center"><img src="/img/sct/header.png" alt="Sans Croquettes Twitch" style={{maxHeight: "110px"}} loading="lazy" /></h1>
 
 ## L'évènement {#l-évènement}
 
