@@ -24,13 +24,13 @@ function MemberAvatar(member, size = ListSize.Large) {
 
         switch (size) {
           case ListSize.Large:
-            url = url.replace("300x300.png", "150x150.png");
+            url = url.replace("300x300", "150x150");
             break;
           case ListSize.Medium:
-            url = url.replace("300x300.png", "70x70.png");
+            url = url.replace("300x300", "70x70");
             break;
           case ListSize.Small:
-            url = url.replace("300x300.png", "50x50.png");
+            url = url.replace("300x300", "50x50");
             break;
         }
         break;
