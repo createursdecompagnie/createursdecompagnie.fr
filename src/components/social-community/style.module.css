@@ -9,6 +9,21 @@
   flex-grow: 0;
   padding: 0 0.3em 0.3em;
 }
+.communityMember-xs {
+  --ifm-avatar-photo-size: 30px;
+}
+.communityMember-sm {
+  --ifm-avatar-photo-size: 50px;
+}
+.communityMember-md {
+  --ifm-avatar-photo-size: 100px;
+}
+.communityMember-lg {
+  --ifm-avatar-photo-size: 150px;
+}
+.communityMember-xl {
+  --ifm-avatar-photo-size: 300px;
+}
 
 .communityMember:hover img {
   transform: scale(1.05);
@@ -24,5 +39,5 @@
 }
 
 .communityHome .communityMember img {
-  --ifm-avatar-photo-size: calc(max(48px,min(100vw/6,96px)));
+  --ifm-avatar-photo-size: calc(max(50px,min(100vw/6,100px)));
 }

@@ -4,7 +4,7 @@ import Layout from '@theme/Layout';
 import styles from './index.module.css';
 import clsx from 'clsx';
 import Link from '@docusaurus/Link';
-import { CommunityList } from '/src/components/social-community/'
+import { CommunityListHome } from '/src/components/social-community/'
 
 const HomepageHeader = () => {
   return (
@@ -42,7 +42,7 @@ const HomepageMembers = () => {
   return (
     <div className={clsx('container padding-top--lg padding-bottom--lg', styles.homeHeader)}>
       <h2 className="margin-bottom--lg text--center">Les membres</h2>
-      <CommunityList group='member' home='true' />
+      <CommunityListHome />
     </div>
   );
 };

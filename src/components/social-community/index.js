@@ -4,19 +4,44 @@ import { usePluginData } from '@docusaurus/useGlobalData';
 
 import styles from './style.module.css';
 
-function MemberAvatar(member) {
+const ListSize = {
+  // ExtraSmall: "sx",
+  Small: "sm",
+  Medium: "md",
+  Large: "lg",
+  ExtraLarge: "xl"
+}
+
+function MemberAvatar(member, size = ListSize.Large) {
+  let url = "#";
+
   if (member && member.socials) {
     switch (member.socials.main_social) {
       case 'twitch':
-        if (member.socials.twitch && member.socials.twitch.user_data) return member.socials.twitch.user_data.profile_image_url;
+        if (member.socials.twitch && member.socials.twitch.user_data) {
+          url = member.socials.twitch.user_data.profile_image_url;
+        }
+
+        switch (size) {
+          case ListSize.Large:
+            url = url.replace("300x300.png", "150x150.png");
+            break;
+          case ListSize.Medium:
+            url = url.replace("300x300.png", "70x70.png");
+            break;
+          case ListSize.Small:
+            url = url.replace("300x300.png", "50x50.png");
+            break;
+        }
         break;
-      default:
-        if (member.avatar) return useBaseUrl(member.avatar);
-        break;
+    }
+
+    if (!url && member.avatar) {
+      url = useBaseUrl(member.avatar);
     }
   }
 
-  return "#";
+  return url;
 }
 
 function MemberSocialLink(member) {
@@ -54,13 +79,13 @@ function MemberSocialLink(member) {
   return "#";
 }
 
-const MemberPicture = ({ member }) => {
+const MemberPicture = ({ member, size = ListSize.Medium }) => {
   return (
     <>
       {member &&
-        <a href={MemberSocialLink(member)}  className={clsx(styles.communityMember)}>
+        <a href={MemberSocialLink(member)} className={clsx(styles.communityMember, styles["communityMember-" + size])}>
           <div className="avatar">
-            <img className="avatar__photo" alt={member.name} src={MemberAvatar(member)} loading='lazy' />
+            <img className="avatar__photo" alt={member.name} src={MemberAvatar(member, size)} loading='lazy' />
           </div>
         </a>
       }
@@ -68,31 +93,29 @@ const MemberPicture = ({ member }) => {
   );
 };
 
-export function CommunityList(props) {
-  const { members } = usePluginData('social-community-plugin');
-  const isHome = !props.home ? false : props.home;
-  return (
-    <div className={clsx(styles.communityList, isHome ? styles.communityHome : undefined)}>
-      {members?.map((member) => {
-        if (!props.group || member.groups.includes(props.group))
-          return <MemberPicture key={member.name} member={member} />;
-      })}
-    </div>
-  );
-};
-
-
-export function CommunityListHome(props) {
+function CommunityList(props) {
   const { members } = usePluginData('social-community-plugin');
   return (
-    <div className={clsx(styles['communityList'])}>
+    <div className={props.className}>
       {members?.map((member) => (
         <>
           {(!props.group || member.groups.includes(props.group)) &&
-            <MemberPicture key={member.name} member={member} />
+            <MemberPicture key={member.name} member={member} size={props.size} />
           }
         </>
       ))}
     </div>
+  );
+};
+
+export function CommunityListHome() {
+  return (
+    <CommunityList className={clsx(styles.communityList, styles.communityHome)} group='member' size={ListSize.Large} />
+  );
+};
+
+export function CommunityListEvent(props) {
+  return (
+    <CommunityList className={clsx(styles.communityList)} group={props.group} size={ListSize.Small} />
   );
 };
