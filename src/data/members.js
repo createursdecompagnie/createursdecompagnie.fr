@@ -176,7 +176,7 @@ var members = [
     },
     {
         name: 'Little_anneso',
-        groups: ['member', 'sct'],
+        groups: ['member', 'sct', 'event2022'],
         socials: {
             main_social: 'twitch',
             twitch: {
@@ -206,7 +206,7 @@ var members = [
     },
     {
         name: 'Nymphelya',
-        groups: ['sct'],
+        groups: ['sct', 'event2022'],
         socials: {
             main_social: 'twitch',
             twitch: {
@@ -331,6 +331,49 @@ var members = [
             main_social: 'twitch',
             twitch: {
                 login: 'emisetsuna',
+            },
+        }
+    },
+    {
+        name: 'Ookamiette',
+        groups: ['member'],
+        socials: {
+            main_social: 'twitch',
+            twitch: {
+                login: 'ookamiette',
+            },
+            youtube: {
+                link: 'https://www.youtube.com/channel/UCayZSimBdxRZ7Lr8WPNw3Yw'
+            },
+        }
+    },
+    {
+        name: 'Elynda4',
+        groups: ['member'],
+        socials: {
+            main_social: 'twitch',
+            twitch: {
+                login: 'elynda4',
+            },
+        }
+    },
+    {
+        name: 'PiikaShall',
+        groups: ['member', 'event2022'],
+        socials: {
+            main_social: 'twitch',
+            twitch: {
+                login: 'piikashall',
+            },
+        }
+    },
+    {
+        name: 'Pastel_Witch_',
+        groups: ['member', 'event2022'],
+        socials: {
+            main_social: 'twitch',
+            twitch: {
+                login: 'pastel_witch_',
             },
         }
     },
