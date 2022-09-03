@@ -1,7 +1,13 @@
-/**
- * CSS files with the .module.css suffix will be treated as CSS modules
- * and scoped locally.
- */
+.header {
+  background-size: cover;
+  background-image: url("/img/header.jpg");
+  background-repeat: no-repeat;
+  background-position: left top;
+}
+
+.header h1 {
+  text-shadow: 2px 2px 6px #000000;
+}
 
 .videoplayer {
   border: 0.3em solid var(--ifm-color-secondary);
@@ -10,36 +16,18 @@
   border-radius: 0.3em;
 }
 
-.homeHeader {
+.members {
   justify-content: center;
 }
 
-.homeHeader .community__member img {
+.members .community__member img {
   --ifm-avatar-photo-size: calc(max(48px, min(100vw/6, 96px)));
 }
 
-.homeHeader div.community__member {
+.members div.community__member {
   padding: 0 1% 2%;
 }
 
-.homeHeader .community__list {
+.members .community__list {
   justify-content: center;
-}
-
-.teamlist {
-  display: flex;
-  flex-direction: row;
-  flex-wrap: wrap;
-  justify-content: center;
-}
-
-.teamlistmember {
-  color: inherit;
-  flex-grow: 0;
-  padding: 0 1% 2%;
-}
-
-.teamlistmember:hover img {
-  transform: scale(1.05);
-  transition-duration: 75ms;
 }

@@ -8,11 +8,12 @@ import { CommunityListHome } from '/src/components/social-community/'
 
 const HomepageHeader = () => {
   return (
-    <header className="hero hero--primary">
+    <header className={clsx('hero hero--primary', styles.header)}>
       <div className="container">
         <div className="row">
           <div className="col col--6 margin-bottom--lg">
             <h1 className="hero__title">Un collectif de créateurs pour la protection animale</h1>
+            {/* <p class="hero__subtitle"></p> */}
             <div>
               <Link className="button button--secondary button--lg" to="https://bit.ly/3PE0icI">Nous rejoindre</Link>
               {/* <Link className="button button--secondary button--outline button--lg margin-left--md" to="/docs">En savoir plus...</Link> */}
@@ -40,7 +41,7 @@ const HomepageHeader = () => {
 
 const HomepageMembers = () => {
   return (
-    <div className={clsx('container padding-top--lg padding-bottom--lg', styles.homeHeader)}>
+    <div className={clsx('container padding-top--lg padding-bottom--lg', styles.members)}>
       <h2 className="margin-bottom--lg text--center">Les membres</h2>
       <CommunityListHome />
     </div>
