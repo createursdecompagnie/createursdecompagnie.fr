@@ -136,7 +136,7 @@ var members = [
     },
     {
         name: 'Mallicette',
-        groups: ['member', 'sct'],
+        groups: ['member', 'sct', 'event2022'],
         socials: {
             main_social: 'twitch',
             twitch: {
@@ -186,7 +186,7 @@ var members = [
     },
     {
         name: 'Papykiva',
-        groups: ['member', 'sct'],
+        groups: ['member', 'sct', 'event2022'],
         socials: {
             main_social: 'twitch',
             twitch: {
