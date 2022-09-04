@@ -98,11 +98,11 @@ function CommunityList(props) {
   return (
     <div className={props.className}>
       {members?.map((member) => (
-        <>
+        <React.Fragment key={member.name}>
           {(!props.group || member.groups.includes(props.group)) &&
-            <MemberPicture key={member.name} member={member} size={props.size} />
+            <MemberPicture member={member} size={props.size} />
           }
-        </>
+        </React.Fragment>
       ))}
     </div>
   );

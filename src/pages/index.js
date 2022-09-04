@@ -13,7 +13,7 @@ const HomepageHeader = () => {
         <div className="row">
           <div className="col col--6 margin-bottom--lg">
             <h1 className="hero__title">Un collectif de créateurs pour la protection animale</h1>
-            {/* <p class="hero__subtitle"></p> */}
+            {/* <p className="hero__subtitle"></p> */}
             <div>
               <Link className="button button--secondary button--lg" to="https://bit.ly/3PE0icI">Nous rejoindre</Link>
               {/* <Link className="button button--secondary button--outline button--lg margin-left--md" to="/docs">En savoir plus...</Link> */}
