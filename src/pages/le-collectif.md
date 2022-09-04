@@ -12,7 +12,7 @@ import { CommunityListEvent } from '/src/components/social-community'
 
 ## Objectifs
 
-***Créateurs de Compagnie*** "CDC" est une association de fait réunissant des créateurs de contenus sensible à la cause animale dont les objectifs sont :
+***Créateurs de Compagnie*** "CDC" est une association de fait réunissant des créateurs de contenus sensible à la cause animale dont les objectifs sont de :
 - Réunir des créateurs et leurs communautés autour de la cause animale
 - Faire de la sensibilisation autour de la cause animale
 - Organiser des événements caritatifs au profit d'associations loi 1901 agissant pour la cause animale
