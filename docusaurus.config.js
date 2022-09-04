@@ -59,6 +59,10 @@ const config = {
         },
         items: [
           {
+            label: 'Le collectif',
+            to: '/le-collectif',
+          },
+          {
             type: 'dropdown',
             label: 'Nos évènements',
             position: 'left',

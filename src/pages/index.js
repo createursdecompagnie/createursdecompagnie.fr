@@ -16,7 +16,7 @@ const HomepageHeader = () => {
             {/* <p className="hero__subtitle"></p> */}
             <div>
               <Link className="button button--secondary button--lg" to="https://bit.ly/3PE0icI">Nous rejoindre</Link>
-              {/* <Link className="button button--secondary button--outline button--lg margin-left--md" to="/docs">En savoir plus...</Link> */}
+              <Link className={clsx('button button--secondary button--outline button--lg margin-left--md', styles.buttonSecondary)} to="/le-collectif">En savoir plus...</Link>
             </div>
           </div>
           <div className="col col--6">
