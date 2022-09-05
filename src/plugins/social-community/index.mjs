@@ -95,13 +95,8 @@ export default function SocialCommunityPlugin(context, options) {
                         
                         if (response && response.raw_body) {
                             const filepath = './static/img/avatars/' + response.request.headers['x-login'] + '-300x300.';
-                            fs.writeFileSync(filepath + response.request.path.split('.').pop(), response.raw_body, 'binary');
 
-                            await Promise.all([
-                                sharp(response.raw_body).toFile(filepath + ".webp"),
-                                sharp(response.raw_body).resize(150).toFile(filepath.replace("300x300", "150x150") + "png"),
-                                sharp(response.raw_body).resize(150).toFile(filepath.replace("300x300", "150x150") + "webp"),
-    
+                            await Promise.all([    
                                 sharp(response.raw_body).resize(100).toFile(filepath.replace("300x300", "100x100") + "png"),
                                 sharp(response.raw_body).resize(100).toFile(filepath.replace("300x300", "100x100") + "webp"),
     
@@ -114,9 +109,9 @@ export default function SocialCommunityPlugin(context, options) {
             }
 
             members.map(function (member) {
-                let filePath = '/img/avatars/' + member.socials.twitch.login + '-300x300.png';
+                let filePath = '/img/avatars/' + member.socials.twitch.login + '-100x100.png';
                 if (fs.existsSync('./static' + filePath)) {
-                    member.avatar = filePath;
+                    member.avatar = filePath.replace("100x100", "300x300");
                 }
             });
 

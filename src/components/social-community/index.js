@@ -9,8 +9,8 @@ const ListSize = {
   // ExtraSmall: "sx",
   Small: "sm",
   Medium: "md",
-  Large: "lg",
-  ExtraLarge: "xl"
+  // Large: "lg",
+  // ExtraLarge: "xl"
 }
 
 const ImageType = {
@@ -18,34 +18,23 @@ const ImageType = {
   other: "other"
 }
 
-function ConvertUrl(url, size = ListSize.Large, type = ImageType.other) {
-  if (url) {
-    switch (size) {
-      case ListSize.Large:
-        url = url.replace("300x300", "150x150");
-        break;
-      case ListSize.Medium:
-        url = url.replace("300x300", "70x70");
-        break;
-      case ListSize.Small:
-        url = url.replace("300x300", "50x50");
-        break;
-    }
-
-    if (type == ImageType.webp) {
-      url = url.replace(url.split('.').pop(), "webp");
-    }
-  }
-
-  return url;
-}
-
-function MemberAvatarUrl(member, size = ListSize.Large, type = ImageType.other) {
+function MemberAvatarUrl(member, size = ListSize.Medium, type = ImageType.other) {
   let url = null;
 
   if (member) {
     if (member.avatar) {
-      url = ConvertUrl(useBaseUrl(member.avatar), size, type);
+      switch (size) {
+        case ListSize.Medium:
+          url = member.avatar.replace("300x300", "100x100");
+          break;
+        case ListSize.Small:
+          url = member.avatar.replace("300x300", "50x50");
+          break;
+      }
+
+      if (type == ImageType.webp) {
+        url = url.replace(url.split('.').pop(), "webp");
+      }
     }
 
     if (!url) {
@@ -53,7 +42,14 @@ function MemberAvatarUrl(member, size = ListSize.Large, type = ImageType.other) 
         switch (member.socials.main_social) {
           case 'twitch':
             if (member.socials.twitch && member.socials.twitch.user_data) {
-              url = ConvertUrl(useBaseUrl(member.socials.twitch.user_data.profile_image_url), size, type);
+              switch (size) {
+                case ListSize.Medium:
+                  url = member.socials.twitch.user_data.profile_image_url.replace("300x300", "70x70");
+                  break;
+                case ListSize.Small:
+                  url = member.socials.twitch.user_data.profile_image_url.replace("300x300", "50x50");
+                  break;
+              }
             }
         }
       }
@@ -139,7 +135,7 @@ function CommunityList(props) {
 
 export function CommunityListHome() {
   return (
-    <CommunityList className={clsx(styles.communityList, styles.communityHome)} group='member' size={ListSize.Large} />
+    <CommunityList className={clsx(styles.communityList, styles.communityHome)} group='member' size={ListSize.Medium} />
   );
 };
 
