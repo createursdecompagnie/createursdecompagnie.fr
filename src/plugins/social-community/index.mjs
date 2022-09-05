@@ -1,6 +1,8 @@
 import unirest from 'unirest'
 import 'dotenv/config'
 
+import fs from 'fs';
+
 /**
  * @param {import('./data/types').Members} members
  * @param {string} login
@@ -69,10 +71,59 @@ export default function SocialCommunityPlugin(context, options) {
                 });
             }
 
+            // Generate avatars
+            if (process.env.NODE_ENV === 'development') {
+                var promises = members.map(function (member) {
+                    if (member.socials.twitch && member.socials.twitch.user_data) {
+                        return new Promise(function (resolve) {
+                            unirest
+                                .get(member.socials.twitch.user_data.profile_image_url)
+                                .encoding(null)
+                                .header({
+                                    'x-login': member.socials.twitch.login
+                                })
+                                .then(resolve);
+                        });
+                    }
+                });
+
+                await Promise.all(promises).then(async function (result) {
+                    const sharpModule = await import('sharp');
+                    const sharp = sharpModule.default;
+
+                    await result.map(async function (response) {
+                        
+                        if (response && response.raw_body) {
+                            const filepath = './static/img/avatars/' + response.request.headers['x-login'] + '-300x300.';
+                            fs.writeFileSync(filepath + response.request.path.split('.').pop(), response.raw_body, 'binary');
+
+                            await Promise.all([
+                                sharp(response.raw_body).toFile(filepath + ".webp"),
+                                sharp(response.raw_body).resize(150).toFile(filepath.replace("300x300", "150x150") + "png"),
+                                sharp(response.raw_body).resize(150).toFile(filepath.replace("300x300", "150x150") + "webp"),
+    
+                                sharp(response.raw_body).resize(100).toFile(filepath.replace("300x300", "100x100") + "png"),
+                                sharp(response.raw_body).resize(100).toFile(filepath.replace("300x300", "100x100") + "webp"),
+    
+                                sharp(response.raw_body).resize(50).toFile(filepath.replace("300x300", "50x50") + "png"),
+                                sharp(response.raw_body).resize(50).toFile(filepath.replace("300x300", "50x50") + "webp"),
+                            ]);
+                        }
+                    });
+                });
+            }
+
+            members.map(function (member) {
+                let filePath = '/img/avatars/' + member.socials.twitch.login + '-300x300.png';
+                if (fs.existsSync('./static' + filePath)) {
+                    member.avatar = filePath;
+                }
+            });
+
             const { createData, setGlobalData, addRoute } = actions;
 
             // Create members global data
-            setGlobalData({members: members});
+            setGlobalData({ members: members });
 
             // // Create members.json
             // const membersDataJsonPath = await createData(

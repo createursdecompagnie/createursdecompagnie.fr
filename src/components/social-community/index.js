@@ -3,6 +3,7 @@ import clsx from 'clsx';
 import { usePluginData } from '@docusaurus/useGlobalData';
 
 import styles from './style.module.css';
+import useBaseUrl from '@docusaurus/useBaseUrl';
 
 const ListSize = {
   // ExtraSmall: "sx",
@@ -12,32 +13,50 @@ const ListSize = {
   ExtraLarge: "xl"
 }
 
-function MemberAvatar(member, size = ListSize.Large) {
-  let url = "#";
+const ImageType = {
+  webp: "webp",
+  other: "other"
+}
 
-  if (member && member.socials) {
-    switch (member.socials.main_social) {
-      case 'twitch':
-        if (member.socials.twitch && member.socials.twitch.user_data) {
-          url = member.socials.twitch.user_data.profile_image_url;
-        }
-
-        switch (size) {
-          case ListSize.Large:
-            url = url.replace("300x300", "150x150");
-            break;
-          case ListSize.Medium:
-            url = url.replace("300x300", "70x70");
-            break;
-          case ListSize.Small:
-            url = url.replace("300x300", "50x50");
-            break;
-        }
+function ConvertUrl(url, size = ListSize.Large, type = ImageType.other) {
+  if (url) {
+    switch (size) {
+      case ListSize.Large:
+        url = url.replace("300x300", "150x150");
+        break;
+      case ListSize.Medium:
+        url = url.replace("300x300", "70x70");
+        break;
+      case ListSize.Small:
+        url = url.replace("300x300", "50x50");
         break;
     }
 
-    if (!url && member.avatar) {
-      url = useBaseUrl(member.avatar);
+    if (type == ImageType.webp) {
+      url = url.replace(url.split('.').pop(), "webp");
+    }
+  }
+
+  return url;
+}
+
+function MemberAvatarUrl(member, size = ListSize.Large, type = ImageType.other) {
+  let url = null;
+
+  if (member) {
+    if (member.avatar) {
+      url = ConvertUrl(useBaseUrl(member.avatar), size, type);
+    }
+
+    if (!url) {
+      if (member.socials && type == ImageType.other) {
+        switch (member.socials.main_social) {
+          case 'twitch':
+            if (member.socials.twitch && member.socials.twitch.user_data) {
+              url = ConvertUrl(useBaseUrl(member.socials.twitch.user_data.profile_image_url), size, type);
+            }
+        }
+      }
     }
   }
 
@@ -80,12 +99,22 @@ function MemberSocialLink(member) {
 }
 
 const MemberPicture = ({ member, size = ListSize.Medium }) => {
+  const avatarUrlWebp = MemberAvatarUrl(member, size, ImageType.webp);
+  const avatarUrl = MemberAvatarUrl(member, size, ImageType.other);
   return (
     <>
-      {member &&
+      {member && (avatarUrlWebp || avatarUrl) &&
         <a href={MemberSocialLink(member)} className={clsx(styles.communityMember, styles["communityMember-" + size])}>
           <div className="avatar">
-            <img className="avatar__photo" alt={member.name} src={MemberAvatar(member, size)} loading='lazy' />
+            <picture>
+              {avatarUrlWebp &&
+                <source srcset={avatarUrlWebp} type="image/webp" />
+              }
+              {avatarUrl &&
+                <source srcset={avatarUrl} />
+              }
+              <img className="avatar__photo" alt={member.name} src={useBaseUrl('/img/avatars/default.png')} loading='lazy' />
+            </picture>
           </div>
         </a>
       }
