@@ -427,6 +427,16 @@ var members = [
             },
         }
     },
+    {
+        name: 'Kahu',
+        groups: ['event2022'],
+        socials: {
+            main_social: 'twitch',
+            twitch: {
+                login: 'kahu_fr',
+            },
+        }
+    },
 ];
 
 module.exports = members;
