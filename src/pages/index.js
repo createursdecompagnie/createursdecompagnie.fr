@@ -15,8 +15,8 @@ const HomepageHeader = () => {
             <h1 className="hero__title margin-bottom--sm">Un collectif de créateurs pour la protection animale</h1>
             {/* <p className="hero__subtitle"></p> */}
             <div>
-              <Link className="button button--secondary button--lg margin-right--md margin-top--md" to="https://bit.ly/3PE0icI">Nous rejoindre</Link>
-              <Link className={clsx('button button--secondary button--outline button--lg margin-top--md', styles.buttonSecondary)} to="/le-collectif">En savoir plus...</Link>
+              <Link className={clsx('button button--secondary button--lg margin-right--md margin-top--md', styles.buttonSizeFixed)} to="https://bit.ly/3PE0icI">Nous rejoindre</Link>
+              <Link className={clsx('button button--secondary button--outline button--lg margin-top--md', styles.buttonSecondary, styles.buttonSizeFixed)} to="/le-collectif">En savoir plus...</Link>
             </div>
           </div>
           <div className="col col--6">
