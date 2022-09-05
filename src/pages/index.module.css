@@ -12,11 +12,12 @@
 .buttonSecondary {
   color: var(--ifm-color-gray-900);
   text-shadow: 2px 2px 3px var(--ifm-color-white);
-  background-color: rgba(255, 255, 255, .5);
+  background-color: rgba(255, 255, 255, .7);
 }
 
 .buttonSecondary:hover {
-  background-color: var(--ifm-button-background-color);
+  background-color: var(--ifm-color-secondary-dark);
+  border-color: var(--ifm-color-secondary-dark);
 }
 
 [data-theme='dark'] .buttonSecondary {
