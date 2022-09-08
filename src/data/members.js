@@ -437,6 +437,36 @@ var members = [
             },
         }
     },
+    {
+        name: 'Exy',
+        groups: ['event2022'],
+        socials: {
+            main_social: 'twitch',
+            twitch: {
+                login: 'exytv',
+            },
+        }
+    },
+    {
+        name: 'Kwixy',
+        groups: ['event2022'],
+        socials: {
+            main_social: 'twitch',
+            twitch: {
+                login: 'kwixy',
+            },
+        }
+    },
+    {
+        name: 'Eiraam',
+        groups: ['event2022'],
+        socials: {
+            main_social: 'twitch',
+            twitch: {
+                login: 'eiraamtv',
+            },
+        }
+    },
 ];
 
 module.exports = members;
