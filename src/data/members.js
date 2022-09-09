@@ -246,7 +246,7 @@ var members = [
     },
     {
         name: 'ileso_',
-        groups: ['sct'],
+        groups: ['sct', 'event2022'],
         socials: {
             main_social: 'twitch',
             twitch: {
@@ -464,6 +464,36 @@ var members = [
             main_social: 'twitch',
             twitch: {
                 login: 'eiraamtv',
+            },
+        }
+    },
+    {
+        name: 'Lopalyne',
+        groups: ['event2022'],
+        socials: {
+            main_social: 'twitch',
+            twitch: {
+                login: 'lopalyne',
+            },
+        }
+    },
+    {
+        name: 'Oariaa',
+        groups: ['event2022'],
+        socials: {
+            main_social: 'twitch',
+            twitch: {
+                login: 'oariaa',
+            },
+        }
+    },
+    {
+        name: 'Angel',
+        groups: ['event2022'],
+        socials: {
+            main_social: 'twitch',
+            twitch: {
+                login: 'angelvayuu',
             },
         }
     },
