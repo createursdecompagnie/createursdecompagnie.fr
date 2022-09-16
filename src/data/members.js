@@ -156,7 +156,7 @@ var members = [
     },
     {
         name: 'Haz',
-        groups: ['member', 'sct'],
+        groups: ['member', 'sct', 'event2022'],
         socials: {
             main_social: 'twitch',
             twitch: {
@@ -494,6 +494,16 @@ var members = [
             main_social: 'twitch',
             twitch: {
                 login: 'angelvayuu',
+            },
+        }
+    },
+    {
+        name: 'Schkaia',
+        groups: ['event2022'],
+        socials: {
+            main_social: 'twitch',
+            twitch: {
+                login: 'schkaia',
             },
         }
     },
