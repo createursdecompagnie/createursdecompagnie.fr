@@ -507,6 +507,16 @@ var members = [
             },
         }
     },
+    {
+        name: 'Stormy',
+        groups: ['event2022'],
+        socials: {
+            main_social: 'twitch',
+            twitch: {
+                login: 'nx_stormy',
+            },
+        }
+    },
 ];
 
 module.exports = members;
