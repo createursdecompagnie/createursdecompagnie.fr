@@ -77,6 +77,12 @@ const config = {
               },
             ],
           },
+          {
+            type: 'html',
+            position: 'right',
+            className: 'item__cdc2022',
+            value: '<a href="/evenement/2022" class="menu__link"><span class="streamlabs-charity-counter">0</span>&nbsp;€<span class="menu__link"><span class="hashtag">#CDC2022</span></a>',
+          },
         ],
       },
       footer: {
