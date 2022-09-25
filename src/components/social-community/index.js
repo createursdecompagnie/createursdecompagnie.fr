@@ -104,10 +104,10 @@ const MemberPicture = ({ member, size = ListSize.Medium }) => {
           <div className="avatar">
             <picture>
               {avatarUrlWebp &&
-                <source srcset={avatarUrlWebp} type="image/webp" />
+                <source srcSet={avatarUrlWebp} type="image/webp" />
               }
               {avatarUrl &&
-                <source srcset={avatarUrl} />
+                <source srcSet={avatarUrl} />
               }
               <img className="avatar__photo" alt={member.name} src={useBaseUrl('/img/avatars/default.png')} loading='lazy' />
             </picture>
