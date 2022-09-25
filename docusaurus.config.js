@@ -118,6 +118,7 @@ const config = {
       },
     }),
     plugins: [],
+    baseUrlIssueBanner: false,
 };
 
 async function createConfig() {
