@@ -3,6 +3,7 @@ name: Deploy to github pages
 env:
   TWITCH_CLIENTID: '${{ secrets.TWITCH_CLIENTID }}'
   TWITCH_CLIENTSECRET: '${{ secrets.TWITCH_CLIENTSECRET }}'
+  CDC2022_PLANNING: '${{ secrets.CDC2022_PLANNING }}'
 
 on:
   workflow_dispatch:
