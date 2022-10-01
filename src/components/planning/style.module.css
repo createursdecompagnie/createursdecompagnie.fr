@@ -1,0 +1,15 @@
+.calendarEntry{
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  justify-content: space-between;
+  align-items: center;
+  align-content: stretch;
+  padding: 0.5em 0.3em 0.5em 0;
+  margin: 0;
+  border-bottom: 3px dashed var(--ifm-tabs-color-active-border);
+}
+
+.calendarEntry:nth-child(odd){
+  background-color: var(--ifm-hover-overlay);
+}

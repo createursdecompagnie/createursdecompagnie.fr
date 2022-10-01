@@ -5,8 +5,18 @@
 // /** @type {import('../plugins/social-community/data/types').Members} */
 var members = [
     {
+        name: 'Créateurs de Compagnie',
+        groups: ['sct', 'cdc2022'],
+        socials: {
+            main_social: 'twitch',
+            twitch: {
+                login: 'createursdecomp'
+            },
+        }
+    },
+    {
         name: 'MisterNooton',
-        groups: ['member', 'sct', 'event2022'],
+        groups: ['member', 'sct', 'cdc2022'],
         socials: {
             main_social: 'twitch',
             twitch: {
@@ -16,7 +26,7 @@ var members = [
     },
     {
         name: 'PresidentKevas',
-        groups: ['member', 'sct', 'event2022'],
+        groups: ['member', 'sct', 'cdc2022'],
         socials: {
             main_social: 'twitch',
             twitch: {
@@ -26,7 +36,7 @@ var members = [
     },
     {
         name: 'Pomdap',
-        groups: ['member', 'sct', 'event2022'],
+        groups: ['member', 'sct', 'cdc2022'],
         socials: {
             main_social: 'twitch',
             twitch: {
@@ -36,7 +46,7 @@ var members = [
     },
     {
         name: 'H00LIC',
-        groups: ['member', 'sct', 'event2022'],
+        groups: ['member', 'sct', 'cdc2022'],
         socials: {
             main_social: 'twitch',
             twitch: {
@@ -56,7 +66,7 @@ var members = [
     },
     {
         name: 'Netouss',
-        groups: ['member', 'sct', 'event2022'],
+        groups: ['member', 'sct', 'cdc2022'],
         socials: {
             main_social: 'twitch',
             twitch: {
@@ -66,7 +76,7 @@ var members = [
     },
     {
         name: 'DNADNL',
-        groups: ['member', 'sct', 'event2022'],
+        groups: ['member', 'sct', 'cdc2022'],
         socials: {
             main_social: 'twitch',
             twitch: {
@@ -76,7 +86,7 @@ var members = [
     },
     {
         name: 'NicoValmont',
-        groups: ['sct', 'event2022'],
+        groups: ['sct', 'cdc2022'],
         socials: {
             main_social: 'twitch',
             twitch: {
@@ -86,7 +96,7 @@ var members = [
     },
     {
         name: 'SoKyutie',
-        groups: ['member', 'sct', 'event2022'],
+        groups: ['member', 'sct', 'cdc2022'],
         socials: {
             main_social: 'twitch',
             twitch: {
@@ -96,7 +106,7 @@ var members = [
     },
     {
         name: 'RenegadesLive',
-        groups: ['member', 'sct', 'event2022'],
+        groups: ['member', 'sct', 'cdc2022'],
         socials: {
             main_social: 'twitch',
             twitch: {
@@ -106,7 +116,7 @@ var members = [
     },
     {
         name: 'JoPe',
-        groups: ['member', 'sct', 'event2022'],
+        groups: ['member', 'sct', 'cdc2022'],
         socials: {
             main_social: 'twitch',
             twitch: {
@@ -126,7 +136,7 @@ var members = [
     },
     {
         name: 'MilySterique',
-        groups: ['member', 'event2022'],
+        groups: ['member', 'cdc2022'],
         socials: {
             main_social: 'twitch',
             twitch: {
@@ -136,7 +146,7 @@ var members = [
     },
     {
         name: 'Mallicette',
-        groups: ['member', 'sct', 'event2022'],
+        groups: ['member', 'sct', 'cdc2022'],
         socials: {
             main_social: 'twitch',
             twitch: {
@@ -146,7 +156,7 @@ var members = [
     },
     {
         name: 'Keensess',
-        groups: ['member', 'sct', 'event2022'],
+        groups: ['member', 'sct', 'cdc2022'],
         socials: {
             main_social: 'twitch',
             twitch: {
@@ -156,7 +166,7 @@ var members = [
     },
     {
         name: 'Haz',
-        groups: ['member', 'sct', 'event2022'],
+        groups: ['member', 'sct', 'cdc2022'],
         socials: {
             main_social: 'twitch',
             twitch: {
@@ -176,7 +186,7 @@ var members = [
     },
     {
         name: 'Little_anneso',
-        groups: ['member', 'sct', 'event2022'],
+        groups: ['member', 'sct', 'cdc2022'],
         socials: {
             main_social: 'twitch',
             twitch: {
@@ -186,7 +196,7 @@ var members = [
     },
     {
         name: 'Papykiva',
-        groups: ['member', 'sct', 'event2022'],
+        groups: ['member', 'sct', 'cdc2022'],
         socials: {
             main_social: 'twitch',
             twitch: {
@@ -196,7 +206,7 @@ var members = [
     },
     {
         name: 'Alexwill1993',
-        groups: ['member', 'sct', 'event2022'],
+        groups: ['member', 'sct', 'cdc2022'],
         socials: {
             main_social: 'twitch',
             twitch: {
@@ -206,7 +216,7 @@ var members = [
     },
     {
         name: 'Nymphelya',
-        groups: ['sct', 'event2022'],
+        groups: ['sct', 'cdc2022'],
         socials: {
             main_social: 'twitch',
             twitch: {
@@ -216,7 +226,7 @@ var members = [
     },
     {
         name: 'c1emen7',
-        groups: ['member', 'sct', 'event2022'],
+        groups: ['member', 'sct', 'cdc2022'],
         socials: {
             main_social: 'twitch',
             twitch: {
@@ -246,7 +256,7 @@ var members = [
     },
     {
         name: 'ileso_',
-        groups: ['sct', 'event2022'],
+        groups: ['sct', 'cdc2022'],
         socials: {
             main_social: 'twitch',
             twitch: {
@@ -276,7 +286,7 @@ var members = [
     },
     {
         name: 'SouricetteFTW',
-        groups: ['sct', 'event2022'],
+        groups: ['sct', 'cdc2022'],
         socials: {
             main_social: 'twitch',
             twitch: {
@@ -336,7 +346,7 @@ var members = [
     },
     {
         name: 'MadamePersil',
-        groups: ['sct', 'event2022'],
+        groups: ['sct', 'cdc2022'],
         socials: {
             main_social: 'twitch',
             twitch: {
@@ -369,7 +379,7 @@ var members = [
     },
     {
         name: 'PiikaShall',
-        groups: ['member', 'event2022'],
+        groups: ['member', 'cdc2022'],
         socials: {
             main_social: 'twitch',
             twitch: {
@@ -379,7 +389,7 @@ var members = [
     },
     {
         name: 'Pastel_Witch_',
-        groups: ['member', 'event2022'],
+        groups: ['member', 'cdc2022'],
         socials: {
             main_social: 'twitch',
             twitch: {
@@ -389,7 +399,7 @@ var members = [
     },
     {
         name: 'SchrodingerKitten',
-        groups: ['event2022'],
+        groups: ['cdc2022'],
         socials: {
             main_social: 'twitch',
             twitch: {
@@ -399,7 +409,7 @@ var members = [
     },
     {
         name: 'Calixa',
-        groups: ['event2022'],
+        groups: ['cdc2022'],
         socials: {
             main_social: 'twitch',
             twitch: {
@@ -409,7 +419,7 @@ var members = [
     },
     {
         name: 'Myzucka',
-        groups: ['event2022'],
+        groups: ['cdc2022'],
         socials: {
             main_social: 'twitch',
             twitch: {
@@ -419,7 +429,7 @@ var members = [
     },
     {
         name: 'Pyrow',
-        groups: ['event2022'],
+        groups: ['cdc2022'],
         socials: {
             main_social: 'twitch',
             twitch: {
@@ -429,7 +439,7 @@ var members = [
     },
     {
         name: 'Kahu',
-        groups: ['event2022'],
+        groups: ['cdc2022'],
         socials: {
             main_social: 'twitch',
             twitch: {
@@ -439,7 +449,7 @@ var members = [
     },
     {
         name: 'Exy',
-        groups: ['event2022'],
+        groups: ['cdc2022'],
         socials: {
             main_social: 'twitch',
             twitch: {
@@ -449,7 +459,7 @@ var members = [
     },
     {
         name: 'Kwixy',
-        groups: ['event2022'],
+        groups: ['cdc2022'],
         socials: {
             main_social: 'twitch',
             twitch: {
@@ -459,7 +469,7 @@ var members = [
     },
     {
         name: 'Eiraam',
-        groups: ['event2022'],
+        groups: ['cdc2022'],
         socials: {
             main_social: 'twitch',
             twitch: {
@@ -469,7 +479,7 @@ var members = [
     },
     {
         name: 'Lopalyne',
-        groups: ['event2022'],
+        groups: ['cdc2022'],
         socials: {
             main_social: 'twitch',
             twitch: {
@@ -479,7 +489,7 @@ var members = [
     },
     {
         name: 'Oariaa',
-        groups: ['event2022'],
+        groups: ['cdc2022'],
         socials: {
             main_social: 'twitch',
             twitch: {
@@ -489,7 +499,7 @@ var members = [
     },
     {
         name: 'Angel',
-        groups: ['event2022'],
+        groups: ['cdc2022'],
         socials: {
             main_social: 'twitch',
             twitch: {
@@ -499,7 +509,7 @@ var members = [
     },
     {
         name: 'Schkaia',
-        groups: ['event2022'],
+        groups: ['cdc2022'],
         socials: {
             main_social: 'twitch',
             twitch: {
@@ -509,7 +519,7 @@ var members = [
     },
     {
         name: 'Stormy',
-        groups: ['event2022'],
+        groups: ['cdc2022'],
         socials: {
             main_social: 'twitch',
             twitch: {

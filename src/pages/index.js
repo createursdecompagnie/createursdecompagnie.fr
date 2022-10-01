@@ -27,8 +27,8 @@ const HomepageHeader = () => {
                 id={"home-video-player"}
                 className={styles.videoplayer}
               >
-                <source src="video/event2022.webm" type="video/webm" />
-                <source src="video/event2022.mp4" type="video/mp4" />
+                <source src="video/cdc2022/teaser.webm" type="video/webm" />
+                <source src="video/cdc2022/teaser.mp4" type="video/mp4" />
                 Your browser does not support the video tag.
               </video>
             </div>

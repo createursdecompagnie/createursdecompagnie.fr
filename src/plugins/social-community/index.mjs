@@ -2,6 +2,8 @@ import unirest from 'unirest'
 import 'dotenv/config'
 
 import fs from 'fs';
+import path from 'path';
+import csv from 'csvtojson';
 
 /**
  * @param {import('./data/types').Members} members
@@ -92,14 +94,14 @@ export default function SocialCommunityPlugin(context, options) {
                     const sharp = sharpModule.default;
 
                     await result.map(async function (response) {
-                        
+
                         if (response && response.raw_body) {
                             const filepath = './static/img/avatars/' + response.request.headers['x-login'] + '-300x300.';
 
-                            await Promise.all([    
+                            await Promise.all([
                                 sharp(response.raw_body).resize(100).toFile(filepath.replace("300x300", "100x100") + "png"),
                                 sharp(response.raw_body).resize(100).toFile(filepath.replace("300x300", "100x100") + "webp"),
-    
+
                                 sharp(response.raw_body).resize(50).toFile(filepath.replace("300x300", "50x50") + "png"),
                                 sharp(response.raw_body).resize(50).toFile(filepath.replace("300x300", "50x50") + "webp"),
                             ]);
@@ -108,17 +110,72 @@ export default function SocialCommunityPlugin(context, options) {
                 });
             }
 
+            let memberGroups = {};
+
             members.map(function (member) {
                 let filePath = '/img/avatars/' + member.socials.twitch.login + '-100x100.png';
                 if (fs.existsSync('./static' + filePath)) {
                     member.avatar = filePath.replace("100x100", "300x300");
                 }
+
+                if (member.socials.twitch && member.socials.twitch.user_data) {
+                    member.groups.forEach(group => {
+                        if (!memberGroups[group]) {
+                            memberGroups[group] = [];
+                        }
+
+                        memberGroups[group].push(member.socials.twitch);
+                    });
+                }
             });
 
-            const { createData, setGlobalData, addRoute } = actions;
+            for (const [key, value] of Object.entries(memberGroups)) {
+                let filePath = `./static/data/${key}/members.json`;
+                fs.mkdirSync(path.dirname(filePath), { recursive: true });
+                fs.writeFileSync(filePath, JSON.stringify(value), { flag: 'w' });
+            }
+
+            let globalPlanning = {};
+            {
+                let req = unirest
+                    .get(process.env.CDC2022_PLANNING);
+
+                await req.then(async function (response) {
+                    if (response.error) throw `Unable to get planning: ${response.error}`;
+
+                    await csv().fromString(response.raw_body).subscribe((planning, index) => {
+
+                        planning.maintrack = planning.maintrack == '1';
+
+                        planning.start = new Date(planning.start);
+                        planning.end = new Date(planning.end);
+
+                        planning.presenters = planning.presenters.split(',').map(e => e.trim()).filter(item => memberGroups['cdc2022'].find(e => e.login == item));
+                        planning.attendees = planning.attendees.split(',').map(e => e.trim()).filter(item => memberGroups['cdc2022'].find(e => e.login == item));
+
+                        planning = null;
+                    }).then((planning) => {
+
+                        planning = planning.filter(item => (item.presenters.length + item.attendees.length)> 0);
+                        planning = planning.sort(function (a, b) {
+                            let p = a.start - b.start;
+                            return (p != 0) ? p : a.end - b.end;
+                        });
+
+                        let filePath = `./static/data/cdc2022/planning.json`;
+                        fs.mkdirSync(path.dirname(filePath), { recursive: true });
+                        fs.writeFileSync(filePath, JSON.stringify(planning), { flag: 'w' });
+
+                        globalPlanning = planning;
+                    });
+                });
+            }
 
             // Create members global data
-            setGlobalData({ members: members });
+            const { createData, setGlobalData, addRoute } = actions;
+            setGlobalData({ planning: globalPlanning, members: members });
+
+            // TODO : Switch to local data
 
             // // Create members.json
             // const membersDataJsonPath = await createData(

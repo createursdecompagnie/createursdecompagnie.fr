@@ -41,3 +41,14 @@
 .communityHome .communityMember img {
   --ifm-avatar-photo-size: calc(max(50px,min(100vw/6,100px)));
 }
+
+.communityCalendar {
+  justify-content: right;
+  padding: 0;
+}
+
+.communityCalendar .communityMember {
+  margin: 0;
+  padding: 0;
+  margin-left: -1rem;
+}

@@ -124,12 +124,29 @@ function CommunityList(props) {
     <div className={props.className}>
       {members?.map((member) => (
         <React.Fragment key={member.name}>
-          {(!props.group || member.groups.includes(props.group)) &&
+          {(props.group && member.groups.includes(props.group)) &&
             <MemberPicture member={member} size={props.size} />
           }
         </React.Fragment>
       ))}
+      {props.members?.map((m) => {
+        let member = members.find(item => item.socials?.twitch?.login == m);
+        if (member)
+          return (
+            <React.Fragment key={member.name}>
+              {(props.members && props.members.includes(member.socials?.twitch?.login)) &&
+                <MemberPicture member={member} size={props.size} />
+              }
+            </React.Fragment>
+          )
+      })}
     </div>
+  );
+};
+
+export function CommunityListCalendar(props) {
+  return (
+    <CommunityList className={clsx(styles.communityList, styles.communityCalendar)} group={props.group} members={props.members} size={ListSize.Small} />
   );
 };
 

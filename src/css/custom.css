@@ -38,3 +38,21 @@
 
   /* --ifm-color-secondary: #786fa6; */
 }
+
+nav.page-breadcrumbs {
+  --ifm-breadcrumb-size-multiplier: 0.8;
+  margin-bottom: 0.8rem;
+  margin-top: 0;
+}
+
+.breadcrumbs-home {
+  height: 1.1rem;
+  position: relative;
+  top: 1px;
+  vertical-align: top;
+  width: 1.1rem;
+}
+
+.avatar__photo {
+  background-color:var(--ifm-color-white);
+}

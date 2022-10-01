@@ -64,13 +64,25 @@ const config = {
           },
           {
             type: 'dropdown',
-            label: 'Nos évènements',
+            label: 'CDC 2022',
+            // to: '/evenement/cdc2022',
             position: 'left',
             items: [
               {
-                label: 'Évènement 2022',
-                to: '/evenement/2022',
+                label: 'À propos',
+                to: '/evenement/cdc2022/a-propos',
               },
+              {
+                label: 'Le planning',
+                to: '/evenement/cdc2022/planning',
+              },
+            ],
+          },
+          {
+            type: 'dropdown',
+            label: 'Évènements passés',
+            position: 'left',
+            items: [
               {
                 label: 'Sans Croquettes Twitch',
                 to: '/evenement/sans-croquettes-twitch',
