@@ -1,4 +1,4 @@
-.calendarEntry{
+.calendarEntry {
   display: flex;
   flex-direction: row;
   flex-wrap: nowrap;
@@ -10,6 +10,64 @@
   border-bottom: 3px dashed var(--ifm-tabs-color-active-border);
 }
 
-.calendarEntry:nth-child(odd){
+.calendarEntry:nth-child(even) {
   background-color: var(--ifm-hover-overlay);
+}
+
+.calendarTabDimanche:before {
+  content: 'Dim.\00a0';
+}
+
+.calendarTabLundi:before {
+  content: 'Lun.\00a0';
+}
+
+.calendarTabMardi:before {
+  content: 'Mar.\00a0';
+}
+
+.calendarTabMercredi:before {
+  content: 'Mer.\00a0';
+}
+
+.calendarTabJeudi:before {
+  content: 'Jeu.\00a0';
+}
+
+.calendarTabVendredi:before {
+  content: 'Ven.\00a0';
+}
+
+.calendarTabSamedi:before {
+  content: 'Sam.\00a0';
+}
+
+@media (min-width: 997px) {
+  .calendarTabDimanche:before {
+    content: 'Dimanche\00a0';
+  }
+
+  .calendarTabLundi:before {
+    content: 'Lundi\00a0';
+  }
+
+  .calendarTabMardi:before {
+    content: 'Mardi\00a0';
+  }
+
+  .calendarTabMercredi:before {
+    content: 'Mercredi\00a0';
+  }
+
+  .calendarTabJeudi:before {
+    content: 'Jeudi\00a0';
+  }
+
+  .calendarTabVendredi:before {
+    content: 'Vendredi\00a0';
+  }
+
+  .calendarTabSamedi:before {
+    content: 'Samedi\00a0';
+  }
 }

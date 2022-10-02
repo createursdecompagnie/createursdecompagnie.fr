@@ -22,7 +22,11 @@
   --ifm-color-primary-light: #8880b1;
   --ifm-color-primary-lighter: #9089b6;
   --ifm-color-primary-lightest: #a8a2c6;
+
   --docusaurus-highlighted-code-line-bg: rgba(0, 0, 0, 0.1);
+
+  --ifm-tabs-padding-horizontal: 0.7rem;
+  --ifm-tabs-padding-vertical: 0.7rem;
 }
 
 /* For readability concerns, you should choose a lighter palette in dark mode. */
@@ -55,4 +59,12 @@ nav.page-breadcrumbs {
 
 .avatar__photo {
   background-color:var(--ifm-color-white);
+}
+
+.tabs-container>div {
+  margin-top: 0!important;
+}
+
+.tabs__item--active {
+  background-color: var(--ifm-hover-overlay);
 }

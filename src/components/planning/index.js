@@ -35,22 +35,23 @@ function FormatDate(date) {
 
 export function Planning() {
   const { planning } = usePluginData('social-community-plugin');
-  let weekDays = ["Dimanche", "Lundi", "Mardi", "Mercredi", "Jeudi", "Vendredi", "Samedi", "Dimanche"];
+  let weekDays = ["Dimanche", "Lundi", "Mardi", "Mercredi", "Jeudi", "Vendredi", "Samedi"];
   let uniqueDays = planning.map(function (event) {
     let date = new Date(event.start);
     return {
-      dateFormated: `${weekDays[date.getDay()]} ${date.getDate()}`,
+      weekDay: weekDays[date.getDay()],
+      date: date.getDate(),
       dateString: date.toDateString()
     };
   }).filter(function (item, pos, self) {
-    return !pos || item.dateFormated != self[pos - 1].dateFormated;
+    return !pos || item.dateString != self[pos - 1].dateString;
   });
   const today = new Date();
   const todayDateString = today.toDateString();
   return (
     <Tabs>
       {uniqueDays.map((day, index) => (
-        <TabItem key={index} value={day.dateString} label={day.dateFormated} default={day.dateString == todayDateString}>
+        <TabItem key={index} value={day.dateString} label={day.date} default={day.dateString == todayDateString} attributes={{className: styles['calendarTab' + day.weekDay]}}>
           <div className="container">
             <div className="row">
               {planning.map((event, index) => {
