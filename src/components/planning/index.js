@@ -26,6 +26,15 @@ function EventCalendar(event) {
   );
 }
 
+function GetTimezone(date) {
+  let timezoneOffset = date.getTimezoneOffset();
+  let timezoneOffsetAbs = Math.abs(timezoneOffset);
+  let localeStringProps = { minimumIntegerDigits: 2, useGrouping: false };
+  return (
+    <>UTC{((timezoneOffset <= 0) ? '+' : '-')}{(~~(timezoneOffsetAbs / 60)).toLocaleString('fr-FR', localeStringProps)}:{(timezoneOffsetAbs % 60).toLocaleString('fr-FR', localeStringProps)}</>
+  );
+}
+
 function FormatDate(date) {
   let localeStringProps = { minimumIntegerDigits: 2, useGrouping: false };
   return (
@@ -49,29 +58,32 @@ export function Planning() {
   const today = new Date();
   const todayDateString = today.toDateString();
   return (
-    <Tabs>
-      {uniqueDays.map((day, index) => (
-        <TabItem key={index} value={day.dateString} label={day.date} default={day.dateString == todayDateString} attributes={{className: styles['calendarTab' + day.weekDay]}}>
-          <div className="container">
-            <div className="row">
-              {planning.map((event, index) => {
-                let start = new Date(event.start); let end = new Date(event.end);
-                let live = today >= start && today <= end;
-                if (day.dateString == start.toDateString()) {
-                  return (
-                    <div key={index} className={clsx('col col--12', styles.calendarEntry)}>
-                      <div>
-                        <span style={{ minWidth: '50px', display: "inline-block", textAlign: "center" }}>{live ? 'LIVE' : FormatDate(start)}</span>-&nbsp;<span style={{ fontStyle: 'italic' }} >{event.title}</span>
+    <>
+      <Tabs>
+        {uniqueDays.map((day, index) => (
+          <TabItem key={index} value={day.dateString} label={day.date} default={day.dateString == todayDateString} attributes={{className: styles['calendarTab' + day.weekDay]}}>
+            <div className="container">
+              <div className="row">
+                {planning.map((event, index) => {
+                  let start = new Date(event.start); let end = new Date(event.end);
+                  let live = today >= start && today <= end;
+                  if (day.dateString == start.toDateString()) {
+                    return (
+                      <div key={index} className={clsx('col col--12', styles.calendarEntry)}>
+                        <div>
+                          <span style={{ minWidth: '50px', display: "inline-block", textAlign: "center" }}>{live ? 'LIVE' : FormatDate(start)}</span>-&nbsp;<span style={{ fontStyle: 'italic' }} >{event.title}</span>
+                        </div>
+                        <div style={{ minWidth: '90px' }}>{EventCalendar(event)}</div>
                       </div>
-                      <div style={{ minWidth: '90px' }}>{EventCalendar(event)}</div>
-                    </div>
-                  );
-                }
-              })}
+                    );
+                  }
+                })}
+              </div>
             </div>
-          </div>
-        </TabItem>
-      ))}
-    </Tabs>
+          </TabItem>
+        ))}
+      </Tabs>
+      <span style={{ fontSize: '0.7em'}}>Horaires en temps local {GetTimezone(today)}</span>
+    </>
   );
 }
