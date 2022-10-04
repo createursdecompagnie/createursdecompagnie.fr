@@ -488,16 +488,6 @@ var members = [
         }
     },
     {
-        name: 'Oariaa',
-        groups: ['cdc2022'],
-        socials: {
-            main_social: 'twitch',
-            twitch: {
-                login: 'oariaa',
-            },
-        }
-    },
-    {
         name: 'Angel',
         groups: ['cdc2022'],
         socials: {
