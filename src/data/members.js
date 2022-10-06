@@ -10,7 +10,7 @@ var members = [
         socials: {
             main_social: 'twitch',
             twitch: {
-                login: 'createursdecomp'
+                login: 'createursdecompagnie'
             },
         }
     },

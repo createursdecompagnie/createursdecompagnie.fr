@@ -109,7 +109,7 @@ const config = {
           },
           {
             label: 'Twitch',
-            href: 'https://www.twitch.tv/createursdecomp',
+            href: 'https://www.twitch.tv/createursdecompagnie',
           },
           {
             label: 'Instagram',
