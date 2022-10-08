@@ -1,3 +1,7 @@
+.localTime {
+  font-size: 0.7em;
+}
+
 .calendarEntry {
   display: flex;
   flex-direction: row;
@@ -8,10 +12,33 @@
   padding: 0.5em 0.3em 0.5em 0;
   margin: 0;
   border-bottom: 3px dashed var(--ifm-tabs-color-active-border);
+  cursor: pointer;
 }
 
 .calendarEntry:nth-child(even) {
   background-color: var(--ifm-hover-overlay);
+}
+
+.calendarEntry:hover {
+  background-color: var(--ifm-color-primary-lightest);
+}
+
+[data-theme='dark'] .calendarEntry:hover {
+  background-color: var(--ifm-color-primary-darker);
+}
+
+.calendarEntryTime {
+  min-width: 50px;
+  display: inline-block;
+  text-align: center;
+}
+
+.calendarEntryTitle {
+  font-style: italic;
+}
+
+.calendarEntryCalendar {
+  min-width: 90px;
 }
 
 .calendarTabDimanche:before {
@@ -40,6 +67,34 @@
 
 .calendarTabSamedi:before {
   content: 'Sam.\00a0';
+}
+
+.popupTitle {
+  margin-bottom: 0.3rem;
+}
+
+.popupSubtitle {
+  margin-top: 0.5rem;
+  margin-bottom: 0.3rem;
+}
+
+.popupHeader {
+  background-color: var(--ifm-color-primary-dark);
+  color: var(--ifm-font-color-base-inverse);
+  padding-bottom: 1rem !important;
+}
+
+[data-theme='dark'] .calendarEntry:hover {
+  background-color: var(--ifm-color-primary-light);
+}
+
+.calendarEntry:hover {
+  background-color: var(--ifm-color-primary-lighter);
+  color: var(--ifm-font-color-base-inverse);
+}
+
+[data-theme='dark'] .calendarEntry:hover {
+  background-color: var(--ifm-color-primary-dark);
 }
 
 @media (min-width: 997px) {

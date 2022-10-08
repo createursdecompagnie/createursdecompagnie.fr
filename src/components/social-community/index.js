@@ -5,6 +5,8 @@ import { usePluginData } from '@docusaurus/useGlobalData';
 import styles from './style.module.css';
 import useBaseUrl from '@docusaurus/useBaseUrl';
 
+import Popup from 'reactjs-popup';
+
 const ListSize = {
   // ExtraSmall: "sx",
   Small: "sm",
@@ -94,25 +96,39 @@ function MemberSocialLink(member) {
   return "#";
 }
 
-const MemberPicture = ({ member, size = ListSize.Medium }) => {
+const MemberPicture = ({ member, size = ListSize.Medium, offsetX = 0 }) => {
   const avatarUrlWebp = MemberAvatarUrl(member, size, ImageType.webp);
   const avatarUrl = MemberAvatarUrl(member, size, ImageType.other);
   return (
     <>
       {member && (avatarUrlWebp || avatarUrl) &&
-        <a href={MemberSocialLink(member)} className={clsx(styles.communityMember, styles["communityMember-" + size])}>
-          <div className="avatar">
-            <picture>
-              {avatarUrlWebp &&
-                <source srcSet={avatarUrlWebp} type="image/webp" />
-              }
-              {avatarUrl &&
-                <source srcSet={avatarUrl} />
-              }
-              <img className="avatar__photo" alt={member.name} src={useBaseUrl('/img/avatars/default.png')} loading='lazy' />
-            </picture>
-          </div>
-        </a>
+        <Popup
+          trigger={
+            <a href={MemberSocialLink(member)} className={clsx(styles.communityMember, styles["communityMember-" + size])}>
+              <div className="avatar">
+                <picture>
+                  {avatarUrlWebp &&
+                    <source srcSet={avatarUrlWebp} type="image/webp" />
+                  }
+                  {avatarUrl &&
+                    <source srcSet={avatarUrl} />
+                  }
+                  <img className="avatar__photo" alt={member.name} src={useBaseUrl('/img/avatars/default.png')} loading='lazy' />
+                </picture>
+
+              </div>
+            </a>
+          }
+          position={['top center', 'bottom center']}
+          on={['hover', 'focus']}
+          keepTooltipInside={true}
+          mouseEnterDelay={10}
+          mouseLeaveDelay={10}
+          offsetX={offsetX}
+          disabled={size ==ListSize.Medium}
+        >
+          <span>{member.name}</span>
+        </Popup>
       }
     </>
   );
@@ -135,7 +151,7 @@ function CommunityList(props) {
           return (
             <React.Fragment key={member.name}>
               {(props.members && props.members.includes(member.socials?.twitch?.login)) &&
-                <MemberPicture member={member} size={props.size} />
+                <MemberPicture member={member} size={props.size} offsetX={props.offsetX} />
               }
             </React.Fragment>
           )
@@ -146,7 +162,7 @@ function CommunityList(props) {
 
 export function CommunityListCalendar(props) {
   return (
-    <CommunityList className={clsx(styles.communityList, styles.communityCalendar)} group={props.group} members={props.members} size={ListSize.Small} />
+    <CommunityList className={clsx(styles.communityList, styles.communityCalendar)} group={props.group} members={props.members} size={ListSize.Small} offsetX={8} />
   );
 };
 
@@ -158,6 +174,6 @@ export function CommunityListHome() {
 
 export function CommunityListEvent(props) {
   return (
-    <CommunityList className={clsx(styles.communityList)} group={props.group} size={ListSize.Small} />
+    <CommunityList className={clsx(styles.communityList)} group={props.group} members={props.members} size={ListSize.Small} />
   );
 };

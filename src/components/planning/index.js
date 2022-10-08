@@ -5,25 +5,73 @@ import styles from './style.module.css';
 
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
-import { CommunityListCalendar } from '../social-community';
+import { CommunityListEvent, CommunityListCalendar } from '../social-community';
 
 import { usePluginData } from '@docusaurus/useGlobalData';
 
 import seedrandom from 'seedrandom';
 
+import Popup from 'reactjs-popup';
+// import 'reactjs-popup/dist/index.css';
+
 function shuffle(array, rng) {
-  for (let i = array.length - 1; i > 0; i--) {
+  let copy = [...array];
+  for (let i = copy.length - 1; i > 0; i--) {
     let j = Math.floor(rng() * (i + 1));
-    [array[i], array[j]] = [array[j], array[i]];
+    [copy[i], copy[j]] = [copy[j], copy[i]];
   }
+
+  return copy;
 }
 
 function EventCalendar(event) {
   var rng = seedrandom(event.title);
-  shuffle(event.attendees, rng);
+  let attendees = shuffle(event.attendees, rng);
   return (
-    <CommunityListCalendar members={[event.maintrack ? '' : ''].concat(event.presenters.concat(event.attendees)).slice(0, 6)} />
+    <CommunityListCalendar members={[event.maintrack ? /* 'createursdecompagnie' */ '' : ''].concat(event.presenters.concat(attendees)).slice(0, 6)} />
   );
+}
+
+function EnventPresenters(event) {
+  let length = event.presenters.length;
+  if (length > 0) {
+    return (
+      <>
+        <h5 className={styles.popupSubtitle}>{length > 1 ? 'Présentateurs' : 'Présentateur'}</h5>
+        <CommunityListEvent members={event.presenters} />
+      </>
+    );
+  }
+}
+
+function EventAttendees(event) {
+  let length = event.attendees.length;
+  if (length > 0) {
+    var rng = seedrandom(event.title);
+    let attendees = shuffle(event.attendees, rng);
+    return (
+      <>
+        <h5 className={styles.popupSubtitle}>{length > 1 ? 'Participants' : 'Participant'}</h5>
+        <CommunityListEvent members={attendees} />
+      </>
+    );
+  }
+}
+
+function EventLink(event) {
+  var rng = seedrandom(event.title);
+  let all = event.presenters.concat(shuffle(event.attendees, rng));
+  let length = all.length;
+
+  if (length > 1) {
+    return "https://multitwitch.live/" + all.join('/');
+  }
+  else if (length == 1) {
+    return "https://www.twitch.tv/" + all[0];
+  }
+  else {
+    return "";
+  }
 }
 
 function GetTimezone(date) {
@@ -35,10 +83,18 @@ function GetTimezone(date) {
   );
 }
 
-function FormatDate(date) {
+function FormatHour(date) {
   let localeStringProps = { minimumIntegerDigits: 2, useGrouping: false };
   return (
     <>{date.getHours().toLocaleString('fr-FR', localeStringProps)}:{date.getMinutes().toLocaleString('fr-FR', localeStringProps)}</>
+  );
+}
+
+function FormatDate(date) {
+  let weekDays = ["Dimanche", "Lundi", "Mardi", "Mercredi", "Jeudi", "Vendredi", "Samedi"];
+  let day = weekDays[date.getDay()];
+  return (
+    <>{day} {FormatHour(date)}</>
   );
 }
 
@@ -61,7 +117,7 @@ export function Planning() {
     <>
       <Tabs>
         {uniqueDays.map((day, index) => (
-          <TabItem key={index} value={day.dateString} label={day.date} default={day.dateString == todayDateString} attributes={{className: styles['calendarTab' + day.weekDay]}}>
+          <TabItem key={index} value={day.dateString} label={day.date} default={day.dateString == todayDateString} attributes={{ className: styles['calendarTab' + day.weekDay] }}>
             <div className="container">
               <div className="row">
                 {planning.map((event, index) => {
@@ -69,12 +125,47 @@ export function Planning() {
                   let live = today >= start && today <= end;
                   if (day.dateString == start.toDateString()) {
                     return (
-                      <div key={index} className={clsx('col col--12', styles.calendarEntry)}>
-                        <div>
-                          <span style={{ minWidth: '50px', display: "inline-block", textAlign: "center" }}>{live ? 'LIVE' : FormatDate(start)}</span>-&nbsp;<span style={{ fontStyle: 'italic' }} >{event.title}</span>
-                        </div>
-                        <div style={{ minWidth: '90px' }}>{EventCalendar(event)}</div>
-                      </div>
+                      <Popup
+                        key={index}
+                        trigger={
+                          <div className={clsx('col col--12', styles.calendarEntry)}>
+                            <div>
+                              <span className={styles.calendarEntryTime}>{live ? 'LIVE' : FormatHour(start)}</span>-&nbsp;<span className={styles.calendarEntryTitle} >{event.title}</span>
+                            </div>
+                            <div className={styles.calendarEntryCalendar}>{EventCalendar(event)}</div>
+                          </div>
+                        }
+
+                        modal
+                      >
+                        {close => (
+                          // <div className="card-demo">
+                          <div className="card">
+                            <div className={clsx('card__header', styles.popupHeader)}>
+                              <button aria-label="Close" className="clean-btn close" type="button" onClick={close}>
+                                <span aria-hidden="true">&times;</span>
+                              </button>
+                              <div className="avatar">
+                                <div className="avatar__intro">
+                                  <h4 className={styles.popupTitle}>{event.title}</h4>
+                                  <small>{FormatDate(start)} - {FormatDate(end)}</small>
+                                </div>
+                              </div>
+                            </div>
+                            <div className="card__body">
+                              <p>
+                                {event.description}
+                              </p>
+                              {EnventPresenters(event)}
+                              {EventAttendees(event)}
+                            </div>
+                            <div className="card__footer">
+                              <a className="button button--block button--primary" href={EventLink(event)}>Regarder en Live</a>
+                            </div>
+                          </div>
+                          // </div>
+                        )}
+                      </Popup>
                     );
                   }
                 })}
@@ -83,7 +174,7 @@ export function Planning() {
           </TabItem>
         ))}
       </Tabs>
-      <span style={{ fontSize: '0.7em'}}>Horaires en temps local {GetTimezone(today)}</span>
+      <span className={styles.localTime}>Horaires en temps local {GetTimezone(today)}</span>
     </>
   );
 }
