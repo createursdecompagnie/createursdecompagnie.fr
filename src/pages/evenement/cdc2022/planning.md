@@ -1,5 +1,5 @@
 ---
-title: CDC 2022
+title: CDC 2022
 description: Le planning de l'évènement caritatif CDC 2022
 ---
 import { Planning } from '/src/components/planning'

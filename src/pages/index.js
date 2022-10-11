@@ -1,10 +1,13 @@
 import React from 'react';
 import Layout from '@theme/Layout';
+import ThemedImage from '@theme/ThemedImage';
 
 import styles from './index.module.css';
 import clsx from 'clsx';
 import Link from '@docusaurus/Link';
+import useBaseUrl from '@docusaurus/useBaseUrl';
 import { CommunityListHome } from '/src/components/social-community/'
+import Countdown from 'react-countdown';
 
 const HomepageHeader = () => {
   return (
@@ -48,12 +51,88 @@ const HomepageMembers = () => {
   );
 };
 
+const renderCountdown = ({ formatted, completed }) => {
+  if (completed) {
+    return <div className="margin-bottom--lg">
+      <iframe
+        className={clsx('margin-top--sm', styles.liveIframe)}
+        src="https://player.twitch.tv/?channel=createursdecompagnie&parent=createursdecompagnie.fr&muted=false"
+        height="720"
+        width="1280"
+        allowfullscreen />
+    </div>
+  } else {
+    return <div className="margin-bottom--none">
+      <span style={{ display: 'block', fontSize: '1rem' }}>Commence dans :</span>
+      <span style={{ display: 'block', fontSize: '6rem', marginTop: '-30px' }}>{formatted.days}<span style={{ color: 'var(--ifm-color-primary)' }}> : </span>{formatted.hours}<span style={{ color: 'var(--ifm-color-primary)' }}> : </span>{formatted.minutes}<span style={{ color: 'var(--ifm-color-primary)' }}> : </span>{formatted.seconds}</span>
+    </div>;
+  }
+};
+
+const HomepageCDC2022 = () => {
+  return (
+    <div className="container padding-top--lg  padding-bottom--lg text--center">
+      <h2 className="margin-bottom--none"><a href="/evenement/cdc2022/a-propos">CDC 2022</a></h2>
+      <p>du 21 au 23 octobre</p>
+      <div className="row margin-top--lg">
+        <div className="col margin-bottom--md">
+          <ThemedImage
+            className={styles.eventImage}
+            alt="Docusaurus themed image" width={318} height={200}
+            sources={{
+              light: useBaseUrl('img/cdc2022/home_event_digital.svg'),
+              dark: useBaseUrl('img/cdc2022/home_event_digital-dark.svg'),
+            }}
+            loading='lazy'
+          />
+          <h3 className={clsx('padding-vert--none margin-vert--none', styles.eventHeading)}>Un évènement caritatif</h3>
+          <p className="padding-horiz--md">organisé par <a href="/le-collectif">Créateurs de Compagnie</a>.<br /></p>
+        </div>
+        <div className="col padding-bottom--md">
+          <ThemedImage
+            className={styles.eventImage}
+            alt="Docusaurus themed image" width={318} height={200}
+            sources={{
+              light: useBaseUrl('img/cdc2022/home_event_petcare.svg'),
+              dark: useBaseUrl('img/cdc2022/home_event_petcare-dark.svg'),
+            }}
+            loading='lazy'
+          />
+          <h3 className={clsx('padding-vert--none margin-vert--none', styles.eventHeading)}>Pour la protection animale</h3>
+          <p className="padding-horiz--md">au profit de l'association <a href="https://hirondelle.ovh">l'Hirondelle</a>.</p>
+        </div>
+        <div className="col padding-bottom--md">
+          <ThemedImage
+            className={styles.eventImage}
+            alt="Docusaurus themed image" width={318} height={200}
+            sources={{
+              light: useBaseUrl('img/cdc2022/home_event_calendar.svg'),
+              dark: useBaseUrl('img/cdc2022/home_event_calendar-dark.svg'),
+            }}
+            loading='lazy'
+          />
+          <h3 className={clsx('padding-vert--none margin-vert--none', styles.eventHeading)}>Diffusé sur Twitch</h3>
+          <p className="padding-horiz--md">pendant <a href="/evenement/cdc2022/planning">tout le week-end</a>.</p>
+        </div>
+      </div>
+      <h3 className="margin-top--lg margin-bottom--md">Le Live</h3>
+      <Countdown
+        // date="2022-10-21T16:00:00.000Z"
+        date="2022-10-10T16:00:00.000Z"
+        renderer={renderCountdown}
+      />
+      <h3 className="margin-top--lg margin-bottom--md">Les participant-es</h3>
+      <CommunityListHome group='cdc2022' />
+    </div>
+  );
+};
+
 export default function Home() {
   return (
     <Layout
       description="Créateurs de Compagnie est une association de fait regroupant des passionnés autour du bien-être animal">
       <HomepageHeader />
-      <HomepageMembers />
+      <HomepageCDC2022 />
     </Layout>
   );
 }

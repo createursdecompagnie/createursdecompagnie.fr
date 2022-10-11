@@ -1,5 +1,5 @@
 ---
-title: CDC 2022
+title: CDC 2022
 description: Un évènement caritatif pour l'association L'Hirondelle du 21 au 23 octobre 2022
 ---
 import { CommunityListEvent } from '/src/components/social-community'

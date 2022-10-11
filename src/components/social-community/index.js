@@ -166,9 +166,10 @@ export function CommunityListCalendar(props) {
   );
 };
 
-export function CommunityListHome() {
+export function CommunityListHome(props) {
+  let group = props.group || 'member';
   return (
-    <CommunityList className={clsx(styles.communityList, styles.communityHome)} group='member' size={ListSize.Medium} />
+    <CommunityList className={clsx(styles.communityList, styles.communityHome)} group={group} size={ListSize.Medium} />
   );
 };
 

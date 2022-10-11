@@ -54,3 +54,21 @@
 .members .community__list {
   justify-content: center;
 }
+
+.eventImage {
+  margin: 0 auto;
+  max-height: 200px;
+  width: auto;
+}
+
+.eventHeading {
+  font-size: var(--ifm-h3-font-size);
+  padding-top: 1rem;
+}
+
+.liveIframe {
+  width: 755px;
+  height: 424px;
+  max-width: 100%;
+  max-height: calc((100vw - 40px) / (16/9));
+}
