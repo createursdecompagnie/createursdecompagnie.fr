@@ -62,7 +62,7 @@ const renderCountdown = ({ formatted, completed }) => {
         allowfullscreen />
     </div>
   } else {
-    return <div style={{marginBottom: '3rem'}}>
+    return <div style={{marginBottom: '3.5rem'}}>
       <span className={styles.countdownStart}>Commence dans :</span>
       <span className={styles.countdown}>{formatted.days}<span className={styles.countdownSpacer}> : </span>{formatted.hours}<span className={styles.countdownSpacer}> : </span>{formatted.minutes}<span className={styles.countdownSpacer}> : </span>{formatted.seconds}</span>
     </div>;
