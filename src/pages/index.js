@@ -63,8 +63,8 @@ const renderCountdown = ({ formatted, completed }) => {
     </div>
   } else {
     return <div className="margin-bottom--none">
-      <span style={{ display: 'block', fontSize: '1rem' }}>Commence dans :</span>
-      <span style={{ display: 'block', fontSize: '6rem', marginTop: '-30px' }}>{formatted.days}<span style={{ color: 'var(--ifm-color-primary)' }}> : </span>{formatted.hours}<span style={{ color: 'var(--ifm-color-primary)' }}> : </span>{formatted.minutes}<span style={{ color: 'var(--ifm-color-primary)' }}> : </span>{formatted.seconds}</span>
+      <span className={styles.countdownStart}>Commence dans :</span>
+      <span className={styles.countdown}>{formatted.days}<span className={styles.countdownSpacer}> : </span>{formatted.hours}<span className={styles.countdownSpacer}> : </span>{formatted.minutes}<span className={styles.countdownSpacer}> : </span>{formatted.seconds}</span>
     </div>;
   }
 };

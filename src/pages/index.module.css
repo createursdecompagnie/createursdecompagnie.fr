@@ -72,3 +72,17 @@
   max-width: 100%;
   max-height: calc((100vw - 40px) / (16/9));
 }
+
+.countdownStart {
+  display: block;
+}
+
+.countdown {
+  display: block;
+  font-size: 10vw;
+  margin-top: -3vw
+}
+
+.countdownSpacer {
+  color: var(--ifm-color-primary);
+}
