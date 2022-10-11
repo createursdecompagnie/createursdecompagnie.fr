@@ -117,8 +117,7 @@ const HomepageCDC2022 = () => {
       </div>
       <h3 className="margin-top--lg margin-bottom--md">Le Live</h3>
       <Countdown
-        // date="2022-10-21T16:00:00.000Z"
-        date="2022-10-10T16:00:00.000Z"
+        date="2022-10-21T16:00:00.000Z"
         renderer={renderCountdown}
       />
       <h3 className="margin-top--lg margin-bottom--md">Les participant-es</h3>
