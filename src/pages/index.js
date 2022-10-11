@@ -121,7 +121,9 @@ const HomepageCDC2022 = () => {
         renderer={renderCountdown}
       />
       <h3 className="margin-top--lg margin-bottom--md">Les participant-es</h3>
-      <CommunityListHome group='cdc2022' />
+      <div className="margin-bottom--md">
+        <CommunityListHome group='cdc2022' />
+      </div>
     </div>
   );
 };
