@@ -53,7 +53,7 @@ const HomepageMembers = () => {
 
 const renderCountdown = ({ formatted, completed }) => {
   if (completed) {
-    return <div className="margin-bottom--lg">
+    return <div className="margin-bottom--xl">
       <iframe
         className={clsx('margin-top--sm', styles.liveIframe)}
         src="https://player.twitch.tv/?channel=createursdecompagnie&parent=createursdecompagnie.fr&muted=false"
