@@ -507,6 +507,16 @@ var members = [
             },
         }
     },
+    {
+        name: 'BubuchenBois',
+        groups: ['cdc2022'],
+        socials: {
+            main_social: 'twitch',
+            twitch: {
+                login: 'bubuchenbois',
+            },
+        }
+    },
 ];
 
 module.exports = members;
