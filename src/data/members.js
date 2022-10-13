@@ -458,16 +458,6 @@ var members = [
         }
     },
     {
-        name: 'Kwixy',
-        groups: ['cdc2022'],
-        socials: {
-            main_social: 'twitch',
-            twitch: {
-                login: 'kwixy',
-            },
-        }
-    },
-    {
         name: 'Eiraam',
         groups: ['cdc2022'],
         socials: {
