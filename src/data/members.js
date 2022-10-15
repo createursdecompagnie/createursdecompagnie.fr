@@ -408,16 +408,6 @@ var members = [
         }
     },
     {
-        name: 'Calixa',
-        groups: ['cdc2022'],
-        socials: {
-            main_social: 'twitch',
-            twitch: {
-                login: 'calixatv',
-            },
-        }
-    },
-    {
         name: 'Myzucka',
         groups: ['cdc2022'],
         socials: {
@@ -444,16 +434,6 @@ var members = [
             main_social: 'twitch',
             twitch: {
                 login: 'kahu_fr',
-            },
-        }
-    },
-    {
-        name: 'Exy',
-        groups: ['cdc2022'],
-        socials: {
-            main_social: 'twitch',
-            twitch: {
-                login: 'exytv',
             },
         }
     },
