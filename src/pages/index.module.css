@@ -79,8 +79,8 @@
 
 .countdown {
   display: block;
-  font-size: 10vw;
-  margin-top: -3vw
+  font-size: min(10vw, 180px);
+  margin-top: max(-3vw, -50px);
 }
 
 .countdownSpacer {
