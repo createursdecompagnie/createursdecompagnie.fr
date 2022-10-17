@@ -497,6 +497,16 @@ var members = [
             },
         }
     },
+    {
+        name: 'Akuaïna',
+        groups: ['cdc2022'],
+        socials: {
+            main_social: 'twitch',
+            twitch: {
+                login: 'akuaina',
+            },
+        }
+    },
 ];
 
 module.exports = members;
