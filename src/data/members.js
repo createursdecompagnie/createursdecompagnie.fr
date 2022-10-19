@@ -507,6 +507,16 @@ var members = [
             },
         }
     },
+    {
+        name: 'Minatoto',
+        groups: ['cdc2022'],
+        socials: {
+            main_social: 'twitch',
+            twitch: {
+                login: 'minatoto009',
+            },
+        }
+    },
 ];
 
 module.exports = members;
