@@ -114,6 +114,7 @@ const HomepageCDC2022 = () => {
           <p className="padding-horiz--md">pendant <a href="/evenement/cdc2022/planning">tout le week-end</a>.</p>
         </div>
       </div>
+      <a className="button button--lg button--primary" href="https://streamlabscharity.com/teams/@createurs-de-compagnie/cdc2022">Faire un don pour l'Hirondelle</a>
       <h3 className="margin-top--lg margin-bottom--md">Le Live</h3>
       <Countdown
         date="2022-10-21T16:00:00.000Z"

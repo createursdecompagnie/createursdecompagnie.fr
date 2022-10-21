@@ -27,7 +27,7 @@ import { CommunityListEvent } from '/src/components/social-community'
 
 ## L'évènement {#l-évènement}
 
-**Notre évènement CDC 2022** est prévu pour les dates du **21 au 23 octobre 2022** !<br/>N'hésitez pas **à partager l'information** avec vos proches ou vos créateurs préférés.
+**Notre évènement caritatif CDC 2022** est prévu pour les dates du **21 au 23 octobre 2022** !<br/>N'hésitez pas **à partager l'information** avec vos proches ou vos créateurs préférés.
 
 ## L'association {#l-association}
 
@@ -40,6 +40,8 @@ Association de protection animale, c'est aussi **un centre de soin** pour animau
 L'association a aussi une partie formation, permettant de **former des intervenants** (pompiers, vétérinaires…) susceptibles d’être confrontés à des **problèmes touchant la faune sauvage**.
 
 Ils possèdent **un des plus grand centre de soins aux animaux sauvages de France** et interviennent sur les départements du **Rhône**, de la **Loire**, de la **Drôme** et de l’**Ardèche**.
+
+<p className="text--center"><a className="button button--primary button--lg" href="https://streamlabscharity.com/teams/@createurs-de-compagnie/cdc2022">Faire un don pour l'Hirondelle</a></p>
 
 ## Les participants
 
