@@ -27,9 +27,7 @@ import { CommunityListEvent } from '/src/components/social-community'
 
 ## L'évènement {#l-évènement}
 
-**Notre évènement CDC 2022** est prévu pour les dates du **21 au 23 octobre 2022** !<br/>N'hésitez pas <a href="https://bit.ly/3PE0icI">**à vous inscrire**</a> et **à partager l'information** avec vos proches ou vos créateurs préférés.
-
-<p className="text--center"><a className="button button--primary button--lg" href="https://bit.ly/3PE0icI">S'inscrire à l'évènement</a></p>
+**Notre évènement CDC 2022** est prévu pour les dates du **21 au 23 octobre 2022** !<br/>N'hésitez pas **à partager l'information** avec vos proches ou vos créateurs préférés.
 
 ## L'association {#l-association}
 
