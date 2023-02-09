@@ -25,12 +25,12 @@ var members = [
         }
     },
     {
-        name: 'PresidentKevas',
+        name: 'SirKevas',
         groups: ['member', 'sct', 'cdc2022'],
         socials: {
             main_social: 'twitch',
             twitch: {
-                login: 'presidentkevas',
+                login: 'sirkevas',
             },
         }
     },
@@ -305,12 +305,12 @@ var members = [
         }
     },
     {
-        name: 'Ckat_A',
+        name: 'MlleCkat',
         groups: ['sct'],
         socials: {
             main_social: 'twitch',
             twitch: {
-                login: 'ckat_a',
+                login: 'mlleckat',
             },
         }
     },
