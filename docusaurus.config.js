@@ -62,27 +62,31 @@ const config = {
             label: 'Le collectif',
             to: '/le-collectif',
           },
-          {
-            type: 'dropdown',
-            label: 'CDC 2022',
-            // to: '/evenement/cdc2022',
-            position: 'left',
-            items: [
-              {
-                label: 'À propos',
-                to: '/evenement/cdc2022/a-propos',
-              },
-              {
-                label: 'Le planning',
-                to: '/evenement/cdc2022/planning',
-              },
-            ],
-          },
+          // {
+          //   type: 'dropdown',
+          //   label: 'CDC 2022',
+          //   // to: '/evenement/cdc2022',
+          //   position: 'left',
+          //   items: [
+          //     {
+          //       label: 'À propos',
+          //       to: '/evenement/cdc2022/a-propos',
+          //     },
+          //     {
+          //       label: 'Le planning',
+          //       to: '/evenement/cdc2022/planning',
+          //     },
+          //   ],
+          // },
           {
             type: 'dropdown',
             label: 'Évènements passés',
             position: 'left',
             items: [
+              {
+                label: 'CDC 2022',
+                to: '/evenement/cdc2022',
+              },
               {
                 label: 'Sans Croquettes Twitch',
                 to: '/evenement/sans-croquettes-twitch',

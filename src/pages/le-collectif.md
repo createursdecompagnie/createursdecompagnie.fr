@@ -37,7 +37,7 @@ import { CommunityListEvent } from '/src/components/social-community'
 
 ## Les évènements
 
-- [***Évènement 2022***](/evenement/cdc2022/a-propos) du **21 au 23 octobre 2022** pour l'association <a href="https://hirondelle.ovh">***L'Hirondelle***</a>
+- [***CDC 2022***](/evenement/cdc2022) du **21 au 23 octobre 2022** pour l'association <a href="https://hirondelle.ovh">***L'Hirondelle***</a> : **17 300 €** de récoltés
 - [***Sans Croquettes Twitch***](/evenement/sans-croquettes-twitch) du **21 au 24 mai 2021** pour l'association [***Sans Croquettes Fixes***](https://sanscroquettesfixes.fr) : **12 200 €** de récoltés
 
 ## Les membres
