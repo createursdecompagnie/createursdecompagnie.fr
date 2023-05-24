@@ -133,8 +133,19 @@ const config = {
         respectPrefersColorScheme: true,
       },
     }),
-    plugins: [],
-    baseUrlIssueBanner: false,
+  baseUrlIssueBanner: false,
+  plugins: [
+    [
+      require.resolve("@easyops-cn/docusaurus-search-local"),
+      {
+        indexDocs: false,
+        indexBlog: false,
+        indexPages: true,
+        searchBarShortcutHint: false,
+        language: ["fr"],
+      },
+    ]
+  ],
 };
 
 async function createConfig() {
@@ -149,7 +160,7 @@ async function createConfig() {
     members: (await import('./src/data/members.js')).default,
     module_key: 'members',
     routes: [{
-      path: utils.normalizeUrl([config.baseUrl,'/',]),
+      path: utils.normalizeUrl([config.baseUrl, '/',]),
       component: path.resolve('./src/pages/index/'),
     }]
   };
