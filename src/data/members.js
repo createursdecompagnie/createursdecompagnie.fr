@@ -155,12 +155,12 @@ var members = [
         }
     },
     {
-        name: 'Keensess',
+        name: 'Shaellaa',
         groups: ['member', 'sct', 'cdc2022'],
         socials: {
             main_social: 'twitch',
             twitch: {
-                login: 'keensess',
+                login: 'shaellaa',
             },
         }
     },
@@ -195,12 +195,12 @@ var members = [
         }
     },
     {
-        name: 'Papykiva',
+        name: 'Misterkiva',
         groups: ['member', 'sct', 'cdc2022'],
         socials: {
             main_social: 'twitch',
             twitch: {
-                login: 'papykiva',
+                login: 'misterkiva',
             },
         }
     },
@@ -388,12 +388,12 @@ var members = [
         }
     },
     {
-        name: 'Pastel_Witch_',
+        name: 'Saien_de_no_game',
         groups: ['member', 'cdc2022'],
         socials: {
             main_social: 'twitch',
             twitch: {
-                login: 'pastel_witch_',
+                login: 'saien_de_no_game',
             },
         }
     },
