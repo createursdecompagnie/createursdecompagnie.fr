@@ -46,7 +46,7 @@ var members = [
     },
     {
         name: 'H00LIC',
-        groups: ['member', 'sct', 'cdc2022'],
+        groups: ['sct', 'cdc2022'],
         socials: {
             main_social: 'twitch',
             twitch: {
