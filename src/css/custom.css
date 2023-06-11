@@ -224,19 +224,18 @@ a:hover .icon-discord
 }
 
 @media (min-width: 996px) {
-  .footer__col, .footer__col:last-child {
+  .footer__col {
     --ifm-col-width: 250px;
   }
-}
 
-.footer__col:last-child {
-  --ifm-col-width: auto;
-  text-align: right;
+  .footer__col:last-child {
+    --ifm-col-width: auto;
+    text-align: right;
+  }
 }
 
 @media (max-width: 996px) {
   .footer__col, .footer__col:last-child {
-    --ifm-col-width: 100%;
     text-align: center;
     margin-bottom: calc(var(--ifm-spacing-vertical) * 2.2);
   }
