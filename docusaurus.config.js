@@ -100,28 +100,60 @@ const config = {
         copyright: `Copyright © ${new Date().getFullYear()} - Créateurs de Compagnie`,
         links: [
           {
-            label: 'Discord',
-            href: 'https://discord.gg/PN5anHT6P8',
+            title: 'À propos',
+            items: [
+              {
+                label: 'Le collectif',
+                to: '/le-collectif',
+              },
+              {
+                label: 'Informations légales',
+                to: '/informations-legales',
+              },
+            ],
           },
           {
-            label: 'Twitter',
-            href: 'https://twitter.com/createursdecomp',
+            title: 'Nos évènements',
+            items: [
+              {
+                label: 'CDC 2022',
+                href: '/evenement/cdc2022',
+              },
+              {
+                label: 'Sans Croquettes Twitch',
+                href: '/evenement/sans-croquettes-twitch',
+              }
+            ],
           },
           {
-            label: 'Youtube',
-            href: 'https://www.youtube.com/channel/UC8uLofoMzQCFLPTf_YRZcpA',
-          },
-          {
-            label: 'Twitch',
-            href: 'https://www.twitch.tv/createursdecompagnie',
-          },
-          {
-            label: 'Instagram',
-            href: 'https://www.instagram.com/createursdecompagnie/',
-          },
-          {
-            label: 'Nos Membres',
-            href: 'https://linktr.ee/createursdecompagnie.membres',
+            title: 'Créateurs de compagnie',
+            items: [
+              {
+                html: `
+                <div class="social-links">
+                  <a href="https://discord.gg/PN5anHT6P8" target="_blank" rel="noreferrer noopener" aria-label="Discord">
+                    <span class="icon-discord"></span>
+                  </a>
+                  <a href="https://twitter.com/createursdecomp" target="_blank" rel="noreferrer noopener" aria-label="Twitter">
+                    <span class="icon-twitter"></span>
+                  </a>
+                  <a href="https://www.twitch.tv/createursdecompagnie" target="_blank" rel="noreferrer noopener" aria-label="Twitch">
+                    <span class="icon-twitch"></span>
+                  </a>
+                  <a href="https://www.instagram.com/createursdecompagnie" target="_blank" rel="noreferrer noopener" aria-label="Instagram">
+                    <span class="icon-instagram"></span>
+                  </a>
+                  <a href="https://www.youtube.com/channel/UC8uLofoMzQCFLPTf_YRZcpA" target="_blank" rel="noreferrer noopener" aria-label="Youtube">
+                    <span class="icon-youtube"></span>
+                  </a>
+                </div>
+            `,
+              },
+              // {
+              //   label: 'Nos Membres',
+              //   href: 'https://linktr.ee/createursdecompagnie.membres',
+              // },
+            ],
           },
         ],
       },
