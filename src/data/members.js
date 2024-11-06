@@ -16,7 +16,7 @@ var members = [
     },
     {
         name: 'MisterNooton',
-        groups: ['member', 'sct', 'cdc2022', 'cdc2024'],
+        groups: ['member', 'sct', 'cdc2022', 'playtogether2024'],
         socials: {
             main_social: 'twitch',
             twitch: {
@@ -26,7 +26,7 @@ var members = [
     },
     {
         name: 'Kevas',
-        groups: ['member', 'sct', 'cdc2022', 'cdc2024'],
+        groups: ['member', 'sct', 'cdc2022', 'playtogether2024'],
         socials: {
             main_social: 'twitch',
             twitch: {
@@ -36,7 +36,7 @@ var members = [
     },
     {
         name: 'Pomdap',
-        groups: ['member', 'sct', 'cdc2022', 'cdc2024'],
+        groups: ['member', 'sct', 'cdc2022', 'playtogether2024'],
         socials: {
             main_social: 'twitch',
             twitch: {
@@ -66,7 +66,7 @@ var members = [
     },
     {
         name: 'Netouss',
-        groups: ['member', 'sct', 'cdc2022', 'cdc2024'],
+        groups: ['member', 'sct', 'cdc2022', 'playtogether2024'],
         socials: {
             main_social: 'twitch',
             twitch: {
@@ -76,7 +76,7 @@ var members = [
     },
     {
         name: 'DNADNL',
-        groups: ['member', 'sct', 'cdc2022', 'cdc2024'],
+        groups: ['member', 'sct', 'cdc2022', 'playtogether2024'],
         socials: {
             main_social: 'twitch',
             twitch: {
@@ -106,7 +106,7 @@ var members = [
     },
     {
         name: 'RenegadesLive',
-        groups: ['member', 'sct', 'cdc2022', 'cdc2024'],
+        groups: ['member', 'sct', 'cdc2022', 'playtogether2024'],
         socials: {
             main_social: 'twitch',
             twitch: {
@@ -136,7 +136,7 @@ var members = [
     },
     {
         name: 'MilySterique',
-        groups: ['member', 'cdc2022', 'cdc2024'],
+        groups: ['member', 'cdc2022', 'playtogether2024'],
         socials: {
             main_social: 'twitch',
             twitch: {
@@ -146,7 +146,7 @@ var members = [
     },
     {
         name: 'Mallicette',
-        groups: ['member', 'sct', 'cdc2022', 'cdc2024'],
+        groups: ['member', 'sct', 'cdc2022', 'playtogether2024'],
         socials: {
             main_social: 'twitch',
             twitch: {
@@ -176,7 +176,7 @@ var members = [
     },
     {
         name: 'Buddakhiin',
-        groups: ['member', 'sct', 'cdc2024'],
+        groups: ['member', 'sct', 'playtogether2024'],
         socials: {
             main_social: 'twitch',
             twitch: {
@@ -509,7 +509,7 @@ var members = [
     },
     {
         name: 'Aurelieannechristine',
-        groups: ['member', 'cdc2024'],
+        groups: ['member', 'playtogether2024'],
         socials: {
             main_social: 'twitch',
             twitch: {

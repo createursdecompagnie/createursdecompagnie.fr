@@ -128,11 +128,11 @@ const HomepageCDC202 = () => {
   );
 };
 
-const HomepageCDC2024 = () => {
+const HomepagePT2024 = () => {
   return (
     <div className="container padding-top--lg  padding-bottom--lg text--center">
-      <h2 className="margin-bottom--none"><a href="/evenement/cdc2024">CDC 2024</a></h2>
-      <p>du 8 au 10 novembre</p>
+      <h2 className="margin-bottom--none"><a href="/evenement/playtogether2024">PlayTogether by CDC</a></h2>
+      <p>"Édition Spéciale"<br/>du 8 au 10 novembre</p>
       <div className="row margin-top--lg">
         <div className="col margin-bottom--md">
           <ThemedImage
@@ -182,7 +182,7 @@ const HomepageCDC2024 = () => {
       />
       <h3 className="margin-top--lg margin-bottom--md">Les participant-es</h3>
       <div className="margin-bottom--md">
-        <CommunityListHome group='cdc2024' />
+        <CommunityListHome group='playtogether2024' />
       </div>
     </div>
   );
@@ -193,7 +193,7 @@ export default function Home() {
     <Layout
       description="Créateurs de Compagnie est une association de fait regroupant des passionnés autour du bien-être animal">
       <HomepageHeader />
-      <HomepageCDC2024 />
+      <HomepagePT2024 />
       {/* <div className="container padding-top--lg  padding-bottom--lg text--center">
         <h3 className="margin-top--lg margin-bottom--md">Les membres</h3>
         <div className="margin-bottom--md">

@@ -16,20 +16,21 @@ import { Planning2024 } from '/src/components/planning'
       </a>
     </li>
     <li className="breadcrumbs__item">
-      <a className="breadcrumbs__link" href="/evenement/cdc2024">CDC 2024</a>
+      <a className="breadcrumbs__link" href="/evenement/playtogether2024">PlayTogether</a>
     </li>
   </ul>
 </nav>
 
-<h1 className="text--center">CDC 2024</h1>
+<h1 className="text--center margin-bottom--none">PlayTogether by CDC</h1>
+<p className="text--center">"Édition Spéciale"</p>
 
 ## L'évènement {#l-évènement}
 
-***CDC 2024*** est un évènement caritatif qui se tiendra sur [***Twitch***](https://www.twitch.tv/misternooton) du **8 au 10 novembre 2024**.
+***PlayTogether*** est un weekend de fun, multigaming et de sensibilisation pour la protection animale qui se tiendra sur [***Twitch***](https://www.twitch.tv/misternooton) du **8 au 10 novembre 2024**.
 
 ## Les participants
 
-<CommunityListEvent group='cdc2024' />
+<CommunityListEvent group='playtogether2024' />
 <br/>
 
 ## Le planning

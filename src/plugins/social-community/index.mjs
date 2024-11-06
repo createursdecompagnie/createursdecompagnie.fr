@@ -180,7 +180,7 @@ export default function SocialCommunityPlugin(context, options) {
             }
 
             {
-                let filePath = `./static/data/cdc2024/planning.json`;
+                let filePath = `./static/data/playtogether2024/planning.json`;
                 globalPlanning2024 = JSON.parse(fs.readFileSync(filePath, `utf8`));
             }
 
