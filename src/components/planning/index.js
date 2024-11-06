@@ -98,8 +98,21 @@ function FormatDate(date) {
   );
 }
 
-export function Planning() {
-  const { planning } = usePluginData('social-community-plugin');
+export function Planning2022() {
+  const { planning2022 } = usePluginData('social-community-plugin');
+  return (
+    <>{Planning(planning2022)}</>
+  );
+}
+
+export function Planning2024() {
+  const { planning2024 } = usePluginData('social-community-plugin');
+  return (
+    <>{Planning(planning2024)}</>
+  );
+}
+
+function Planning(planning) {
   let weekDays = ["Dimanche", "Lundi", "Mardi", "Mercredi", "Jeudi", "Vendredi", "Samedi"];
   let uniqueDays = planning.map(function (event) {
     let date = new Date(event.start);

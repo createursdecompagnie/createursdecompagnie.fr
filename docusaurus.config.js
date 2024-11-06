@@ -62,6 +62,10 @@ const config = {
             label: 'Le collectif',
             to: '/le-collectif',
           },
+          {
+            label: 'CDC 2024',
+            to: '/evenement/cdc2024',
+          },
           // {
           //   type: 'dropdown',
           //   label: 'CDC 2022',
