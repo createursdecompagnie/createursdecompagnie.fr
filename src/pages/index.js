@@ -55,20 +55,20 @@ const renderCountdown = ({ formatted, completed }) => {
     return <div className="margin-bottom--xl">
       <iframe
         className={clsx('margin-top--sm', styles.liveIframe)}
-        src="https://player.twitch.tv/?channel=createursdecompagnie&parent=createursdecompagnie.fr&muted=false"
+        src="https://player.twitch.tv/?channel=misternooton&parent=localhost&muted=false"
         height="720"
         width="1280"
         allowfullscreen />
     </div>
   } else {
     return <div style={{ marginBottom: '3.5rem' }}>
-      <span className={styles.countdownStart}>Commence dans :</span>
+      <span className={styles.countdownStart}>commence dans :</span>
       <span className={styles.countdown}>{formatted.days}<span className={styles.countdownSpacer}> : </span>{formatted.hours}<span className={styles.countdownSpacer}> : </span>{formatted.minutes}<span className={styles.countdownSpacer}> : </span>{formatted.seconds}</span>
     </div>;
   }
 };
 
-const HomepageCDC2022 = () => {
+const HomepageCDC202 = () => {
   return (
     <div className="container padding-top--lg  padding-bottom--lg text--center">
       {/* <h2 className="margin-bottom--none"><a href="/evenement/cdc2022/a-propos">CDC 2022</a></h2> */}
@@ -128,18 +128,78 @@ const HomepageCDC2022 = () => {
   );
 };
 
+const HomepageCDC2024 = () => {
+  return (
+    <div className="container padding-top--lg  padding-bottom--lg text--center">
+      <h2 className="margin-bottom--none"><a href="/evenement/cdc2024">CDC 2024</a></h2>
+      <p>du 8 au 10 novembre</p>
+      <div className="row margin-top--lg">
+        <div className="col margin-bottom--md">
+          <ThemedImage
+            className={styles.eventImage}
+            alt="Docusaurus themed image" width={318} height={200}
+            sources={{
+              light: useBaseUrl('img/cdc2022/home_event_digital.svg'),
+              dark: useBaseUrl('img/cdc2022/home_event_digital-dark.svg'),
+            }}
+            loading='lazy'
+          />
+          <h3 className={clsx('padding-vert--none margin-vert--none', styles.eventHeading)}>Un évènement caritatif</h3>
+          <p className="padding-horiz--md">organisé par <a href="/le-collectif">Créateurs de Compagnie</a>.<br /></p>
+        </div>
+        <div className="col padding-bottom--md">
+          <ThemedImage
+            className={styles.eventImage}
+            alt="Docusaurus themed image" width={318} height={200}
+            sources={{
+              light: useBaseUrl('img/cdc2022/home_event_petcare.svg'),
+              dark: useBaseUrl('img/cdc2022/home_event_petcare-dark.svg'),
+            }}
+            loading='lazy'
+          />
+          <h3 className={clsx('padding-vert--none margin-vert--none', styles.eventHeading)}>Pour la protection animale</h3>
+          {/* <p className="padding-horiz--md">au profit de l'association <a href="https://hirondelle.ovh">l'Hirondelle</a>.</p> */}
+        </div>
+        <div className="col padding-bottom--md">
+          <ThemedImage
+            className={styles.eventImage}
+            alt="Docusaurus themed image" width={318} height={200}
+            sources={{
+              light: useBaseUrl('img/cdc2022/home_event_calendar.svg'),
+              dark: useBaseUrl('img/cdc2022/home_event_calendar-dark.svg'),
+            }}
+            loading='lazy'
+          />
+          <h3 className={clsx('padding-vert--none margin-vert--none', styles.eventHeading)}>Diffusé sur Twitch</h3>
+          {/* <p className="padding-horiz--md">pendant <a href="/evenement/cdc2022/planning">tout le week-end</a>.</p> */}
+        </div>
+      </div>
+      {/* <a className="button button--lg button--primary" href="https://streamlabscharity.com/teams/@createurs-de-compagnie/cdc2022">Faire un don pour l'Hirondelle</a> */}
+      <h3 className="margin-top--lg margin-bottom--md">Le Live</h3>
+      <Countdown
+        date="2024-11-08T17:00:00.000Z"
+        renderer={renderCountdown}
+      />
+      <h3 className="margin-top--lg margin-bottom--md">Les participant-es</h3>
+      <div className="margin-bottom--md">
+        <CommunityListHome group='cdc2024' />
+      </div>
+    </div>
+  );
+};
+
 export default function Home() {
   return (
     <Layout
       description="Créateurs de Compagnie est une association de fait regroupant des passionnés autour du bien-être animal">
       <HomepageHeader />
-      {/* <HomepageCDC2022 /> */}
-      <div className="container padding-top--lg  padding-bottom--lg text--center">
+      <HomepageCDC2024 />
+      {/* <div className="container padding-top--lg  padding-bottom--lg text--center">
         <h3 className="margin-top--lg margin-bottom--md">Les membres</h3>
         <div className="margin-bottom--md">
           <CommunityListHome group='member' />
         </div>
-      </div>
+      </div> */}
     </Layout>
   );
 }

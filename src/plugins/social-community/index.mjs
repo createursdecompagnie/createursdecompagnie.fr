@@ -135,45 +135,58 @@ export default function SocialCommunityPlugin(context, options) {
                 fs.writeFileSync(filePath, JSON.stringify(value), { flag: 'w' });
             }
 
-            let globalPlanning = {};
+            let globalPlanning2022 = {};
+            let globalPlanning2024 = {};
+            // {
+            //     let req = unirest
+            //         .get(process.env.CDC2022_PLANNING);
+
+            //     await req.then(async function (response) {
+            //         if (response.error) throw `Unable to get planning: ${response.error}`;
+
+            //         await csv().fromString(response.raw_body).subscribe((planning, index) => {
+
+            //             planning.maintrack = planning.maintrack == '1';
+
+            //             planning.start = new Date(planning.start);
+            //             planning.end = new Date(planning.end);
+
+            //             planning.presenters = planning.presenters.split(',').map(e => e.trim()).filter(item => memberGroups['cdc2022'].find(e => e.login == item));
+            //             planning.attendees = planning.attendees.split(',').map(e => e.trim()).filter(item => memberGroups['cdc2022'].find(e => e.login == item));
+
+            //             planning = null;
+            //         }).then((planning) => {
+
+            //             planning = planning.filter(item => (item.presenters.length + item.attendees.length)> 0);
+            //             planning = planning.sort(function (a, b) {
+            //                 let p = a.start - b.start;
+            //                 return (p != 0) ? p : a.end - b.end;
+            //             });
+
+            //             let filePath = `./static/data/cdc2022/planning.json`;
+            //             fs.mkdirSync(path.dirname(filePath), { recursive: true });
+            //             fs.writeFileSync(filePath, JSON.stringify(planning), { flag: 'w' });
+
+            //             JSON.parse()
+
+            //             globalPlanning = planning;
+            //         });
+            //     });
+            // }
+
             {
-                let req = unirest
-                    .get(process.env.CDC2022_PLANNING);
+                let filePath = `./static/data/cdc2022/planning.json`;
+                globalPlanning2022 = JSON.parse(fs.readFileSync(filePath, `utf8`));
+            }
 
-                await req.then(async function (response) {
-                    if (response.error) throw `Unable to get planning: ${response.error}`;
-
-                    await csv().fromString(response.raw_body).subscribe((planning, index) => {
-
-                        planning.maintrack = planning.maintrack == '1';
-
-                        planning.start = new Date(planning.start);
-                        planning.end = new Date(planning.end);
-
-                        planning.presenters = planning.presenters.split(',').map(e => e.trim()).filter(item => memberGroups['cdc2022'].find(e => e.login == item));
-                        planning.attendees = planning.attendees.split(',').map(e => e.trim()).filter(item => memberGroups['cdc2022'].find(e => e.login == item));
-
-                        planning = null;
-                    }).then((planning) => {
-
-                        planning = planning.filter(item => (item.presenters.length + item.attendees.length)> 0);
-                        planning = planning.sort(function (a, b) {
-                            let p = a.start - b.start;
-                            return (p != 0) ? p : a.end - b.end;
-                        });
-
-                        let filePath = `./static/data/cdc2022/planning.json`;
-                        fs.mkdirSync(path.dirname(filePath), { recursive: true });
-                        fs.writeFileSync(filePath, JSON.stringify(planning), { flag: 'w' });
-
-                        globalPlanning = planning;
-                    });
-                });
+            {
+                let filePath = `./static/data/cdc2024/planning.json`;
+                globalPlanning2024 = JSON.parse(fs.readFileSync(filePath, `utf8`));
             }
 
             // Create members global data
             const { createData, setGlobalData, addRoute } = actions;
-            setGlobalData({ planning: globalPlanning, members: members });
+            setGlobalData({ planning2022: globalPlanning2022, planning2024: globalPlanning2024, members: members });
 
             // TODO : Switch to local data
 
