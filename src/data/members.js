@@ -16,7 +16,7 @@ var members = [
     },
     {
         name: 'MisterNooton',
-        groups: ['member', 'sct', 'cdc2022'],
+        groups: ['member', 'sct', 'cdc2022', 'cdc2024'],
         socials: {
             main_social: 'twitch',
             twitch: {
@@ -25,18 +25,18 @@ var members = [
         }
     },
     {
-        name: 'SirKevas',
-        groups: ['member', 'sct', 'cdc2022'],
+        name: 'Kevas',
+        groups: ['member', 'sct', 'cdc2022', 'cdc2024'],
         socials: {
             main_social: 'twitch',
             twitch: {
-                login: 'sirkevas',
+                login: 'kevas7700',
             },
         }
     },
     {
         name: 'Pomdap',
-        groups: ['member', 'sct', 'cdc2022'],
+        groups: ['member', 'sct', 'cdc2022', 'cdc2024'],
         socials: {
             main_social: 'twitch',
             twitch: {
@@ -66,7 +66,7 @@ var members = [
     },
     {
         name: 'Netouss',
-        groups: ['member', 'sct', 'cdc2022'],
+        groups: ['member', 'sct', 'cdc2022', 'cdc2024'],
         socials: {
             main_social: 'twitch',
             twitch: {
@@ -76,7 +76,7 @@ var members = [
     },
     {
         name: 'DNADNL',
-        groups: ['member', 'sct', 'cdc2022'],
+        groups: ['member', 'sct', 'cdc2022', 'cdc2024'],
         socials: {
             main_social: 'twitch',
             twitch: {
@@ -106,7 +106,7 @@ var members = [
     },
     {
         name: 'RenegadesLive',
-        groups: ['member', 'sct', 'cdc2022'],
+        groups: ['member', 'sct', 'cdc2022', 'cdc2024'],
         socials: {
             main_social: 'twitch',
             twitch: {
@@ -136,7 +136,7 @@ var members = [
     },
     {
         name: 'MilySterique',
-        groups: ['member', 'cdc2022'],
+        groups: ['member', 'cdc2022', 'cdc2024'],
         socials: {
             main_social: 'twitch',
             twitch: {
@@ -146,7 +146,7 @@ var members = [
     },
     {
         name: 'Mallicette',
-        groups: ['member', 'sct', 'cdc2022'],
+        groups: ['member', 'sct', 'cdc2022', 'cdc2024'],
         socials: {
             main_social: 'twitch',
             twitch: {
@@ -176,7 +176,7 @@ var members = [
     },
     {
         name: 'Buddakhiin',
-        groups: ['member', 'sct'],
+        groups: ['member', 'sct', 'cdc2024'],
         socials: {
             main_social: 'twitch',
             twitch: {
@@ -368,16 +368,6 @@ var members = [
         }
     },
     {
-        name: 'Elynda4',
-        groups: ['member'],
-        socials: {
-            main_social: 'twitch',
-            twitch: {
-                login: 'elynda4',
-            },
-        }
-    },
-    {
         name: 'PiikaShall',
         groups: ['member', 'cdc2022'],
         socials: {
@@ -514,6 +504,16 @@ var members = [
             main_social: 'twitch',
             twitch: {
                 login: 'minatoto009',
+            },
+        }
+    },
+    {
+        name: 'Aurelieannechristine',
+        groups: ['member', 'cdc2024'],
+        socials: {
+            main_social: 'twitch',
+            twitch: {
+                login: 'aurelieannechristine',
             },
         }
     },
