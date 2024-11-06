@@ -144,7 +144,7 @@ const HomepagePT2024 = () => {
             }}
             loading='lazy'
           />
-          <h3 className={clsx('padding-vert--none margin-vert--none', styles.eventHeading)}>Un évènement caritatif</h3>
+          <h3 className={clsx('padding-vert--none margin-vert--none', styles.eventHeading)}>Un weekend spécial</h3>
           <p className="padding-horiz--md">organisé par <a href="/le-collectif">Créateurs de Compagnie</a>.<br /></p>
         </div>
         <div className="col padding-bottom--md">
