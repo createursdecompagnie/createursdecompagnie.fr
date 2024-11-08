@@ -1,6 +1,6 @@
 ---
 title: PlayTogether
-description: Une édition spéciale de PlayTogether by CDC du 8 au 10 novembre au profit d'une association de protection animale
+description: Une édition spéciale de PlayTogether du 8 au 10 novembre au profit d'une association de protection animale
 ---
 import { CommunityListEvent } from '/src/components/social-community'
 import { Planning2024 } from '/src/components/planning'
@@ -21,7 +21,7 @@ import { Planning2024 } from '/src/components/planning'
   </ul>
 </nav>
 
-<h1 className="text--center margin-bottom--none">PlayTogether by CDC</h1>
+<h1 className="text--center margin-bottom--none">PlayTogether</h1>
 <p className="text--center">"Édition Spéciale"</p>
 
 ## L'évènement {#l-évènement}

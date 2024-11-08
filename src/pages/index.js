@@ -131,7 +131,7 @@ const HomepageCDC202 = () => {
 const HomepagePT2024 = () => {
   return (
     <div className="container padding-top--lg  padding-bottom--lg text--center">
-      <h2 className="margin-bottom--none"><a href="/evenement/playtogether2024">PlayTogether by CDC</a></h2>
+      <h2 className="margin-bottom--none"><a href="/evenement/playtogether2024">PlayTogether</a></h2>
       <p>"Édition Spéciale"<br/>du 8 au 10 novembre</p>
       <div className="row margin-top--lg">
         <div className="col margin-bottom--md">
