@@ -3,7 +3,7 @@
         "maintrack": true,
         "start": "2024-11-08T17:00:00.000Z",
         "end": "2024-11-08T18:00:00.000Z",
-        "title": "PlayTogether by CDC - \"Édition Spéciale\" - Ouverture",
+        "title": "PlayTogether \"Édition Spéciale\" - Ouverture",
         "description": "On lance le week-end avec une présentation des activités et des objectifs !",
         "presenters": [
             "misternooton"
@@ -46,8 +46,8 @@
         "maintrack": true,
         "start": "2024-11-08T20:00:00.000Z",
         "end": "2024-11-08T23:00:00.000Z",
-        "title": "Witch It",
-        "description": "La chasse aux sorcières est ouverte ! Transformez-vous et cachez-vous bien !",
+        "title": "Sneak Out",
+        "description": "La chasse aux pingouins est ouverte ! Transformez-vous et cachez-vous bien !",
         "presenters": [
             "misternooton"
         ],
@@ -65,8 +65,7 @@
             "misternooton"
         ],
         "attendees": [
-            "netouss",
-            "mallicette"
+            "netouss"
         ]
     },
     {
