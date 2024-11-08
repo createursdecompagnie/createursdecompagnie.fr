@@ -1,6 +1,6 @@
 ---
-title: CDC 2024
-description: L'évènement caritatif de Créateurs de Compagnie
+title: PlayTogether
+description: Une édition spéciale de PlayTogether by CDC du 8 au 10 novembre au profit d'une association de protection animale
 ---
 import { CommunityListEvent } from '/src/components/social-community'
 import { Planning2024 } from '/src/components/planning'
