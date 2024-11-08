@@ -143,7 +143,7 @@ function Planning(planning) {
                         trigger={
                           <div className={clsx('col col--12', styles.calendarEntry)}>
                             <div>
-                              <span className={styles.calendarEntryTime}>{live ? 'LIVE' : FormatHour(start)}</span>-&nbsp;<span className={styles.calendarEntryTitle} >{event.title}</span>
+                              <span className={styles.calendarEntryTime}>{live ? <span className={styles.calendarEntryTimeLive}>🔴LIVE</span> : FormatHour(start)}</span>-&nbsp;<span className={styles.calendarEntryTitle} >{event.title}</span>
                             </div>
                             <div className={styles.calendarEntryCalendar}>{EventCalendar(event)}</div>
                           </div>

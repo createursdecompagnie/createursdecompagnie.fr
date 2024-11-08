@@ -19,10 +19,9 @@
         "end": "2024-11-08T19:00:00.000Z",
         "title": "Gartic Phone",
         "description": "Non mais allô, on joue à Gartic Phone quoi !",
-        "presenters": [
-            "misternooton"
-        ],
+        "presenters": [],
         "attendees": [
+            "misternooton",
             "kevas7700",
             "netouss"
         ]
@@ -33,10 +32,9 @@
         "end": "2024-11-08T20:00:00.000Z",
         "title": "Faaaast Penguin avec les viewers",
         "description": "Qui est le pingouin qui glisse le plus loin de la banquise ?",
-        "presenters": [
-            "misternooton"
-        ],
+        "presenters": [],
         "attendees": [
+            "misternooton",
             "kevas7700",
             "netouss",
             "buddakhiin"
@@ -45,27 +43,44 @@
     {
         "maintrack": true,
         "start": "2024-11-08T20:00:00.000Z",
-        "end": "2024-11-08T23:00:00.000Z",
+        "end": "2024-11-08T22:00:00.000Z",
         "title": "Sneak Out",
         "description": "La chasse aux pingouins est ouverte ! Transformez-vous et cachez-vous bien !",
-        "presenters": [
-            "misternooton"
-        ],
+        "presenters": [],
         "attendees": [
-            "netouss"
+            "misternooton",
+            "kevas7700",
+            "netouss",
+            "buddakhiin"
         ]
     },
     {
         "maintrack": true,
-        "start": "2024-11-08T23:00:00.000Z",
-        "end": "2024-11-09T01:00:00.000Z",
-        "title": "Phasmo VS Dead By Daylight ?",
-        "description": "Un duel d’horreur entre chasse aux fantômes et évasion terrifiante !",
-        "presenters": [
-            "misternooton"
-        ],
+        "start": "2024-11-08T22:00:00.000Z",
+        "end": "2024-11-08T23:00:00.000Z",
+        "title": "Jeux divers",
+        "description": "On essaie de nouvelles choses...",
+        "presenters": [],
         "attendees": [
-            "netouss"
+            "misternooton",
+            "kevas7700",
+            "netouss",
+            "buddakhiin",
+            "ghost_deus",
+            "aurelieannechristine"
+        ]
+    },
+    {
+        "maintrack": true,
+        "start": "2024-11-09T14:00:00.000Z",
+        "end": "2024-11-09T16:00:00.000Z",
+        "title": "???",
+        "description": "Surprise...",
+        "presenters": [],
+        "attendees": [
+            "misternooton",
+            "kevas7700",
+            "ghost_deus"
         ]
     },
     {
@@ -74,10 +89,9 @@
         "end": "2024-11-09T17:00:00.000Z",
         "title": "Supermarket Together",
         "description": "Préparez-vous à gérer le chaos dans un supermarché !",
-        "presenters": [
-            "misternooton"
-        ],
+        "presenters": [],
         "attendees": [
+            "misternooton",
             "kevas7700",
             "netouss",
             "pomdap",
@@ -90,10 +104,9 @@
         "end": "2024-11-09T20:00:00.000Z",
         "title": "Fall Guys avec les viewers",
         "description": "Course de folie pour être le dernier en lice !",
-        "presenters": [
-            "misternooton"
-        ],
+        "presenters": [],
         "attendees": [
+            "misternooton",
             "kevas7700",
             "netouss",
             "pomdap",
@@ -107,10 +120,9 @@
         "end": "2024-11-09T23:00:00.000Z",
         "title": "Trilogie du samedi",
         "description": "Une soirée multi-jeux",
-        "presenters": [
-            "misternooton"
-        ],
+        "presenters": [],
         "attendees": [
+            "misternooton",
             "kevas7700",
             "netouss",
             "pomdap",
@@ -123,10 +135,9 @@
         "end": "2024-11-10T23:00:00.000Z",
         "title": "Enchaînement de jeux gratuits",
         "description": "",
-        "presenters": [
-            "misternooton"
-        ],
+        "presenters": [],
         "attendees": [
+            "misternooton",
             "kevas7700",
             "netouss",
             "pomdap",

@@ -28,9 +28,27 @@
 }
 
 .calendarEntryTime {
-  min-width: 50px;
+  min-width: 60px;
   display: inline-block;
   text-align: center;
+}
+
+@keyframes changeWeight {
+  0% {
+    font-size:x-small;
+  }
+  50% {
+    font-size:small;
+  }
+  100% {
+    font-size:x-small;
+  }
+}
+
+.calendarEntryTimeLive{
+  color: var(--ifm-color-danger);
+  font-weight: bold;
+  animation: changeWeight 2s infinite;
 }
 
 .calendarEntryTitle {
