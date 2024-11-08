@@ -55,7 +55,7 @@ const renderCountdown = ({ formatted, completed }) => {
     return <div className="margin-bottom--xl">
       <iframe
         className={clsx('margin-top--sm', styles.liveIframe)}
-        src="https://player.twitch.tv/?channel=misternooton&parent=localhost&muted=false"
+        src="https://player.twitch.tv/?channel=misternooton&parent=createursdecompagnie.fr&muted=false"
         height="720"
         width="1280"
         allowfullscreen />
