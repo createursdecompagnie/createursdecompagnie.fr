@@ -158,7 +158,7 @@ const HomepagePT2024 = () => {
             loading='lazy'
           />
           <h3 className={clsx('padding-vert--none margin-vert--none', styles.eventHeading)}>Pour la protection animale</h3>
-          {/* <p className="padding-horiz--md">au profit de l'association <a href="https://hirondelle.ovh">l'Hirondelle</a>.</p> */}
+          <p className="padding-horiz--md">au profit de l'association <a href="https://hirondelle.ovh">l'Hirondelle</a>.</p>
         </div>
         <div className="col padding-bottom--md">
           <ThemedImage
@@ -171,10 +171,10 @@ const HomepagePT2024 = () => {
             loading='lazy'
           />
           <h3 className={clsx('padding-vert--none margin-vert--none', styles.eventHeading)}>Diffusé sur Twitch</h3>
-          {/* <p className="padding-horiz--md">pendant <a href="/evenement/cdc2022/planning">tout le week-end</a>.</p> */}
+          <p className="padding-horiz--md">pendant <a href="/evenement/playtogether2024">tout le week-end</a>.</p>
         </div>
       </div>
-      {/* <a className="button button--lg button--primary" href="https://streamlabscharity.com/teams/@createurs-de-compagnie/cdc2022">Faire un don pour l'Hirondelle</a> */}
+      <a className="button button--lg button--primary" href="https://streamlabscharity.com/teams/@noot-x-cdc/playtogether-by-nooton-x-cdc">Faire un don pour l'Hirondelle</a>
       <h3 className="margin-top--lg margin-bottom--md">Le Live</h3>
       <Countdown
         date="2024-11-08T17:00:00.000Z"
