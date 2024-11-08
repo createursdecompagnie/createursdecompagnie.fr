@@ -26,7 +26,17 @@ import { Planning2024 } from '/src/components/planning'
 
 ## L'évènement {#l-évènement}
 
-***PlayTogether*** est un weekend de fun, multigaming et de sensibilisation pour la protection animale qui se tiendra sur [***Twitch***](https://www.twitch.tv/misternooton) du **8 au 10 novembre 2024**.
+***PlayTogether*** est un weekend de fun, multigaming et de sensibilisation pour la protection animale qui se tiendra sur [***Twitch***](https://www.twitch.tv/misternooton) du **8 au 10 novembre 2024** au profit de l'association <a href="https://hirondelle.ovh">***L'Hirondelle***</a>.
+
+## L'association {#l-association}
+
+<a href="https://hirondelle.ovh"><p className="text--center"><img src="/img/cdc2022/logo-l-hirondelle.png" alt="Logo L'Hirondelle" width="442" height="200" loading="lazy" /></p></a>
+
+Association de protection animale, <a href="https://hirondelle.ovh">***L'Hirondelle***</a> est **un centre de soin** pour animaux sauvages. L'association récupère plus de **7 000 animaux par an**. Elle a pour but de les soigner et de les réinsérer dans leur environnement naturel.
+
+L'association a aussi une partie formation, permettant de **former des intervenants** (pompiers, vétérinaires…) susceptibles d’être confrontés à des **problèmes touchant la faune sauvage**.
+
+Ils possèdent **un des plus grand centre de soins aux animaux sauvages de France** et interviennent sur les départements du **Rhône**, de la **Loire**, de la **Drôme** et de l’**Ardèche**.
 
 ## Les participants
 
