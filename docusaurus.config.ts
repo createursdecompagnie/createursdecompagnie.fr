@@ -5,9 +5,10 @@ import type * as Preset from '@docusaurus/preset-classic';
 // This runs in Node.js - Don't use client-side code here (browser APIs, JSX...)
 
 const config: Config = {
-  title: 'My Site',
-  tagline: 'Dinosaurs are cool',
+  title: 'Créateurs de Compagnie',
+  tagline: 'Plus d\'informations prochainement ...',
   favicon: 'img/favicon.ico',
+  trailingSlash: false,
 
   // Future flags, see https://docusaurus.io/docs/api/docusaurus-config#future
   future: {
@@ -15,15 +16,16 @@ const config: Config = {
   },
 
   // Set the production url of your site here
-  url: 'https://your-docusaurus-site.example.com',
+  url: 'https://createursdecompagnie.fr',
   // Set the /<baseUrl>/ pathname under which your site is served
   // For GitHub pages deployment, it is often '/<projectName>/'
   baseUrl: '/',
+  baseUrlIssueBanner: false,
 
   // GitHub pages deployment config.
   // If you aren't using GitHub pages, you don't need these.
-  organizationName: 'facebook', // Usually your GitHub org/user name.
-  projectName: 'docusaurus', // Usually your repo name.
+  organizationName: 'createursdecompagnie', // Usually your GitHub org/user name.
+  projectName: 'createursdecompagnie.fr', // Usually your repo name.
 
   onBrokenLinks: 'throw',
   onBrokenMarkdownLinks: 'warn',
@@ -32,36 +34,16 @@ const config: Config = {
   // useful metadata like html lang. For example, if your site is Chinese, you
   // may want to replace "en" with "zh-Hans".
   i18n: {
-    defaultLocale: 'en',
-    locales: ['en'],
+    defaultLocale: 'fr',
+    locales: ['fr'],
   },
 
   presets: [
     [
       'classic',
       {
-        docs: {
-          sidebarPath: './sidebars.ts',
-          // Please change this to your repo.
-          // Remove this to remove the "edit this page" links.
-          editUrl:
-            'https://github.com/facebook/docusaurus/tree/main/packages/create-docusaurus/templates/shared/',
-        },
-        blog: {
-          showReadingTime: true,
-          feedOptions: {
-            type: ['rss', 'atom'],
-            xslt: true,
-          },
-          // Please change this to your repo.
-          // Remove this to remove the "edit this page" links.
-          editUrl:
-            'https://github.com/facebook/docusaurus/tree/main/packages/create-docusaurus/templates/shared/',
-          // Useful options to enforce blogging best practices
-          onInlineTags: 'warn',
-          onInlineAuthors: 'warn',
-          onUntruncatedBlogPosts: 'warn',
-        },
+        docs: false,
+        blog: false,
         theme: {
           customCss: './src/css/custom.css',
         },
@@ -73,23 +55,51 @@ const config: Config = {
     // Replace with your project's social card
     image: 'img/docusaurus-social-card.jpg',
     navbar: {
-      title: 'My Site',
+      title: 'Créateurs de Compagnie',
       logo: {
-        alt: 'My Site Logo',
-        src: 'img/logo.svg',
+        alt: 'Logo Créateurs de Compagnie',
+        src: 'img/logo.png',
+        srcDark: 'img/logo_dark.png',
       },
       items: [
         {
-          type: 'docSidebar',
-          sidebarId: 'tutorialSidebar',
-          position: 'left',
-          label: 'Tutorial',
+          label: 'Le collectif',
+          to: '/le-collectif',
         },
-        {to: '/blog', label: 'Blog', position: 'left'},
         {
-          href: 'https://github.com/facebook/docusaurus',
-          label: 'GitHub',
-          position: 'right',
+          label: 'PlayTogether',
+          to: '/evenement/playtogether2024',
+        },
+        // {
+        //   type: 'dropdown',
+        //   label: 'CDC 2022',
+        //   // to: '/evenement/cdc2022',
+        //   position: 'left',
+        //   items: [
+        //     {
+        //       label: 'À propos',
+        //       to: '/evenement/cdc2022/a-propos',
+        //     },
+        //     {
+        //       label: 'Le planning',
+        //       to: '/evenement/cdc2022/planning',
+        //     },
+        //   ],
+        // },
+        {
+          type: 'dropdown',
+          label: 'Évènements passés',
+          position: 'left',
+          items: [
+            {
+              label: 'CDC 2022',
+              to: '/evenement/cdc2022',
+            },
+            {
+              label: 'Sans Croquettes Twitch',
+              to: '/evenement/sans-croquettes-twitch',
+            },
+          ],
         },
       ],
     },
@@ -97,52 +107,82 @@ const config: Config = {
       style: 'dark',
       links: [
         {
-          title: 'Docs',
+          title: 'À propos',
           items: [
             {
-              label: 'Tutorial',
-              to: '/docs/intro',
+              label: 'Le collectif',
+              to: '/le-collectif',
+            },
+            {
+              label: 'Informations légales',
+              to: '/informations-legales',
             },
           ],
         },
         {
-          title: 'Community',
+          title: 'Nos évènements',
           items: [
             {
-              label: 'Stack Overflow',
-              href: 'https://stackoverflow.com/questions/tagged/docusaurus',
+              label: 'CDC 2022',
+              href: '/evenement/cdc2022',
             },
             {
-              label: 'Discord',
-              href: 'https://discordapp.com/invite/docusaurus',
-            },
-            {
-              label: 'X',
-              href: 'https://x.com/docusaurus',
-            },
+              label: 'Sans Croquettes Twitch',
+              href: '/evenement/sans-croquettes-twitch',
+            }
           ],
         },
         {
-          title: 'More',
+          title: 'Créateurs de compagnie',
           items: [
             {
-              label: 'Blog',
-              to: '/blog',
+              html: `
+              <div class="social-links">
+                <a href="https://discord.gg/PN5anHT6P8" target="_blank" rel="noreferrer noopener" aria-label="Discord">
+                  <span class="icon-discord"></span>
+                </a>
+                <a href="https://twitter.com/createursdecomp" target="_blank" rel="noreferrer noopener" aria-label="Twitter">
+                  <span class="icon-twitter"></span>
+                </a>
+                <a href="https://www.twitch.tv/createursdecompagnie" target="_blank" rel="noreferrer noopener" aria-label="Twitch">
+                  <span class="icon-twitch"></span>
+                </a>
+                <a href="https://www.instagram.com/createursdecompagnie" target="_blank" rel="noreferrer noopener" aria-label="Instagram">
+                  <span class="icon-instagram"></span>
+                </a>
+                <a href="https://www.youtube.com/channel/UC8uLofoMzQCFLPTf_YRZcpA" target="_blank" rel="noreferrer noopener" aria-label="Youtube">
+                  <span class="icon-youtube"></span>
+                </a>
+              </div>
+          `,
             },
-            {
-              label: 'GitHub',
-              href: 'https://github.com/facebook/docusaurus',
-            },
+            // {
+            //   label: 'Nos Membres',
+            //   href: 'https://linktr.ee/createursdecompagnie.membres',
+            // },
           ],
         },
       ],
-      copyright: `Copyright © ${new Date().getFullYear()} My Project, Inc. Built with Docusaurus.`,
+      copyright: `Copyright © ${new Date().getFullYear()} - Créateurs de Compagnie`,
     },
     prism: {
       theme: prismThemes.github,
       darkTheme: prismThemes.dracula,
-    },
-  } satisfies Preset.ThemeConfig,
+    }
+  } satisfies Preset.ThemeConfig,  
+  themes: [
+    [
+      require.resolve("@easyops-cn/docusaurus-search-local"),
+      {
+        indexDocs: false,
+        indexBlog: false,
+        indexPages: true,
+        searchBarShortcut: false,
+        searchBarShortcutHint: false,
+        language: ["fr"],
+      } satisfies import("@easyops-cn/docusaurus-search-local").PluginOptions
+    ]
+  ]
 };
 
 export default config;
