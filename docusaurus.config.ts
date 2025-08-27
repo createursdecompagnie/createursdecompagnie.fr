@@ -6,33 +6,18 @@ import type * as Preset from '@docusaurus/preset-classic';
 
 const config: Config = {
   title: 'Créateurs de Compagnie',
-  tagline: 'Plus d\'informations prochainement ...',
   favicon: 'img/favicon.ico',
   trailingSlash: false,
-
-  // Future flags, see https://docusaurus.io/docs/api/docusaurus-config#future
   future: {
-    v4: true, // Improve compatibility with the upcoming Docusaurus v4
+    v4: true,
   },
-
-  // Set the production url of your site here
   url: 'https://createursdecompagnie.fr',
-  // Set the /<baseUrl>/ pathname under which your site is served
-  // For GitHub pages deployment, it is often '/<projectName>/'
   baseUrl: '/',
   baseUrlIssueBanner: false,
-
-  // GitHub pages deployment config.
-  // If you aren't using GitHub pages, you don't need these.
-  organizationName: 'createursdecompagnie', // Usually your GitHub org/user name.
-  projectName: 'createursdecompagnie.fr', // Usually your repo name.
-
+  organizationName: 'createursdecompagnie',
+  projectName: 'createursdecompagnie.fr',
   onBrokenLinks: 'throw',
   onBrokenMarkdownLinks: 'warn',
-
-  // Even if you don't use internationalization, you can use this field to set
-  // useful metadata like html lang. For example, if your site is Chinese, you
-  // may want to replace "en" with "zh-Hans".
   i18n: {
     defaultLocale: 'fr',
     locales: ['fr'],
@@ -52,8 +37,7 @@ const config: Config = {
   ],
 
   themeConfig: {
-    // Replace with your project's social card
-    image: 'img/docusaurus-social-card.jpg',
+    image: 'img/cdc-social-card.jpg',
     navbar: {
       title: 'Créateurs de Compagnie',
       logo: {
