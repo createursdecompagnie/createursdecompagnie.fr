@@ -27,6 +27,6 @@
     "message": "1 résultat trouvé|{count} résultats trouvés"
   },
   "theme.SearchPage.noResultsText": {
-    "message": "Aucun résultat"
+    "message": "Aucun résultat n'a été trouvé"
   }
 }
