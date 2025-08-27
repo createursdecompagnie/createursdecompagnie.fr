@@ -2,7 +2,7 @@
 title: Le collectif
 description: Des streameurs et des streameuses engagé-e-s dans la cause animale !
 ---
-<!-- import { CommunityListEvent } from '/src/components/social-community' -->
+import { CommunityListEvent } from '/src/components/social-community'
 
 <nav aria-label="breadcrumbs" className="page-breadcrumbs">
   <ul className="breadcrumbs">
@@ -44,4 +44,4 @@ description: Des streameurs et des streameuses engagé-e-s dans la cause animale
 
 ## Les membres
 
-<!-- <CommunityListEvent group='member' /> -->
+<CommunityListEvent group='member' />

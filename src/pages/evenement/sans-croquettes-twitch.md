@@ -2,7 +2,7 @@
 title: Sans Croquettes Twitch
 description: L'évènement caritatif au profit de Sans Croquettes Fixes qui donna naissance à Créateurs de Compagnie
 ---
-<!-- import { CommunityListEvent } from '/src/components/social-community' -->
+import { CommunityListEvent } from '/src/components/social-community'
 
 <nav aria-label="breadcrumbs" className="page-breadcrumbs">
   <ul className="breadcrumbs">
@@ -39,4 +39,4 @@ Infos sur l'association -->
 
 ## Les participants
 
-<!-- <CommunityListEvent group='sct' /> -->
+<CommunityListEvent group='sct' />

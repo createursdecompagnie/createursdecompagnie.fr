@@ -1,0 +1,32 @@
+{
+  "theme.SearchBar.noResultsText": {
+    "message": "Aucun résultat"
+  },
+  "theme.SearchBar.seeAllOutsideContext": {
+    "message": "Voir les résultats en dehors de la catégorie \"{context}\""
+  },
+  "theme.SearchBar.searchInContext": {
+    "message": "Voir les résultats pour la catégorie \"{context}\""
+  },
+  "theme.SearchBar.seeAll": {
+    "message": "Voir les résultats"
+  },
+  "theme.SearchBar.label": {
+    "message": "Rechercher"
+  },
+  "theme.SearchPage.existingResultsTitle": {
+    "message": "Résultats pour la recherche \"{query}\""
+  },
+  "theme.SearchPage.emptyResultsTitle": {
+    "message": "Rechercher sur le site"
+  },
+  "theme.SearchPage.searchContext.everywhere": {
+    "message": "Partout"
+  },
+  "theme.SearchPage.documentsFound.plurals": {
+    "message": "1 résultat trouvé|{count} résultats trouvés"
+  },
+  "theme.SearchPage.noResultsText": {
+    "message": "Aucun résultat"
+  }
+}

@@ -21,3 +21,93 @@
   align-items: center;
   justify-content: center;
 }
+
+
+.header {
+  background-size: cover;
+  background-image: url("/img/header.webp");
+  background-repeat: no-repeat;
+  background-position: left top;
+}
+
+.header h1 {
+  text-shadow: 2px 2px 6px var(--ifm-color-black);
+}
+
+.buttonSizeFixed {
+  min-width: 210px;
+}
+
+.buttonSecondary {
+  color: var(--ifm-color-gray-900);
+  text-shadow: 2px 2px 3px var(--ifm-color-white);
+  background-color: rgba(255, 255, 255, .7);
+}
+
+.buttonSecondary:hover {
+  background-color: var(--ifm-color-secondary-dark);
+  border-color: var(--ifm-color-secondary-dark);
+}
+
+[data-theme='dark'] .buttonSecondary {
+  color: var(--ifm-color-gray-900)!important;
+}
+
+[data-theme='dark'] .header {
+  color: var(--ifm-color-white);
+}
+
+.videoplayer {
+  border: 0.3em solid var(--ifm-color-secondary);
+  padding: 0px;
+  background: var(--ifm-color-secondary);
+  border-radius: 0.3em;
+}
+
+.members {
+  justify-content: center;
+}
+
+.members .community__member img {
+  --ifm-avatar-photo-size: calc(max(48px, min(100vw/6, 96px)));
+}
+
+.members div.community__member {
+  padding: 0 1% 2%;
+}
+
+.members .community__list {
+  justify-content: center;
+}
+
+.eventImage {
+  margin: 0 auto;
+  max-height: 200px;
+  width: auto;
+}
+
+.eventHeading {
+  font-size: var(--ifm-h3-font-size);
+  padding-top: 1rem;
+}
+
+.liveIframe {
+  width: 755px;
+  height: 424px;
+  max-width: 100%;
+  max-height: calc((100vw - 40px) / (16/9));
+}
+
+.countdownStart {
+  display: block;
+}
+
+.countdown {
+  display: block;
+  font-size: min(10vw, 180px);
+  margin-top: max(-3vw, -50px);
+}
+
+.countdownSpacer {
+  color: var(--ifm-color-primary);
+}
