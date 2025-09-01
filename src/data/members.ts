@@ -8,7 +8,7 @@ const members: Members = [
         socials: {
             main_social: Social.twitch,
             twitch: {
-                login: 'createursdecompagnie'
+                id: '637731666'
             },
         }
     },
@@ -18,7 +18,7 @@ const members: Members = [
         socials: {
             main_social: Social.twitch,
             twitch: {
-                login: 'misternooton'
+                id: '158696820'
             },
         }
     },
@@ -28,7 +28,7 @@ const members: Members = [
         socials: {
             main_social: Social.twitch,
             twitch: {
-                login: 'kevas7700',
+                id: '62050026'
             },
         }
     },
@@ -38,7 +38,7 @@ const members: Members = [
         socials: {
             main_social: Social.twitch,
             twitch: {
-                login: 'pomdap',
+                id: '40541580'
             },
         }
     },
@@ -48,7 +48,7 @@ const members: Members = [
         socials: {
             main_social: Social.twitch,
             twitch: {
-                login: 'h00lic',
+                id: '118567112'
             },
         }
     },
@@ -58,7 +58,7 @@ const members: Members = [
         socials: {
             main_social: Social.twitch,
             twitch: {
-                login: 'vinnk',
+                id: '465141966'
             },
         }
     },
@@ -68,7 +68,7 @@ const members: Members = [
         socials: {
             main_social: Social.twitch,
             twitch: {
-                login: 'netouss',
+                id: '41846016'
             },
         }
     },
@@ -78,7 +78,7 @@ const members: Members = [
         socials: {
             main_social: Social.twitch,
             twitch: {
-                login: 'dnadnl',
+                id: '43581854'
             },
         }
     },
@@ -88,7 +88,7 @@ const members: Members = [
         socials: {
             main_social: Social.twitch,
             twitch: {
-                login: 'nicovalmont',
+                id: '603343907'
             },
         }
     },
@@ -98,7 +98,7 @@ const members: Members = [
         socials: {
             main_social: Social.twitch,
             twitch: {
-                login: 'sokyutie',
+                id: '546766441'
             },
         }
     },
@@ -108,7 +108,7 @@ const members: Members = [
         socials: {
             main_social: Social.twitch,
             twitch: {
-                login: 'renegadeslive',
+                id: '158945723'
             },
         }
     },
@@ -118,7 +118,7 @@ const members: Members = [
         socials: {
             main_social: Social.twitch,
             twitch: {
-                login: 'tuyatrojouey',
+                id: '117919504'
             },
         }
     },
@@ -128,7 +128,7 @@ const members: Members = [
         socials: {
             main_social: Social.twitch,
             twitch: {
-                login: 'ghost_deus',
+                id: '71762061'
             },
         }
     },
@@ -138,7 +138,7 @@ const members: Members = [
         socials: {
             main_social: Social.twitch,
             twitch: {
-                login: 'milysterique',
+                id: '544738458'
             },
         }
     },
@@ -148,7 +148,7 @@ const members: Members = [
         socials: {
             main_social: Social.twitch,
             twitch: {
-                login: 'mallicette',
+                id: '96408688'
             },
         }
     },
@@ -158,7 +158,7 @@ const members: Members = [
         socials: {
             main_social: Social.twitch,
             twitch: {
-                login: 'shaellaa',
+                id: '138566598'
             },
         }
     },
@@ -168,7 +168,7 @@ const members: Members = [
         socials: {
             main_social: Social.twitch,
             twitch: {
-                login: 'haz_live_',
+                id: '91580761'
             },
         }
     },
@@ -178,7 +178,7 @@ const members: Members = [
         socials: {
             main_social: Social.twitch,
             twitch: {
-                login: 'buddakhiin',
+                id: '62305678'
             },
         }
     },
@@ -188,7 +188,7 @@ const members: Members = [
         socials: {
             main_social: Social.twitch,
             twitch: {
-                login: 'little_anneso',
+                id: '101524937'
             },
         }
     },
@@ -198,7 +198,7 @@ const members: Members = [
         socials: {
             main_social: Social.twitch,
             twitch: {
-                login: 'misterkiva',
+                id: '95948501'
             },
         }
     },
@@ -208,7 +208,7 @@ const members: Members = [
         socials: {
             main_social: Social.twitch,
             twitch: {
-                login: 'alexwill1993',
+                id: '148226056'
             },
         }
     },
@@ -218,7 +218,7 @@ const members: Members = [
         socials: {
             main_social: Social.twitch,
             twitch: {
-                login: 'nymphelya',
+                id: '454434987'
             },
         }
     },
@@ -228,7 +228,7 @@ const members: Members = [
         socials: {
             main_social: Social.twitch,
             twitch: {
-                login: 'c1emen7',
+                id: '119115671'
             },
         }
     },
@@ -238,7 +238,7 @@ const members: Members = [
         socials: {
             main_social: Social.twitch,
             twitch: {
-                login: 'pookihunter',
+                id: '181711880'
             },
         }
     },
@@ -248,7 +248,7 @@ const members: Members = [
         socials: {
             main_social: Social.twitch,
             twitch: {
-                login: 'shinyouw',
+                id: '32847019'
             },
         }
     },
@@ -258,7 +258,7 @@ const members: Members = [
         socials: {
             main_social: Social.twitch,
             twitch: {
-                login: 'ileso_',
+                id: '89911165'
             },
         }
     },
@@ -268,7 +268,7 @@ const members: Members = [
         socials: {
             main_social: Social.twitch,
             twitch: {
-                login: 'lapepouzerie',
+                id: '608661671'
             },
         }
     },
@@ -278,7 +278,7 @@ const members: Members = [
         socials: {
             main_social: Social.twitch,
             twitch: {
-                login: 'acengel',
+                id: '128665481'
             },
         }
     },
@@ -288,7 +288,7 @@ const members: Members = [
         socials: {
             main_social: Social.twitch,
             twitch: {
-                login: 'souricetteftw',
+                id: '425796741'
             },
         }
     },
@@ -298,7 +298,7 @@ const members: Members = [
         socials: {
             main_social: Social.twitch,
             twitch: {
-                login: 'mama_loutre',
+                id: '272685042'
             },
         }
     },
@@ -308,7 +308,7 @@ const members: Members = [
         socials: {
             main_social: Social.twitch,
             twitch: {
-                login: 'mlleckat',
+                id: '866393580'
             },
         }
     },
@@ -318,7 +318,7 @@ const members: Members = [
         socials: {
             main_social: Social.twitch,
             twitch: {
-                login: 'agharta_tv',
+                id: '450820239'
             },
         }
     },
@@ -328,7 +328,7 @@ const members: Members = [
         socials: {
             main_social: Social.twitch,
             twitch: {
-                login: 'kleroc',
+                id: '54992825'
             },
         }
     },
@@ -338,7 +338,7 @@ const members: Members = [
         socials: {
             main_social: Social.twitch,
             twitch: {
-                login: 'emisetsuna',
+                id: '79169661'
             },
         }
     },
@@ -348,7 +348,7 @@ const members: Members = [
         socials: {
             main_social: Social.twitch,
             twitch: {
-                login: 'madamepersil',
+                id: '271104221'
             },
         }
     },
@@ -358,7 +358,7 @@ const members: Members = [
         socials: {
             main_social: Social.twitch,
             twitch: {
-                login: 'ookamiette',
+                id: '243841392'
             },
             youtube: {
                 link: 'https://www.youtube.com/channel/UCayZSimBdxRZ7Lr8WPNw3Yw'
@@ -371,17 +371,17 @@ const members: Members = [
         socials: {
             main_social: Social.twitch,
             twitch: {
-                login: 'piikashall',
+                id: '103569937'
             },
         }
     },
     {
-        name: 'Saien_de_no_game',
+        name: 'Pastel',
         groups: [Group.member, Group.cdc2022],
         socials: {
             main_social: Social.twitch,
             twitch: {
-                login: 'saien_de_no_game',
+                id: '131570378'
             },
         }
     },
@@ -391,7 +391,7 @@ const members: Members = [
         socials: {
             main_social: Social.twitch,
             twitch: {
-                login: 'schrodingerkitten',
+                id: '148884330'
             },
         }
     },
@@ -401,7 +401,7 @@ const members: Members = [
         socials: {
             main_social: Social.twitch,
             twitch: {
-                login: 'myzucka',
+                id: '189573851'
             },
         }
     },
@@ -411,7 +411,7 @@ const members: Members = [
         socials: {
             main_social: Social.twitch,
             twitch: {
-                login: 'pyrow_fr',
+                id: '134831782'
             },
         }
     },
@@ -421,7 +421,7 @@ const members: Members = [
         socials: {
             main_social: Social.twitch,
             twitch: {
-                login: 'kahu_fr',
+                id: '510600314'
             },
         }
     },
@@ -431,7 +431,7 @@ const members: Members = [
         socials: {
             main_social: Social.twitch,
             twitch: {
-                login: 'eiraamtv',
+                id: '640784078'
             },
         }
     },
@@ -441,7 +441,7 @@ const members: Members = [
         socials: {
             main_social: Social.twitch,
             twitch: {
-                login: 'lopalyne',
+                id: '657076509'
             },
         }
     },
@@ -451,7 +451,7 @@ const members: Members = [
         socials: {
             main_social: Social.twitch,
             twitch: {
-                login: 'angelvayuu',
+                id: '67052570'
             },
         }
     },
@@ -461,7 +461,7 @@ const members: Members = [
         socials: {
             main_social: Social.twitch,
             twitch: {
-                login: 'schkaia',
+                id: '549605960'
             },
         }
     },
@@ -471,7 +471,7 @@ const members: Members = [
         socials: {
             main_social: Social.twitch,
             twitch: {
-                login: 'nx_stormy',
+                id: '624201380'
             },
         }
     },
@@ -481,7 +481,7 @@ const members: Members = [
         socials: {
             main_social: Social.twitch,
             twitch: {
-                login: 'bubuchenbois',
+                id: '81662092'
             },
         }
     },
@@ -491,7 +491,7 @@ const members: Members = [
         socials: {
             main_social: Social.twitch,
             twitch: {
-                login: 'akuaina',
+                id: '280414694'
             },
         }
     },
@@ -501,7 +501,7 @@ const members: Members = [
         socials: {
             main_social: Social.twitch,
             twitch: {
-                login: 'minatoto009',
+                id: '66548640'
             },
         }
     },
@@ -511,7 +511,7 @@ const members: Members = [
         socials: {
             main_social: Social.twitch,
             twitch: {
-                login: 'aurelieannechristine',
+                id: '689515061'
             },
         }
     },

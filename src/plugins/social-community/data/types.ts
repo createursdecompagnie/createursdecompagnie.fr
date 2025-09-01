@@ -19,12 +19,13 @@ export const enum Group {
 
 export interface TwitchUserData {
     id: string;
+    login: string;
     display_name: string;
     profile_image_url: string;
 }
 
 export interface Twitch {
-    login: string;
+    id: string;
     user_data?: TwitchUserData;
 }
 

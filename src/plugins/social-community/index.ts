@@ -30,8 +30,8 @@ interface GlobalData {
 /**
  * Find a member by their Twitch login
  */
-function FindMemberByTwitchLogin(members: Members, login: string): Member | undefined {
-    return members.find(member => member.socials?.twitch?.login === login);
+function FindMemberByTwitchId(members: Members, id: string): Member | undefined {
+    return members.find(member => member.socials?.twitch?.id === id);
 }
 
 module.exports = function SocialCommunityPlugin(
@@ -79,7 +79,7 @@ module.exports = function SocialCommunityPlugin(
                 // Add login queries for each member with Twitch social
                 members.forEach(member => {
                     if (member.socials?.twitch) {
-                        req.query(`login=${member.socials.twitch.login}`);
+                        req.query(`id=${member.socials.twitch.id}`);
                     }
                 });
 
@@ -90,10 +90,11 @@ module.exports = function SocialCommunityPlugin(
 
                 const usersBody = usersResponse.body as TwitchUsersResponse;
                 usersBody.data.forEach(userData => {
-                    const member = FindMemberByTwitchLogin(members, userData.login);
+                    const member = FindMemberByTwitchId(members, userData.id);
                     if (member?.socials?.twitch) {
                         member.socials.twitch.user_data = {
                             id: userData.id,
+                            login: userData.login,
                             display_name: userData.display_name,
                             profile_image_url: userData.profile_image_url,
                         };
@@ -105,7 +106,7 @@ module.exports = function SocialCommunityPlugin(
             }
 
             // Generate avatars (development only)
-            if (process.env.NODE_ENV === 'development')
+            // if (process.env.NODE_ENV === 'development')
             {
                 const promises = members
                     .filter(member => member.socials?.twitch?.user_data)
@@ -116,7 +117,7 @@ module.exports = function SocialCommunityPlugin(
                                     .get(member.socials.twitch.user_data!.profile_image_url)
                                     .encoding(null)
                                     .header({
-                                        'x-login': member.socials.twitch.login
+                                        'x-login': member.socials.twitch.user_data.login
                                     })
                                     .then(resolve)
                                     .catch(resolve); // Resolve even on error to prevent Promise.all from failing
@@ -159,8 +160,8 @@ module.exports = function SocialCommunityPlugin(
             const memberGroups: Record<string, any[]> = {};
 
             members.forEach(member => {
-                const filePath = `/img/avatars/${member.socials?.twitch?.login}-100x100.png`;
-                if (member.socials?.twitch?.login && fs.existsSync(`./static${filePath}`)) {
+                const filePath = `/img/avatars/${member.socials?.twitch?.user_data.login}-100x100.png`;
+                if (member.socials?.twitch?.user_data.login && fs.existsSync(`./static${filePath}`)) {
                     member.avatar = filePath.replace("100x100", "300x300");
                 }
 
@@ -206,9 +207,6 @@ module.exports = function SocialCommunityPlugin(
             } catch (error) {
                 console.error('Failed to load 2024 planning data:', error);
             }
-
-            console.log(globalPlanning2022);
-            console.log(globalPlanning2024);
 
             // Set global data
             const { createData, setGlobalData, addRoute } = actions;
