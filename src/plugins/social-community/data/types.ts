@@ -1,4 +1,4 @@
-import { PluginOptions, RouteConfig } from '@docusaurus/types';
+import type { PluginOptions } from '@docusaurus/types';
 
 export const enum Social {
     twitch = 'twitch', 
@@ -7,46 +7,48 @@ export const enum Social {
     tiktok = 'tiktok', 
     youTube = 'youTube', 
     discord = 'discord'
-  }
+}
 
 export const enum Group {
     member = 'member', 
     sct = 'sct', 
-    cdc2022 = 'cdc2022'
-  }
+    cdc2022 = 'cdc2022',
+    playtogether2024 = 'playtogether2024',
+    cdc2025 = 'cdc2025'
+}
 
-export type TwitchUserData = {
+export interface TwitchUserData {
     id: string;
     display_name: string;
     profile_image_url: string;
-};
+}
 
-export type Twitch = {
+export interface Twitch {
     login: string;
     user_data?: TwitchUserData;
-};
+}
 
-export type Twitter = {
+export interface Twitter {
     id: string;
-};
+}
 
-export type Instagram = {
+export interface Instagram {
     id: string;
-};
+}
 
-export type TikTok = {
+export interface TikTok {
     id: string;
-};
+}
 
-export type YouTube = {
+export interface YouTube {
     link: string;
-};
+}
 
-export type Discord = {
+export interface Discord {
     link: string;
-};
+}
 
-export type Socials = {
+export interface Socials {
     main_social: Social;
     twitch?: Twitch;
     twitter?: Twitter;
@@ -54,21 +56,18 @@ export type Socials = {
     tiktok?: TikTok;
     youtube?: YouTube;
     discord?: Discord;
-};
+}
 
-export type Member = {
+export interface Member {
     name: string;
     avatar?: string;
     groups: Group[];
     socials?: Socials;
-};
+}
 
-export type Members = {
-    [index: number]: Member;
-};
+export type Members = Member[];
 
-export type SocialCommunityPluginOptions = PluginOptions & {
+export interface SocialCommunityPluginOptions extends PluginOptions {
     members: Members;
     module_key: string;
-    routes: RouteConfig[];
-};
+}

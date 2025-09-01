@@ -1,8 +1,14 @@
 import {themes as prismThemes} from 'prism-react-renderer';
-import type {Config} from '@docusaurus/types';
+import type {Config, PluginOptions} from '@docusaurus/types';
 import type * as Preset from '@docusaurus/preset-classic';
+import * as utils from '@docusaurus/utils';
+import path from 'path';
 
 // This runs in Node.js - Don't use client-side code here (browser APIs, JSX...)
+
+import members from './src/data/members';
+
+const baseUrl = '/';
 
 const config: Config = {
   title: 'Créateurs de Compagnie',
@@ -12,7 +18,7 @@ const config: Config = {
     v4: true,
   },
   url: 'https://createursdecompagnie.fr',
-  baseUrl: '/',
+  baseUrl: baseUrl,
   baseUrlIssueBanner: false,
   organizationName: 'createursdecompagnie',
   projectName: 'createursdecompagnie.fr',
@@ -165,6 +171,19 @@ const config: Config = {
         searchBarShortcutHint: false,
         language: ["fr"],
       } satisfies import("@easyops-cn/docusaurus-search-local").PluginOptions
+    ]
+  ],
+  plugins: [
+    [
+      require.resolve("./src/plugins/social-community"),
+      {
+        members: members,
+        module_key: 'members',
+        routes: [{
+          path: utils.normalizeUrl([baseUrl, '/']),
+          component: path.resolve('./src/pages/index/'),
+        }]
+      } satisfies import('./src/plugins/social-community/data/types').SocialCommunityPluginOptions
     ]
   ]
 };
