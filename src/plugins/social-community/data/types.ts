@@ -72,3 +72,9 @@ export interface SocialCommunityPluginOptions extends PluginOptions {
     members: Members;
     module_key: string;
 }
+
+export interface SocialCommunityPluginData {
+    planning2022: any[];
+    planning2024: any[];
+    members: Members;
+}

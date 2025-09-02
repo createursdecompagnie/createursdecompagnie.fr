@@ -4,7 +4,7 @@ require('dotenv/config');
 const fs = require('fs');
 const path = require('path');
 import type { LoadContext, Plugin } from '@docusaurus/types';
-import type { Members, Member, SocialCommunityPluginOptions } from './data/types';
+import type { Members, Member, SocialCommunityPluginOptions, SocialCommunityPluginData } from './data/types';
 
 interface TwitchAuthResponse {
     access_token: string;
@@ -19,12 +19,6 @@ interface TwitchUserData {
 
 interface TwitchUsersResponse {
     data: TwitchUserData[];
-}
-
-interface GlobalData {
-    planning2022: any[];
-    planning2024: any[];
-    members: Members;
 }
 
 /**
@@ -210,13 +204,13 @@ module.exports = function SocialCommunityPlugin(
 
             // Set global data
             const { createData, setGlobalData, addRoute } = actions;
-            const globalData: GlobalData = {
+            const socialCommunityPluginData: SocialCommunityPluginData = {
                 planning2022: globalPlanning2022,
                 planning2024: globalPlanning2024,
                 members: members
             };
             
-            setGlobalData(globalData);
+            setGlobalData(socialCommunityPluginData);
 
             // // Handle routes if provided
             // if (options.routes && options.module_key) {

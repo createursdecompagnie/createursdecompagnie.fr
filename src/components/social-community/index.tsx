@@ -5,7 +5,9 @@ import { usePluginData } from '@docusaurus/useGlobalData';
 import styles from './style.module.css';
 import useBaseUrl from '@docusaurus/useBaseUrl';
 
-// import Popup from 'reactjs-popup';
+import Popup from 'reactjs-popup';
+
+import { Social, Group, Member, SocialCommunityPluginData } from '@site/src/plugins/social-community/data/types';
 
 const ListSize = {
   // ExtraSmall: "sx",
@@ -22,50 +24,6 @@ const ImageType = {
 
 type ListSizeType = typeof ListSize[keyof typeof ListSize];
 type ImageTypeType = typeof ImageType[keyof typeof ImageType];
-
-// Types basés sur les types.ts du plugin
-type Social = 'twitch' | 'twitter' | 'instagram' | 'tiktok' | 'youtube' | 'discord';
-type Group = 'member' | 'sct' | 'cdc2022' | 'playtogether2024';
-
-interface TwitchUserData {
-  id: string;
-  display_name: string;
-  profile_image_url: string;
-}
-
-interface Twitch {
-  login: string;
-  user_data?: TwitchUserData;
-}
-
-interface SocialMedia {
-  id?: string;
-  link?: string;
-}
-
-interface Socials {
-  main_social: Social;
-  twitch?: Twitch;
-  twitter?: SocialMedia;
-  instagram?: SocialMedia;
-  tiktok?: SocialMedia;
-  youtube?: SocialMedia;
-  discord?: SocialMedia;
-}
-
-interface Member {
-  name: string;
-  avatar?: string;
-  groups: Group[];
-  socials?: Socials;
-}
-
-// Interface pour les données globales du plugin
-interface SocialCommunityPluginData {
-  members: Member[];
-  planning2022?: any[];
-  planning2024?: any[];
-}
 
 interface CommunityListProps {
   className?: string;
@@ -117,7 +75,7 @@ function MemberAvatarUrl(member: Member, size: ListSizeType = ListSize.Medium, t
     if (!url) {
       if (member.socials && type === ImageType.other) {
         switch (member.socials.main_social) {
-          case 'twitch':
+          case Social.twitch:
             if (member.socials.twitch && member.socials.twitch.user_data) {
               switch (size) {
                 case ListSize.Medium:
@@ -139,31 +97,34 @@ function MemberAvatarUrl(member: Member, size: ListSizeType = ListSize.Medium, t
 function MemberSocialLink(member: Member): string {
   if (member && member.socials) {
     switch (member.socials.main_social) {
-      case 'twitch':
+      case Social.twitch:
         if (member.socials.twitch && member.socials.twitch.user_data) {
-          return 'https://www.twitch.tv/' + member.socials.twitch.login;
+          return 'https://www.twitch.tv/' + member.socials.twitch.user_data.login;
         }
         break;
-      case 'twitter':
+      case Social.twitter:
         if (member.socials.twitter && member.socials.twitter.id) {
           return 'https://twitter.com/' + member.socials.twitter.id;
         }
         break;
-      case 'instagram':
+      case Social.instagram:
         if (member.socials.instagram && member.socials.instagram.id) {
           return 'https://www.instagram.com/' + member.socials.instagram.id;
         }
         break;
-      case 'tiktok':
+      case Social.tiktok:
         if (member.socials.tiktok && member.socials.tiktok.id) {
           return 'https://www.tiktok.com/@' + member.socials.tiktok.id;
         }
         break;
-      case 'youtube':
-      case 'discord':
-        const socialMedia = member.socials[member.socials.main_social];
-        if (socialMedia && socialMedia.link) {
-          return socialMedia.link;
+      case Social.youTube:
+        if (member.socials.youtube && member.socials.youtube.link) {
+          return member.socials.youtube.link;
+        }
+        break;
+      case Social.discord:
+        if (member.socials.discord && member.socials.discord.link) {
+          return member.socials.discord.link;
         }
         break;
     }
@@ -172,13 +133,29 @@ function MemberSocialLink(member: Member): string {
   return "#";
 }
 
+
+function MemberDisplayName(member:Member):string {
+
+  if (member && member.socials) {
+    switch (member.socials.main_social) {
+      case Social.twitch:
+        if (member.socials.twitch && member.socials.twitch.user_data) {
+          return member.socials.twitch.user_data.display_name;
+        }
+        break;
+    }
+  }
+
+  return member.name;
+}
+
 function MemberPicture({ member, size = ListSize.Medium, offsetX = 0 }: MemberPictureProps): ReactNode {
   const avatarUrlWebp = MemberAvatarUrl(member, size, ImageType.webp);
   const avatarUrl = MemberAvatarUrl(member, size, ImageType.other);
   
   return (
     <>
-      {/* {member && (avatarUrlWebp || avatarUrl) && (
+      {member && (avatarUrlWebp || avatarUrl) && (
         <Popup
           trigger={
             <a href={MemberSocialLink(member)} className={clsx(styles.communityMember, styles["communityMember-" + size])}>
@@ -190,7 +167,7 @@ function MemberPicture({ member, size = ListSize.Medium, offsetX = 0 }: MemberPi
                   {avatarUrl && (
                     <source srcSet={avatarUrl} />
                   )}
-                  <img className="avatar__photo" alt={member.name} src={useBaseUrl('/img/avatars/default.png')} loading='lazy' />
+                  <img className="avatar__photo" alt={MemberDisplayName(member)} src={useBaseUrl('/img/avatars/default.png')} loading='lazy' />
                 </picture>
               </div>
             </a>
@@ -203,9 +180,9 @@ function MemberPicture({ member, size = ListSize.Medium, offsetX = 0 }: MemberPi
           offsetX={offsetX}
           disabled={size === ListSize.Medium}
         >
-          <span>{member.name}</span>
+          <span>{MemberDisplayName(member)}</span>
         </Popup>
-      )} */}
+      )}
     </>
   );
 }
@@ -222,7 +199,6 @@ function CommunityList(props: CommunityListProps): ReactNode {
   
   const members = pluginData?.members || [];
   
-  // Si aucune donnée n'est disponible, afficher un message ou retourner null
   if (members.length === 0) {
     return (
       <div className={props.className}>
@@ -241,11 +217,11 @@ function CommunityList(props: CommunityListProps): ReactNode {
         </div>
       ))}
       {props.members?.map((m) => {
-        const member = members.find(item => item.socials?.twitch?.login === m);
+        const member = members.find(item => item.socials?.twitch?.user_data.login === m);
         if (member) {
           return (
             <div key={member.name}>
-              {(props.members && props.members.includes(member.socials?.twitch?.login || '')) && (
+              {(props.members && props.members.includes(member.socials?.twitch?.user_data.login || '')) && (
                 <MemberPicture member={member} size={props.size} offsetX={props.offsetX} />
               )}
             </div>
