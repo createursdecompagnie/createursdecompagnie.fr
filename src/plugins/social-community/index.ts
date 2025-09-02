@@ -1,4 +1,3 @@
-const unirest = require('unirest');
 require('dotenv/config');
 
 const fs = require('fs');
@@ -28,6 +27,94 @@ function FindMemberByTwitchId(members: Members, id: string): Member | undefined 
     return members.find(member => member.socials?.twitch?.id === id);
 }
 
+/**
+ * Authenticate with Twitch API using client credentials
+ */
+async function authenticateWithTwitch(): Promise<string> {
+    const authParams = new URLSearchParams({
+        client_id: process.env.TWITCH_CLIENTID!,
+        client_secret: process.env.TWITCH_CLIENTSECRET!,
+        grant_type: 'client_credentials'
+    });
+
+    const response = await fetch('https://id.twitch.tv/oauth2/token', {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/x-www-form-urlencoded',
+        },
+        body: authParams
+    });
+
+    if (!response.ok) {
+        throw new Error(`Unable to authenticate with Twitch: ${response.status} ${response.statusText}`);
+    }
+
+    const authData: TwitchAuthResponse = await response.json();
+    if (!authData.access_token) {
+        throw new Error('Unable to get app access token');
+    }
+
+    return authData.access_token;
+}
+
+/**
+ * Fetch Twitch users data
+ */
+async function fetchTwitchUsers(members: Members, accessToken: string): Promise<TwitchUsersResponse> {
+    const userIds = members
+        .filter(member => member.socials?.twitch?.id)
+        .map(member => member.socials!.twitch!.id);
+
+    if (userIds.length === 0) {
+        return { data: [] };
+    }
+
+    const url = new URL('https://api.twitch.tv/helix/users');
+    userIds.forEach(id => url.searchParams.append('id', id));
+
+    const response = await fetch(url, {
+        headers: {
+            'Client-Id': process.env.TWITCH_CLIENTID!,
+            'Authorization': `Bearer ${accessToken}`
+        }
+    });
+
+    if (!response.ok) {
+        throw new Error(`Unable to collect Twitch users: ${response.status} ${response.statusText}`);
+    }
+
+    return response.json();
+}
+
+/**
+ * Download and process avatar image
+ */
+async function downloadAndProcessAvatar(imageUrl: string, login: string): Promise<void> {
+    try {
+        const response = await fetch(imageUrl);
+        if (!response.ok) {
+            throw new Error(`Failed to download avatar for ${login}: ${response.status}`);
+        }
+
+        const imageBuffer = Buffer.from(await response.arrayBuffer());
+        const sharp = require('sharp');
+        const basePath = './static/img/avatars/';
+
+        // Ensure directory exists
+        fs.mkdirSync(basePath, { recursive: true });
+
+        // Process images in different sizes and formats
+        await Promise.all([
+            sharp(imageBuffer).resize(100).toFile(`${basePath}${login}-100x100.png`),
+            sharp(imageBuffer).resize(100).toFile(`${basePath}${login}-100x100.webp`),
+            sharp(imageBuffer).resize(50).toFile(`${basePath}${login}-50x50.png`),
+            sharp(imageBuffer).resize(50).toFile(`${basePath}${login}-50x50.webp`),
+        ]);
+    } catch (error) {
+        console.error(`Failed to process avatar for ${login}:`, error);
+    }
+}
+
 module.exports = function SocialCommunityPlugin(
     context: LoadContext, 
     options: SocialCommunityPluginOptions
@@ -36,54 +123,16 @@ module.exports = function SocialCommunityPlugin(
         name: 'social-community-plugin',
         async contentLoaded({ content, actions }) {
             const members: Members = options.members;
-            let TWITCH_APP_TOKEN: string | null = null;
 
-            // Authenticate with Twitch API
             try {
-                const authResponse = await unirest
-                    .post("https://id.twitch.tv/oauth2/token")
-                    .send(`client_id=${process.env.TWITCH_CLIENTID}`)
-                    .send(`client_secret=${process.env.TWITCH_CLIENTSECRET}`)
-                    .send(`grant_type=client_credentials`);
+                // Authenticate with Twitch API
+                const accessToken = await authenticateWithTwitch();
 
-                if (authResponse.error) {
-                    throw new Error(`Unable to authenticate with Twitch: ${authResponse.error}`);
-                }
-
-                const authBody = authResponse.body as TwitchAuthResponse;
-                if (!authBody.access_token) {
-                    throw new Error(`Unable to get app access token`);
-                }
-
-                TWITCH_APP_TOKEN = authBody.access_token;
-            } catch (error) {
-                console.error('Twitch authentication failed:', error);
-                throw error;
-            }
-
-            // Get users list from Twitch
-            try {
-                const req = unirest
-                    .get("https://api.twitch.tv/helix/users")
-                    .headers({
-                        'Client-Id': process.env.TWITCH_CLIENTID as string,
-                        'Authorization': `Bearer ${TWITCH_APP_TOKEN}`
-                    });
-
-                // Add login queries for each member with Twitch social
-                members.forEach(member => {
-                    if (member.socials?.twitch) {
-                        req.query(`id=${member.socials.twitch.id}`);
-                    }
-                });
-
-                const usersResponse = await req;
-                if (usersResponse.error) {
-                    throw new Error(`Unable to collect Twitch users: ${usersResponse.error}`);
-                }
-
-                const usersBody = usersResponse.body as TwitchUsersResponse;
-                usersBody.data.forEach(userData => {
+                // Get users list from Twitch
+                const usersData = await fetchTwitchUsers(members, accessToken);
+                
+                // Update member data with Twitch user information
+                usersData.data.forEach(userData => {
                     const member = FindMemberByTwitchId(members, userData.id);
                     if (member?.socials?.twitch) {
                         member.socials.twitch.user_data = {
@@ -94,78 +143,43 @@ module.exports = function SocialCommunityPlugin(
                         };
                     }
                 });
-            } catch (error) {
-                console.error('Failed to fetch Twitch users:', error);
-                throw error;
-            }
 
-            // Generate avatars (development only)
-            // if (process.env.NODE_ENV === 'development')
-            {
-                const promises = members
+                if (process.env.NODE_ENV === 'development')
+                {
+                    const avatarPromises = members
                     .filter(member => member.socials?.twitch?.user_data)
                     .map(member => {
-                        if (member.socials?.twitch?.user_data) {
-                            return new Promise<any>((resolve) => {
-                                unirest
-                                    .get(member.socials.twitch.user_data!.profile_image_url)
-                                    .encoding(null)
-                                    .header({
-                                        'x-login': member.socials.twitch.user_data.login
-                                    })
-                                    .then(resolve)
-                                    .catch(resolve); // Resolve even on error to prevent Promise.all from failing
-                            });
-                        }
-                        return Promise.resolve(null);
+                        const twitchData = member.socials!.twitch!.user_data!;
+                        return downloadAndProcessAvatar(twitchData.profile_image_url, twitchData.login);
                     });
 
-                try {
-                    const results = await Promise.all(promises);
-                    const sharp = require('sharp');
-
-                    const imageProcessingPromises = results
-                        .filter((response): response is NonNullable<typeof response> => 
-                            response?.raw_body != null
-                        )
-                        .map(async (response) => {
-                            const login = response.request.headers['x-login'] as string;
-                            const basePath = './static/img/avatars/';
-                            
-                            try {
-                                await Promise.all([
-                                    sharp(response.raw_body).resize(100).toFile(`${basePath}${login}-100x100.png`),
-                                    sharp(response.raw_body).resize(100).toFile(`${basePath}${login}-100x100.webp`),
-                                    sharp(response.raw_body).resize(50).toFile(`${basePath}${login}-50x50.png`),
-                                    sharp(response.raw_body).resize(50).toFile(`${basePath}${login}-50x50.webp`),
-                                ]);
-                            } catch (error) {
-                                console.error(`Failed to process avatar for ${login}:`, error);
-                            }
-                        });
-
-                    await Promise.all(imageProcessingPromises);
-                } catch (error) {
-                    console.error('Failed to process avatars:', error);
+                    await Promise.all(avatarPromises);
                 }
+
+            } catch (error) {
+                console.error('Twitch API operations failed:', error);
+                // Continue with the rest of the plugin logic even if Twitch operations fail
             }
 
             // Create member groups
             const memberGroups: Record<string, any[]> = {};
 
             members.forEach(member => {
-                const filePath = `/img/avatars/${member.socials?.twitch?.user_data.login}-100x100.png`;
-                if (member.socials?.twitch?.user_data.login && fs.existsSync(`./static${filePath}`)) {
-                    member.avatar = filePath.replace("100x100", "300x300");
-                }
+                const login = member.socials?.twitch?.user_data?.login;
+                if (login) {
+                    const filePath = `/img/avatars/${login}-100x100.png`;
+                    if (fs.existsSync(`./static${filePath}`)) {
+                        member.avatar = filePath.replace("100x100", "300x300");
+                    }
 
-                if (member.socials?.twitch?.user_data) {
-                    member.groups.forEach(group => {
-                        if (!memberGroups[group]) {
-                            memberGroups[group] = [];
-                        }
-                        memberGroups[group].push(member.socials.twitch);
-                    });
+                    if (member.socials?.twitch?.user_data) {
+                        member.groups.forEach(group => {
+                            if (!memberGroups[group]) {
+                                memberGroups[group] = [];
+                            }
+                            memberGroups[group].push(member.socials.twitch);
+                        });
+                    }
                 }
             });
 
@@ -211,18 +225,6 @@ module.exports = function SocialCommunityPlugin(
             };
             
             setGlobalData(socialCommunityPluginData);
-
-            // // Handle routes if provided
-            // if (options.routes && options.module_key) {
-            //     options.routes.forEach(route => {
-            //         if (!route.modules) {
-            //             route.modules = {};
-            //         }
-            //         // Note: This would need the actual data path if using createData
-            //         // route.modules[options.module_key] = membersDataJsonPath;
-            //         addRoute(route);
-            //     });
-            // }
         },
     };
 };
