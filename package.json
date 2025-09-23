@@ -24,7 +24,8 @@
     "react": "^19.0.0",
     "react-countdown": "^2.3.6",
     "react-dom": "^19.0.0",
-    "reactjs-popup": "^2.0.6"
+    "reactjs-popup": "^2.0.6",
+    "seedrandom": "^3.0.5"
   },
   "devDependencies": {
     "@docusaurus/module-type-aliases": "3.8.1",
