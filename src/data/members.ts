@@ -14,7 +14,7 @@ const members: Members = [
     },
     {
         name: 'MisterNooton',
-        groups: [Group.member, Group.sct, Group.cdc2022, Group.playtogether2024],
+        groups: [Group.member, Group.sct, Group.cdc2022, Group.playtogether2024, Group.cdc2025],
         socials: {
             main_social: Social.twitch,
             twitch: {

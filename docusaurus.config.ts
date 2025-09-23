@@ -113,6 +113,10 @@ const config: Config = {
           title: 'Nos évènements',
           items: [
             {
+              label: 'PlayTogether',
+              to: '/evenement/playtogether2024',
+            },
+            {
               label: 'CDC 2022',
               href: '/evenement/cdc2022',
             },
