@@ -56,10 +56,6 @@ const config: Config = {
           label: 'Le collectif',
           to: '/le-collectif',
         },
-        {
-          label: 'PlayTogether',
-          to: '/evenement/playtogether2024',
-        },
         // {
         //   type: 'dropdown',
         //   label: 'CDC 2022',
@@ -81,6 +77,10 @@ const config: Config = {
           label: 'Évènements passés',
           position: 'left',
           items: [
+            {
+              label: 'PlayTogether',
+              to: '/evenement/playtogether2024',
+            },
             {
               label: 'CDC 2022',
               to: '/evenement/cdc2022',

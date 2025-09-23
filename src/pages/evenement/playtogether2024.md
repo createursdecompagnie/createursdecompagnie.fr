@@ -16,6 +16,9 @@ import { CommunityListEvent } from '/src/components/social-community'
       </a>
     </li>
     <li className="breadcrumbs__item">
+      <span className="breadcrumbs__link">Évènements passés</span>
+    </li>
+    <li className="breadcrumbs__item">
       <a className="breadcrumbs__link" href="/evenement/playtogether2024">PlayTogether</a>
     </li>
   </ul>
