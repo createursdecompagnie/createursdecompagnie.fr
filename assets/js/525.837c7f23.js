@@ -1,1 +1,0 @@
-(self.webpackChunkcreateursdecompagnie_fr=self.webpackChunkcreateursdecompagnie_fr||[]).push([[525],{5525:()=>{}}]);
