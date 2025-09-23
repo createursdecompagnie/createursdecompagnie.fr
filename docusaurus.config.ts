@@ -56,22 +56,10 @@ const config: Config = {
           label: 'Le collectif',
           to: '/le-collectif',
         },
-        // {
-        //   type: 'dropdown',
-        //   label: 'CDC 2022',
-        //   // to: '/evenement/cdc2022',
-        //   position: 'left',
-        //   items: [
-        //     {
-        //       label: 'À propos',
-        //       to: '/evenement/cdc2022/a-propos',
-        //     },
-        //     {
-        //       label: 'Le planning',
-        //       to: '/evenement/cdc2022/planning',
-        //     },
-        //   ],
-        // },
+        {
+          label: 'CDC 2025',
+          to: '/evenement/cdc2025',
+        },
         {
           type: 'dropdown',
           label: 'Évènements passés',
@@ -112,6 +100,10 @@ const config: Config = {
         {
           title: 'Nos évènements',
           items: [
+            {
+              label: 'CDC 2025',
+              href: '/evenement/cdc2025',
+            },
             {
               label: 'PlayTogether',
               to: '/evenement/playtogether2024',

@@ -31,7 +31,7 @@ function HomepageHeader(): ReactNode {
               <Link className={clsx('button button--secondary button--outline button--lg margin-top--md', styles.buttonSecondary, styles.buttonSizeFixed)} to="/le-collectif">En savoir plus...</Link>
             </div>
           </div>
-          {/* <div className="col col--6">
+          <div className="col col--6">
             <div className="hero__video padding-top--xs">
               <video
                 width="100%"
@@ -39,12 +39,12 @@ function HomepageHeader(): ReactNode {
                 id={"home-video-player"}
                 className={styles.videoplayer}
               >
-                <source src="video/cdc2022/teaser.webm" type="video/webm" />
-                <source src="video/cdc2022/teaser.mp4" type="video/mp4" />
+                <source src="video/cdc2025/teaser.webm" type="video/webm" />
+                <source src="video/cdc2025/teaser.mp4" type="video/mp4" />
                 Your browser does not support the video tag.
               </video>
             </div>
-          </div> */}
+          </div>
         </div>
       </div>
     </header>
@@ -78,19 +78,19 @@ const renderCountdown = ({ formatted, completed }: CountdownRendererProps): Reac
   }
 };
 
-function HomepageCDC2022(): ReactNode {
+function HomepageCDC2025(): ReactNode {
   return (
     <div className="container padding-top--lg  padding-bottom--lg text--center">
-      <h2 className="margin-bottom--none"><a href="/evenement/cdc2022/a-propos">CDC 2022</a></h2>
-      <p>du 21 au 23 octobre</p>
+      <h2 className="margin-bottom--none"><a href="/evenement/cdc2025">CDC 2025</a></h2>
+      <p>du 7 au 9 novembre</p>
       <div className="row margin-top--lg">
         <div className="col margin-bottom--md">
           <ThemedImage
             className={styles.eventImage}
             alt="Docusaurus themed image" width={318} height={200}
             sources={{
-              light: useBaseUrl('img/cdc2022/home_event_digital.svg'),
-              dark: useBaseUrl('img/cdc2022/home_event_digital-dark.svg'),
+              light: useBaseUrl('img/home/event_digital.svg'),
+              dark: useBaseUrl('img/home/event_digital-dark.svg'),
             }}
             loading='lazy'
           />
@@ -102,98 +102,39 @@ function HomepageCDC2022(): ReactNode {
             className={styles.eventImage}
             alt="Docusaurus themed image" width={318} height={200}
             sources={{
-              light: useBaseUrl('img/cdc2022/home_event_petcare.svg'),
-              dark: useBaseUrl('img/cdc2022/home_event_petcare-dark.svg'),
+              light: useBaseUrl('img/home/event_petcare.svg'),
+              dark: useBaseUrl('img/home/event_petcare-dark.svg'),
             }}
             loading='lazy'
           />
           <h3 className={clsx('padding-vert--none margin-vert--none', styles.eventHeading)}>Pour la protection animale</h3>
-          <p className="padding-horiz--md">au profit de l'association <a href="https://hirondelle.ovh">l'Hirondelle</a>.</p>
+          <p className="padding-horiz--md">au profit de l'association <a href="https://www.potironfamily.fr/">Potiron Family</a>.</p>
         </div>
         <div className="col padding-bottom--md">
           <ThemedImage
             className={styles.eventImage}
             alt="Docusaurus themed image" width={318} height={200}
             sources={{
-              light: useBaseUrl('img/cdc2022/home_event_calendar.svg'),
-              dark: useBaseUrl('img/cdc2022/home_event_calendar-dark.svg'),
+              light: useBaseUrl('img/home/event_calendar.svg'),
+              dark: useBaseUrl('img/home/event_calendar-dark.svg'),
             }}
             loading='lazy'
           />
-          <h3 className={clsx('padding-vert--none margin-vert--none', styles.eventHeading)}>Diffusé sur Twitch</h3>
-          <p className="padding-horiz--md">pendant <a href="/evenement/cdc2022/planning">tout le week-end</a>.</p>
+          <h3 className={clsx('padding-vert--none margin-vert--none', styles.eventHeading)}>Diffusé sur internet</h3>
+          <p className="padding-horiz--md">pendant <a href="/evenement/cdc2025#le-planning">tout le week-end</a>.</p>
         </div>
       </div>
-      <a className="button button--lg button--primary" href="https://streamlabscharity.com/teams/@createurs-de-compagnie/cdc2022">Faire un don pour l'Hirondelle</a>
+      {/* <a className="button button--lg button--primary" href="https://streamlabscharity.com/teams/@createurs-de-compagnie-2025/cdc2025">Faire un don pour Potiron Family</a> */}
+      <a className="button button--primary button--lg" href="https://chk.me/onvgyRM">S'inscrire à l'évènement</a>
       <h3 className="margin-top--lg margin-bottom--md">Le Live</h3>
       <Countdown
-        date="2026-10-21T16:00:00.000Z"
+        date="2025-11-07T16:00:00.000Z"
         renderer={renderCountdown}
       />
       <h3 className="margin-top--lg margin-bottom--md">Les participant-es</h3>
       <div className="margin-bottom--md">
-        <CommunityListHome group='cdc2022' />
+        <CommunityListHome group='cdc2025' />
       </div>
-    </div>
-  );
-}
-
-function HomepagePT2024(): ReactNode {
-  return (
-    <div className="container padding-top--lg  padding-bottom--lg text--center">
-      <h2 className="margin-bottom--none"><a href="/evenement/playtogether2024">PlayTogether</a></h2>
-      <p>"Édition Spéciale"<br/>du 8 au 10 novembre</p>
-      <div className="row margin-top--lg">
-        <div className="col margin-bottom--md">
-          <ThemedImage
-            className={styles.eventImage}
-            alt="Docusaurus themed image" width={318} height={200}
-            sources={{
-              light: useBaseUrl('img/cdc2022/home_event_digital.svg'),
-              dark: useBaseUrl('img/cdc2022/home_event_digital-dark.svg'),
-            }}
-            loading='lazy'
-          />
-          <h3 className={clsx('padding-vert--none margin-vert--none', styles.eventHeading)}>Un weekend spécial</h3>
-          <p className="padding-horiz--md">organisé par <a href="/le-collectif">Créateurs de Compagnie</a>.<br /></p>
-        </div>
-        <div className="col padding-bottom--md">
-          <ThemedImage
-            className={styles.eventImage}
-            alt="Docusaurus themed image" width={318} height={200}
-            sources={{
-              light: useBaseUrl('img/cdc2022/home_event_petcare.svg'),
-              dark: useBaseUrl('img/cdc2022/home_event_petcare-dark.svg'),
-            }}
-            loading='lazy'
-          />
-          <h3 className={clsx('padding-vert--none margin-vert--none', styles.eventHeading)}>Pour la protection animale</h3>
-          <p className="padding-horiz--md">au profit de l'association <a href="https://hirondelle.ovh">l'Hirondelle</a>.</p>
-        </div>
-        <div className="col padding-bottom--md">
-          <ThemedImage
-            className={styles.eventImage}
-            alt="Docusaurus themed image" width={318} height={200}
-            sources={{
-              light: useBaseUrl('img/cdc2022/home_event_calendar.svg'),
-              dark: useBaseUrl('img/cdc2022/home_event_calendar-dark.svg'),
-            }}
-            loading='lazy'
-          />
-          <h3 className={clsx('padding-vert--none margin-vert--none', styles.eventHeading)}>Diffusé sur Twitch</h3>
-          <p className="padding-horiz--md">pendant <a href="/evenement/playtogether2024">tout le week-end</a>.</p>
-        </div>
-      </div>
-      <a className="button button--lg button--primary" href="https://streamlabscharity.com/teams/@noot-x-cdc/playtogether-by-nooton-x-cdc">Faire un don pour l'Hirondelle</a>
-      <h3 className="margin-top--lg margin-bottom--md">Le Live</h3>
-      {/* <Countdown
-        date="2024-11-08T17:00:00.000Z"
-        renderer={renderCountdown}
-      />
-      <h3 className="margin-top--lg margin-bottom--md">Les participant-es</h3>
-      <div className="margin-bottom--md">
-        <CommunityListHome group='playtogether2024' />
-      </div> */}
     </div>
   );
 }
@@ -203,7 +144,7 @@ export default function Home(): ReactNode {
     <Layout
       description="Créateurs de Compagnie est une association de fait regroupant des passionnés autour du bien-être animal">
       <HomepageHeader />
-      <HomepageMembers />
+      <HomepageCDC2025 />
     </Layout>
   );
 }
