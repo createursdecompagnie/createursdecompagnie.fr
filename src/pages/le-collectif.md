@@ -37,6 +37,7 @@ import { CommunityListEvent } from '/src/components/social-community'
 
 ## Les évènements
 
+- [***CDC 2025***](/evenement/cdc2025) du **7 au 9 novembre 2025** pour l'association <a href="https://www.potironfamily.fr">***Potiron Family***</a>
 - [***PlayTogether "Édition Spéciale"***](/evenement/playtogether2024) du **8 au 10 novembre 2024** pour l'association <a href="https://hirondelle.ovh">***L'Hirondelle***</a>
 - [***CDC 2022***](/evenement/cdc2022) du **21 au 23 octobre 2022** pour l'association <a href="https://hirondelle.ovh">***L'Hirondelle***</a> : **17 300 €** de récoltés
 - [***Sans Croquettes Twitch***](/evenement/sans-croquettes-twitch) du **21 au 24 mai 2021** pour l'association [***Sans Croquettes Fixes***](https://sanscroquettesfixes.fr) : **12 200 €** de récoltés
