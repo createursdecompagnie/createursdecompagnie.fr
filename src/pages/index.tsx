@@ -203,7 +203,7 @@ export default function Home(): ReactNode {
     <Layout
       description="Créateurs de Compagnie est une association de fait regroupant des passionnés autour du bien-être animal">
       <HomepageHeader />
-      <HomepageCDC2022 />
+      <HomepageMembers />
     </Layout>
   );
 }
