@@ -80,62 +80,72 @@ const renderCountdown = ({ formatted, completed }: CountdownRendererProps): Reac
 
 function HomepageCDC2025(): ReactNode {
   return (
-    <div className="container padding-top--lg  padding-bottom--lg text--center">
-      <h2 className="margin-bottom--none"><a href="/evenement/cdc2025">CDC 2025</a></h2>
-      <p>du 7 au 9 novembre</p>
-      <div className="row margin-top--lg">
-        <div className="col margin-bottom--md">
-          <ThemedImage
-            className={styles.eventImage}
-            alt="Docusaurus themed image" width={318} height={200}
-            sources={{
-              light: useBaseUrl('img/home/event_digital.svg'),
-              dark: useBaseUrl('img/home/event_digital-dark.svg'),
-            }}
-            loading='lazy'
-          />
-          <h3 className={clsx('padding-vert--none margin-vert--none', styles.eventHeading)}>Un évènement caritatif</h3>
-          <p className="padding-horiz--md">organisé par <a href="/le-collectif">Créateurs de Compagnie</a>.<br /></p>
+    <>
+      <div className="container padding-top--xl  padding-bottom--lg text--center">
+        <h2 className="margin-bottom--none"><a href="/evenement/cdc2025">CDC 2025</a></h2>
+        <p>du 7 au 9 novembre</p>
+        <div className="row margin-top--lg">
+          <div className="col margin-bottom--md">
+            <ThemedImage
+              className={styles.eventImage}
+              alt="Docusaurus themed image" width={318} height={200}
+              sources={{
+                light: useBaseUrl('img/home/event_digital.svg'),
+                dark: useBaseUrl('img/home/event_digital-dark.svg'),
+              }}
+              loading='lazy'
+            />
+            <h3 className={clsx('padding-vert--none margin-vert--none', styles.eventHeading)}>Un évènement caritatif</h3>
+            <p className="padding-horiz--md">organisé par <a href="/le-collectif">Créateurs de Compagnie</a>.<br /></p>
+          </div>
+          <div className="col padding-bottom--md">
+            <ThemedImage
+              className={styles.eventImage}
+              alt="Docusaurus themed image" width={318} height={200}
+              sources={{
+                light: useBaseUrl('img/home/event_petcare.svg'),
+                dark: useBaseUrl('img/home/event_petcare-dark.svg'),
+              }}
+              loading='lazy'
+            />
+            <h3 className={clsx('padding-vert--none margin-vert--none', styles.eventHeading)}>Pour la protection animale</h3>
+            <p className="padding-horiz--md">au profit de l'association <a href="https://www.potironfamily.fr/">Potiron Family</a>.</p>
+          </div>
+          <div className="col padding-bottom--md">
+            <ThemedImage
+              className={styles.eventImage}
+              alt="Docusaurus themed image" width={318} height={200}
+              sources={{
+                light: useBaseUrl('img/home/event_calendar.svg'),
+                dark: useBaseUrl('img/home/event_calendar-dark.svg'),
+              }}
+              loading='lazy'
+            />
+            <h3 className={clsx('padding-vert--none margin-vert--none', styles.eventHeading)}>Diffusé sur internet</h3>
+            <p className="padding-horiz--md">pendant <a href="/evenement/cdc2025#le-planning">tout le week-end</a>.</p>
+          </div>
         </div>
-        <div className="col padding-bottom--md">
-          <ThemedImage
-            className={styles.eventImage}
-            alt="Docusaurus themed image" width={318} height={200}
-            sources={{
-              light: useBaseUrl('img/home/event_petcare.svg'),
-              dark: useBaseUrl('img/home/event_petcare-dark.svg'),
-            }}
-            loading='lazy'
-          />
-          <h3 className={clsx('padding-vert--none margin-vert--none', styles.eventHeading)}>Pour la protection animale</h3>
-          <p className="padding-horiz--md">au profit de l'association <a href="https://www.potironfamily.fr/">Potiron Family</a>.</p>
-        </div>
-        <div className="col padding-bottom--md">
-          <ThemedImage
-            className={styles.eventImage}
-            alt="Docusaurus themed image" width={318} height={200}
-            sources={{
-              light: useBaseUrl('img/home/event_calendar.svg'),
-              dark: useBaseUrl('img/home/event_calendar-dark.svg'),
-            }}
-            loading='lazy'
-          />
-          <h3 className={clsx('padding-vert--none margin-vert--none', styles.eventHeading)}>Diffusé sur internet</h3>
-          <p className="padding-horiz--md">pendant <a href="/evenement/cdc2025#le-planning">tout le week-end</a>.</p>
-        </div>
+        <a className="button button--primary button--lg" href="https://chk.me/onvgyRM">S'inscrire à l'évènement</a>
+        {/* <a className="button button--lg button--primary" href="https://streamlabscharity.com/teams/@createurs-de-compagnie-2025/cdc2025">Faire un don pour Potiron Family</a> */}
       </div>
-      {/* <a className="button button--lg button--primary" href="https://streamlabscharity.com/teams/@createurs-de-compagnie-2025/cdc2025">Faire un don pour Potiron Family</a> */}
-      <a className="button button--primary button--lg" href="https://chk.me/onvgyRM">S'inscrire à l'évènement</a>
-      <h3 className="margin-top--lg margin-bottom--md">Le Live</h3>
-      <Countdown
-        date="2025-11-07T16:00:00.000Z"
-        renderer={renderCountdown}
-      />
-      <h3 className="margin-top--lg margin-bottom--md">Les participant-es</h3>
-      <div className="margin-bottom--md">
-        <CommunityListHome group='cdc2025' />
+
+    <div className={styles.separatorBlock}>
+      <div className="container text--center">
+        <h3 className="margin-top--lg margin-bottom--md">Le Live</h3>
+        <Countdown
+          date="2025-11-07T16:00:00.000Z"
+          renderer={renderCountdown}
+        />
       </div>
     </div>
+
+      <div className="container text--center margin-bottom--xl">
+        <h3 className="margin-top--lg margin-bottom--md">Les participant-es</h3>
+        <div className="margin-bottom--md">
+          <CommunityListHome group='cdc2025' />
+        </div>
+      </div>
+    </>
   );
 }
 
