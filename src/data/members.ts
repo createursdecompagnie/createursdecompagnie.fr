@@ -665,6 +665,26 @@ const members: Members = [
             },
         }
     },
+    {
+        name: 'FlavienSR',
+        groups: [Group.cdc2025],
+        socials: {
+            main_social: Social.twitch,
+            twitch: {
+                id: '405413203'
+            },
+        }
+    },
+    {
+        name: 'Qentiko',
+        groups: [Group.cdc2025],
+        socials: {
+            main_social: Social.twitch,
+            twitch: {
+                id: '106179685'
+            },
+        }
+    },
 ] as const;
 
 export default members;
