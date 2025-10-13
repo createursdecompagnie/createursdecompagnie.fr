@@ -98,7 +98,7 @@ function MemberSocialLink(member: Member): string {
   if (member && member.socials) {
     switch (member.socials.main_social) {
       case Social.twitch:
-        if (member.socials.twitch && member.socials.twitch.user_data) {
+        if (member.socials.twitch && member.socials.twitch.user_data && member.socials.twitch.user_data.login) {
           return 'https://www.twitch.tv/' + member.socials.twitch.user_data.login;
         }
         break;
@@ -217,11 +217,11 @@ function CommunityList(props: CommunityListProps): ReactNode {
         </div>
       ))}
       {props.members?.map((m) => {
-        const member = members.find(item => item.socials?.twitch?.user_data.login === m);
+        const member = members.find(item => (item.socials?.twitch?.user_data != null && item.socials?.twitch?.user_data.login === m));
         if (member) {
           return (
             <div key={member.name}>
-              {(props.members && props.members.includes(member.socials?.twitch?.user_data.login || '')) && (
+              {(props.members && props.members.includes(member.socials?.twitch?.user_data.login)) && (
                 <MemberPicture member={member} size={props.size} offsetX={props.offsetX} />
               )}
             </div>

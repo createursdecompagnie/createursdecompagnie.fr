@@ -28,7 +28,7 @@ function EventCalendar(event) {
   var rng = seedrandom(event.title);
   let attendees = shuffle(event.attendees, rng);
   return (
-    <CommunityListCalendar members={[event.maintrack ? /* 'createursdecompagnie' */ '' : ''].concat(event.presenters.concat(attendees)).slice(0, 6)} />
+    <CommunityListCalendar members={[/*event.maintrack ? 'createursdecompagnie' : ''*/].concat(event.presenters.concat(attendees)).slice(0, 6)} />
   );
 }
 
