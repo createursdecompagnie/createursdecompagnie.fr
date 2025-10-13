@@ -24,7 +24,7 @@ const members: Members = [
     },
     {
         name: 'Kevas',
-        groups: [Group.member, Group.sct, Group.cdc2022, Group.playtogether2024],
+        groups: [Group.member, Group.sct, Group.cdc2022, Group.playtogether2024/*, Group.cdc2025*/],
         socials: {
             main_social: Social.twitch,
             twitch: {
@@ -64,7 +64,7 @@ const members: Members = [
     },
     {
         name: 'Netouss',
-        groups: [Group.member, Group.sct, Group.cdc2022, Group.playtogether2024],
+        groups: [Group.member, Group.sct, Group.cdc2022, Group.playtogether2024, Group.cdc2025],
         socials: {
             main_social: Social.twitch,
             twitch: {
@@ -74,7 +74,7 @@ const members: Members = [
     },
     {
         name: 'DNADNL',
-        groups: [Group.member, Group.sct, Group.cdc2022, Group.playtogether2024],
+        groups: [Group.member, Group.sct, Group.cdc2022, Group.playtogether2024/*, Group.cdc2025*/],
         socials: {
             main_social: Social.twitch,
             twitch: {
@@ -94,7 +94,7 @@ const members: Members = [
     },
     {
         name: 'SoKyutie',
-        groups: [Group.member, Group.sct, Group.cdc2022],
+        groups: [Group.member, Group.sct, Group.cdc2022, Group.cdc2025],
         socials: {
             main_social: Social.twitch,
             twitch: {
@@ -104,7 +104,7 @@ const members: Members = [
     },
     {
         name: 'RenegadesLive',
-        groups: [Group.member, Group.sct, Group.cdc2022, Group.playtogether2024],
+        groups: [Group.member, Group.sct, Group.cdc2022, Group.playtogether2024, Group.cdc2025],
         socials: {
             main_social: Social.twitch,
             twitch: {
@@ -124,7 +124,7 @@ const members: Members = [
     },
     {
         name: 'Ghost_Deus',
-        groups: [Group.member, Group.sct, Group.playtogether2024],
+        groups: [Group.member, Group.sct, Group.playtogether2024, Group.cdc2025],
         socials: {
             main_social: Social.twitch,
             twitch: {
@@ -134,7 +134,7 @@ const members: Members = [
     },
     {
         name: 'MilySterique',
-        groups: [Group.member, Group.cdc2022, Group.playtogether2024],
+        groups: [Group.member, Group.cdc2022, Group.playtogether2024/*, Group.cdc2025*/],
         socials: {
             main_social: Social.twitch,
             twitch: {
@@ -144,7 +144,7 @@ const members: Members = [
     },
     {
         name: 'Mallicette',
-        groups: [Group.member, Group.sct, Group.cdc2022],
+        groups: [Group.member, Group.sct, Group.cdc2022, Group.cdc2025],
         socials: {
             main_social: Social.twitch,
             twitch: {
@@ -154,7 +154,7 @@ const members: Members = [
     },
     {
         name: 'Shaellaa',
-        groups: [Group.member, Group.sct, Group.cdc2022],
+        groups: [Group.member, Group.sct, Group.cdc2022, Group.cdc2025],
         socials: {
             main_social: Social.twitch,
             twitch: {
@@ -174,7 +174,7 @@ const members: Members = [
     },
     {
         name: 'Buddakhiin',
-        groups: [Group.member, Group.sct, Group.playtogether2024],
+        groups: [Group.member, Group.sct, Group.playtogether2024, Group.cdc2025],
         socials: {
             main_social: Social.twitch,
             twitch: {
@@ -194,7 +194,7 @@ const members: Members = [
     },
     {
         name: 'Misterkiva',
-        groups: [Group.member, Group.sct, Group.cdc2022],
+        groups: [Group.member, Group.sct, Group.cdc2022, Group.cdc2025],
         socials: {
             main_social: Social.twitch,
             twitch: {
@@ -214,7 +214,7 @@ const members: Members = [
     },
     {
         name: 'Nymphelya',
-        groups: [Group.sct, Group.cdc2022],
+        groups: [Group.sct, Group.cdc2022, Group.cdc2025],
         socials: {
             main_social: Social.twitch,
             twitch: {
@@ -367,7 +367,7 @@ const members: Members = [
     },
     {
         name: 'PiikaShall',
-        groups: [Group.member, Group.cdc2022],
+        groups: [Group.member, Group.cdc2022, Group.cdc2025],
         socials: {
             main_social: Social.twitch,
             twitch: {
@@ -397,7 +397,7 @@ const members: Members = [
     },
     {
         name: 'Myzucka',
-        groups: [Group.cdc2022],
+        groups: [Group.cdc2022,Group.cdc2025],
         socials: {
             main_social: Social.twitch,
             twitch: {
@@ -447,7 +447,7 @@ const members: Members = [
     },
     {
         name: 'Angel',
-        groups: [Group.cdc2022],
+        groups: [Group.cdc2022, Group.cdc2025],
         socials: {
             main_social: Social.twitch,
             twitch: {
@@ -467,7 +467,7 @@ const members: Members = [
     },
     {
         name: 'Stormy',
-        groups: [Group.cdc2022],
+        groups: [Group.cdc2022, Group.cdc2025],
         socials: {
             main_social: Social.twitch,
             twitch: {
@@ -512,6 +512,136 @@ const members: Members = [
             main_social: Social.twitch,
             twitch: {
                 id: '689515061'
+            },
+        }
+    },
+    {
+        name: 'Remi_Lemon',
+        groups: [Group.cdc2025],
+        socials: {
+            main_social: Social.twitch,
+            twitch: {
+                id: '658160635'
+            },
+        }
+    },
+    {
+        name: 'ExyTV',
+        groups: [Group.cdc2025],
+        socials: {
+            main_social: Social.twitch,
+            twitch: {
+                id: '658160635'
+            },
+        }
+    },
+    {
+        name: 'MidoGeek',
+        groups: [Group.cdc2025],
+        socials: {
+            main_social: Social.twitch,
+            twitch: {
+                id: '149299903'
+            },
+        }
+    },
+    {
+        name: 'Raivals',
+        groups: [Group.cdc2025],
+        socials: {
+            main_social: Social.twitch,
+            twitch: {
+                id: '118898203'
+            },
+        }
+    },
+    {
+        name: 'FLaPiiX',
+        groups: [Group.cdc2025],
+        socials: {
+            main_social: Social.twitch,
+            twitch: {
+                id: '86729677'
+            },
+        }
+    },
+    {
+        name: 'MonsieurFlop',
+        groups: [Group.cdc2025],
+        socials: {
+            main_social: Social.twitch,
+            twitch: {
+                id: '51966081'
+            },
+        }
+    },
+    {
+        name: 'mushlyn',
+        groups: [Group.cdc2025],
+        socials: {
+            main_social: Social.twitch,
+            twitch: {
+                id: '515342263'
+            },
+        }
+    },
+    {
+        name: 'Oceadolphine',
+        groups: [Group.cdc2025],
+        socials: {
+            main_social: Social.twitch,
+            twitch: {
+                id: '184756458'
+            },
+        }
+    },
+    {
+        name: 'Phijese',
+        groups: [Group.cdc2025],
+        socials: {
+            main_social: Social.twitch,
+            twitch: {
+                id: '487828823'
+            },
+        }
+    },
+    {
+        name: 'EosCall',
+        groups: [Group.cdc2025],
+        socials: {
+            main_social: Social.twitch,
+            twitch: {
+                id: '205342156'
+            },
+        }
+    },
+    {
+        name: 'Aurorexpress',
+        groups: [Group.cdc2025],
+        socials: {
+            main_social: Social.twitch,
+            twitch: {
+                id: '538688273'
+            },
+        }
+    },
+    {
+        name: 'Le Maty',
+        groups: [Group.cdc2025],
+        socials: {
+            main_social: Social.twitch,
+            twitch: {
+                id: '61642471'
+            },
+        }
+    },
+    {
+        name: 'Kibishii',
+        groups: [Group.cdc2025],
+        socials: {
+            main_social: Social.twitch,
+            twitch: {
+                id: '529592842'
             },
         }
     },
