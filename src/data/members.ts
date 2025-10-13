@@ -1,5 +1,5 @@
 import type { Members } from '../plugins/social-community/data/types';
-import { Social, Group } from '../plugins/social-community/data/types';
+import { Group, Social } from '../plugins/social-community/data/types';
 
 const members: Members = [
     {
@@ -642,6 +642,26 @@ const members: Members = [
             main_social: Social.twitch,
             twitch: {
                 id: '529592842'
+            },
+        }
+    },
+    {
+        name: 'GamPlethore',
+        groups: [Group.cdc2025],
+        socials: {
+            main_social: Social.twitch,
+            twitch: {
+                id: '652413685'
+            },
+        }
+    },
+    {
+        name: 'Yunaleska',
+        groups: [Group.cdc2025],
+        socials: {
+            main_social: Social.twitch,
+            twitch: {
+                id: '159857073'
             },
         }
     },
