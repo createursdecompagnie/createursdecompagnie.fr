@@ -685,6 +685,16 @@ const members: Members = [
             },
         }
     },
+    {
+        name: 'Princesse_piche',
+        groups: [Group.cdc2025],
+        socials: {
+            main_social: Social.twitch,
+            twitch: {
+                id: '922542142'
+            },
+        }
+    },
 ] as const;
 
 export default members;
