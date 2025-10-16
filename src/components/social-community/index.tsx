@@ -8,6 +8,7 @@ import useBaseUrl from '@docusaurus/useBaseUrl';
 import Popup from 'reactjs-popup';
 
 import { Social, Group, Member, SocialCommunityPluginData } from '@site/src/plugins/social-community/data/types';
+import { useTwitchLiveManager } from './useTwitchLiveManager';
 
 const ListSize = {
   // ExtraSmall: "sx",
@@ -152,13 +153,23 @@ function MemberDisplayName(member:Member):string {
 function MemberPicture({ member, size = ListSize.Medium, offsetX = 0 }: MemberPictureProps): ReactNode {
   const avatarUrlWebp = MemberAvatarUrl(member, size, ImageType.webp);
   const avatarUrl = MemberAvatarUrl(member, size, ImageType.other);
-  
+  const liveInfo = useTwitchLiveManager();
+  const twitchId = member.socials?.twitch?.id;
+  const isLive = twitchId && liveInfo[twitchId]?.isLive;
+
   return (
     <>
       {member && (avatarUrlWebp || avatarUrl) && (
         <Popup
           trigger={
-            <a href={MemberSocialLink(member)} className={clsx(styles.communityMember, styles["communityMember-" + size])}>
+            <a
+              href={MemberSocialLink(member)}
+              className={clsx(
+                styles.communityMember,
+                styles["communityMember-" + size],
+                isLive && styles.liveBorder
+              )}
+            >
               <div className="avatar">
                 <picture>
                   {avatarUrlWebp && (
