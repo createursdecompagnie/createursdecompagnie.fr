@@ -531,7 +531,7 @@ const members: Members = [
         socials: {
             main_social: Social.twitch,
             twitch: {
-                id: '658160635'
+                id: '121477770'
             },
         }
     },
@@ -692,6 +692,16 @@ const members: Members = [
             main_social: Social.twitch,
             twitch: {
                 id: '922542142'
+            },
+        }
+    },
+    {
+        name: 'Faylhee',
+        groups: [Group.cdc2025],
+        socials: {
+            main_social: Social.twitch,
+            twitch: {
+                id: '768284594'
             },
         }
     },
