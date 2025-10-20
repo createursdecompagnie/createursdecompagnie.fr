@@ -1,18 +1,20 @@
-/* Bordure rouge pour les membres en live */
-
 .communityMember.liveBorder picture img {
   box-sizing: border-box;
-  border: 0px solid transparent;
+  border-style: solid;
+  border-color: #e53935;
   border-radius: 50%;
-  animation: liveBorderAppear 1.2s cubic-bezier(.4,0,.2,1) 0s 1 normal forwards, liveBorderPulse 1.2s 0.7s infinite alternate;
+  border-width: 0px;
+  animation:
+    liveBorderAppear 0.1s forwards,
+    liveBorderPulse 1.2s infinite alternate;
 }
 
 @keyframes liveBorderAppear {
   0% {
-    border-color: transparent;
+    border-width: 0;
   }
   100% {
-    border-color: #e53935;
+    border-width: var(--border-width);
   }
 }
 
@@ -26,19 +28,19 @@
 }
 
 .communityMember-xs.liveBorder picture img {
-  border-width: 2px;
+  --border-width: 2px;
 }
 .communityMember-sm.liveBorder picture img {
-  border-width: 3px;
+  --border-width: 3px;
 }
 .communityMember-md.liveBorder picture img {
-  border-width: 5px;
+  --border-width: 5px;
 }
 .communityMember-lg.liveBorder picture img {
-  border-width: 8px;
+  --border-width: 8px;
 }
 .communityMember-xl.liveBorder picture img {
-  border-width: 15px;
+  --border-width: 15px;
 }
 
 .communityList {
