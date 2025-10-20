@@ -29,7 +29,7 @@ type ImageTypeType = typeof ImageType[keyof typeof ImageType];
 interface CommunityListProps {
   className?: string;
   group?: string;
-  members?: string[];
+  memberIds?: string[];
   size?: ListSizeType;
   offsetX?: number;
 }
@@ -46,12 +46,12 @@ interface CommunityListHomeProps {
 
 interface CommunityListCalendarProps {
   group?: string;
-  members?: string[];
+  memberIds?: string[];
 }
 
 interface CommunityListEventProps {
   group?: string;
-  members?: string[];
+  memberIds?: string[];
 }
 
 function MemberAvatarUrl(member: Member, size: ListSizeType = ListSize.Medium, type: ImageTypeType = ImageType.other): string | null {
@@ -227,14 +227,12 @@ function CommunityList(props: CommunityListProps): ReactNode {
           )}
         </div>
       ))}
-      {props.members?.map((m) => {
-        const member = members.find(item => (item.socials?.twitch?.user_data != null && item.socials?.twitch?.user_data.login === m));
+      {props.memberIds?.map((id) => {
+        const member = members.find(item => (item.id === id));
         if (member) {
           return (
             <div key={member.name}>
-              {(props.members && props.members.includes(member.socials?.twitch?.user_data.login)) && (
-                <MemberPicture member={member} size={props.size} offsetX={props.offsetX} />
-              )}
+              <MemberPicture member={member} size={props.size} offsetX={props.offsetX} />
             </div>
           );
         }
@@ -249,7 +247,7 @@ export function CommunityListCalendar(props: CommunityListCalendarProps): ReactN
     <CommunityList 
       className={clsx(styles.communityList, styles.communityCalendar)} 
       group={props.group} 
-      members={props.members} 
+      memberIds={props.memberIds} 
       size={ListSize.Small} 
       offsetX={8} 
     />
@@ -272,7 +270,7 @@ export function CommunityListEvent(props: CommunityListEventProps): ReactNode {
     <CommunityList 
       className={clsx(styles.communityList)} 
       group={props.group} 
-      members={props.members} 
+      memberIds={props.memberIds} 
       size={ListSize.Small} 
     />
   );

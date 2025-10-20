@@ -28,7 +28,7 @@ function EventCalendar(event) {
   var rng = seedrandom(event.title);
   let attendees = shuffle(event.attendees, rng);
   return (
-    <CommunityListCalendar members={[/*event.maintrack ? 'createursdecompagnie' : ''*/].concat(event.presenters.concat(attendees)).slice(0, 6)} />
+    <CommunityListCalendar memberIds={[/*event.maintrack ? 'createursdecompagnie' : ''*/].concat(event.presenters.concat(attendees)).slice(0, 6)} />
   );
 }
 
@@ -38,7 +38,7 @@ function EnventPresenters(event) {
     return (
       <>
         <h5 className={styles.popupSubtitle}>{length > 1 ? 'Présentateurs' : 'Présentateur'}</h5>
-        <CommunityListEvent members={event.presenters} />
+        <CommunityListEvent memberIds={event.presenters} />
       </>
     );
   }
@@ -52,7 +52,7 @@ function EventAttendees(event) {
     return (
       <>
         <h5 className={styles.popupSubtitle}>{length > 1 ? 'Participants' : 'Participant'}</h5>
-        <CommunityListEvent members={attendees} />
+        <CommunityListEvent memberIds={attendees} />
       </>
     );
   }
@@ -172,9 +172,9 @@ function Planning(planning) {
                               {EnventPresenters(event)}
                               {EventAttendees(event)}
                             </div>
-                            <div className="card__footer">
+                            {/* <div className="card__footer">
                               <a className="button button--block button--primary" href={EventLink(event)}>Regarder en Live</a>
-                            </div>
+                            </div> */}
                           </div>
                           // </div>
                         )}
