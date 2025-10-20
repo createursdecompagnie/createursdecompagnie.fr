@@ -28,7 +28,6 @@ interface TwitchUserLiveInfo {
 
 function extractTwitchIds(): string[] {
   return members
-    .filter(m => m.groups && m.groups.includes(Group.cdc2025)) // Temporary: only consider CDC 2025 members
     .map(m => m.socials?.twitch?.id)
     .filter((id): id is string => !!id && id.length > 0);
 }

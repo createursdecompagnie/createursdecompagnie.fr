@@ -11,11 +11,11 @@ import { Social, Group, Member, SocialCommunityPluginData } from '@site/src/plug
 import { useTwitchLiveManager } from './useTwitchLiveManager';
 
 const ListSize = {
-  // ExtraSmall: "sx",
+  ExtraSmall: "sx",
   Small: "sm",
   Medium: "md",
-  // Large: "lg",
-  // ExtraLarge: "xl"
+  Large: "lg",
+  ExtraLarge: "xl"
 } as const;
 
 const ImageType = {
@@ -52,6 +52,10 @@ interface CommunityListCalendarProps {
 interface CommunityListEventProps {
   group?: string;
   memberIds?: string[];
+}
+
+interface MemberAvatarProfileProps {
+  member: Member;
 }
 
 function MemberAvatarUrl(member: Member, size: ListSizeType = ListSize.Medium, type: ImageTypeType = ImageType.other): string | null {
@@ -148,6 +152,27 @@ function MemberDisplayName(member:Member):string {
   }
 
   return member.name;
+}
+
+export function MemberAvatarProfile(props: MemberAvatarProfileProps): ReactNode {
+
+  const member = props.member;
+  const avatarUrlWebp = MemberAvatarUrl(member, ListSize.Medium, ImageType.webp);
+  const avatarUrl = MemberAvatarUrl(member, ListSize.Medium, ImageType.other);
+
+  return (
+    <>
+      <picture>
+        {avatarUrlWebp && (
+          <source srcSet={avatarUrlWebp} type="image/webp" />
+        )}
+        {avatarUrl && (
+          <source srcSet={avatarUrl} />
+        )}
+        <img className={clsx(styles.liveBorder, "avatar__photo avatar__photo--xl")} alt={MemberDisplayName(member)} src={useBaseUrl('/img/avatars/default.png')} loading='lazy' />
+      </picture>
+    </>
+  );
 }
 
 function MemberPicture({ member, size = ListSize.Medium, offsetX = 0 }: MemberPictureProps): ReactNode {

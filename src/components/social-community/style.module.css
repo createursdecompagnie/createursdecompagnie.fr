@@ -1,4 +1,4 @@
-.communityMember.liveBorder picture img {
+img.liveBorder, .communityMember.liveBorder picture img {
   box-sizing: border-box;
   border-style: solid;
   border-color: #e53935;

@@ -241,3 +241,17 @@ a:hover .icon-discord
     margin-bottom: calc(var(--ifm-spacing-vertical) * 2.2);
   }
 }
+
+.avatar:has(.avatar__photo--xl) .avatar__name {
+  font: bold var(--ifm-h2-font-size) / var(--ifm-heading-line-height) var(--ifm-font-family-base);
+}
+
+.badge--transparent {
+  --ifm-badge-border-color: var(--ifm-color-primary);
+  color: var(--ifm-font-color-base);
+}
+
+.button--transparent {
+  --ifm-button-border-color: var(--ifm-color-primary);
+  color: var(--ifm-font-color-base);
+}
