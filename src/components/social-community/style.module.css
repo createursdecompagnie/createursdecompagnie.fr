@@ -1,12 +1,23 @@
-img.liveBorder, .communityMember.liveBorder picture img {
+.liveBorder img {
+  --live-border-witdh: 3px;
   box-sizing: border-box;
   border-style: solid;
   border-color: #e53935;
   border-radius: 50%;
-  border-width: 0px;
+  border-width: 10px;
   animation:
     liveBorderAppear 0.1s forwards,
     liveBorderPulse 1.2s infinite alternate;
+}
+
+.liveBorder img:global(.avatar__photo--xl), .liveBorder a:global(.avatar__photo--xl) img{
+  --live-border-witdh: 6px;
+}
+.liveBorder img:global(.avatar__photo--lg), .liveBorder a:global(.avatar__photo--lg) img{
+  --live-border-witdh: 4px;
+}
+.liveBorder img:global(.avatar__photo--sm), .liveBorder a:global(.avatar__photo--sm) img{
+  --live-border-witdh: 2px;
 }
 
 @keyframes liveBorderAppear {
@@ -14,7 +25,7 @@ img.liveBorder, .communityMember.liveBorder picture img {
     border-width: 0;
   }
   100% {
-    border-width: var(--border-width);
+    border-width: var(--live-border-witdh);
   }
 }
 
@@ -25,22 +36,6 @@ img.liveBorder, .communityMember.liveBorder picture img {
   100% {
     border-color: #a31515;
   }
-}
-
-.communityMember-xs.liveBorder picture img {
-  --border-width: 2px;
-}
-.communityMember-sm.liveBorder picture img {
-  --border-width: 3px;
-}
-.communityMember-md.liveBorder picture img {
-  --border-width: 5px;
-}
-.communityMember-lg.liveBorder picture img {
-  --border-width: 8px;
-}
-.communityMember-xl.liveBorder picture img {
-  --border-width: 15px;
 }
 
 .communityList {

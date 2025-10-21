@@ -10,6 +10,9 @@ import Popup from 'reactjs-popup';
 import { Social, Group, Member, SocialCommunityPluginData } from '@site/src/plugins/social-community/data/types';
 import { useTwitchLiveManager } from './useTwitchLiveManager';
 
+export { default as MemberAvatar } from './memberAvatar';
+export { MemberAvatarOrientation, MemberAvatarSize } from './memberAvatar';
+
 const ListSize = {
   ExtraSmall: "sx",
   Small: "sm",

@@ -61,10 +61,6 @@ nav.page-breadcrumbs {
   width: 1.1rem;
 }
 
-.avatar__photo {
-  background-color: var(--ifm-color-white);
-}
-
 .tabs-container>div {
   margin-top: 0 !important;
 }

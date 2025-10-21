@@ -1,6 +1,5 @@
 import React, { useEffect, useState, useCallback, createContext, useContext } from 'react';
 import members from '@site/src/data/members';
-import { Group } from '@site/src/plugins/social-community/data/types';
 
 interface TwitchUserLiveInfo {
   id: string;

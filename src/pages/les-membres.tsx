@@ -4,7 +4,7 @@ import { useTwitchLiveManager } from '@site/src/components/social-community/useT
 import { useLocation, useHistory } from '@docusaurus/router';
 import { usePluginData } from '@docusaurus/useGlobalData';
 import { SocialCommunityPluginData, Members } from '@site/src/plugins/social-community/data/types';
-import { MemberAvatarProfile } from '@site/src/components/social-community';
+import { MemberAvatar, MemberAvatarOrientation, MemberAvatarSize } from '@site/src/components/social-community';
 
 function useElapsedTime(since) {
   const [elapsed, setElapsed] = useState('00:00');
@@ -69,6 +69,12 @@ export default function MemberPage() {
 
   const elapsed = useElapsedTime(twitchLive?.stream?.createdAt);
 
+  const liveMembers = members.filter((m) => {
+    const twitchId = m.socials?.twitch?.id;
+    const twitchLive = twitchId ? liveInfo[twitchId] : undefined;
+    return twitchLive?.isLive;
+  });
+
   useEffect(() => {
     if (!member) {
       history.replace('/404');
@@ -78,16 +84,16 @@ export default function MemberPage() {
   if (!member) return null;
 
   return (
-    <Layout title={member.name} description={`Profil de ${member.name}`}>
+    <Layout>
       <main className="container container--fluid margin-vert--lg">
         <h1 className="text--center">Les créateur·ices</h1>
         <div className="row margin-vert--lg">
           <div className="col">
-            <div className="avatar avatar__photo--xl">
-              <MemberAvatarProfile member={member} />
-              <div className="avatar__intro">
-                <div className="avatar__name">{member.socials?.twitch?.user_data?.display_name}</div>
-                <small className="avatar__subtitle">
+            <MemberAvatar
+              member={member}
+              name={member.name}
+              subtitle={
+                <>
                   {twitchLive?.title}
                   {twitchLive?.stream && (
                     <div className="margin-top--sm">
@@ -104,9 +110,10 @@ export default function MemberPage() {
                       </span>
                     </div>
                   )}
-                </small>
-              </div>
-            </div>
+                </>
+              }
+              size={MemberAvatarSize.ExtraLarge}
+            />
           </div>
         </div>
         <div className="row row--no-gutters margin--none padding--none"  style={{ border: '4px solid var(--ifm-color-primary)', borderRadius: '5px', overflow: 'hidden' }}>
@@ -131,6 +138,35 @@ export default function MemberPage() {
             />
           </div>
         </div>
+        {/* <div className="row margin-vert--lg">
+          <div className="col">
+            <a className="button button--transparent button--lg margin-right--lg" href="#">Cagnotte : 1234 €</a>
+            <a className="button button--primary button--lg" href="#">Donner pour CDC2025</a>
+          </div>
+          <div className="col text--right">
+          </div>
+        </div> */}
+        <h2 className='margin-top--xl'>En live en ce moment :</h2>
+        <div className="row">
+        </div>
+        {/* {liveMembers.map((member) => (
+          <div key={member.id} className="col col--2">
+              <div className="card margin-bottom--sm shadow--tl">
+                <div className="card__header text--center">
+                  <h3>{member.name}</h3>
+                </div>
+                <div className="card__body">
+                  <MemberAvatar
+                    member={member}
+                    size={MemberAvatarSize.ExtraLarge}
+                    orientation={MemberAvatarOrientation.Vertical}
+                    className="margin-bottom--sm"
+                  />
+                </div>
+            </div>
+          </div>
+        ))} */}
+        <h2 className='margin-top--xl'>D'autres créateur·ices :</h2>
       </main>
     </Layout>
   );
