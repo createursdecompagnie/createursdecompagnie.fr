@@ -45,7 +45,7 @@ const config: Config = {
   themeConfig: {
     image: 'img/cdc-social-card.jpg',
     navbar: {
-      title: 'Créateurs de Compagnie',
+      title: 'Créateurs de Compagnie',
       logo: {
         alt: 'Logo Créateurs de Compagnie',
         src: 'img/logo.png',
@@ -53,7 +53,7 @@ const config: Config = {
       },
       items: [
         {
-          label: 'Le collectif',
+          label: 'Le collectif',
           to: '/le-collectif',
         },
         {
@@ -62,7 +62,7 @@ const config: Config = {
         },
         {
           type: 'dropdown',
-          label: 'Évènements passés',
+          label: 'Évènements passés',
           position: 'left',
           items: [
             {
@@ -74,11 +74,23 @@ const config: Config = {
               to: '/evenement/cdc2022',
             },
             {
-              label: 'Sans Croquettes Twitch',
+              label: 'Sans Croquettes Twitch',
               to: '/evenement/sans-croquettes-twitch',
             },
           ],
         },
+        {
+          href: 'https://streamlabscharity.com/teams/@createurs-de-compagnie-2025/cdc2025?member=452020463900692480',
+          label: 'Donner 🎃',
+          position: 'right',
+          className: 'donate-btn margin-right--md',
+        },
+        // {
+        //   href: '#',
+        //   label: 'Aide ℹ️',
+        //   position: 'right',
+        //   className: 'help-btn margin-right--md',
+        // },
       ],
     },
     footer: {
@@ -88,17 +100,17 @@ const config: Config = {
           title: 'À propos',
           items: [
             {
-              label: 'Le collectif',
+              label: 'Le collectif',
               to: '/le-collectif',
             },
             {
-              label: 'Informations légales',
+              label: 'Informations légales',
               to: '/informations-legales',
             },
           ],
         },
         {
-          title: 'Nos évènements',
+          title: 'Nos évènements',
           items: [
             {
               label: 'CDC 2025',
@@ -113,13 +125,13 @@ const config: Config = {
               href: '/evenement/cdc2022',
             },
             {
-              label: 'Sans Croquettes Twitch',
+              label: 'Sans Croquettes Twitch',
               href: '/evenement/sans-croquettes-twitch',
             }
           ],
         },
         {
-          title: 'Créateurs de compagnie',
+          title: 'Créateurs de compagnie',
           items: [
             {
               html: `
@@ -143,7 +155,7 @@ const config: Config = {
           `,
             },
             // {
-            //   label: 'Nos Membres',
+            //   label: 'Nos Membres',
             //   href: 'https://linktr.ee/createursdecompagnie.membres',
             // },
           ],

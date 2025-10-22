@@ -251,3 +251,40 @@ a:hover .icon-discord
   --ifm-button-border-color: var(--ifm-color-primary);
   color: var(--ifm-font-color-base);
 }
+
+.donate-btn {
+    border: 2px solid var(--ifm-button-color);
+    border-radius: 8px;
+    box-shadow: var(--ifm-global-shadow-tl);
+}
+
+.donate-btn:hover {
+    border: 2px solid var(--ifm-color-primary-darkest);
+    cursor: pointer
+}
+
+.donate-btn,.donate-btn:hover {
+    background: var(--ifm-color-primary);
+    color: var(--ifm-button-color);
+}
+
+.help-btn {
+    border: 2px solid var(--ifm-button-color);
+    border-radius: 8px;
+    box-shadow: var(--ifm-global-shadow-tl);
+}
+
+.help-btn:hover {
+    border: 2px solid var(--ifm-color-info-darkest);
+    cursor: pointer
+}
+
+.help-btn,.help-btn:hover {
+    background: var(--ifm-color-info);
+    color: var(--ifm-button-color);
+}
+
+.dropdown > .navbar__link:after {
+  display: inline;
+  top: 16px;
+}

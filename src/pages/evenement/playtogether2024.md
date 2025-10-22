@@ -37,11 +37,11 @@ import { CommunityListEvent } from '/src/components/social-community'
 
 Association de protection animale, <a href="https://hirondelle.ovh">***L'Hirondelle***</a> est **un centre de soin** pour animaux sauvages. L'association récupère plus de **7 000 animaux par an**. Elle a pour but de les soigner et de les réinsérer dans leur environnement naturel.
 
-L'association a aussi une partie formation, permettant de **former des intervenants** (pompiers, vétérinaires…) susceptibles d’être confrontés à des **problèmes touchant la faune sauvage**.
+L'association a aussi une partie formation, permettant de **former des intervenant·es** (pompier·ères, vétérinaires…) susceptibles d’être confronté·es à des **problèmes touchant la faune sauvage**.
 
-Ils possèdent **un des plus grand centre de soins aux animaux sauvages de France** et interviennent sur les départements du **Rhône**, de la **Loire**, de la **Drôme** et de l’**Ardèche**.
+Elle possède **un des plus grand centre de soins aux animaux sauvages de France** et intervient sur les départements du **Rhône**, de la **Loire**, de la **Drôme** et de l’**Ardèche**.
 
-## Les participants
+## Les participant·es
 
 <CommunityListEvent group='playtogether2024' />
 <br/>
