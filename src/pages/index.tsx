@@ -140,7 +140,7 @@ function HomepageCDC2025(): ReactNode {
     </div>
 
       <div className="container text--center margin-bottom--xl">
-        <h3 className="margin-top--lg margin-bottom--md">Les participant-es</h3>
+        <h3 className="margin-top--lg margin-bottom--md"> Les participant·es</h3>
         <div className="margin-bottom--md">
           <CommunityListHome group='cdc2025' />
         </div>

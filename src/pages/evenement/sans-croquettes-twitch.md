@@ -37,6 +37,6 @@ Sous l'impulsion de cet évènement, [***MisterNooton***](https://www.twitch.tv/
 
 Infos sur l'association -->
 
-## Les participants
+## Les participant·es
 
 <CommunityListEvent group='sct' />
