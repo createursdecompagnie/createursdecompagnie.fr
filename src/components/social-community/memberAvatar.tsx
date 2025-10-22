@@ -39,16 +39,18 @@ const MemberAvatar: React.FC<MemberAvatarProps> = ({
     return { png, webp };
   };
 
-  const getMemberProfileUrl = (): string | null => {
-
-    const baseUrl = useBaseUrl('/les-membres');
+  const getMemberProfileUrl = (member: Member): string | null => {
+    const baseUrl = useBaseUrl('/les-createurices');
     const twitchLogin = member.socials?.twitch?.user_data?.login;
-    return twitchLogin ? `${baseUrl}?twitch=${twitchLogin}` : null;
+    if (!twitchLogin) return null;
+    const params = new URLSearchParams(location.search);
+    params.set('twitch', twitchLogin);
+    return `${baseUrl}?${params.toString()}`;
   };
 
   if (!member) return;
   const { png: avatarUrl, webp: avatarUrlWebp } = getAvatarUrls();
-  const profileUrl = getMemberProfileUrl();
+  const profileUrl = getMemberProfileUrl(member);
   const liveInfo = useTwitchLiveManager();
   const twitchId = member.socials?.twitch?.id;
   const isLive = twitchId && liveInfo[twitchId]?.isLive;
