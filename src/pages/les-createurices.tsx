@@ -4,7 +4,7 @@ import useBaseUrl from '@docusaurus/useBaseUrl';
 import { useTwitchLiveManager } from '@site/src/components/social-community/useTwitchLiveManager';
 import { useLocation, useHistory } from '@docusaurus/router';
 import { Member, Group } from '@site/src/plugins/social-community/data/types';
-import { MemberAvatar, MemberAvatarOrientation, MemberAvatarSize, generateMemberProfileUrl, getMembersFromPluginData } from '@site/src/components/social-community';
+import { MemberAvatar, MemberAvatarOrientation, MemberAvatarSize, generateMemberProfileUrl, getMembersFromPluginData, getDisplayNameForMember } from '@site/src/components/social-community';
 
 const FILTRABLE_GROUPS: Partial<Record<Group, string>> = {
   [Group.cdc2025]: 'CDC 2025',
@@ -133,30 +133,32 @@ function MemberCard({ member, liveInfo, activeGroup }: MemberCardProps) {
   const twitchId = member.socials?.twitch?.id;
   const twitchLive = twitchId ? liveInfo[twitchId] : undefined;
   const elapsed = useElapsedTime(twitchLive?.stream?.createdAt);
+  const href = generateMemberProfileUrl(member, activeGroup);
 
   return (
-    <div className="card margin-bottom--lg shadow--tl">
-      <div className="card__header text--center">
-        <h3>{member.name}</h3>
-      </div>
-      <div className="card__body">
-        <MemberAvatar
-          href={generateMemberProfileUrl(member, activeGroup)}
-          member={member}
-          size={MemberAvatarSize.ExtraLarge}
-          orientation={MemberAvatarOrientation.Vertical}
-          className="margin-bottom--sm"
-        />
-        {twitchLive?.stream && (
-          <LiveBadges
-            gameName={twitchLive.stream.game?.displayName}
-            viewersCount={twitchLive.viewersCount}
-            elapsed={elapsed}
-            centered
+    <a href={href} className='text--no-decoration' style={{color: 'var(--ifm-color-content)'}}>
+      <div className="card margin-bottom--lg shadow--tl">
+        <div className="card__header text--center">
+          <h3>{getDisplayNameForMember(member)}</h3>
+        </div>
+        <div className="card__body">
+          <MemberAvatar
+            member={member}
+            size={MemberAvatarSize.ExtraLarge}
+            orientation={MemberAvatarOrientation.Vertical}
+            className="margin-bottom--sm"
           />
-        )}
+          {twitchLive?.stream && (
+            <LiveBadges
+              gameName={twitchLive.stream.game?.displayName}
+              viewersCount={twitchLive.viewersCount}
+              elapsed={elapsed}
+              centered
+            />
+          )}
+        </div>
       </div>
-    </div>
+    </a>
   );
 }
 
@@ -306,9 +308,8 @@ export default function MemberPage() {
             <div className="row margin-vert--lg">
               <div className="col">
                 <MemberAvatar
-                  href={null}
                   member={member}
-                  name={member.name}
+                  name={getDisplayNameForMember(member)}
                   subtitle={
                     <>
                       {twitchLive?.title}
