@@ -46,6 +46,14 @@ function splitMembersByLiveStatus(
     }
   });
 
+  live.sort((a, b) => {
+    const aId = a.socials!.twitch!.id!;
+    const bId = b.socials!.twitch!.id!;
+    const aTime = new Date(liveInfo[aId]?.stream?.createdAt).getTime() || 0;
+    const bTime = new Date(liveInfo[bId]?.stream?.createdAt).getTime() || 0;
+    return bTime - aTime;
+  });
+
   return { live, offline };
 }
 
