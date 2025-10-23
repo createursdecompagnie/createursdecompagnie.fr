@@ -102,7 +102,6 @@ const Avatar: React.FC<AvatarProps> = ({
   };
 
   const showIntro = name || subtitle;
-  console.log('popup', popup);
 
   return popup ? (
         <Popup
