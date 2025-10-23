@@ -288,3 +288,33 @@ a:hover .icon-discord
   display: inline;
   top: 16px;
 }
+
+.twitch-live-modules
+{
+  border: 4px solid var(--ifm-color-primary);
+  border-radius: 5px;
+  overflow: hidden;
+}
+.twitch-live-modules .player
+{
+  aspect-ratio: 16/9;
+}
+.twitch-live-modules .chat
+{
+  min-height: 25rem;
+}
+
+.twitch-live-modules iframe
+{
+  display: block;
+}
+
+@media screen and (min-width: 996px) {
+  .twitch-live-modules .player {
+  min-height: 30rem;
+  }
+}
+
+.text--color-content {
+  color: var(--ifm-color-content);
+}

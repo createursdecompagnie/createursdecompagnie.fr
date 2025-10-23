@@ -136,7 +136,7 @@ function MemberCard({ member, liveInfo, activeGroup }: MemberCardProps) {
   const href = generateMemberProfileUrl(member, activeGroup);
 
   return (
-    <a href={href} className='text--no-decoration' style={{color: 'var(--ifm-color-content)'}}>
+    <a href={href} className='text--no-decoration text--color-content'>
       <div className="card margin-bottom--lg shadow--tl">
         <div className="card__header text--center">
           <h3>{getDisplayNameForMember(member)}</h3>
@@ -224,23 +224,17 @@ interface TwitchPlayerProps {
 
 function TwitchPlayer({ channelLogin, parent }: TwitchPlayerProps) {
   return (
-    <div className="row row--no-gutters margin--none padding--none" 
-         style={{ 
-           border: '4px solid var(--ifm-color-primary)', 
-           borderRadius: '5px', 
-           overflow: 'hidden' 
-         }}>
-      <div className="col col--8" style={{ minHeight: '30rem', aspectRatio: '16/9' }}>
+    <div className="row row--no-gutters margin--none padding--none twitch-live-modules">
+      <div className="col col--8 player">
         <iframe
           src={`https://player.twitch.tv/?channel=${channelLogin}&muted=false&parent=${parent}`}
           height="100%"
           width="100%"
           allowFullScreen
           title="Twitch Live Player"
-          style={{ display: 'block' }}
         />
       </div>
-      <div className="col" style={{ minHeight: '25rem' }}>
+      <div className="col chat">
         <iframe
           title="TwitchChat"
           height="100%"
