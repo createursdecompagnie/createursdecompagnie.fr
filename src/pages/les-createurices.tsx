@@ -178,7 +178,7 @@ function GroupFilters({ activeGroup, onToggle }: GroupFiltersProps) {
           return (
             <button
               key={group}
-              className={`button button--secondary margin-right--sm ${
+              className={`button button--secondary margin-right--sm margin-bottom--sm ${
                 isActive ? '' : 'button--outline'
               }`}
               onClick={() => onToggle(group)}
