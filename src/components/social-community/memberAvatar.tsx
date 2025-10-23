@@ -1,3 +1,4 @@
+import React, { useEffect, useState } from 'react';
 import clsx from 'clsx';
 import styles from './style.module.css';
 import useBaseUrl from '@docusaurus/useBaseUrl';
@@ -26,36 +27,31 @@ const MemberAvatar: React.FC<MemberAvatarProps> = ({
   popup,
   href
 }) => {
-
-  const getAvatarUrls = (): { png: string | null; webp: string | null } => {
-
-    const sizeMap: Record<AvatarSize, string> = {
-      [AvatarSize.Small]: '50x50',
-      [AvatarSize.Medium]: '50x50',
-      [AvatarSize.Large]: '100x100',
-      [AvatarSize.ExtraLarge]: '100x100',
-    };
-
-    let url = member.avatar?.replace('300x300', sizeMap[size]) || null;
-    const png = url;
-    const webp = url ? url.replace(/\.\w+$/, '.webp') : null;
-
-    return { png, webp };
-  };
-
-  const getMemberProfileUrl = (member: Member): string | null => {
-    const baseUrl = useBaseUrl('/les-createurices');
-    const twitchLogin = member.socials?.twitch?.user_data?.login;
-    if (!twitchLogin) return null;
-    const params = new URLSearchParams(location.search);
-    params.set('twitch', twitchLogin);
-    return `${baseUrl}?${params.toString()}`;
-  };
-
-  if (!member) return;
-  const { png: avatarUrl, webp: avatarUrlWebp } = getAvatarUrls();
-  const profileUrl = getMemberProfileUrl(member);
+  const baseUrl = useBaseUrl('/les-createurices');
+  const [profileUrl, setProfileUrl] = useState<string | null>(href || null);
   const liveInfo = useTwitchLiveManager();
+
+  useEffect(() => {
+    if (!href && member?.socials?.twitch?.user_data?.login) {
+      const params = new URLSearchParams(location.search);
+      params.set('twitch', member.socials.twitch.user_data.login);
+      setProfileUrl(`${baseUrl}?${params.toString()}`);
+    }
+  }, [href, member]);
+
+  if (!member) return null;
+
+  const sizeMap: Record<AvatarSize, string> = {
+    [AvatarSize.Small]: '50x50',
+    [AvatarSize.Medium]: '50x50',
+    [AvatarSize.Large]: '100x100',
+    [AvatarSize.ExtraLarge]: '100x100',
+  };
+
+  const url = member.avatar?.replace('300x300', sizeMap[size]) || null;
+  const avatarUrl = url;
+  const avatarUrlWebp = url ? url.replace(/\.\w+$/, '.webp') : null;
+
   const twitchId = member.socials?.twitch?.id;
   const isLive = twitchId && liveInfo[twitchId]?.isLive;
 
@@ -65,7 +61,7 @@ const MemberAvatar: React.FC<MemberAvatarProps> = ({
       subtitle={subtitle}
       size={size}
       orientation={orientation}
-      href={href || profileUrl}
+      href={profileUrl}
       imageUrl={avatarUrl}
       imageUrlWebp={avatarUrlWebp}
       imageAlt={`Avatar de ${member.name}`}
