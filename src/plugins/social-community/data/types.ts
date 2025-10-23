@@ -67,15 +67,13 @@ export interface Member {
     socials?: Socials;
 }
 
-export type Members = Member[];
-
 export interface SocialCommunityPluginOptions extends PluginOptions {
-    members: Members;
+    members: Member[];
     module_key: string;
 }
 
 export interface SocialCommunityPluginData {
     planning2022: any[];
     planning2024: any[];
-    members: Members;
+    members: Member[];
 }

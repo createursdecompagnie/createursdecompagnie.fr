@@ -1,6 +1,7 @@
 import React from 'react';
 import clsx from 'clsx';
 import useBaseUrl from '@docusaurus/useBaseUrl';
+import Popup from 'reactjs-popup';
 
 export enum AvatarSize {
   Small = "sm",
@@ -24,6 +25,7 @@ interface AvatarProps {
   orientation?: AvatarOrientation;
   href?: string;
   className?: string;
+  popup?: string | React.ReactNode;
 }
 
 const Avatar: React.FC<AvatarProps> = ({
@@ -36,6 +38,7 @@ const Avatar: React.FC<AvatarProps> = ({
   orientation = AvatarOrientation.Horizontal,
   href,
   className = '',
+  popup,
 }) => {
   const avatarClasses = clsx(
     'avatar',
@@ -78,9 +81,8 @@ const Avatar: React.FC<AvatarProps> = ({
     return renderPicture(photoClasses);
   };
 
-  const showIntro = name || subtitle;
-
-  return (
+  const renderAvatar = () => {
+    return(
     <div
       className={avatarClasses}
     >
@@ -96,6 +98,26 @@ const Avatar: React.FC<AvatarProps> = ({
         </div>
       )}
     </div>
+    );
+  };
+
+  const showIntro = name || subtitle;
+  console.log('popup', popup);
+
+  return popup ? (
+        <Popup
+          trigger={renderAvatar()}
+          position={['top center', 'bottom center']}
+          on={['hover', 'focus']}
+          keepTooltipInside={true}
+          mouseEnterDelay={10}
+          mouseLeaveDelay={10}
+          offsetY={4}
+        >
+          {popup}
+        </Popup>
+  ) : (
+    renderAvatar()
   );
 };
 

@@ -8,6 +8,7 @@ import Link from '@docusaurus/Link';
 import useBaseUrl from '@docusaurus/useBaseUrl';
 import { CommunityListHome } from '@site/src/components/social-community'
 import Countdown from 'react-countdown';
+import { Group } from '../plugins/social-community/data/types';
 
 interface CountdownRendererProps {
   formatted: {
@@ -141,9 +142,10 @@ function HomepageCDC2025(): ReactNode {
 
       <div className="container text--center margin-bottom--xl">
         <h3 className="margin-top--lg margin-bottom--md">Les participant·es</h3>
-        <div className="margin-bottom--md">
-          <CommunityListHome group='cdc2025' />
+        <div className="margin-bottom--lg">
+          <CommunityListHome group={Group.cdc2025} />
         </div>
+        <a className="button button--primary button--lg" href="/les-createurices?group=cdc2025">Regarder en direct</a>
       </div>
     </>
   );

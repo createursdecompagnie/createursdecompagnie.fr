@@ -3,18 +3,8 @@ import Layout from '@theme/Layout';
 import useBaseUrl from '@docusaurus/useBaseUrl';
 import { useTwitchLiveManager } from '@site/src/components/social-community/useTwitchLiveManager';
 import { useLocation, useHistory } from '@docusaurus/router';
-import { usePluginData } from '@docusaurus/useGlobalData';
-import { 
-  SocialCommunityPluginData, 
-  Members, 
-  Member, 
-  Group 
-} from '@site/src/plugins/social-community/data/types';
-import { 
-  MemberAvatar, 
-  MemberAvatarOrientation, 
-  MemberAvatarSize 
-} from '@site/src/components/social-community';
+import { Member, Group } from '@site/src/plugins/social-community/data/types';
+import { MemberAvatar, MemberAvatarOrientation, MemberAvatarSize, getMembersFromPluginData } from '@site/src/components/social-community';
 
 const FILTRABLE_GROUPS: Partial<Record<Group, string>> = {
   [Group.cdc2025]: 'CDC 2025',
@@ -22,12 +12,12 @@ const FILTRABLE_GROUPS: Partial<Record<Group, string>> = {
   [Group.sct]: 'Sans Croquettes Twitch',
 };
 
-function getMemberFromParams(members: Members, params: URLSearchParams): Member | undefined {
+function getMemberFromParams(members: Member[], params: URLSearchParams): Member | undefined {
   const twitch = params.get('twitch');
   return members.find(m => twitch && m.socials?.twitch?.user_data?.login === twitch);
 }
 
-function filterMembersByGroups(members: Members, params: URLSearchParams): Members {
+function filterMembersByGroups(members: Member[], params: URLSearchParams): Member[] {
   const groupsFromUrl = params.getAll('group') as Group[];
   const validGroups = groupsFromUrl.filter(g => g in FILTRABLE_GROUPS);
 
@@ -39,11 +29,11 @@ function filterMembersByGroups(members: Members, params: URLSearchParams): Membe
 }
 
 function splitMembersByLiveStatus(
-  members: Members, 
+  members: Member[], 
   liveInfo: ReturnType<typeof useTwitchLiveManager>
 ) {
-  const live: Members = [];
-  const offline: Members = [];
+  const live: Member[] = [];
+  const offline: Member[] = [];
 
   members.forEach(member => {
     const twitchId = member.socials?.twitch?.id;
@@ -88,18 +78,6 @@ function useElapsedTime(since?: string) {
   }, [since]);
 
   return elapsed;
-}
-
-function usePluginMembers() {
-  let pluginData: SocialCommunityPluginData | undefined;
-
-  try {
-    pluginData = usePluginData('social-community-plugin') as SocialCommunityPluginData;
-  } catch (error) {
-    console.warn('Plugin social-community-plugin not found:', error);
-  }
-
-  return pluginData?.members || [];
 }
 
 interface LiveBadgesProps {
@@ -204,7 +182,7 @@ function GroupFilters({ activeGroups, onToggle }: GroupFiltersProps) {
 
 interface MembersGridProps {
   title: string;
-  members: Members;
+  members: Member[];
   liveInfo: ReturnType<typeof useTwitchLiveManager>;
   className?: string;
 }
@@ -262,7 +240,7 @@ function TwitchPlayer({ channelLogin, parent }: TwitchPlayerProps) {
 }
 
 export default function MemberPage() {
-  const members = usePluginMembers();
+  const members = getMembersFromPluginData();
   const location = useLocation();
   const history = useHistory();
   const baseUrl = useBaseUrl('/les-createurices');
@@ -342,7 +320,7 @@ export default function MemberPage() {
         <GroupFilters activeGroups={activeGroups} onToggle={toggleGroup} />
 
         <MembersGrid
-          title="En live en ce moment :"
+          title="En direct en ce moment :"
           members={liveMembers}
           liveInfo={liveInfo}
           className="margin-top--xl"

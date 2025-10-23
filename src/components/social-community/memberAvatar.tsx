@@ -12,6 +12,8 @@ interface MemberAvatarProps {
   size?: AvatarSize;
   orientation?: AvatarOrientation;
   className?: string;
+  popup?: string | React.ReactNode;
+  href?: string;
 }
 
 const MemberAvatar: React.FC<MemberAvatarProps> = ({
@@ -20,7 +22,9 @@ const MemberAvatar: React.FC<MemberAvatarProps> = ({
   subtitle,
   size = AvatarSize.Medium,
   orientation = AvatarOrientation.Horizontal,
-  className
+  className,
+  popup,
+  href
 }) => {
 
   const getAvatarUrls = (): { png: string | null; webp: string | null } => {
@@ -61,11 +65,12 @@ const MemberAvatar: React.FC<MemberAvatarProps> = ({
       subtitle={subtitle}
       size={size}
       orientation={orientation}
-      href={profileUrl}
+      href={href || profileUrl}
       imageUrl={avatarUrl}
       imageUrlWebp={avatarUrlWebp}
       imageAlt={`Avatar de ${member.name}`}
       className={clsx(className, isLive && styles.liveBorder)}
+      popup={popup}
     />
   );
 };
