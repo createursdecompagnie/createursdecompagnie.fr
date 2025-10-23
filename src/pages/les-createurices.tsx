@@ -1,10 +1,10 @@
-import React, { useEffect, useState } from 'react';
+import React, { act, useEffect, useState } from 'react';
 import Layout from '@theme/Layout';
 import useBaseUrl from '@docusaurus/useBaseUrl';
 import { useTwitchLiveManager } from '@site/src/components/social-community/useTwitchLiveManager';
 import { useLocation, useHistory } from '@docusaurus/router';
 import { Member, Group } from '@site/src/plugins/social-community/data/types';
-import { MemberAvatar, MemberAvatarOrientation, MemberAvatarSize, getMembersFromPluginData } from '@site/src/components/social-community';
+import { MemberAvatar, MemberAvatarOrientation, MemberAvatarSize, generateMemberProfileUrl, getMembersFromPluginData } from '@site/src/components/social-community';
 
 const FILTRABLE_GROUPS: Partial<Record<Group, string>> = {
   [Group.cdc2025]: 'CDC 2025',
@@ -19,13 +19,13 @@ function getMemberFromParams(members: Member[], params: URLSearchParams): Member
 
 function filterMembersByGroups(members: Member[], params: URLSearchParams): Member[] {
   const groupsFromUrl = params.getAll('group') as Group[];
-  const validGroups = groupsFromUrl.filter(g => g in FILTRABLE_GROUPS);
+  const firstValidGroup = groupsFromUrl.find(g => g in FILTRABLE_GROUPS);
 
-  if (validGroups.length === 0) {
+  if (!firstValidGroup) {
     return members;
   }
 
-  return members.filter(m => m.groups?.some(g => validGroups.includes(g)));
+  return members.filter(m => m.groups?.includes(firstValidGroup));
 }
 
 function splitMembersByLiveStatus(
@@ -126,9 +126,10 @@ function LiveBadges({ gameName, viewersCount, elapsed, centered = false }: LiveB
 interface MemberCardProps {
   member: Member;
   liveInfo: ReturnType<typeof useTwitchLiveManager>;
+  activeGroup?: Group | null;
 }
 
-function MemberCard({ member, liveInfo }: MemberCardProps) {
+function MemberCard({ member, liveInfo, activeGroup }: MemberCardProps) {
   const twitchId = member.socials?.twitch?.id;
   const twitchLive = twitchId ? liveInfo[twitchId] : undefined;
   const elapsed = useElapsedTime(twitchLive?.stream?.createdAt);
@@ -140,6 +141,7 @@ function MemberCard({ member, liveInfo }: MemberCardProps) {
       </div>
       <div className="card__body">
         <MemberAvatar
+          href={generateMemberProfileUrl(member, activeGroup)}
           member={member}
           size={MemberAvatarSize.ExtraLarge}
           orientation={MemberAvatarOrientation.Vertical}
@@ -159,17 +161,17 @@ function MemberCard({ member, liveInfo }: MemberCardProps) {
 }
 
 interface GroupFiltersProps {
-  activeGroups: string[];
+  activeGroup: string | null;
   onToggle: (group: Group) => void;
 }
 
-function GroupFilters({ activeGroups, onToggle }: GroupFiltersProps) {
+function GroupFilters({ activeGroup, onToggle }: GroupFiltersProps) {
   return (
     <div className="row margin-vert--lg">
       <div className="col">
         {Object.entries(FILTRABLE_GROUPS).map(([key, label]) => {
           const group = key as Group;
-          const isActive = activeGroups.includes(group);
+          const isActive = activeGroup === group;
           
           return (
             <button
@@ -193,9 +195,10 @@ interface MembersGridProps {
   members: Member[];
   liveInfo: ReturnType<typeof useTwitchLiveManager>;
   className?: string;
+  activeGroup?: Group | null;
 }
 
-function MembersGrid({ title, members, liveInfo, className = '' }: MembersGridProps) {
+function MembersGrid({ title, members, liveInfo, className = '', activeGroup }: MembersGridProps) {
   if (members.length === 0) return null;
 
   return (
@@ -204,7 +207,7 @@ function MembersGrid({ title, members, liveInfo, className = '' }: MembersGridPr
       <div className="row">
         {members.map(member => (
           <div key={member.id} className="col col--3">
-            <MemberCard member={member} liveInfo={liveInfo} />
+            <MemberCard member={member} liveInfo={liveInfo} activeGroup={activeGroup} />
           </div>
         ))}
       </div>
@@ -255,7 +258,11 @@ export default function MemberPage() {
   const liveInfo = useTwitchLiveManager();
   
   const params = new URLSearchParams(location.search);
-  const activeGroups = params.getAll('group');
+  const [activeGroup, setActiveGroup] = useState<Group | null>(() => {
+    const groupsFromUrl = params.getAll('group') as Group[];
+    return groupsFromUrl.find(g => g in FILTRABLE_GROUPS) || null;
+  });
+  
   const member = getMemberFromParams(members, params);
   const filteredMembers = filterMembersByGroups(members, params);
   const { live: liveMembers, offline: otherMembers } = splitMembersByLiveStatus(filteredMembers, liveInfo);
@@ -265,15 +272,18 @@ export default function MemberPage() {
   const elapsed = useElapsedTime(twitchLive?.stream?.createdAt);
   const parent = typeof window !== 'undefined' ? window.location.hostname : '';
 
+  useEffect(() => {
+    const params = new URLSearchParams(location.search);
+    const groupsFromUrl = params.getAll('group') as Group[];
+    const urlGroup = groupsFromUrl.find(g => g in FILTRABLE_GROUPS) || null;
+    setActiveGroup(urlGroup);
+  }, [location.search]);
+
   const toggleGroup = (group: Group) => {
     const newParams = new URLSearchParams(location.search);
+    newParams.delete('group');
 
-    if (activeGroups.includes(group)) {
-      newParams.delete('group');
-      activeGroups
-        .filter(g => g !== group)
-        .forEach(g => newParams.append('group', g));
-    } else {
+    if (activeGroup !== group) {
       newParams.append('group', group);
     }
 
@@ -282,6 +292,8 @@ export default function MemberPage() {
       search: newParams.toString(),
       hash: 'filtres',
     });
+
+    setActiveGroup(activeGroup !== group ? group : null);
   };
 
   return (
@@ -294,6 +306,7 @@ export default function MemberPage() {
             <div className="row margin-vert--lg">
               <div className="col">
                 <MemberAvatar
+                  href={null}
                   member={member}
                   name={member.name}
                   subtitle={
@@ -325,15 +338,17 @@ export default function MemberPage() {
           Filtres <br/>
           <span className='text--light'><small>{filteredMembers.length}/{members.length} créateur·ices</small></span>
         </h2>
-        <GroupFilters activeGroups={activeGroups} onToggle={toggleGroup} />
+        <GroupFilters activeGroup={activeGroup} onToggle={toggleGroup} />
 
         <MembersGrid
+          activeGroup={activeGroup}
           title="En direct en ce moment :"
           members={liveMembers}
           liveInfo={liveInfo}
           className="margin-top--xl"
         />
         <MembersGrid
+          activeGroup={activeGroup}
           title="D'autres créateur·ices :"
           members={otherMembers}
           liveInfo={liveInfo}

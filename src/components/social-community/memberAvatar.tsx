@@ -27,17 +27,7 @@ const MemberAvatar: React.FC<MemberAvatarProps> = ({
   popup,
   href
 }) => {
-  const baseUrl = useBaseUrl('/les-createurices');
-  const [profileUrl, setProfileUrl] = useState<string | null>(href || null);
   const liveInfo = useTwitchLiveManager();
-
-  useEffect(() => {
-    if (!href && member?.socials?.twitch?.user_data?.login) {
-      const params = new URLSearchParams(location.search);
-      params.set('twitch', member.socials.twitch.user_data.login);
-      setProfileUrl(`${baseUrl}?${params.toString()}`);
-    }
-  }, [href, member]);
 
   if (!member) return null;
 
@@ -61,7 +51,7 @@ const MemberAvatar: React.FC<MemberAvatarProps> = ({
       subtitle={subtitle}
       size={size}
       orientation={orientation}
-      href={profileUrl}
+      href={href}
       imageUrl={avatarUrl}
       imageUrlWebp={avatarUrlWebp}
       imageAlt={`Avatar de ${member.name}`}

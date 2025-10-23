@@ -2,8 +2,7 @@ import type { ReactNode } from 'react';
 import clsx from 'clsx';
 import styles from './style.module.css';
 import type { Group, Member } from '@site/src/plugins/social-community/data/types';
-import { MemberAvatar, MemberAvatarSize, getDisplayNameForMember, getMembersFromPluginData } from './index';
-import useBaseUrl from '@docusaurus/useBaseUrl';
+import { MemberAvatar, MemberAvatarSize, getDisplayNameForMember, getMembersFromPluginData, generateMemberProfileUrl } from './index';
 
 interface CommunityListProps {
   group?: Group;
@@ -36,19 +35,12 @@ function CommunityList({
 }: CommunityListProps): ReactNode {
   const members = getMembersFromPluginData();
   const filteredMembers = filterMembers(members, group, memberIds);
-
-  const forgeProfileUrl = (member: Member, group?: Group): string => {
-    const baseUrl = useBaseUrl('/les-createurices');
-    const urlWithGroup = `${baseUrl}?group=${group}`;
-    const twitchLogin = member.socials?.twitch?.user_data?.login;
-    return twitchLogin ? `${urlWithGroup}&twitch=${twitchLogin}` : urlWithGroup;
-  };
   
   return (
     <div className={clsx(styles.communityList, className)}>
       {filteredMembers.map(member => (
         <MemberAvatar 
-          href={forgeProfileUrl(member, group)}
+          href={generateMemberProfileUrl(member, group)}
           key={member.id} 
           member={member} 
           size={size} 

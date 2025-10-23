@@ -1,6 +1,21 @@
 import { Social, Member } from '@site/src/plugins/social-community/data/types';
 import { usePluginData } from '@docusaurus/useGlobalData';
-import type { SocialCommunityPluginData } from '@site/src/plugins/social-community/data/types';
+import type { SocialCommunityPluginData, Group } from '@site/src/plugins/social-community/data/types';
+import useBaseUrl from '@docusaurus/useBaseUrl';
+
+export function generateMemberProfileUrl(member: Member, group?: Group | null): string {
+  const baseUrl = useBaseUrl('/les-createurices');
+  const twitchLogin = member.socials?.twitch?.user_data?.login;
+  const params = new URLSearchParams();
+  if (twitchLogin) {
+    params.set('twitch', twitchLogin);
+  }
+  if (group) {
+    params.set('group', group);
+  }
+  const query = params.toString();
+  return query ? `${baseUrl}?${query}` : baseUrl;
+}
 
 export function getDisplayNameForMember(member: Member): string {
   if (member?.socials?.main_social === Social.twitch && member.socials.twitch?.user_data) {
