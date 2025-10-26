@@ -335,7 +335,7 @@ const members: Members = [
     {
         id: "355362d7-58c0-413d-aebb-c02693ed1282",
         name: 'MlleCkat',
-        groups: [Group.sct],
+        groups: [Group.sct, Group.cdc2025],
         socials: {
             main_social: Social.twitch,
             twitch: {
@@ -772,6 +772,17 @@ const members: Members = [
             main_social: Social.twitch,
             twitch: {
                 id: '768284594'
+            },
+        }
+    },
+    {
+        id: "8296fa4d-bbe8-421e-b24f-1cab9e84607c",
+        name: 'Hey_lynn',
+        groups: [Group.cdc2025],
+        socials: {
+            main_social: Social.twitch,
+            twitch: {
+                id: '458949785'
             },
         }
     },
