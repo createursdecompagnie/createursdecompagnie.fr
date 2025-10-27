@@ -49,6 +49,16 @@ export interface Discord {
     link: string;
 }
 
+export interface Goal {
+    amount: number;
+    description: string;
+}
+
+export interface CDC2025 {
+    streamlabscharityId: string;
+    goals: string[];
+}
+
 export interface Socials {
     main_social: Social;
     twitch?: Twitch;
@@ -65,6 +75,7 @@ export interface Member {
     avatar?: string;
     groups: Group[];
     socials?: Socials;
+    cdc2025?: CDC2025;
 }
 
 export interface SocialCommunityPluginOptions extends PluginOptions {

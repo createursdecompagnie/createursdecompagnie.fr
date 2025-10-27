@@ -318,3 +318,32 @@ a:hover .icon-discord
 .text--color-content {
   color: var(--ifm-color-content);
 }
+
+@media screen and (max-width: 996px) {
+  .donations .button {
+    width: 100%;
+  }
+
+  .donations .donate {
+    border-bottom-right-radius: 0;
+    border-bottom-left-radius: 0;
+  }
+  .donations .personal-pot {
+    border-top-right-radius: 0;
+    border-top-left-radius: 0;
+  }
+}
+@media screen and (min-width: 996px) {
+  .donations .button {
+    --ifm-button-size-multiplier: 1.15;
+  }
+
+  .donations .donate {
+    border-bottom-right-radius: 0;
+    border-top-right-radius: 0;
+  }
+  .donations .personal-pot {
+    border-bottom-left-radius: 0;
+    border-top-left-radius: 0;
+  }
+}

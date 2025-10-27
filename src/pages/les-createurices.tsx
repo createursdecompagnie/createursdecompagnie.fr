@@ -2,14 +2,15 @@ import React, { act, useEffect, useState } from 'react';
 import Layout from '@theme/Layout';
 import useBaseUrl from '@docusaurus/useBaseUrl';
 import { useTwitchLiveManager } from '@site/src/components/social-community/useTwitchLiveManager';
+import { useStreamlabsCharity } from '@site/src/components/social-community/useStreamlabsCharity';
 import { useLocation, useHistory } from '@docusaurus/router';
 import { Member, Group } from '@site/src/plugins/social-community/data/types';
 import { MemberAvatar, MemberAvatarOrientation, MemberAvatarSize, generateMemberProfileUrl, getMembersFromPluginData, getDisplayNameForMember } from '@site/src/components/social-community';
 
 const FILTRABLE_GROUPS: Partial<Record<Group, string>> = {
-  [Group.cdc2025]: 'CDC 2025',
-  [Group.cdc2022]: 'CDC 2022',
-  [Group.sct]: 'Sans Croquettes Twitch',
+  [Group.cdc2025]: 'CDC 2025',
+  [Group.cdc2022]: 'CDC 2022',
+  [Group.sct]: 'Sans Croquettes Twitch',
 };
 
 function getMemberFromParams(members: Member[], params: URLSearchParams): Member | undefined {
@@ -246,13 +247,77 @@ function TwitchPlayer({ channelLogin, parent }: TwitchPlayerProps) {
   );
 }
 
+interface DonationButtonsProps {
+  member: Member;
+}
+
+function DonationButtons({ member }: DonationButtonsProps) {
+  const streamlabsCharity = useStreamlabsCharity();
+  const { cdc2025, groups } = member;
+
+  if (!cdc2025 || !groups?.includes(Group.cdc2025)) return null;
+
+  const baseUrl =
+    "https://streamlabscharity.com/teams/@createurs-de-compagnie-2025/cdc2025";
+
+  const donationUrl = cdc2025.streamlabscharityId
+    ? `${baseUrl}?member=${cdc2025.streamlabscharityId}`
+    : baseUrl;
+
+  const charityMember = streamlabsCharity.members.find(
+    (m) => m.memberId === cdc2025.streamlabscharityId
+  );
+
+  const personalTotal = ((charityMember?.totalAmount / 100) || 0).toLocaleString("fr-FR", {
+    style: "currency",
+    currency: "EUR",
+    minimumFractionDigits: 0,
+  });
+
+  const globalTotal = (streamlabsCharity.totalRaised / 100).toLocaleString("fr-FR", {
+    style: "currency",
+    currency: "EUR",
+    minimumFractionDigits: 0,
+  });
+
+  return (
+    <div className="row row--no-gutters margin--none padding--none margin-top--md donations">
+      <div className="col col--6 margin-bottom--md">
+        <a href={donationUrl} target="_blank" rel="noopener noreferrer">
+          {cdc2025.streamlabscharityId ? (
+            <>
+              <button className="button button--primary donate">
+                Faire un don sur sa cagnotte :
+              </button>
+              <div className="button button--secondary personal-pot">
+                {personalTotal}
+              </div>
+            </>
+          ) : (
+            <button className="button button--primary">
+              Faire un don pour CDC 2025
+            </button>
+          )}
+        </a>
+      </div>
+      <div className="col text--right">
+        <a href={baseUrl} target="_blank" rel="noopener noreferrer">
+          <button className="button button--primary button--outline">
+            {`Total récolté : ${globalTotal}`}
+          </button>
+        </a>
+      </div>
+    </div>
+  );
+}
+
 export default function MemberPage() {
   const members = getMembersFromPluginData();
   const location = useLocation();
   const history = useHistory();
   const baseUrl = useBaseUrl('/les-createurices');
   const liveInfo = useTwitchLiveManager();
-  
+
   const params = new URLSearchParams(location.search);
   const [activeGroup, setActiveGroup] = useState<Group | null>(() => {
     const groupsFromUrl = params.getAll('group') as Group[];
@@ -324,6 +389,9 @@ export default function MemberPage() {
             <TwitchPlayer 
               channelLogin={member.socials.twitch.user_data.login} 
               parent={parent} 
+            />
+            <DonationButtons
+              member={member}
             />
           </>
         )}

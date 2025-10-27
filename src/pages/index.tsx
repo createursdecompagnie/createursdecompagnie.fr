@@ -83,7 +83,7 @@ function HomepageCDC2025(): ReactNode {
   return (
     <>
       <div className="container padding-top--xl  padding-bottom--lg text--center">
-        <h2 className="margin-bottom--none"><a href="/evenement/cdc2025">CDC 2025</a></h2>
+        <h2 className="margin-bottom--none"><a href="/evenement/cdc2025">CDC 2025</a></h2>
         <p>du 7 au 9 novembre</p>
         <div className="row margin-top--lg">
           <div className="col margin-bottom--md">
