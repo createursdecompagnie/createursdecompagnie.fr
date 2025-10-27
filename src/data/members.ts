@@ -1,7 +1,7 @@
-import type { Members } from '../plugins/social-community/data/types';
+import type { Member } from '../plugins/social-community/data/types';
 import { Group, Social } from '../plugins/social-community/data/types';
 
-const members: Members = [
+const members: Member[] = [
     {
         id: "47b5c89e-2c12-40a4-8e12-fcff912107a9",
         name: 'Créateurs de Compagnie',
