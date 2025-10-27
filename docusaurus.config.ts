@@ -80,8 +80,8 @@ const config: Config = {
           ],
         },
         {
-          href: 'https://streamlabscharity.com/teams/@createurs-de-compagnie-2025/cdc2025?member=452020463900692480',
-          label: 'Donner 🎃',
+          href: 'https://streamlabscharity.com/teams/@createurs-de-compagnie-2025/cdc2025',
+          label: 'Faire un don 🎃',
           position: 'right',
           className: 'donate-btn margin-right--md',
         },
