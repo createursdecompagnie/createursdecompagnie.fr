@@ -218,7 +218,7 @@ const members: Member[] = [
             },
         },
         cdc2025: {
-            streamlabscharityId: null,
+            streamlabscharityId: '470336916802375680',
             goals: []
         }
     },
