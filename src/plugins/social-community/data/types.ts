@@ -56,7 +56,7 @@ export interface Goal {
 
 export interface CDC2025 {
     streamlabscharityId: string;
-    goals: string[];
+    goals: Goal[];
 }
 
 export interface Socials {

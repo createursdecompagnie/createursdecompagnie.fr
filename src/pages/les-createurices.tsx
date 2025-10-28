@@ -300,14 +300,60 @@ function DonationButtons({ member }: DonationButtonsProps) {
           )}
         </a>
       </div>
-      <div className="col text--right">
+      <div className="col text--right margin-bottom--md">
         <a href={baseUrl} target="_blank" rel="noopener noreferrer">
-          <button className="button button--primary button--outline">
+          <button className="button button--primary button--outline total">
             {`Total récolté : ${globalTotal}`}
           </button>
         </a>
       </div>
     </div>
+  );
+}
+
+interface DonationGoalsProps {
+  member: Member;
+}
+
+function DonationGoals({ member }: DonationGoalsProps) {
+  const { cdc2025, groups } = member;
+  const goals = member?.cdc2025?.goals ?? [];
+  const streamlabsCharity = useStreamlabsCharity();
+
+  if (!cdc2025 || !groups?.includes(Group.cdc2025) || !goals || goals.length === 0)
+    return null;
+
+  const charityMember = streamlabsCharity.members.find(
+    (m) => m.memberId === cdc2025.streamlabscharityId
+  );
+
+  const personalTotal = (charityMember?.totalAmount / 100) || 0;
+
+  return (
+    <>
+      <h2 className="margin-top--md">Objectifs</h2>
+      <table className="donation-goals">
+        <tbody>
+          {goals.map((goal: any, index: number) => {
+
+            const current = personalTotal;
+            const target = goal.amount ?? 0;
+            const progressPercent = target > 0 ? Math.min(100, (current / target) * 100) : 0;
+
+            return (
+              <tr
+                key={index}
+                style={{ "--progress": `${progressPercent}%` } as React.CSSProperties}
+              >
+                <td className="goal-description">{goal.description}</td>
+                <td className="goal-amount">{goal.amount} €</td>
+              </tr>
+            );
+
+          })}
+        </tbody>
+      </table>
+    </>
   );
 }
 
@@ -368,7 +414,7 @@ export default function MemberPage() {
               <div className="col">
                 <MemberAvatar
                   member={member}
-                  name={getDisplayNameForMember(member)}
+                  name={<h2 className='margin-bottom--none'>{getDisplayNameForMember(member)}</h2>}
                   subtitle={
                     <>
                       {twitchLive?.title}
@@ -391,6 +437,9 @@ export default function MemberPage() {
               parent={parent} 
             />
             <DonationButtons
+              member={member}
+            />
+            <DonationGoals
               member={member}
             />
           </>

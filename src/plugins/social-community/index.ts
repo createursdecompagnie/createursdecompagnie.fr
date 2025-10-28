@@ -2,8 +2,9 @@ require('dotenv/config');
 
 const fs = require('fs');
 const path = require('path');
+import Papa from 'papaparse';
 import type { LoadContext, Plugin } from '@docusaurus/types';
-import type { Members, Member, SocialCommunityPluginOptions, SocialCommunityPluginData } from './data/types';
+import type { Goal, Member, SocialCommunityPluginOptions, SocialCommunityPluginData } from './data/types';
 
 interface TwitchAuthResponse {
     access_token: string;
@@ -20,7 +21,7 @@ interface TwitchUsersResponse {
     data: TwitchUserData[];
 }
 
-function FindMemberByTwitchId(members: Members, id: string): Member | undefined {
+function FindMemberByTwitchId(members: Member[], id: string): Member | undefined {
     return members.find(member => member.socials?.twitch?.id === id);
 }
 
@@ -51,7 +52,7 @@ async function authenticateWithTwitch(): Promise<string> {
     return authData.access_token;
 }
 
-async function fetchTwitchUsers(members: Members, accessToken: string): Promise<TwitchUsersResponse> {
+async function fetchTwitchUsers(members: Member[], accessToken: string): Promise<TwitchUsersResponse> {
     const userIds = members
         .filter(member => member.socials?.twitch?.id)
         .map(member => member.socials!.twitch!.id);
@@ -90,12 +91,54 @@ async function downloadAndProcessAvatar(imageUrl: string, login: string): Promis
     fs.mkdirSync(basePath, { recursive: true });
 
     await Promise.all([
+        sharp(imageBuffer).resize(300).toFile(`${basePath}${login}-300x300.png`),
+        sharp(imageBuffer).resize(300).toFile(`${basePath}${login}-300x300.webp`),
         sharp(imageBuffer).resize(100).toFile(`${basePath}${login}-100x100.png`),
         sharp(imageBuffer).resize(100).toFile(`${basePath}${login}-100x100.webp`),
         sharp(imageBuffer).resize(50).toFile(`${basePath}${login}-50x50.png`),
         sharp(imageBuffer).resize(50).toFile(`${basePath}${login}-50x50.webp`),
     ]);
 }
+
+async function fetchAndParseGoalsCSV(url: string): Promise<Record<string, Goal[]>> {
+    const response = await fetch(url);
+    if (!response.ok) {
+        throw new Error(`Unable to fetch donation goals CSV: ${response.status} ${response.statusText}`);
+    }
+
+    const csvText = await response.text();
+    const parsed = Papa.parse(csvText, { header: true, skipEmptyLines: true, delimiter: ',' });
+
+    const result: Record<string, Goal[]> = {};
+
+    const data = parsed.data as any[];
+    for (let rowIndex = 0; rowIndex < data.length; rowIndex++) {
+        const row = data[rowIndex];
+        if (rowIndex < 2) continue;
+
+        const streamer = row['CREATEURS DE COMPAGNIE']?.trim()?.toLowerCase();
+        if (!streamer) continue;
+
+        const goals: Goal[] = [];
+        for (let colIndex = 1; colIndex < 50; colIndex += 2)
+        {
+            const rawAmount = row['_'+colIndex]?.trim();
+            const description = row['_'+(colIndex + 1)]?.trim();
+
+            if (description && rawAmount) {
+                const amount = parseFloat(rawAmount.replace(/[^\d,]/g, ''));
+                if (!isNaN(amount)) {
+                    goals.push({ amount, description });
+                }
+            }
+        }
+
+        result[streamer] = goals;
+    }
+
+    return result;
+}
+
 
 module.exports = function SocialCommunityPlugin(
     context: LoadContext, 
@@ -104,7 +147,7 @@ module.exports = function SocialCommunityPlugin(
     return {
         name: 'social-community-plugin',
         async contentLoaded({ content, actions }) {
-            const members: Members = options.members;
+            const members: Member[] = options.members;
 
             const accessToken = await authenticateWithTwitch();
             const usersData = await fetchTwitchUsers(members, accessToken);
@@ -121,24 +164,40 @@ module.exports = function SocialCommunityPlugin(
                 }
             });
 
-            if (process.env.NODE_ENV === 'development') {
-                const avatarPromises = members
-                    .filter(member => member.socials?.twitch?.user_data)
-                    .map(member => {
-                        const twitchData = member.socials!.twitch!.user_data!;
-                        return downloadAndProcessAvatar(twitchData.profile_image_url, twitchData.login);
-                    });
+            const avatarPromises = members
+                .filter(member => member.socials?.twitch?.user_data)
+                .map(member => {
+                    const twitchData = member.socials!.twitch!.user_data!;
+                    return downloadAndProcessAvatar(twitchData.profile_image_url, twitchData.login);
+                });
 
-                await Promise.all(avatarPromises);
+            await Promise.all(avatarPromises);
+
+            try {
+                if (process.env.CDC2025_GOALS)
+                {
+                    const goalsByStreamer = await fetchAndParseGoalsCSV(process.env.CDC2025_GOALS);
+                    members.forEach(member => {
+                        const name = member.socials?.twitch?.user_data?.login?.trim().toLowerCase();
+                        if (goalsByStreamer[name]) {
+                            if (member.cdc2025)
+                            {
+                                member.cdc2025.goals = goalsByStreamer[name];
+                            }
+                        }
+                    });
+                }
+            } catch (err) {
+                console.error('Failed to fetch or parse donation goals CSV:', err);
             }
 
             const memberGroups: Record<string, any[]> = {};
             members.forEach(member => {
                 const login = member.socials?.twitch?.user_data?.login;
                 if (login) {
-                    const filePath = `/img/avatars/${login}-100x100.png`;
+                    const filePath = `/img/avatars/${login}-300x300.png`;
                     if (fs.existsSync(`./static${filePath}`)) {
-                        member.avatar = filePath.replace("100x100", "300x300");
+                        member.avatar = filePath;
                     }
 
                     if (member.socials?.twitch?.user_data) {

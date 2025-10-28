@@ -20,6 +20,7 @@
     "@easyops-cn/docusaurus-search-local": "^0.52.1",
     "@mdx-js/react": "^3.0.0",
     "clsx": "^2.0.0",
+    "papaparse": "^5.5.3",
     "prism-react-renderer": "^2.3.0",
     "react": "^19.0.0",
     "react-countdown": "^2.3.6",
