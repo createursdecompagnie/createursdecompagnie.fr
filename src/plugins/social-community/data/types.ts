@@ -86,5 +86,6 @@ export interface SocialCommunityPluginOptions extends PluginOptions {
 export interface SocialCommunityPluginData {
     planning2022: any[];
     planning2024: any[];
+    planning2025: any[];
     members: Member[];
 }
