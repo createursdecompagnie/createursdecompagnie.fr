@@ -2,7 +2,7 @@
 title: PlayTogether
 description: Une édition spéciale de PlayTogether du 8 au 10 novembre au profit d'une association de protection animale
 ---
-import { Planning2024 } from '/src/components/planning'
+import { Planning, Group } from '/src/components/planning'
 import { CommunityListEvent } from '/src/components/social-community'
 
 <nav aria-label="breadcrumbs" className="page-breadcrumbs">
@@ -48,4 +48,4 @@ Elle possède **un des plus grand centre de soins aux animaux sauvages de France
 
 ## Le planning
 
-<Planning2024 class='margin-top--xl' />
+<Planning group={Group.playtogether2024} />

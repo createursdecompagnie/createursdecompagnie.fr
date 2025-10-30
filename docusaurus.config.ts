@@ -60,10 +60,22 @@ const config: Config = {
           label: 'CDC 2025',
           to: '/evenement/cdc2025',
         },
+        // {
+        //   label: 'CDC 2025',
+        //   items: [
+        //     {
+        //       label: 'L\'évènement',
+        //       to: '/evenement/cdc2025/l-evenement',
+        //     },
+        //     {
+        //       label: 'Le planning',
+        //       to: '/evenement/cdc2025/planning',
+        //     },
+        //   ]
+        // },
         {
           type: 'dropdown',
           label: 'Évènements passés',
-          position: 'left',
           items: [
             {
               label: 'PlayTogether',
@@ -114,7 +126,7 @@ const config: Config = {
           items: [
             {
               label: 'CDC 2025',
-              href: '/evenement/cdc2025',
+              to: '/evenement/cdc2025/l-evenement',
             },
             {
               label: 'PlayTogether',
@@ -122,11 +134,11 @@ const config: Config = {
             },
             {
               label: 'CDC 2022',
-              href: '/evenement/cdc2022',
+              to: '/evenement/cdc2022',
             },
             {
               label: 'Sans Croquettes Twitch',
-              href: '/evenement/sans-croquettes-twitch',
+              to: '/evenement/sans-croquettes-twitch',
             }
           ],
         },

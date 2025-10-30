@@ -4,7 +4,7 @@ import path from 'path';
 import Papa from 'papaparse';
 import type { LoadContext, Plugin } from '@docusaurus/types';
 import { Group } from './data/types'; 
-import type { Twitch, TwitchUserData, Goal, Member, SocialCommunityPluginOptions, SocialCommunityPluginData } from './data/types';
+import type { Twitch, TwitchUserData, Goal, Member, SocialCommunityPluginOptions, SocialCommunityPluginData, PlanningEvent } from './data/types';
 
 interface TwitchAuthResponse {
   access_token: string;
@@ -12,15 +12,6 @@ interface TwitchAuthResponse {
 
 interface TwitchUsersResponse {
   data: TwitchUserData[];
-}
-
-interface PlanningItem {
-  start: Date;
-  end: Date;
-  maintrack: boolean;
-  presenters: string[];
-  attendees: string[];
-  [key: string]: any;
 }
 
 const DATA_BASE_PATH = './static/data/';
@@ -228,7 +219,7 @@ function assignGoalsToMembers(
 async function fetchAndParsePlanningCSV(
   url: string, 
   memberGroups: Partial<Record<Group, Twitch[]>>
-): Promise<PlanningItem[]> {
+): Promise<PlanningEvent[]> {
   const response = await fetch(url);
   
   if (!response.ok) {
@@ -248,7 +239,7 @@ async function fetchAndParsePlanningCSV(
   const planning = data
     .map(item => parsePlanningItem(item, memberGroups))
     .filter(item => (item.presenters.length + item.attendees.length) > 0)
-    .sort(sortPlanningItems);
+    .sort(sortPlanningEvents);
 
   return planning;
 }
@@ -256,7 +247,7 @@ async function fetchAndParsePlanningCSV(
 function parsePlanningItem(
   item: any, 
   memberGroups: Partial<Record<Group, Twitch[]>>
-): PlanningItem {
+): PlanningEvent {
   const start = new Date(item.start);
   const end = new Date(item.end);
   
@@ -287,7 +278,7 @@ function parseAndFilterMembers(
     );
 }
 
-function sortPlanningItems(a: PlanningItem, b: PlanningItem): number {
+function sortPlanningEvents(a: PlanningEvent, b: PlanningEvent): number {
   return (a.start.getTime() - b.start.getTime()) || 
          (a.end.getTime() - b.end.getTime());
 }
@@ -350,41 +341,31 @@ module.exports = function SocialCommunityPlugin(
       await processAllAvatars(members);
       assignAvatarsToMembers(members);
 
-      try {
-        if (process.env.CDC2025_GOALS) {
-          const goalsByStreamer = await fetchAndParseGoalsCSV(
-            process.env.CDC2025_GOALS
-          );
-          assignGoalsToMembers(members, goalsByStreamer);
-        }
-      } catch (err) {
-        console.error('Failed to fetch or parse donation goals CSV:', err);
+      if (process.env.CDC2025_GOALS) {
+        const goalsByStreamer = await fetchAndParseGoalsCSV(
+          process.env.CDC2025_GOALS
+        );
+        assignGoalsToMembers(members, goalsByStreamer);
       }
 
       const memberGroups = groupMembersByGroup(members);
       saveGroupsToFiles(memberGroups);
 
-      const planning2022 = loadPlanningData(Group.cdc2022);
-      const planning2024 = loadPlanningData(Group.playtogether2024);
-      let planning2025: any[] = [];
+      const plannings: Partial<Record<Group, any[]>> = {};
+      plannings[Group.cdc2022] = loadPlanningData(Group.cdc2022);
+      plannings[Group.playtogether2024] = loadPlanningData(Group.playtogether2024);
 
-      try {
-        if (process.env.CDC2025_PLANNING) {
-          planning2025 = await fetchAndParsePlanningCSV(
-            process.env.CDC2025_PLANNING, 
-            memberGroups
-          );
-          savePlanningData(Group.cdc2025, planning2025);
-        }
-      } catch (err) {
-        console.error('Failed to fetch or parse planning CSV:', err);
+      if (process.env.CDC2025_PLANNING) {
+        plannings[Group.cdc2025] = await fetchAndParsePlanningCSV(
+          process.env.CDC2025_PLANNING, 
+          memberGroups
+        );
+        savePlanningData(Group.cdc2025, plannings[Group.cdc2025]);
       }
 
       const { setGlobalData } = actions;
       const socialCommunityPluginData: SocialCommunityPluginData = {
-        planning2022,
-        planning2024,
-        planning2025,
+        plannings,
         members,
       };
 

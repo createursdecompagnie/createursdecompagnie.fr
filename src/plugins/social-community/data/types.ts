@@ -83,9 +83,17 @@ export interface SocialCommunityPluginOptions extends PluginOptions {
     module_key: string;
 }
 
+export interface PlanningEvent {
+  title: string;
+  start: Date;
+  end: Date;
+  description: string;
+  presenters: string[];
+  attendees: string[];
+  maintrack?: boolean;
+}
+
 export interface SocialCommunityPluginData {
-    planning2022: any[];
-    planning2024: any[];
-    planning2025: any[];
+    plannings: Partial<Record<Group, PlanningEvent[]>>;
     members: Member[];
 }

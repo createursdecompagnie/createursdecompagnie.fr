@@ -1,20 +1,24 @@
-import React from 'react';
+import React, { ReactElement } from 'react';
 import clsx from 'clsx';
-
 import styles from './style.module.css';
-
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
-import { CommunityListEvent, CommunityListCalendar } from '../social-community';
-
+import { CommunityListEvent, CommunityListCalendar, getMembersFromPluginData } from '../social-community';
 import { usePluginData } from '@docusaurus/useGlobalData';
-
 import seedrandom from 'seedrandom';
-
 import Popup from 'reactjs-popup';
-// import 'reactjs-popup/dist/index.css';
+import type { SocialCommunityPluginData, PlanningEvent, Member } from '@site/src/plugins/social-community/data/types';
+import { Group } from '@site/src/plugins/social-community/data/types';
 
-function shuffle(array, rng) {
+const WEEK_DAYS = ["Dimanche", "Lundi", "Mardi", "Mercredi", "Jeudi", "Vendredi", "Samedi"];
+
+interface DayInfo {
+  weekDay: string;
+  date: number;
+  dateString: string;
+}
+
+function shuffle(array: string[], rng: () => number): string[] {
   let copy = [...array];
   for (let i = copy.length - 1; i > 0; i--) {
     let j = Math.floor(rng() * (i + 1));
@@ -24,119 +28,117 @@ function shuffle(array, rng) {
   return copy;
 }
 
-function EventCalendar(event) {
+function EventCalendar(event: PlanningEvent): ReactElement {
   var rng = seedrandom(event.title);
   let attendees = shuffle(event.attendees, rng);
   return (
-    <CommunityListCalendar memberIds={[/*event.maintrack ? 'createursdecompagnie' : ''*/].concat(event.presenters.concat(attendees)).slice(0, 6)} />
+    <CommunityListCalendar memberIds={event.presenters.concat(attendees).slice(0, 6)} />
   );
 }
 
-function EnventPresenters(event) {
+function EnventPresenters(event: PlanningEvent): ReactElement | undefined {
   let length = event.presenters.length;
   if (length > 0) {
     return (
       <>
-        <h5 className={styles.popupSubtitle}>{length > 1 ? 'Présentateurs' : 'Présentateur'}</h5>
+        <h5 className={styles.popupSubtitle}>{length > 1 ? 'Présentateur·ices' : 'Présentateur·ice'}</h5>
         <CommunityListEvent memberIds={event.presenters} />
       </>
     );
   }
 }
 
-function EventAttendees(event) {
+function EventAttendees(event: PlanningEvent): ReactElement | undefined {
   let length = event.attendees.length;
   if (length > 0) {
     var rng = seedrandom(event.title);
     let attendees = shuffle(event.attendees, rng);
     return (
       <>
-        <h5 className={styles.popupSubtitle}>{length > 1 ? 'Participants' : 'Participant'}</h5>
+        <h5 className={styles.popupSubtitle}>{length > 1 ? 'Participant·es' : 'Participant·e'}</h5>
         <CommunityListEvent memberIds={attendees} />
       </>
     );
   }
 }
 
-function EventLink(event) {
-  var rng = seedrandom(event.title);
-  let all = event.presenters.concat(shuffle(event.attendees, rng));
-  let length = all.length;
+function EventLink(event: PlanningEvent): string {
+  const members = getMembersFromPluginData();
+  const rng = seedrandom(event.title);
+  const all = event.presenters.concat(shuffle(event.attendees, rng));
 
-  if (length > 1) {
-    return "https://multitwitch.live/" + all.join('/');
-  }
-  else if (length == 1) {
-    return "https://www.twitch.tv/" + all[0];
-  }
-  else {
+  const eventMembers = members.filter(member => all.includes(member.id));
+
+  const twitchLogins = eventMembers
+    .map(m => m.socials?.twitch?.user_data?.login)
+    .filter((login): login is string => !!login);
+
+  if (twitchLogins.length > 1) {
+    return "https://multitwitch.live/" + twitchLogins.join('/');
+  } else if (twitchLogins.length === 1) {
+    return "https://www.twitch.tv/" + twitchLogins[0];
+  } else {
     return "";
   }
 }
 
-function GetTimezone(date) {
+function GetTimezone(date: Date): ReactElement {
   let timezoneOffset = date.getTimezoneOffset();
   let timezoneOffsetAbs = Math.abs(timezoneOffset);
-  let localeStringProps = { minimumIntegerDigits: 2, useGrouping: false };
+  let localeStringProps: Intl.NumberFormatOptions = { minimumIntegerDigits: 2, useGrouping: false };
   return (
     <>UTC{((timezoneOffset <= 0) ? '+' : '-')}{(~~(timezoneOffsetAbs / 60)).toLocaleString('fr-FR', localeStringProps)}:{(timezoneOffsetAbs % 60).toLocaleString('fr-FR', localeStringProps)}</>
   );
 }
 
-function FormatHour(date) {
-  let localeStringProps = { minimumIntegerDigits: 2, useGrouping: false };
+function FormatHour(date: Date): ReactElement {
+  let localeStringProps: Intl.NumberFormatOptions = { minimumIntegerDigits: 2, useGrouping: false };
   return (
     <>{date.getHours().toLocaleString('fr-FR', localeStringProps)}:{date.getMinutes().toLocaleString('fr-FR', localeStringProps)}</>
   );
 }
 
-function FormatDate(date) {
-  let weekDays = ["Dimanche", "Lundi", "Mardi", "Mercredi", "Jeudi", "Vendredi", "Samedi"];
-  let day = weekDays[date.getDay()];
+function FormatDate(date: Date): ReactElement {
+  let day = WEEK_DAYS[date.getDay()];
   return (
     <>{day} {FormatHour(date)}</>
   );
 }
 
-export function Planning2022() {
-  const { planning2022 } = usePluginData('social-community-plugin');
-  return (
-    <>{Planning(planning2022)}</>
-  );
+interface PlanningProps {
+  group: Group;
 }
 
-export function Planning2024() {
-  const { planning2024 } = usePluginData('social-community-plugin');
-  return (
-    <>{Planning(planning2024)}</>
-  );
-}
-
-function Planning(planning) {
-  let weekDays = ["Dimanche", "Lundi", "Mardi", "Mercredi", "Jeudi", "Vendredi", "Samedi"];
-  let uniqueDays = planning.map(function (event) {
+export function Planning({ group }: PlanningProps): ReactElement {
+  const { plannings } = usePluginData('social-community-plugin') as SocialCommunityPluginData;
+  const planningEvents = plannings[group] ?? [];
+  
+  let uniqueDays: DayInfo[] = planningEvents.map(function (event) {
     let date = new Date(event.start);
     return {
-      weekDay: weekDays[date.getDay()],
+      weekDay: WEEK_DAYS[date.getDay()],
       date: date.getDate(),
       dateString: date.toDateString()
     };
   }).filter(function (item, pos, self) {
-    return !pos || item.dateString != self[pos - 1].dateString;
+    return !pos || item.dateString !== self[pos - 1].dateString;
   });
   const today = new Date();
   const todayDateString = today.toDateString();
+
+  if (uniqueDays.length == 0) return;
+
   return (
     <>
       <Tabs>
         {uniqueDays.map((day, index) => (
-          <TabItem key={index} value={day.dateString} label={day.date} default={day.dateString == todayDateString} attributes={{ className: styles['calendarTab' + day.weekDay] }}>
+          <TabItem key={index} value={day.dateString} label={day.date.toString()} default={day.dateString === todayDateString} attributes={{ className: styles['calendarTab' + day.weekDay] }}>
             <div className="container">
               <div className="row">
-                {planning.map((event, index) => {
+                {planningEvents.map((event, index) => {
                   let start = new Date(event.start); let end = new Date(event.end);
                   let live = today >= start && today <= end;
-                  if (day.dateString == start.toDateString()) {
+                  if (day.dateString === start.toDateString()) {
                     return (
                       <Popup
                         key={index}
@@ -151,8 +153,7 @@ function Planning(planning) {
 
                         modal
                       >
-                        {close => (
-                          // <div className="card-demo">
+                        {((close: () => void) => (
                           <div className="card">
                             <div className={clsx('card__header', styles.popupHeader)}>
                               <button aria-label="Close" className="clean-btn close" type="button" onClick={close}>
@@ -172,15 +173,15 @@ function Planning(planning) {
                               {EnventPresenters(event)}
                               {EventAttendees(event)}
                             </div>
-                            {/* <div className="card__footer">
+                            <div className="card__footer">
                               <a className="button button--block button--primary" href={EventLink(event)}>Regarder en Live</a>
-                            </div> */}
+                            </div>
                           </div>
-                          // </div>
-                        )}
+                        )) as any}
                       </Popup>
                     );
                   }
+                  return null;
                 })}
               </div>
             </div>
@@ -191,3 +192,5 @@ function Planning(planning) {
     </>
   );
 }
+
+export { Group } from '@site/src/plugins/social-community/data/types';

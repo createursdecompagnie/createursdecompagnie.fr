@@ -15,16 +15,16 @@ import { CommunityListEvent } from '/src/components/social-community'
         </svg>
       </a>
     </li>
-    <!-- <li className="breadcrumbs__item">
-      <span className="breadcrumbs__link">Évènements passés</span>
-    </li> -->
     <li className="breadcrumbs__item">
-      <a className="breadcrumbs__link" href="/evenement/cdc2025">CDC 2025</a>
+      <span className="breadcrumbs__link">CDC 2025</span>
+    </li>
+    <li className="breadcrumbs__item">
+      <a className="breadcrumbs__link" href="/evenement/cdc2025/l-evenement">L'évènement</a>
     </li>
   </ul>
 </nav>
 
-<h1 className="text--center">CDC 2025</h1>
+<h1 className="text--center">CDC 2025</h1>
 
 ## L'évènement {#l-évènement}
 

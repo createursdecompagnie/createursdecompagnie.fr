@@ -2,7 +2,7 @@
 title: CDC 2022
 description: L'évènement caritatif de Créateurs de Compagnie au profit de l'association L'hirondelle
 ---
-import { Planning2022 } from '/src/components/planning'
+import { Planning, Group } from '/src/components/planning'
 import { CommunityListEvent } from '/src/components/social-community'
 
 <nav aria-label="breadcrumbs" className="page-breadcrumbs">
@@ -61,4 +61,4 @@ Elle possède **un des plus grand centre de soins aux animaux sauvages de France
 
 ## Le planning
 
-<Planning2022 class='margin-top--xl' />
+<Planning group={Group.cdc2022} />
