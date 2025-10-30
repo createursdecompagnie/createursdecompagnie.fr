@@ -399,7 +399,7 @@ const members: Member[] = [
             },
         },
         cdc2025: {
-            streamlabscharityId: null,
+            streamlabscharityId: '565576656341834841',
             goals: []
         }
     },
@@ -668,7 +668,7 @@ const members: Member[] = [
             },
         },
         cdc2025: {
-            streamlabscharityId: null,
+            streamlabscharityId: '385430471863046144',
             goals: []
         }
     },
@@ -954,6 +954,21 @@ const members: Member[] = [
         },
         cdc2025: {
             streamlabscharityId: '868982204921943420',
+            goals: []
+        }
+    },
+    {
+        id: "5a648a52-02dd-4a7d-bccd-c1b9e691240f",
+        name: 'KhalWirgo',
+        groups: [Group.cdc2025],
+        socials: {
+            main_social: Social.twitch,
+            twitch: {
+                id: '132980665'
+            },
+        },
+        cdc2025: {
+            streamlabscharityId: null,
             goals: []
         }
     },
