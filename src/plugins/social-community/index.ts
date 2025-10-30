@@ -218,7 +218,7 @@ function assignGoalsToMembers(
 
 async function fetchAndParsePlanningCSV(
   url: string, 
-  memberGroups: Partial<Record<Group, Twitch[]>>
+  allowedMembers: Member[]
 ): Promise<PlanningEvent[]> {
   const response = await fetch(url);
   
@@ -237,7 +237,7 @@ async function fetchAndParsePlanningCSV(
   const data = parsed.data as any[];
 
   const planning = data
-    .map(item => parsePlanningItem(item, memberGroups))
+    .map(item => parsePlanningItem(item, allowedMembers))
     .filter(item => (item.presenters.length + item.attendees.length) > 0)
     .sort(sortPlanningEvents);
 
@@ -246,13 +246,13 @@ async function fetchAndParsePlanningCSV(
 
 function parsePlanningItem(
   item: any, 
-  memberGroups: Partial<Record<Group, Twitch[]>>
+  allowedMembers: Member[]
 ): PlanningEvent {
   const start = new Date(item.start);
   const end = new Date(item.end);
   
-  const presenters = parseAndFilterMembers(item.presenters, memberGroups);
-  const attendees = parseAndFilterMembers(item.attendees, memberGroups);
+  const presenters = parseAndFilterMembers(item.presenters, allowedMembers);
+  const attendees = parseAndFilterMembers(item.attendees, allowedMembers);
 
   return {
     ...item,
@@ -265,17 +265,23 @@ function parsePlanningItem(
 }
 
 function parseAndFilterMembers(
-  membersString: string, 
-  memberGroups: Partial<Record<Group, Twitch[]>>
+  membersString: string,
+  allowedMembers: Member[]
 ): string[] {
   if (!membersString) return [];
 
-  return membersString
+  const ids = membersString
     .split(',')
-    .map(e => e.trim())
-    .filter(login => 
-      memberGroups['cdc2022']?.find((e: Twitch) => e.user_data?.login === login)
-    );
+    .map(login => login.trim())
+    .map(login => {
+      const found = allowedMembers.find(
+        (e: Member) => e.socials?.twitch?.user_data?.login === login
+      );
+      return found ? found.id : null;
+    })
+    .filter((id): id is string => id !== null);
+
+  return ids;
 }
 
 function sortPlanningEvents(a: PlanningEvent, b: PlanningEvent): number {
@@ -358,7 +364,7 @@ module.exports = function SocialCommunityPlugin(
       if (process.env.CDC2025_PLANNING) {
         plannings[Group.cdc2025] = await fetchAndParsePlanningCSV(
           process.env.CDC2025_PLANNING, 
-          memberGroups
+          members
         );
         savePlanningData(Group.cdc2025, plannings[Group.cdc2025]);
       }
