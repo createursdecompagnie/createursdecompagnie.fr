@@ -2,9 +2,11 @@ import React from "react";
 
 import { WidgetDefinition } from "./widget";
 import { Cagnotte } from "./cagnotte";
+import { Barre } from "./barre";
 
 export const Widgets: Record<string, WidgetDefinition> = {
-  cagnotte: Cagnotte
+  cagnotte: Cagnotte,
+  barre: Barre,
 };
 
 export type WidgetKey = keyof typeof Widgets;
