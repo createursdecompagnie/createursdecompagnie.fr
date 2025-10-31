@@ -391,3 +391,62 @@ table.donation-goals td.goal-amount {
   text-align: center;
   padding: 0 2rem;
 }
+
+input[type="text"],
+input[type="number"],
+input[type="color"],
+input[type="checkbox"],
+input[type="range"] {
+  font-family: var(--ifm-font-family-base);
+  font-size: var(--ifm-font-size-base);
+  padding: 0.4em 0.6em;
+  border: 1px solid;
+  border-color: var(--ifm-color-primary);
+  border-radius: var(--ifm-global-radius);
+  margin: 0.2em 0;
+}
+
+input[type="text"]:focus,
+input[type="number"]:focus,
+input[type="color"]:focus,
+input[type="checkbox"]:focus,
+input[type="range"]:focus {
+  outline: 1px solid var(--ifm-color-primary);
+}
+
+input[type="number"] {
+  width: 6em;
+}
+
+input[type="color"] {
+  width: 3em;
+  height: 2em;
+  padding: 0;
+  margin: 0;
+  border: 1px solid;
+  border-color: var(--ifm-color-primary);
+  cursor: pointer;
+  background: transparent;
+}
+
+input[type="checkbox"] {
+  width: 1.2em;
+  height: 1.2em;
+  accent-color: var(--ifm-color-primary);
+  cursor: pointer;
+}
+
+input[type="range"] {
+  accent-color: var(--ifm-color-primary);
+  cursor: pointer;
+  padding: 0.4em 0;
+}
+
+label {
+  display: flex;
+  align-items: center;
+  gap: 0.4em;
+  font-size: var(--ifm-font-size-base);
+  color: var(--ifm-color-text-secondary);
+  margin-bottom: 0.5em;
+}
