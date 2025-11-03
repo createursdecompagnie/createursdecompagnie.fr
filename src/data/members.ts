@@ -91,7 +91,7 @@ const members: Member[] = [
             },
         },
         cdc2025: {
-            streamlabscharityId: null,
+            streamlabscharityId: '470641151276355584',
             goals: []
         }
     },
@@ -705,7 +705,7 @@ const members: Member[] = [
             },
         },
         cdc2025: {
-            streamlabscharityId: null,
+            streamlabscharityId: '386518854421057536',
             goals: []
         }
     },
@@ -772,7 +772,7 @@ const members: Member[] = [
             },
         },
         cdc2025: {
-            streamlabscharityId: null,
+            streamlabscharityId: '872236337347043229',
             goals: []
         }
     },
@@ -802,7 +802,7 @@ const members: Member[] = [
             },
         },
         cdc2025: {
-            streamlabscharityId: null,
+            streamlabscharityId: '603551372377462231',
             goals: []
         }
     },
@@ -918,7 +918,7 @@ const members: Member[] = [
             },
         },
         cdc2025: {
-            streamlabscharityId: null,
+            streamlabscharityId: '872069704846545680',
             goals: []
         }
     },
