@@ -501,16 +501,12 @@ const members: Member[] = [
     {
         id: "31a75a24-ff89-4c2e-9cf5-9b72e5370a24",
         name: 'Myzucka',
-        groups: [Group.cdc2022,Group.cdc2025],
+        groups: [Group.cdc2022],
         socials: {
             main_social: Social.twitch,
             twitch: {
                 id: '189573851'
             },
-        },
-        cdc2025: {
-            streamlabscharityId: null,
-            goals: []
         }
     },
     {
@@ -560,16 +556,12 @@ const members: Member[] = [
     {
         id: "d414f5cd-8e2a-4818-ba1a-b4bd3bfeab4a",
         name: 'Angel',
-        groups: [Group.cdc2022, Group.cdc2025],
+        groups: [Group.cdc2022],
         socials: {
             main_social: Social.twitch,
             twitch: {
                 id: '67052570'
             },
-        },
-        cdc2025: {
-            streamlabscharityId: null,
-            goals: []
         }
     },
     {
@@ -720,16 +712,12 @@ const members: Member[] = [
     {
         id: "d7f2569c-7c93-4637-b3aa-d904b3337cf3",
         name: 'MonsieurFlop',
-        groups: [Group.cdc2025],
+        groups: [],
         socials: {
             main_social: Social.twitch,
             twitch: {
                 id: '51966081'
             },
-        },
-        cdc2025: {
-            streamlabscharityId: '857958647186199375',
-            goals: []
         }
     },
     {
@@ -750,16 +738,12 @@ const members: Member[] = [
     {
         id: "67d20242-111b-4e7b-b6ca-706ef335ae99",
         name: 'Oceadolphine',
-        groups: [Group.cdc2025],
+        groups: [],
         socials: {
             main_social: Social.twitch,
             twitch: {
                 id: '184756458'
             },
-        },
-        cdc2025: {
-            streamlabscharityId: '858024533133758611',
-            goals: []
         }
     },
     {
@@ -825,16 +809,12 @@ const members: Member[] = [
     {
         id: "ed114c45-69f0-4d30-8a57-e2d30c32c276",
         name: 'Kibishii',
-        groups: [Group.cdc2025],
+        groups: [],
         socials: {
             main_social: Social.twitch,
             twitch: {
                 id: '529592842'
             },
-        },
-        cdc2025: {
-            streamlabscharityId: null,
-            goals: []
         }
     },
     {
@@ -960,16 +940,12 @@ const members: Member[] = [
     {
         id: "5a648a52-02dd-4a7d-bccd-c1b9e691240f",
         name: 'KhalWirgo',
-        groups: [Group.cdc2025],
+        groups: [],
         socials: {
             main_social: Social.twitch,
             twitch: {
                 id: '132980665'
             },
-        },
-        cdc2025: {
-            streamlabscharityId: null,
-            goals: []
         }
     },
 ] as const;
