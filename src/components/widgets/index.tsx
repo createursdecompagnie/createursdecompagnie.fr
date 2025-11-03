@@ -1,27 +1,31 @@
 import React from "react";
+import BrowserOnly from "@docusaurus/BrowserOnly";
+import { Redirect } from '@docusaurus/router';
 
 import { WidgetDefinition } from "./widget";
 import { Cagnotte } from "./cagnotte";
 import { Barre } from "./barre";
 
-export const Widgets: Record<string, WidgetDefinition> = {
-  cagnotte: Cagnotte,
-  barre: Barre,
-};
+export const Widgets: WidgetDefinition[] = [
+  Cagnotte,
+  Barre
+];
 
 export type WidgetKey = keyof typeof Widgets;
 
 interface WidgetProps {
-  name?: string;
+  id?: string;
 }
 
-const Widget: React.FC<WidgetProps> = ({ name }) => {
+const Widget: React.FC<WidgetProps> = ({ id }) => {
   const params = new URLSearchParams(location.search);
-  const widgetName = name ?? params.get("widget");
+  const widgetId = id ?? params.get("widget");
 
-  if (!widgetName) return null;
+  if (!widgetId) {
+    return <Redirect to="/widgets/editor" />;
+  }
 
-  const widget = Widgets[widgetName];
+  const widget = Widgets.find(widget => widget.id == widgetId);
 
   if (!widget) {
     return (
@@ -30,7 +34,11 @@ const Widget: React.FC<WidgetProps> = ({ name }) => {
   }
 
   const WidgetComponent = widget.component;
-  return <WidgetComponent />;
+  return (
+    <BrowserOnly>
+      {() => <WidgetComponent />}
+    </BrowserOnly>
+  );
 };
 
 export default Widget;

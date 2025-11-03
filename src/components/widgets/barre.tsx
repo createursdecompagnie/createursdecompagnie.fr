@@ -42,11 +42,18 @@ const Component: React.FC = () => {
   );
 };
 
-const Configurator: React.FC = () => {
-  const [myCustomParam, setMyCustomParam] = useState(DEFAULT_MYCUSTOMPARAM);
+const Editor: React.FC = () => {
+  const params = new URLSearchParams(window.location.search);
+  
+  const [myCustomParam, setMyCustomParam] = useState(() => {
+    const val = params.get(PARAM_MYCUSTOMPARAM);
+    return val === 'true' || val === '1' || DEFAULT_MYCUSTOMPARAM;
+  });
 
   useEffect(() => {
     const url = new URL(window.location.href);
+    
+    url.searchParams.set('widget', Barre.id);
 
     if (myCustomParam !== DEFAULT_MYCUSTOMPARAM) url.searchParams.set(PARAM_MYCUSTOMPARAM, myCustomParam.toString());
     else url.searchParams.delete(PARAM_MYCUSTOMPARAM);
@@ -72,7 +79,8 @@ const Configurator: React.FC = () => {
 };
 
 export const Barre: WidgetDefinition = {
+  id: "barre",
   displayName: "Barre",
   component: Component,
-  configurator: Configurator,
+  editor: Editor,
 };

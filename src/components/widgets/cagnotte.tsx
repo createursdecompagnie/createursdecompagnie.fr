@@ -115,14 +115,30 @@ const Component: React.FC = () => {
   );
 };
 
-const Configurator: React.FC = () => {
-  const [showCents, setShowCents] = useState(DEFAULT_SHOW_CENTS);
-  const [textColor, setTextColor] = useState(DEFAULT_TEXT_COLOR);
-  const [accentColor, setAccentColor] = useState(DEFAULT_ACCENT_COLOR);
-  const [shadowIntensity, setShadowIntensity] = useState(DEFAULT_SHADOW_INTENSITY);
+const Editor: React.FC = () => {
+  const params = new URLSearchParams(window.location.search);
+
+  const [showCents, setShowCents] = useState(() => {
+    const val = params.get(PARAM_SHOW_CENTS);
+    return val === 'true' || val === '1' || DEFAULT_SHOW_CENTS;
+  });
+
+  const [textColor, setTextColor] = useState(() => {
+    return params.get(PARAM_TEXT_COLOR) || DEFAULT_TEXT_COLOR;
+  });
+
+  const [accentColor, setAccentColor] = useState(() => {
+    return params.get(PARAM_ACCENT_COLOR) || DEFAULT_ACCENT_COLOR;
+  });
+
+  const [shadowIntensity, setShadowIntensity] = useState(() => {
+    return safeParseFloat(params.get(PARAM_SHADOW_INTENSITY), DEFAULT_SHADOW_INTENSITY);
+  });
 
   useEffect(() => {
     const url = new URL(window.location.href);
+
+    url.searchParams.set('widget', Cagnotte.id);
 
     if (showCents !== DEFAULT_SHOW_CENTS) url.searchParams.set(PARAM_SHOW_CENTS, showCents.toString());
     else url.searchParams.delete(PARAM_SHOW_CENTS);
@@ -140,7 +156,7 @@ const Configurator: React.FC = () => {
   }, [showCents, textColor, accentColor, shadowIntensity]);
 
   const paramString = new URLSearchParams({
-    widget: 'cagnotte',
+    widget: Cagnotte.id,
     ...(showCents !== DEFAULT_SHOW_CENTS ? { showCents: showCents.toString() } : {}),
     ...(textColor !== DEFAULT_TEXT_COLOR ? { textColor } : {}),
     ...(accentColor !== DEFAULT_ACCENT_COLOR ? { accentColor } : {}),
@@ -172,7 +188,8 @@ const Configurator: React.FC = () => {
 };
 
 export const Cagnotte: WidgetDefinition = {
+  id: "cagnotte",
   displayName: "Cagnotte",
   component: Component,
-  configurator: Configurator,
+  editor: Editor,
 };
