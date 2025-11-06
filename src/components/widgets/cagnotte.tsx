@@ -78,7 +78,7 @@ const Component: React.FC = () => {
         textShadow: computeShadow(accentColor, shadowIntensity),
         fontFamily: "'Outfit', ui-sans-serif, system-ui",
         fontWeight: 900,
-        fontSize: 'clamp(2em, 8vw, 5em)',
+        fontSize: 'clamp(1em, 8vw, 15em)',
         letterSpacing: '-1px',
         lineHeight: 1,
         textAlign: 'center',
