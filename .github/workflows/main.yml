@@ -4,6 +4,8 @@ env:
   TWITCH_CLIENTID: '${{ secrets.TWITCH_CLIENTID }}'
   TWITCH_CLIENTSECRET: '${{ secrets.TWITCH_CLIENTSECRET }}'
   CDC2022_PLANNING: '${{ secrets.CDC2022_PLANNING }}'
+  CDC2025_PLANNING: '${{ secrets.CDC2025_PLANNING }}'
+  CDC2025_GOALS: '${{ secrets.CDC2025_GOALS }}'
 
 on:
   workflow_dispatch:
