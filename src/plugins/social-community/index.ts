@@ -271,6 +271,7 @@ function parseAndFilterMembers(
   if (!membersString) return [];
 
   const ids = membersString
+    .toLowerCase()
     .split(',')
     .map(login => login.trim())
     .map(login => {
