@@ -58,21 +58,17 @@ const config: Config = {
         },
         {
           label: 'CDC 2025',
-          to: '/evenement/cdc2025',
+          items: [
+            {
+              label: 'L\'évènement',
+              to: '/evenement/cdc2025/l-evenement',
+            },
+            {
+              label: 'Le planning',
+              to: '/evenement/cdc2025/planning',
+            },
+          ]
         },
-        // {
-        //   label: 'CDC 2025',
-        //   items: [
-        //     {
-        //       label: 'L\'évènement',
-        //       to: '/evenement/cdc2025/l-evenement',
-        //     },
-        //     {
-        //       label: 'Le planning',
-        //       to: '/evenement/cdc2025/planning',
-        //     },
-        //   ]
-        // },
         {
           type: 'dropdown',
           label: 'Évènements passés',

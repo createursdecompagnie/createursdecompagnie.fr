@@ -255,12 +255,13 @@ function parsePlanningItem(
   const attendees = parseAndFilterMembers(item.attendees, allowedMembers);
 
   return {
-    ...item,
     start,
     end,
-    maintrack: item.maintrack === '1',
+    title: item.title,
+    description: item.description,
     presenters,
     attendees,
+    maintrack: item.maintrack === '1',
   };
 }
 

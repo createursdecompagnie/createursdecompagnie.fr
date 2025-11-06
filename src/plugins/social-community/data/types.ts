@@ -84,9 +84,9 @@ export interface SocialCommunityPluginOptions extends PluginOptions {
 }
 
 export interface PlanningEvent {
-  title: string;
   start: Date;
   end: Date;
+  title: string;
   description: string;
   presenters: string[];
   attendees: string[];

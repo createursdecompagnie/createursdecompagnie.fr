@@ -28,7 +28,7 @@ import { CommunityListEvent } from '/src/components/social-community'
 
 ## L'évènement {#l-évènement}
 
-Du 7 au 9 novembre 2025, participez à ***CDC 2025***, un événement caritatif unique qui réunit les streameur·euses et leurs communautés autour d’une belle cause. Pendant trois jours, tous·tes les créateur·ices de contenu sont invité·es à lancer leurs lives pour contribuer à un objectif commun : soutenir une association et faire la différence grâce à la force de nos communautés.
+Du <a href="/evenement/cdc2025/planning">7 au 9 novembre 2025</a>, participez à ***CDC 2025***, un événement caritatif unique qui réunit les streameur·euses et leurs communautés autour d’une belle cause. Pendant trois jours, tous·tes les créateur·ices de contenu sont invité·es à lancer leurs lives pour contribuer à un objectif commun : soutenir une association et faire la différence grâce à la force de nos communautés.
 
 💻 Que vous soyez petit ou grand créateur·ice, tous·tes les streameur·euses sensibles à la cause peuvent participer !
 L’idée est simple : vous streamez, vos spectateur·ices peuvent faire des dons via un lien unique vers la cagnotte, et ensemble nous créons un week-end solidaire, fun et fédérateur. Pas de contraintes de créneau, pas de format imposé, juste votre énergie, vos idées et votre envie de soutenir la cause.

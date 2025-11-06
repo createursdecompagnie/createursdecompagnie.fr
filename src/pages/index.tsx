@@ -123,7 +123,7 @@ function HomepageCDC2025(): ReactNode {
               loading='lazy'
             />
             <h3 className={clsx('padding-vert--none margin-vert--none', styles.eventHeading)}>Diffusé sur internet</h3>
-            <p className="padding-horiz--md">pendant {/* <a href="/evenement/cdc2025/planning"> */}tout le week-end{/* </a> */}.</p>
+            <p className="padding-horiz--md">pendant <a href="/evenement/cdc2025/planning">tout le week-end</a>.</p>
           </div>
         </div>
         <a className="button button--primary button--lg" href="https://chk.me/onvgyRM">S'inscrire à l'évènement</a>

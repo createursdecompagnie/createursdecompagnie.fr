@@ -17,7 +17,10 @@ function filterMembers(
   memberIds?: string[]
 ): Member[] {
   if (memberIds) {
-    return members.filter(member => memberIds.includes(member.id));
+    const memberMap = new Map(members.map(m => [m.id, m]));
+    return memberIds
+      .map(id => memberMap.get(id))
+      .filter((m): m is Member => m !== undefined);
   }
   
   if (group) {
