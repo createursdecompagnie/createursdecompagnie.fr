@@ -203,7 +203,7 @@ const members: Member[] = [
             },
         },
         cdc2025: {
-            streamlabscharityId: null,
+            streamlabscharityId: '470615920335785984',
             goals: []
         }
     },
@@ -270,7 +270,7 @@ const members: Member[] = [
             },
         },
         cdc2025: {
-            streamlabscharityId: null,
+            streamlabscharityId: '299598039427977216',
             goals: []
         }
     },
@@ -888,7 +888,7 @@ const members: Member[] = [
             },
         },
         cdc2025: {
-            streamlabscharityId: null,
+            streamlabscharityId: '873838163754359796',
             goals: []
         }
     },
