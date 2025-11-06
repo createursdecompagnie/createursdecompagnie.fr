@@ -271,7 +271,7 @@ function DonationButtons({ member }: DonationButtonsProps) {
 
   const donationUrl = cdc2025.streamlabscharityId
     ? `${baseUrl}?member=${cdc2025.streamlabscharityId}`
-    : baseUrl;
+    : `${baseUrl}?member=452020463900692480`;
 
   const charityMember = streamlabsCharity.members.find(
     (m) => m.memberId === cdc2025.streamlabscharityId
@@ -301,7 +301,7 @@ function DonationButtons({ member }: DonationButtonsProps) {
         </a>
       </div>
       <div className="col text--right margin-bottom--md">
-        <a href={baseUrl} target="_blank" rel="noopener noreferrer">
+        <a href={donationUrl} target="_blank" rel="noopener noreferrer">
           <button className="button button--primary button--outline total">
             Total récolté : <AnimatedNumber value={globalTotal} format={formatCurrency} />
           </button>
