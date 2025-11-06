@@ -1,7 +1,8 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { WidgetLink } from '@site/src/components/widgets/editor/link'; 
 import { WidgetDefinition } from '@site/src/components/widgets/index'; 
-import { useStreamlabsCharity } from '../social-community/useStreamlabsCharity';
+import { useStreamlabsCharity } from '@site/src/components/social-community/useStreamlabsCharity';
+import { AnimatedNumber } from '@site/src/components/animated-number'; 
 
 const PARAM_SHOW_CENTS = 'showCents';
 const PARAM_TEXT_COLOR = 'textColor';
@@ -54,30 +55,6 @@ const Component: React.FC = () => {
   const accentColor = params.get(PARAM_ACCENT_COLOR) || DEFAULT_ACCENT_COLOR;
   const shadowIntensity = safeParseFloat(params.get(PARAM_SHADOW_INTENSITY), DEFAULT_SHADOW_INTENSITY);
 
-  const [displayAmount, setDisplayAmount] = useState(targetAmount);
-  const animationRef = useRef<number | null>(null);
-
-  useEffect(() => {
-    const startValue = displayAmount;
-    const change = targetAmount - startValue;
-    const duration = 1500;
-    const startTime = performance.now();
-
-    const animate = (time: number) => {
-      const elapsed = time - startTime;
-      const progress = Math.min(elapsed / duration, 1);
-      const eased = 1 - Math.pow(1 - progress, 3);
-      setDisplayAmount(startValue + change * eased);
-
-      if (progress < 1) animationRef.current = requestAnimationFrame(animate);
-    };
-
-    if (animationRef.current) cancelAnimationFrame(animationRef.current);
-    animationRef.current = requestAnimationFrame(animate);
-
-    return () => animationRef.current && cancelAnimationFrame(animationRef.current);
-  }, [targetAmount]);
-
   const formatAmount = (amt: number) =>
     new Intl.NumberFormat('fr-FR', {
       style: 'currency',
@@ -110,7 +87,7 @@ const Component: React.FC = () => {
         filter: 'drop-shadow(0 2px 8px rgba(0,0,0,0.5))',
       }}
     >
-      {formatAmount(displayAmount)}
+      <AnimatedNumber value={targetAmount} format={formatAmount} />
     </div>
   );
 };
