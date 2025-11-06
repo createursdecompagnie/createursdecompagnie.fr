@@ -2,7 +2,7 @@ import React, { useState, useEffect, useRef } from 'react';
 import { WidgetLink } from '@site/src/components/widgets/editor/link'; 
 import { WidgetDefinition } from '@site/src/components/widgets/index'; 
 import { useStreamlabsCharity } from '@site/src/components/social-community/useStreamlabsCharity';
-import { AnimatedNumber } from '@site/src/components/animated-number'; 
+import { AnimatedNumber } from '@site/src/components/animatedNumber'; 
 
 const PARAM_SHOW_CENTS = 'showCents';
 const PARAM_TEXT_COLOR = 'textColor';
@@ -87,7 +87,7 @@ const Component: React.FC = () => {
         filter: 'drop-shadow(0 2px 8px rgba(0,0,0,0.5))',
       }}
     >
-      <AnimatedNumber value={targetAmount} format={formatAmount} />
+      <AnimatedNumber value={targetAmount} format={formatAmount} defaultStartValue={null} />
     </div>
   );
 };

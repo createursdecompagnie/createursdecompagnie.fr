@@ -2,16 +2,18 @@ import React, { useEffect, useRef, useState } from "react";
 
 interface AnimatedNumberProps {
   value: number;
+  defaultStartValue?: number;
   duration?: number;
   format?: (value: number) => string;
 }
 
 export const AnimatedNumber: React.FC<AnimatedNumberProps> = ({
   value,
+  defaultStartValue = 0,
   duration = 1500,
   format = (v) => v.toFixed(0),
 }) => {
-  const [displayValue, setDisplayValue] = useState(value);
+  const [displayValue, setDisplayValue] = useState(defaultStartValue != null ? defaultStartValue : value);
   const animationRef = useRef<number | null>(null);
 
   useEffect(() => {

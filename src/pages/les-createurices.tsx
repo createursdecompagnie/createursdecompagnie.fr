@@ -6,6 +6,15 @@ import { useStreamlabsCharity } from '@site/src/components/social-community/useS
 import { useLocation, useHistory } from '@docusaurus/router';
 import { Member, Group } from '@site/src/plugins/social-community/data/types';
 import { MemberAvatar, MemberAvatarOrientation, MemberAvatarSize, generateMemberProfileUrl, getMembersFromPluginData, getDisplayNameForMember } from '@site/src/components/social-community';
+import { AnimatedNumber } from '@site/src/components/animatedNumber';
+
+const formatCurrency = (value: number) =>
+  new Intl.NumberFormat("fr-FR", {
+    style: "currency",
+    currency: "EUR",
+    minimumFractionDigits: 0,
+    maximumFractionDigits: 0,
+  }).format(value);
 
 const FILTRABLE_GROUPS: Partial<Record<Group, string>> = {
   [Group.cdc2025]: 'CDC 2025',
@@ -108,7 +117,7 @@ function LiveBadges({ gameName, viewersCount, elapsed, centered = false }: LiveB
         <>
           &nbsp;
           <span className="badge badge--transparent">
-            👁️ {viewersCount}
+            👁️ <AnimatedNumber value={viewersCount} defaultStartValue={null} />
           </span>
         </>
       )}
@@ -268,17 +277,8 @@ function DonationButtons({ member }: DonationButtonsProps) {
     (m) => m.memberId === cdc2025.streamlabscharityId
   );
 
-  const personalTotal = ((charityMember?.totalAmount / 100) || 0).toLocaleString("fr-FR", {
-    style: "currency",
-    currency: "EUR",
-    minimumFractionDigits: 0,
-  });
-
-  const globalTotal = (streamlabsCharity.totalRaised / 100).toLocaleString("fr-FR", {
-    style: "currency",
-    currency: "EUR",
-    minimumFractionDigits: 0,
-  });
+  const personalTotal = ((charityMember?.totalAmount / 100) || 0);
+  const globalTotal = streamlabsCharity.totalRaised / 100;
 
   return (
     <div className="row row--no-gutters margin--none padding--none margin-top--md donations">
@@ -290,7 +290,7 @@ function DonationButtons({ member }: DonationButtonsProps) {
                 Faire un don sur sa cagnotte :
               </button>
               <div className="button button--secondary personal-pot">
-                {personalTotal}
+                <AnimatedNumber value={personalTotal} format={formatCurrency} />
               </div>
             </>
           ) : (
@@ -303,7 +303,7 @@ function DonationButtons({ member }: DonationButtonsProps) {
       <div className="col text--right margin-bottom--md">
         <a href={baseUrl} target="_blank" rel="noopener noreferrer">
           <button className="button button--primary button--outline total">
-            {`Total récolté : ${globalTotal}`}
+            Total récolté : <AnimatedNumber value={globalTotal} format={formatCurrency} />
           </button>
         </a>
       </div>
