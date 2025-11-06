@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { WidgetDefinition } from "@site/src/components/widgets/widget";
+import { WidgetDefinition } from "@site/src/components/widgets";
 import { Widgets } from "@site/src/components/widgets";
 
 export default function WidgetEditor() {

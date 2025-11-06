@@ -1,7 +1,7 @@
 import React, { useState, useEffect, useRef } from 'react';
-import { WidgetLink } from './link';
+import { WidgetLink } from '@site/src/components/widgets/editor/link'; 
+import { WidgetDefinition } from '@site/src/components/widgets/index'; 
 import { useStreamlabsCharity } from '../social-community/useStreamlabsCharity';
-import { WidgetDefinition } from './widget'; 
 
 const PARAM_SHOW_CENTS = 'showCents';
 const PARAM_TEXT_COLOR = 'textColor';

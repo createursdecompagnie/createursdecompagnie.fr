@@ -1,6 +1,6 @@
-import React, { useState, useEffect, useRef } from 'react';
-import { WidgetLink } from './link';
-import { WidgetDefinition } from './widget'; 
+import React, { useState, useEffect } from 'react';
+import { WidgetLink } from '@site/src/components/widgets/editor/link'; 
+import { WidgetDefinition } from '@site/src/components/widgets/index'; 
 
 const PARAM_MYCUSTOMPARAM = 'myCustomParam';
 

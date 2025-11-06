@@ -1,11 +1,13 @@
-import React from "react";
-import BrowserOnly from "@docusaurus/BrowserOnly";
-import { Redirect } from '@docusaurus/router';
+import type { FC } from "react";
+export interface WidgetDefinition {
+  id: string;
+  displayName: string;
+  component: FC;
+  editor: FC;
+}
 
-import { WidgetDefinition } from "./widget";
-import { Cagnotte } from "./cagnotte";
-import { Barre } from "./barre";
-
+import { Cagnotte } from "@site/src/components/widgets/cagnotte";
+import { Barre } from "@site/src/components/widgets/barre";
 export const Widgets: WidgetDefinition[] = [
   Cagnotte,
   Barre
@@ -13,11 +15,14 @@ export const Widgets: WidgetDefinition[] = [
 
 export type WidgetKey = keyof typeof Widgets;
 
-interface WidgetProps {
+import React from "react";
+import BrowserOnly from "@docusaurus/BrowserOnly";
+import { Redirect } from '@docusaurus/router';
+interface WidgetStandaloneProps {
   id?: string;
 }
 
-const Widget: React.FC<WidgetProps> = ({ id }) => {
+const WidgetStandalone: React.FC<WidgetStandaloneProps> = ({ id }) => {
   const params = new URLSearchParams(location.search);
   const widgetId = id ?? params.get("widget");
 
@@ -34,11 +39,16 @@ const Widget: React.FC<WidgetProps> = ({ id }) => {
   }
 
   const WidgetComponent = widget.component;
+
   return (
     <BrowserOnly>
-      {() => <WidgetComponent />}
+      {() => (
+        <div className={`widget widget--standalone`}>
+          <WidgetComponent />
+        </div>
+      )}
     </BrowserOnly>
   );
 };
 
-export default Widget;
+export default WidgetStandalone;
