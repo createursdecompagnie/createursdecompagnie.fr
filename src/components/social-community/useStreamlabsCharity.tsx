@@ -1,4 +1,4 @@
-import React, { useEffect, useState, useCallback, createContext, useContext } from 'react';
+import React, { useEffect, useState, useCallback, createContext, useContext, useRef } from 'react';
 
 interface RawDonation {
   id: string;
@@ -63,7 +63,7 @@ const TEAM_ID = '851906625861196529';
 const API_BASE_URL = 'https://streamlabscharity.com/api/v1';
 const CACHE_KEY = 'streamlabs_charity_cache';
 const CACHE_DURATION = 24 * 60 * 60 * 1000;
-const REFRESH_RATE = 3 * 60 * 1000;
+const REFRESH_RATE = 1 * 60 * 1000;
 
 async function fetchNewDonations(
   startPage: number,
@@ -73,8 +73,7 @@ async function fetchNewDonations(
   let page = startPage;
   let isNewData = lastDonationId === null;
 
-  do
-  {
+  do {
     try {
       const url = `${API_BASE_URL}/teams/${TEAM_ID}/donations?page=${page}`;
       const resp = await fetch(url);
@@ -88,13 +87,11 @@ async function fetchNewDonations(
       if (data.length === 0) {
         return { donations: newDonations, lastPage: Math.max(0, page - 1) };
       }
-            
+
       for (const donation of data) {
-        if (isNewData)
-        {
+        if (isNewData) {
           newDonations.push(donation);
         }
-
         if (donation.id === lastDonationId) {
           isNewData = true;
         }
@@ -103,29 +100,24 @@ async function fetchNewDonations(
       console.error(`Error fetching page ${page}:`, error);
       break;
     }
-
   } while (++page);
-  
+
   return { donations: newDonations, lastPage: page };
 }
 
-function mergeDonations(
-  existingData: CharityData,
-  newDonations: RawDonation[]
-): CharityData {
+function mergeDonations(existingData: CharityData, newDonations: RawDonation[]): CharityData {
   const memberMap = new Map<string, MemberTotal>();
   const donatorMap = new Map<string, DonatorTotal>();
-  
-  existingData.members.forEach(m => memberMap.set(m.memberId, { ...m }));
-  existingData.donators.forEach(d => donatorMap.set(d.donatorName, { ...d }));
-  
+
+  existingData.members.forEach((m) => memberMap.set(m.memberId, { ...m }));
+  existingData.donators.forEach((d) => donatorMap.set(d.donatorName, { ...d }));
+
   let totalRaised = existingData.totalRaised;
   const history = [...existingData.history];
   let lastDonationId = existingData.lastDonationId;
 
   for (const item of newDonations) {
     const { donation, member } = item;
-    
     if (!member) continue;
 
     const amount = donation.converted_amount;
@@ -170,20 +162,14 @@ function mergeDonations(
     });
 
     totalRaised += amount;
-    
+
     if (lastDonationId === null || lastDonationId === existingData.lastDonationId) {
       lastDonationId = donation.id;
     }
   }
 
-  const members = Array.from(memberMap.values()).sort(
-    (a, b) => b.totalAmount - a.totalAmount
-  );
-
-  const donators = Array.from(donatorMap.values()).sort(
-    (a, b) => b.totalAmount - a.totalAmount
-  );
-
+  const members = Array.from(memberMap.values()).sort((a, b) => b.totalAmount - a.totalAmount);
+  const donators = Array.from(donatorMap.values()).sort((a, b) => b.totalAmount - a.totalAmount);
   history.sort((a, b) => new Date(a.date).getTime() - new Date(b.date).getTime());
 
   return {
@@ -200,12 +186,15 @@ function mergeDonations(
 function loadCache(): CharityData | null {
   try {
     const cached = localStorage.getItem(CACHE_KEY);
-    if (!cached) return null;
+    if (!cached)
+    {
+      return null;
+    }
 
     const data: CharityData = JSON.parse(cached);
     const age = Date.now() - data.lastUpdate;
-
-    if (age > CACHE_DURATION) {
+    if (age > CACHE_DURATION)
+    {
       return null;
     }
 
@@ -239,63 +228,66 @@ type StreamlabsCharityProviderProps = {
   refreshMs?: number;
 };
 
-export function StreamlabsCharityProvider({
-  children,
-  refreshMs = REFRESH_RATE,
-}: StreamlabsCharityProviderProps) {
-  const [charityData, setCharityData] = useState<CharityData>(() => {
-    return loadCache() || {
-      members: [],
-      donators: [],
-      history: [],
-      totalRaised: 0,
-      lastUpdate: 0,
-      lastDonationId: null,
-      lastPageWithData: 0,
-    };
+export function StreamlabsCharityProvider({ children, refreshMs = REFRESH_RATE }: StreamlabsCharityProviderProps) {
+  const [charityData, setCharityData] = useState<CharityData>(() => loadCache() || {
+    members: [],
+    donators: [],
+    history: [],
+    totalRaised: 0,
+    lastUpdate: 0,
+    lastDonationId: null,
+    lastPageWithData: 0,
   });
 
-  const refresh = useCallback(async () => {
-    const cached = loadCache();
-    if (cached && Date.now() - cached.lastUpdate < REFRESH_RATE) {
-      setCharityData(cached);
-      return;
-    }
+  const refreshTimerRef = useRef<number | null>(null);
 
-    const baseData = cached || {
-      members: [],
-      donators: [],
-      history: [],
-      totalRaised: 0,
-      lastUpdate: 0,
-      lastDonationId: null,
-      lastPageWithData: 0,
-    };
-    
+  const refreshRef = useRef<(() => Promise<void>) | null>(null);
+
+  const scheduleNextRefresh = useCallback((delay: number) => {
+    if (refreshTimerRef.current) clearTimeout(refreshTimerRef.current);
+    refreshTimerRef.current = window.setTimeout(() => {
+      refreshRef.current?.();
+    }, delay);
+  }, []);
+
+  const refresh = useCallback(async () => {
+    const baseData = loadCache() || { ...charityData, lastUpdate: 0 };
+
     const { donations: newDonations, lastPage } = await fetchNewDonations(
       baseData.lastPageWithData,
       baseData.lastDonationId
     );
 
-    if (newDonations.length === 0) {
-      const updated = { ...baseData, lastUpdate: Date.now() };
-      setCharityData(updated);
-      saveCache(updated);
-      return;
-    }
+    const updatedData =
+      newDonations.length > 0
+        ? mergeDonations(baseData, newDonations)
+        : { ...baseData, lastUpdate: Date.now(), lastPageWithData: lastPage };
 
-    const processed = mergeDonations(baseData, newDonations);
-    processed.lastPageWithData = lastPage;
-    
-    setCharityData(processed);
-    saveCache(processed);
-  }, []);
+    setCharityData(updatedData);
+    saveCache(updatedData);
+
+    scheduleNextRefresh(refreshMs);
+  }, [charityData, refreshMs, scheduleNextRefresh]);
 
   useEffect(() => {
-    refresh();
-    const interval = setInterval(refresh, refreshMs);
-    return () => clearInterval(interval);
-  }, [refresh, refreshMs]);
+    refreshRef.current = refresh;
+  }, [refresh]);
+
+  useEffect(() => {
+    const cached = loadCache();
+    if (cached) {
+      setCharityData(cached);
+      const age = Date.now() - cached.lastUpdate;
+      const remaining = Math.max(0, REFRESH_RATE - age);
+      scheduleNextRefresh(remaining);
+    } else {
+      refresh();
+    }
+
+    return () => {
+      if (refreshTimerRef.current) clearTimeout(refreshTimerRef.current);
+    };
+  }, []); 
 
   return (
     <StreamlabsCharityContext.Provider value={charityData}>
