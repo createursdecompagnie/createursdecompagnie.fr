@@ -61,7 +61,7 @@ interface CharityData {
 
 const TEAM_ID = '851906625861196529';
 const API_BASE_URL = 'https://streamlabscharity.com/api/v1';
-const CACHE_KEY = 'streamlabs_charity_cache';
+const CACHE_KEY = 'streamlabs_charity_cache_v2';
 const CACHE_DURATION = 24 * 60 * 60 * 1000;
 const REFRESH_RATE = 1 * 60 * 1000;
 
@@ -118,11 +118,11 @@ function mergeDonations(existingData: CharityData, newDonations: RawDonation[]):
 
   for (const item of newDonations) {
     const { donation, member } = item;
-    if (!member) continue;
+    if (!member || !member.user) continue;
 
     const amount = donation.converted_amount;
     const donatorName = donation.display_name;
-    const memberId = member.id;
+    const memberId = member.user.id;
     const memberName = member.user.display_name;
     const memberSlug = member.user.slug;
 
