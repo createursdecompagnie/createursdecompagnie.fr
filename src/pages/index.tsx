@@ -134,7 +134,7 @@ function HomepageCDC2025(): ReactNode {
       <div className="container text--center">
         <h3 className="margin-top--lg margin-bottom--md">Le Live</h3>
         <Countdown
-          date="2025-11-07T16:00:00.000Z"
+          date="2025-11-07T17:00:00.000Z"
           renderer={renderCountdown}
         />
       </div>
