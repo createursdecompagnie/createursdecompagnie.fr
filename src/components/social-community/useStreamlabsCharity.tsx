@@ -278,7 +278,7 @@ export function StreamlabsCharityProvider({ children, refreshMs = REFRESH_RATE }
     if (cached) {
       setCharityData(cached);
       const age = Date.now() - cached.lastUpdate;
-      const remaining = Math.max(0, REFRESH_RATE - age);
+      const remaining = Math.max(0, refreshMs - age);
       scheduleNextRefresh(remaining);
     } else {
       refresh();
