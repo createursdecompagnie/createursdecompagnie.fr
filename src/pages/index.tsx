@@ -9,6 +9,7 @@ import useBaseUrl from '@docusaurus/useBaseUrl';
 import { CommunityListHome } from '@site/src/components/social-community'
 import Countdown from 'react-countdown';
 import { Group } from '../plugins/social-community/data/types';
+import { MaintrackPlayer } from '../components/maintrackPlayer';
 
 interface CountdownRendererProps {
   formatted: {
@@ -62,15 +63,11 @@ function HomepageMembers(): ReactNode {
 }
 
 const renderCountdown = ({ formatted, completed }: CountdownRendererProps): ReactNode => {
+
   if (completed) {
     return <div className="margin-bottom--xl">
-      <iframe
-        className={clsx('margin-top--sm', styles.liveIframe)}
-        src="https://player.twitch.tv/?channel=misternooton&parent=createursdecompagnie.fr&muted=false"
-        height="720"
-        width="1280"
-        allowFullScreen />
-    </div>
+      <MaintrackPlayer group={Group.cdc2025} />
+    </div>;
   } else {
     return <div style={{ marginBottom: '3.5rem' }}>
       <span className={styles.countdownStart}>commence dans :</span>
