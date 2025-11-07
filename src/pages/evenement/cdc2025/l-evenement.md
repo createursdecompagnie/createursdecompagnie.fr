@@ -53,7 +53,7 @@ Iels accueillent des chat·tes ataxiques, aveugles, FIV+, tri-pattes ou avec d�
 - Yuna, la cantatrice de la famille,
 - et même Hiro, un chien rescapé de maltraitance.
 
-<img src="/img/cdc2025/pensionnaires.jpg" class="padding-bottom--sm" alt="Photo des pensionnaires de Potiron Family" width="100%" loading="lazy" />
+<img src="/img/cdc2025/pensionnaires.jpg" className="padding-bottom--sm" alt="Photo des pensionnaires de Potiron Family" width="100%" loading="lazy" />
 
 L’association est portée par Marion et Éric, deux passionné·es qui racontent avec humour et tendresse les histoires de leurs protégé·es.
 
