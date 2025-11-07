@@ -183,7 +183,7 @@ async function fetchAndParseGoalsCSV(url: string): Promise<Record<string, Goal[]
 
     const goals: Goal[] = [];
     
-    for (let colIndex = 1; colIndex < 50; colIndex += 2) {
+    for (let colIndex = 1; colIndex < 200; colIndex += 2) {
       const rawAmount = row[`_${colIndex}`]?.trim();
       const description = row[`_${colIndex + 1}`]?.trim();
 
