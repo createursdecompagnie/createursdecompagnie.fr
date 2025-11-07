@@ -67,6 +67,10 @@ const config: Config = {
               label: 'Le planning',
               to: '/evenement/cdc2025/planning',
             },
+            {
+              label: 'Les créateur·ices',
+              to: '/les-createurices?group=cdc2025',
+            },
           ]
         },
         {
