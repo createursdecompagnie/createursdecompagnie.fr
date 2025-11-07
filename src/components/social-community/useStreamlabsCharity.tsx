@@ -61,9 +61,42 @@ interface CharityData {
 
 const TEAM_ID = '851906625861196529';
 const API_BASE_URL = 'https://streamlabscharity.com/api/v1';
-const CACHE_KEY = 'streamlabs_charity_cache_v2';
+const CACHE_KEY = 'streamlabs_charity_cache_v3';
 const CACHE_DURATION = 24 * 60 * 60 * 1000;
 const REFRESH_RATE = 1 * 60 * 1000;
+
+async function fetchDonations(
+): Promise<{ donations: RawDonation[] }> {
+  const donations: RawDonation[] = [];
+  let page = 0;
+
+  do {
+
+    try {
+      const url = `${API_BASE_URL}/teams/${TEAM_ID}/donations?page=${page}`;
+      const resp = await fetch(url);
+
+      if (!resp.ok) {
+        console.error(`Failed to fetch page ${page}: ${resp.status}`);
+        break;
+      }
+
+      const data: RawDonation[] = await resp.json();
+      if (data.length === 0) {
+        return { donations: donations };
+      }
+
+      for (const donation of data) {
+        donations.push(donation);
+      }
+    } catch (error) {
+      console.error(`Error fetching page ${page}:`, error);
+      break;
+    }
+  } while (++page);
+
+  return { donations: donations };
+}
 
 async function fetchNewDonations(
   startPage: number,
@@ -74,6 +107,8 @@ async function fetchNewDonations(
   let isNewData = lastDonationId === null;
 
   do {
+    console.log(startPage);
+
     try {
       const url = `${API_BASE_URL}/teams/${TEAM_ID}/donations?page=${page}`;
       const resp = await fetch(url);
@@ -89,6 +124,7 @@ async function fetchNewDonations(
       }
 
       for (const donation of data) {
+        
         if (isNewData) {
           newDonations.push(donation);
         }
@@ -104,6 +140,75 @@ async function fetchNewDonations(
 
   return { donations: newDonations, lastPage: page };
 }
+
+function replaceDonations(donations: RawDonation[]): CharityData {
+  const memberMap = new Map<string, MemberTotal>();
+  const donatorMap = new Map<string, DonatorTotal>();
+  const history:DonationHistoryEntry[] = [];
+  let totalRaised = 0;
+
+  for (const item of donations) {
+    const { donation, member } = item;
+    if (!member || !member.user) continue;
+
+    const amount = donation.converted_amount;
+    const donatorName = donation.display_name;
+    const memberId = member.user.id;
+    const memberName = member.user.display_name;
+    const memberSlug = member.user.slug;
+
+    if (!memberMap.has(memberId)) {
+      memberMap.set(memberId, {
+        memberId,
+        memberName,
+        memberSlug,
+        totalAmount: 0,
+        donationCount: 0,
+      });
+    }
+    const memberTotal = memberMap.get(memberId)!;
+    memberTotal.totalAmount += amount;
+    memberTotal.donationCount++;
+
+    if (!donatorMap.has(donatorName)) {
+      donatorMap.set(donatorName, {
+        donatorName,
+        totalAmount: 0,
+        donationCount: 0,
+      });
+    }
+    const donatorTotal = donatorMap.get(donatorName)!;
+    donatorTotal.totalAmount += amount;
+    donatorTotal.donationCount++;
+
+    history.push({
+      id: donation.id,
+      donatorName,
+      amount,
+      currency: donation.converted_currency,
+      date: donation.created_at,
+      memberId,
+      memberName,
+      comment: donation.comment?.text,
+    });
+
+    totalRaised += amount;
+  }
+
+  const members = Array.from(memberMap.values()).sort((a, b) => b.totalAmount - a.totalAmount);
+  const donators = Array.from(donatorMap.values()).sort((a, b) => b.totalAmount - a.totalAmount);
+  history.sort((a, b) => new Date(a.date).getTime() - new Date(b.date).getTime());
+
+  return {
+    members,
+    donators,
+    history,
+    totalRaised,
+    lastUpdate: Date.now(),
+    lastDonationId: null,
+    lastPageWithData: 0,
+  };
+};
 
 function mergeDonations(existingData: CharityData, newDonations: RawDonation[]): CharityData {
   const memberMap = new Map<string, MemberTotal>();
@@ -250,18 +355,21 @@ export function StreamlabsCharityProvider({ children, refreshMs = REFRESH_RATE }
     }, delay);
   }, []);
 
-  const refresh = useCallback(async () => {
-    const baseData = loadCache() || { ...charityData, lastUpdate: 0 };
+    const refresh = useCallback(async () => {
+    // const baseData = loadCache() || { ...charityData, lastUpdate: 0 };
 
-    const { donations: newDonations, lastPage } = await fetchNewDonations(
-      baseData.lastPageWithData,
-      baseData.lastDonationId
-    );
+    // const { donations: newDonations, lastPage } = await fetchNewDonations(
+    //   baseData.lastPageWithData,
+    //   baseData.lastDonationId
+    // );
+    
+    const { donations: donations } = await fetchDonations();
+    const updatedData = replaceDonations(donations);
 
-    const updatedData =
-      newDonations.length > 0
-        ? mergeDonations(baseData, newDonations)
-        : { ...baseData, lastUpdate: Date.now(), lastPageWithData: lastPage };
+    // const updatedData =
+    //   newDonations.length > 0
+    //     ? mergeDonations(baseData, newDonations)
+    //     : { ...baseData, lastUpdate: Date.now(), lastPageWithData: lastPage };
 
     setCharityData(updatedData);
     saveCache(updatedData);
