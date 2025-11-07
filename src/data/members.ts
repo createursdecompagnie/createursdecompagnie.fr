@@ -948,6 +948,21 @@ const members: Member[] = [
             },
         }
     },
+    {
+        id: "d0695c45-d0db-493e-a00b-e68ebe7270a6",
+        name: 'GAMERGENtv',
+        groups: [Group.cdc2025],
+        socials: {
+            main_social: Social.twitch,
+            twitch: {
+                id: '88288188'
+            },
+        },
+        cdc2025: {
+            streamlabscharityId: '874226253794778486',
+            goals: []
+        }
+    },
 ] as const;
 
 export default members;
