@@ -450,7 +450,3 @@ label {
   color: var(--ifm-color-text-secondary);
   margin-bottom: 0.5em;
 }
-
-body:has(.widget.widget--standalone) {
-  background: transparent;
-}

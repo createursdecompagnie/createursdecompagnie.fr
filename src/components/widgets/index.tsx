@@ -1,4 +1,10 @@
 import type { FC } from "react";
+import React from "react";
+import BrowserOnly from "@docusaurus/BrowserOnly";
+import { Redirect } from "@docusaurus/router";
+
+import { Cagnotte } from "@site/src/components/widgets/cagnotte";
+
 export interface WidgetDefinition {
   id: string;
   displayName: string;
@@ -6,18 +12,10 @@ export interface WidgetDefinition {
   editor: FC;
 }
 
-import { Cagnotte } from "@site/src/components/widgets/cagnotte";
-import { Barre } from "@site/src/components/widgets/barre";
-export const Widgets: WidgetDefinition[] = [
-  Cagnotte,
-  Barre
-];
+export const Widgets: WidgetDefinition[] = [Cagnotte];
 
 export type WidgetKey = keyof typeof Widgets;
 
-import React from "react";
-import BrowserOnly from "@docusaurus/BrowserOnly";
-import { Redirect } from '@docusaurus/router';
 interface WidgetStandaloneProps {
   id?: string;
 }
@@ -30,22 +28,40 @@ const WidgetStandalone: React.FC<WidgetStandaloneProps> = ({ id }) => {
     return <Redirect to="/widgets/editor" />;
   }
 
-  const widget = Widgets.find(widget => widget.id == widgetId);
+  const widget = Widgets.find((widget) => widget.id === widgetId);
 
   if (!widget) {
     return (
-      <div className="alert alert--danger margin--lg" role="alert">Erreur: Widget inconnu</div>
+      <div className="alert alert--danger margin--lg" role="alert">
+        Erreur : Widget inconnu
+      </div>
     );
   }
 
   const WidgetComponent = widget.component;
 
+  const standaloneCSS = `
+    html {
+      background-color: rgba(0, 0, 0, 0);
+      margin: 0 auto;
+      overflow: hidden;
+    }
+    body {
+      background-color: rgba(0, 0, 0, 0);
+      margin: 0 auto;
+      overflow: hidden;
+    }
+  `;
+
   return (
     <BrowserOnly>
       {() => (
-        <div className={`widget widget--standalone`}>
-          <WidgetComponent />
-        </div>
+        <>
+          <style>{standaloneCSS}</style>
+          <div className="widget widget--standalone">
+            <WidgetComponent />
+          </div>
+        </>
       )}
     </BrowserOnly>
   );
