@@ -37,8 +37,6 @@ L’idée est simple : vous streamez, vos spectateur·ices peuvent faire des don
 
 👉 <a href="https://chk.me/onvgyRM">**Inscrivez-vous dès maintenant**</a>, préparez vos lives et invitez vos ami·es streameur·euses à se joindre à cette grande aventure caritative. Chaque contribution compte, et chaque live fait la différence !
 
-<p className="text--center"><a className="button button--primary button--lg" href="https://chk.me/onvgyRM">S'inscrire à l'évènement</a></p>
-
 ## L'association {#l-association}
 
 <a href="https://www.potironfamily.fr"><p className="text--center"><img src="/img/cdc2025/logo-potiron-family.png" alt="Logo Potiron Family" width="400" height="400" loading="lazy" /></p></a>
@@ -74,3 +72,5 @@ L’association est portée par Marion et Éric, deux passionné·es qui raconte
 ## Les participant·es
 
 <CommunityListEvent group='cdc2025' />
+
+<p className="text--center"><a className="button button--primary button--md margin-top--md" href="/les-createurices?group=cdc2025">📺 Regarder en direct</a></p>

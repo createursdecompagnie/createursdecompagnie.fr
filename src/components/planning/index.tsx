@@ -174,7 +174,7 @@ export function Planning({ group }: PlanningProps): ReactElement {
                               {EventAttendees(event)}
                             </div>
                             <div className="card__footer">
-                              <a className="button button--block button--primary" href={EventLink(event)}>Regarder en Live</a>
+                              <a className="button button--block button--primary" href={EventLink(event)}>📺 Regarder en direct</a>
                             </div>
                           </div>
                         )) as any}

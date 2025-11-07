@@ -123,8 +123,6 @@ function HomepageCDC2025(): ReactNode {
             <p className="padding-horiz--md">pendant <a href="/evenement/cdc2025/planning">tout le week-end</a>.</p>
           </div>
         </div>
-        <a className="button button--primary button--lg" href="https://chk.me/onvgyRM">S'inscrire à l'évènement</a>
-        {/* <a className="button button--lg button--primary" href="https://streamlabscharity.com/teams/@createurs-de-compagnie-2025/cdc2025">Faire un don pour Potiron Family</a> */}
       </div>
 
     <div className={styles.separatorBlock}>
@@ -142,7 +140,7 @@ function HomepageCDC2025(): ReactNode {
         <div className="margin-bottom--lg">
           <CommunityListHome group={Group.cdc2025} />
         </div>
-        <a className="button button--primary button--lg" href="/les-createurices?group=cdc2025">Regarder en direct</a>
+        <a className="button button--primary button--lg" href="/les-createurices?group=cdc2025">📺 Regarder en direct</a>
       </div>
     </>
   );
