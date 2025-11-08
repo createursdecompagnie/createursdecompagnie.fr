@@ -48,8 +48,8 @@ export default function WidgetEditor() {
             </div>
             <div className="card__body">
               <div
-                className="alert alert--secondary margin-bottom--md padding-vert--sm"
-                style={{ borderLeftWidth: "inherit" }}
+                className="alert alert--secondary margin-bottom--md padding-vert--lg"
+                style={{ borderLeftWidth: "inherit", overflow:'hidden' }}
               >
                 <WidgetComponent />
               </div>
