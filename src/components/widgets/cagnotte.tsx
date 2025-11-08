@@ -230,8 +230,8 @@ const Editor: React.FC = () => {
         value={variation}
         onChange={(e) => setVariation(e.target.value)}
       >
-        <option value="text">Texte</option>
-        <option value="textAndLogo">Texte et logo</option>
+        <option value="text">Montant</option>
+        <option value="textAndLogo">Montant et CDC&nbsp;2025</option>
       </select>
 
       <h4>Couleurs</h4>
