@@ -4,6 +4,7 @@ import { usePluginData } from '@docusaurus/useGlobalData';
 import { getMembersFromPluginData } from '@site/src/components/social-community';
 import type { SocialCommunityPluginData, PlanningEvent, Member } from '@site/src/plugins/social-community/data/types';
 import { Group } from '@site/src/plugins/social-community/data/types';
+import BrowserOnly from "@docusaurus/BrowserOnly";
 
 interface MaintrackPlayerProps {
   group: Group;
@@ -14,7 +15,7 @@ export function MaintrackPlayer({ group }: MaintrackPlayerProps) {
   const liveInfo = useTwitchLiveManager();
   const members = getMembersFromPluginData();
   const groupMembers = members.filter(m => m.groups?.includes(group));
-  const parentDomain = typeof window !== 'undefined' ? window.location.hostname : '';
+  const parentDomain = typeof window !== 'undefined' ? window.location.hostname : 'createursdecompagnie.fr';
 
   const [selectedChannel, setSelectedChannel] = useState<string | null>(null);
 
@@ -79,12 +80,20 @@ export function MaintrackPlayer({ group }: MaintrackPlayerProps) {
 
   const channelToDisplay = selectedChannel ?? 'misternooton';
 
+  if (!channelToDisplay || !parentDomain) {
+    return null;
+  }
+
   return (
-    <iframe
-      src={`https://player.twitch.tv/?channel=${channelToDisplay}&parent=${parentDomain}&muted=false`}
-      allowFullScreen
-      title={`Twitch player - ${channelToDisplay}`}
-      style={{ width: '100%', aspectRatio: '16 / 9' }}
-    />
+    <BrowserOnly>
+      {() => <>
+        <iframe
+          src={`https://player.twitch.tv/?channel=${channelToDisplay}&parent=${parentDomain}&muted=false`}
+          allowFullScreen
+          title={`Twitch player - ${channelToDisplay}`}
+          style={{ width: '100%', aspectRatio: '16 / 9' }}
+        />
+      </>}
+    </BrowserOnly>
   );
 }
