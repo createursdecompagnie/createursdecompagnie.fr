@@ -109,7 +109,7 @@ const Component: React.FC = () => {
               <div style={{
                 fontSize: '5vw',
                 fontWeight: 900,
-                background: `linear-gradient(90deg, #fff, var(--cagnotte-accent-color))`,
+                background: `linear-gradient(90deg, var(--cagnotte-text-color), var(--cagnotte-accent-color))`,
                 WebkitBackgroundClip: 'text',
                 WebkitTextFillColor: 'transparent',
                 filter: computeDropShadow(accentColor, shadowIntensity),
