@@ -61,7 +61,7 @@ interface CharityData {
 
 const TEAM_ID = '851906625861196529';
 const API_BASE_URL = 'https://streamlabscharity.com/api/v1';
-const CACHE_KEY = 'streamlabs_charity_cache_v3';
+const CACHE_KEY = 'streamlabs_charity_cache_v5';
 const CACHE_DURATION = 24 * 60 * 60 * 1000;
 const REFRESH_RATE = 1 * 60 * 1000;
 
@@ -144,14 +144,20 @@ async function fetchNewDonations(
 function replaceDonations(donations: RawDonation[]): CharityData {
   const memberMap = new Map<string, MemberTotal>();
   const donatorMap = new Map<string, DonatorTotal>();
-  const history:DonationHistoryEntry[] = [];
+  const processedIds = new Set<string>();
+  const history: DonationHistoryEntry[] = [];
   let totalRaised = 0;
 
   for (const item of donations) {
     const { donation, member } = item;
-    if (!member || !member.user) continue;
+
+    if (processedIds.has(donation.id)) continue;
+    processedIds.add(donation.id);
 
     const amount = donation.converted_amount;
+    totalRaised += amount;
+
+    if (!member || !member.user) continue;
     const donatorName = donation.display_name;
     const memberId = member.user.id;
     const memberName = member.user.display_name;
@@ -191,8 +197,6 @@ function replaceDonations(donations: RawDonation[]): CharityData {
       memberName,
       comment: donation.comment?.text,
     });
-
-    totalRaised += amount;
   }
 
   const members = Array.from(memberMap.values()).sort((a, b) => b.totalAmount - a.totalAmount);
