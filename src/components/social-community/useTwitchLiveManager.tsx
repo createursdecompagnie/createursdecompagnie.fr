@@ -81,11 +81,29 @@ async function fetchTwitchLiveInfo(
   return result;
 }
 
+function safeLocalStorageGet(key: string): string | null {
+  if (typeof window === 'undefined' || !('localStorage' in window)) return null;
+  try {
+    return window.localStorage.getItem(key);
+  } catch {
+    return null;
+  }
+}
+
+function safeLocalStorageSet(key: string, value: string): void {
+  if (typeof window === 'undefined' || !('localStorage' in window)) return;
+  try {
+    window.localStorage.setItem(key, value);
+  } catch (err) {
+    console.error('Error writing localStorage:', err);
+  }
+}
+
 function loadCache():
   | { data: Record<string, TwitchUserLiveInfo>; lastUpdate: number }
   | null {
   try {
-    const cached = localStorage.getItem(CACHE_KEY);
+    const cached = safeLocalStorageGet(CACHE_KEY);
     if (!cached) return null;
     const parsed = JSON.parse(cached);
     const age = Date.now() - parsed.lastUpdate;
@@ -99,7 +117,7 @@ function loadCache():
 
 function saveCache(data: Record<string, TwitchUserLiveInfo>): void {
   try {
-    localStorage.setItem(
+    safeLocalStorageSet(
       CACHE_KEY,
       JSON.stringify({ data, lastUpdate: Date.now() })
     );
@@ -107,6 +125,7 @@ function saveCache(data: Record<string, TwitchUserLiveInfo>): void {
     console.error('Erreur lors de la sauvegarde du cache Twitch :', err);
   }
 }
+
 
 const TwitchLiveManagerContext = createContext<Record<string, TwitchUserLiveInfo>>({});
 
@@ -119,6 +138,14 @@ export function TwitchLiveManagerProvider({
   children,
   refreshMs = REFRESH_RATE,
 }: TwitchLiveManagerProviderProps) {
+  if (typeof window === 'undefined') {
+    return (
+      <TwitchLiveManagerContext.Provider value={{}}>
+        {children}
+      </TwitchLiveManagerContext.Provider>
+    );
+  }
+
   const [liveInfo, setLiveInfo] = useState<Record<string, TwitchUserLiveInfo>>(
     () => loadCache()?.data || {}
   );

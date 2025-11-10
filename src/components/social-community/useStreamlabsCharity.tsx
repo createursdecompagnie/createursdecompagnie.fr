@@ -292,9 +292,27 @@ function mergeDonations(existingData: CharityData, newDonations: RawDonation[]):
   };
 }
 
+function safeLocalStorageGet(key: string): string | null {
+  if (typeof window === 'undefined' || !('localStorage' in window)) return null;
+  try {
+    return window.localStorage.getItem(key);
+  } catch {
+    return null;
+  }
+}
+
+function safeLocalStorageSet(key: string, value: string): void {
+  if (typeof window === 'undefined' || !('localStorage' in window)) return;
+  try {
+    window.localStorage.setItem(key, value);
+  } catch (err) {
+    console.error('Error writing localStorage:', err);
+  }
+}
+
 function loadCache(): CharityData | null {
   try {
-    const cached = localStorage.getItem(CACHE_KEY);
+    const cached = safeLocalStorageGet(CACHE_KEY);
     if (!cached)
     {
       return null;
@@ -316,7 +334,7 @@ function loadCache(): CharityData | null {
 
 function saveCache(data: CharityData): void {
   try {
-    localStorage.setItem(CACHE_KEY, JSON.stringify(data));
+    safeLocalStorageSet(CACHE_KEY, JSON.stringify(data));
   } catch (error) {
     console.error('Error saving cache:', error);
   }
@@ -338,6 +356,23 @@ type StreamlabsCharityProviderProps = {
 };
 
 export function StreamlabsCharityProvider({ children, refreshMs = REFRESH_RATE }: StreamlabsCharityProviderProps) {
+
+  if (typeof window === 'undefined') {
+    return (
+      <StreamlabsCharityContext.Provider value={{
+        members: [],
+        donators: [],
+        history: [],
+        totalRaised: 0,
+        lastUpdate: 0,
+        lastDonationId: null,
+        lastPageWithData: 0,
+      }}>
+        {children}
+      </StreamlabsCharityContext.Provider>
+    );
+  }
+
   const [charityData, setCharityData] = useState<CharityData>(() => loadCache() || {
     members: [],
     donators: [],
