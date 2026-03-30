@@ -1,1 +1,0 @@
-"use strict";(self.webpackChunkcreateursdecompagnie_fr=self.webpackChunkcreateursdecompagnie_fr||[]).push([[622],{5870:(e,r,n)=>{n.r(r),n.d(r,{default:()=>u});n(6540);var c=n(6347),t=n(4848);function u(){return(0,t.jsx)(c.rd,{to:"/evenement/cdc2025/l-evenement"})}}}]);
