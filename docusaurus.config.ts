@@ -23,7 +23,11 @@ const config: Config = {
   organizationName: 'createursdecompagnie',
   projectName: 'createursdecompagnie.fr',
   onBrokenLinks: 'throw',
-  onBrokenMarkdownLinks: 'warn',
+  markdown: {
+    hooks: {
+      onBrokenMarkdownLinks: 'warn'
+    }
+  },
   i18n: {
     defaultLocale: 'fr',
     locales: ['fr'],
