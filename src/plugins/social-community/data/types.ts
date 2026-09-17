@@ -14,7 +14,8 @@ export const enum Group {
     sct = 'sct', 
     cdc2022 = 'cdc2022',
     playtogether2024 = 'playtogether2024',
-    cdc2025 = 'cdc2025'
+    cdc2025 = 'cdc2025',
+    cdc2026 = 'cdc2026'
 }
 
 export interface TwitchUserData {
@@ -54,8 +55,8 @@ export interface Goal {
     description: string;
 }
 
-export interface CDC2025 {
-    streamlabscharityId: string;
+export interface CDCEvent {
+    streamlabscharityId?: string;
     goals: Goal[];
 }
 
@@ -75,7 +76,8 @@ export interface Member {
     avatar?: string;
     groups: Group[];
     socials?: Socials;
-    cdc2025?: CDC2025;
+    cdc2025?: CDCEvent;
+    cdc2026?: CDCEvent;
 }
 
 export interface SocialCommunityPluginOptions extends PluginOptions {

@@ -37,6 +37,7 @@ import { CommunityListEvent } from '/src/components/social-community'
 
 ## Les évènements
 
+- [***CDC 2026***](/evenement/cdc2026/l-evenement) du **6 au 8 novembre 2026** pour le sanctuaire [***Le repère***](https://www.facebook.com/lerepereasso/)
 - [***CDC 2025***](/evenement/cdc2025/l-evenement) du **7 au 9 novembre 2025** pour l'association [***Potiron Family***](https://www.potironfamily.fr) : **16 300 €** de récoltés
 - [***PlayTogether "Édition Spéciale"***](/evenement/playtogether2024) du **8 au 10 novembre 2024** pour l'association [***L'Hirondelle***](https://hirondelle.ovh)
 - [***CDC 2022***](/evenement/cdc2022) du **21 au 23 octobre 2022** pour l'association [***L'Hirondelle***](https://hirondelle.ovh) : **17 300 €** de récoltés

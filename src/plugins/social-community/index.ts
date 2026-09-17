@@ -361,14 +361,15 @@ module.exports = function SocialCommunityPlugin(
 
       const plannings: Partial<Record<Group, any[]>> = {};
       plannings[Group.cdc2022] = loadPlanningData(Group.cdc2022);
+      plannings[Group.cdc2025] = loadPlanningData(Group.cdc2025);
       plannings[Group.playtogether2024] = loadPlanningData(Group.playtogether2024);
 
-      if (process.env.CDC2025_PLANNING) {
-        plannings[Group.cdc2025] = await fetchAndParsePlanningCSV(
-          process.env.CDC2025_PLANNING, 
+      if (process.env.CDC2026_PLANNING) {
+        plannings[Group.cdc2026] = await fetchAndParsePlanningCSV(
+          process.env.CDC2026_PLANNING, 
           members
         );
-        savePlanningData(Group.cdc2025, plannings[Group.cdc2025]);
+        savePlanningData(Group.cdc2026, plannings[Group.cdc2026]);
       }
 
       const { setGlobalData } = actions;

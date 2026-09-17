@@ -2,5 +2,5 @@ import React from 'react';
 import { Redirect } from '@docusaurus/router';
 
 export default function Home() {
-  return <Redirect to="/evenement/cdc2025/l-evenement" />;
+  return <Redirect to="/evenement/cdc2026/l-evenement" />;
 }

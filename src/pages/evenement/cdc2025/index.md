@@ -2,7 +2,7 @@
 title: CDC 2025
 description: L'évènement caritatif de Créateurs de Compagnie au profit de Potiron Family
 ---
-import { Planning2022 } from '/src/components/planning'
+import { Planning, Group } from '/src/components/planning'
 import { CommunityListEvent } from '/src/components/social-community'
 
 <nav aria-label="breadcrumbs" className="page-breadcrumbs">
@@ -16,10 +16,10 @@ import { CommunityListEvent } from '/src/components/social-community'
       </a>
     </li>
     <li className="breadcrumbs__item">
-      <span className="breadcrumbs__link">CDC 2025</span>
+      <span className="breadcrumbs__link">Évènements passés</span>
     </li>
     <li className="breadcrumbs__item">
-      <a className="breadcrumbs__link" href="/evenement/cdc2025/l-evenement">L'évènement</a>
+      <a className="breadcrumbs__link" href="/evenement/cdc2025">CDC 2025</a>
     </li>
   </ul>
 </nav>
@@ -58,11 +58,7 @@ L’association est portée par Marion et Éric, deux passionné·es qui raconte
 ## Trailer
 
 <div className="center margin-bottom--lg" style={{ display: 'flex', justifyContent: 'center' }}>
-  <video
-    width="100%"
-    controls
-     style={{ maxWidth: '450px' }}
-  >
+  <video width="100%" controls>
     <source src="/video/cdc2025/teaser.webm" type="video/webm" />
     <source src="/video/cdc2025/teaser.mp4" type="video/mp4" />
     Your browser does not support the video tag.
@@ -71,6 +67,9 @@ L’association est portée par Marion et Éric, deux passionné·es qui raconte
 
 ## Les participant·es
 
-<CommunityListEvent group='cdc2025' />
+<CommunityListEvent group={Group.cdc2025} />
+<br/>
 
-<p className="text--center"><a className="button button--primary button--md margin-top--md" href="/les-createurices?group=cdc2025">📺 Regarder en direct</a></p>
+## Le planning
+
+<Planning group={Group.cdc2025} />

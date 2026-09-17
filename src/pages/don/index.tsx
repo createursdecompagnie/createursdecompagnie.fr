@@ -18,10 +18,10 @@ export default function DonationPage() {
   );
 
   const donationUrl =
-    member?.cdc2025 &&
-    member.groups?.includes(Group.cdc2025) &&
-    member.cdc2025.streamlabscharityId
-      ? `https://streamlabscharity.com/teams/@createurs-de-compagnie-2025/cdc2025?member=${member.cdc2025.streamlabscharityId}`
+    member?.cdc2026 &&
+    member.groups?.includes(Group.cdc2026) &&
+    member.cdc2026.streamlabscharityId
+      ? `https://streamlabscharity.com/teams/@createurs-de-compagnie-2025/cdc2026?member=${member.cdc2026.streamlabscharityId}`
       : null;
 
   useEffect(() => {
@@ -33,10 +33,10 @@ export default function DonationPage() {
   const eligibleMembers =
     members?.filter(
       (m) =>
-        m.cdc2025 &&
-        m.groups?.includes(Group.cdc2025) &&
-        typeof m.cdc2025.streamlabscharityId === 'string' &&
-        m.cdc2025.streamlabscharityId.trim() !== ''
+        m.cdc2026 &&
+        m.groups?.includes(Group.cdc2026) &&
+        typeof m.cdc2026.streamlabscharityId === 'string' &&
+        m.cdc2026.streamlabscharityId.trim() !== ''
     ) || [];
 
   if (!creatorName || !donationUrl) {

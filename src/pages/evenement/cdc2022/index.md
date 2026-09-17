@@ -43,11 +43,7 @@ Elle possède **un des plus grand centre de soins aux animaux sauvages de France
 ## Trailer
 
 <div className="center margin-bottom--lg" style={{ display: 'flex', justifyContent: 'center' }}>
-  <video
-    width="100%"
-    controls
-     style={{ maxWidth: '450px' }}
-  >
+  <video width="100%" controls>
     <source src="/video/cdc2022/teaser.webm" type="video/webm" />
     <source src="/video/cdc2022/teaser.mp4" type="video/mp4" />
     Your browser does not support the video tag.
