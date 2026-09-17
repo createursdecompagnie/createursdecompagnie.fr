@@ -1,1 +1,0 @@
-(globalThis.webpackChunkcreateursdecompagnie_fr=globalThis.webpackChunkcreateursdecompagnie_fr||[]).push([[741],{5741(){}}]);

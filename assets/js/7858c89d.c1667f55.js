@@ -1,0 +1,1 @@
+"use strict";(self.webpackChunkcreateursdecompagnie_fr=self.webpackChunkcreateursdecompagnie_fr||[]).push([["512"],{4074(e,r,c){c.r(r),c.d(r,{default:()=>t});var a=c(4848);c(6540);var n=c(6347);function t(){return(0,a.jsx)(n.rd,{to:"/evenement/cdc2022"})}}}]);

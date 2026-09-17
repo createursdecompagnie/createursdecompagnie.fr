@@ -1,0 +1,1 @@
+"use strict";(self.webpackChunkcreateursdecompagnie_fr=self.webpackChunkcreateursdecompagnie_fr||[]).push([["123"],{8238(e,r,n){n.r(r),n.d(r,{default:()=>a});var c=n(4848);n(6540);var t=n(6347);function a(){return(0,c.jsx)(t.rd,{to:"/evenement/cdc2026/l-evenement"})}}}]);
