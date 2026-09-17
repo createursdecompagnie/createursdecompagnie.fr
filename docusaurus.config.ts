@@ -178,19 +178,19 @@ const config: Config = {
       darkTheme: prismThemes.dracula,
     }
   } satisfies Preset.ThemeConfig,  
-  themes: [
-    [
-      require.resolve("@easyops-cn/docusaurus-search-local"),
-      {
-        indexDocs: false,
-        indexBlog: false,
-        indexPages: true,
-        searchBarShortcut: false,
-        searchBarShortcutHint: false,
-        language: ["fr"],
-      } satisfies import("@easyops-cn/docusaurus-search-local").PluginOptions
-    ]
-  ],
+  // themes: [
+  //   [
+  //     require.resolve("@easyops-cn/docusaurus-search-local"),
+  //     {
+  //       indexDocs: false,
+  //       indexBlog: false,
+  //       indexPages: true,
+  //       searchBarShortcut: false,
+  //       searchBarShortcutHint: false,
+  //       language: ["fr"],
+  //     } satisfies import("@easyops-cn/docusaurus-search-local").PluginOptions
+  //   ]
+  // ],
   plugins: [
     [
       require.resolve("./src/plugins/social-community"),
