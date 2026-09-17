@@ -37,6 +37,16 @@ L’idée est simple : vous streamez, vos spectateur·ices peuvent faire des don
 
 👉 <a href="https://t.co/ARHoK9amNh">**Inscrivez-vous dès maintenant**</a>, préparez vos lives et invitez vos ami·es streameur·euses à se joindre à cette grande aventure caritative. Chaque contribution compte, et chaque live fait la différence !
 
+## L'association {/* #l-association */}
+
+<a href="https://www.facebook.com/lerepereasso"><p className="text--center"><img src="/img/cdc2026/logo-le-repere.png" alt="Le Repère" width="400" height="400" loading="lazy" /></p></a>
+
+Le sanctuaire <a href="https://www.facebook.com/lerepereasso">Le Repère</a> est un havre de paix pour les animaux, situé en plein cœur de la Mayenne.
+
+L’association a pour mission d’offrir un refuge à des animaux issus de sauvetages, de saisies, de placements, de retraites ou d’abandons. Elle œuvre au quotidien pour améliorer leurs conditions de vie, répondre à leurs besoins et veiller à leur bien-être.
+
+Le Repère mène également des actions de sensibilisation auprès du public, enfants comme adultes, afin de mieux faire connaître les conditions de vie des animaux sauvages et des animaux de ferme. Des activités pédagogiques sont ainsi organisées au sein du sanctuaire, telles que des après-midis "soigneur animalier" ou encore des visites guidées permettant de découvrir l’histoire et le parcours de chacun des animaux accueillis.
+
 ## Les participant·es
 
 <CommunityListEvent group={Group.cdc2026} />

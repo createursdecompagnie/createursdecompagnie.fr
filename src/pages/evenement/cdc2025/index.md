@@ -28,14 +28,7 @@ import { CommunityListEvent } from '/src/components/social-community'
 
 ## L'évènement {/* #l-évènement */}
 
-Du <a href="/evenement/cdc2025/planning">7 au 9 novembre 2025</a>, participez à ***CDC 2025***, un événement caritatif unique qui réunit les streameur·euses et leurs communautés autour d’une belle cause. Pendant trois jours, tous·tes les créateur·ices de contenu sont invité·es à lancer leurs lives pour contribuer à un objectif commun : soutenir une association et faire la différence grâce à la force de nos communautés.
-
-💻 Que vous soyez petit ou grand créateur·ice, tous·tes les streameur·euses sensibles à la cause peuvent participer !
-L’idée est simple : vous streamez, vos spectateur·ices peuvent faire des dons via un lien unique vers la cagnotte, et ensemble nous créons un week-end solidaire, fun et fédérateur. Pas de contraintes de créneau, pas de format imposé, juste votre énergie, vos idées et votre envie de soutenir la cause.
-
-👥 Au-delà de la collecte, c’est aussi l’occasion de rencontrer d’autres créateur·ices, de partager vos expériences et de passer un moment convivial, tout en faisant parler de la cause et en impliquant vos communautés.
-
-👉 <a href="https://chk.me/onvgyRM">**Inscrivez-vous dès maintenant**</a>, préparez vos lives et invitez vos ami·es streameur·euses à se joindre à cette grande aventure caritative. Chaque contribution compte, et chaque live fait la différence !
+***CDC 2025*** est un évènement caritatif qui s'est tenu sur [***Twitch***](https://www.twitch.tv/createursdecompagnie) du **7 au 9 novembre 2025** au profit de l'association <a href="https://www.potironfamily.fr">***Potiron Family***</a>. Celui-ci a permis de récolter plus de **16 300 €** et a impliqué plus d'une trentaine de créateur·ices.
 
 ## L'association {/* #l-association */}
 
