@@ -27,11 +27,11 @@ import { CommunityListEvent } from '/src/components/social-community'
 <h1 className="text--center margin-bottom--none">PlayTogether</h1>
 <p className="text--center">"Édition Spéciale"</p>
 
-## L'évènement {#l-évènement}
+## L'évènement {/* #l-évènement */}
 
 ***PlayTogether*** est un weekend de fun, multigaming et de sensibilisation pour la protection animale qui se tiendra sur [***Twitch***](https://www.twitch.tv/misternooton) du **8 au 10 novembre 2024** au profit de l'association <a href="https://hirondelle.ovh">***L'Hirondelle***</a>.
 
-## L'association {#l-association}
+## L'association {/* #l-association */}
 
 <a href="https://hirondelle.ovh"><p className="text--center"><img src="/img/cdc2022/logo-l-hirondelle.png" alt="Logo L'Hirondelle" width="442" height="200" loading="lazy" /></p></a>
 

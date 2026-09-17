@@ -2,7 +2,7 @@
 title: CDC 2025
 description: L'évènement caritatif de Créateurs de Compagnie au profit de Potiron Family
 ---
-import { Planning2022 } from '/src/components/planning'
+import { Planning, Group } from '/src/components/planning'
 import { CommunityListEvent } from '/src/components/social-community'
 
 <nav aria-label="breadcrumbs" className="page-breadcrumbs">
@@ -16,17 +16,17 @@ import { CommunityListEvent } from '/src/components/social-community'
       </a>
     </li>
     <li className="breadcrumbs__item">
-      <span className="breadcrumbs__link">CDC 2025</span>
+      <span className="breadcrumbs__link">Évènements passés</span>
     </li>
     <li className="breadcrumbs__item">
-      <a className="breadcrumbs__link" href="/evenement/cdc2025/l-evenement">L'évènement</a>
+      <a className="breadcrumbs__link" href="/evenement/cdc2025">CDC 2025</a>
     </li>
   </ul>
 </nav>
 
 <h1 className="text--center">CDC 2025</h1>
 
-## L'évènement {#l-évènement}
+## L'évènement {/* #l-évènement */}
 
 Du <a href="/evenement/cdc2025/planning">7 au 9 novembre 2025</a>, participez à ***CDC 2025***, un événement caritatif unique qui réunit les streameur·euses et leurs communautés autour d’une belle cause. Pendant trois jours, tous·tes les créateur·ices de contenu sont invité·es à lancer leurs lives pour contribuer à un objectif commun : soutenir une association et faire la différence grâce à la force de nos communautés.
 
@@ -37,7 +37,7 @@ L’idée est simple : vous streamez, vos spectateur·ices peuvent faire des don
 
 👉 <a href="https://chk.me/onvgyRM">**Inscrivez-vous dès maintenant**</a>, préparez vos lives et invitez vos ami·es streameur·euses à se joindre à cette grande aventure caritative. Chaque contribution compte, et chaque live fait la différence !
 
-## L'association {#l-association}
+## L'association {/* #l-association */}
 
 <a href="https://www.potironfamily.fr"><p className="text--center"><img src="/img/cdc2025/logo-potiron-family.png" alt="Logo Potiron Family" width="400" height="400" loading="lazy" /></p></a>
 
@@ -58,11 +58,7 @@ L’association est portée par Marion et Éric, deux passionné·es qui raconte
 ## Trailer
 
 <div className="center margin-bottom--lg" style={{ display: 'flex', justifyContent: 'center' }}>
-  <video
-    width="100%"
-    controls
-     style={{ maxWidth: '450px' }}
-  >
+  <video width="100%" controls>
     <source src="/video/cdc2025/teaser.webm" type="video/webm" />
     <source src="/video/cdc2025/teaser.mp4" type="video/mp4" />
     Your browser does not support the video tag.
@@ -71,6 +67,9 @@ L’association est portée par Marion et Éric, deux passionné·es qui raconte
 
 ## Les participant·es
 
-<CommunityListEvent group='cdc2025' />
+<CommunityListEvent group={Group.cdc2025} />
+<br/>
 
-<p className="text--center"><a className="button button--primary button--md margin-top--md" href="/les-createurices?group=cdc2025">📺 Regarder en direct</a></p>
+## Le planning
+
+<Planning group={Group.cdc2025} />

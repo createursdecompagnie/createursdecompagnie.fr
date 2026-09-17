@@ -15,7 +15,7 @@ import { Planning, Group } from '/src/components/planning'
       </a>
     </li>
     <li className="breadcrumbs__item">
-      <span className="breadcrumbs__link">CDC 2025</span>
+      <span className="breadcrumbs__link">CDC 2026</span>
     </li>
     <li className="breadcrumbs__item">
       <a className="breadcrumbs__link" href="/evenement/cdc2025/planning">Le planning</a>
@@ -23,7 +23,7 @@ import { Planning, Group } from '/src/components/planning'
   </ul>
 </nav>
 
-<h1 className="text--center">CDC 2025</h1>
+<h1 className="text--center">CDC 2026</h1>
 <h2>Le planning</h2>
 
-<Planning group={Group.cdc2025} />
+<Planning group={Group.cdc2026} />

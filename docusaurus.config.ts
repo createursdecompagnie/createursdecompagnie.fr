@@ -23,7 +23,11 @@ const config: Config = {
   organizationName: 'createursdecompagnie',
   projectName: 'createursdecompagnie.fr',
   onBrokenLinks: 'throw',
-  onBrokenMarkdownLinks: 'warn',
+  markdown: {
+    hooks: {
+      onBrokenMarkdownLinks: 'warn'
+    }
+  },
   i18n: {
     defaultLocale: 'fr',
     locales: ['fr'],
@@ -33,7 +37,11 @@ const config: Config = {
     [
       'classic',
       {
-        docs: false,
+        // docs: false,
+        docs: {
+          path: 'src/docs',
+          routeBasePath: 'docs'
+        },
         blog: false,
         theme: {
           customCss: './src/css/custom.css',
@@ -57,19 +65,19 @@ const config: Config = {
           to: '/le-collectif',
         },
         {
-          label: 'CDC 2025',
+          label: 'CDC 2026',
           items: [
             {
               label: 'L\'évènement',
-              to: '/evenement/cdc2025/l-evenement',
+              to: '/evenement/cdc2026/l-evenement',
             },
-            {
-              label: 'Le planning',
-              to: '/evenement/cdc2025/planning',
-            },
+            // {
+            //   label: 'Le planning',
+            //   to: '/evenement/cdc2026/planning',
+            // },
             {
               label: 'Les créateur·ices',
-              to: '/les-createurices?group=cdc2025',
+              to: '/les-createurices?group=cdc2026',
             },
           ]
         },
@@ -77,6 +85,10 @@ const config: Config = {
           type: 'dropdown',
           label: 'Évènements passés',
           items: [
+            {
+              label: 'CDC 2025',
+              to: '/evenement/cdc2025',
+            },
             {
               label: 'PlayTogether',
               to: '/evenement/playtogether2024',
@@ -118,6 +130,10 @@ const config: Config = {
         {
           title: 'Nos évènements',
           items: [
+            {
+              label: 'CDC 2026',
+              to: '/evenement/cdc2026/l-evenement',
+            },
             {
               label: 'CDC 2025',
               to: '/evenement/cdc2025/l-evenement',

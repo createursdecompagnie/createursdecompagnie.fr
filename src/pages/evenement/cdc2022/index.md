@@ -26,11 +26,11 @@ import { CommunityListEvent } from '/src/components/social-community'
 
 <h1 className="text--center">CDC 2022</h1>
 
-## L'évènement {#l-évènement}
+## L'évènement {/* #l-évènement */}  
 
 ***CDC 2022*** est un évènement caritatif qui s'est tenu sur [***Twitch***](https://www.twitch.tv/createursdecompagnie) du **21 au 23 octobre 2022** au profit de l'association <a href="https://hirondelle.ovh">***L'Hirondelle***</a>. Celui-ci a permis de récolter plus de **17 000 €** et a impliqué une trentaine de créateur·ices.
 
-## L'association {#l-association}
+## L'association {/* #l-association */}
 
 <a href="https://hirondelle.ovh"><p className="text--center"><img src="/img/cdc2022/logo-l-hirondelle.png" alt="Logo L'Hirondelle" width="442" height="200" loading="lazy" /></p></a>
 
@@ -43,11 +43,7 @@ Elle possède **un des plus grand centre de soins aux animaux sauvages de France
 ## Trailer
 
 <div className="center margin-bottom--lg" style={{ display: 'flex', justifyContent: 'center' }}>
-  <video
-    width="100%"
-    controls
-     style={{ maxWidth: '450px' }}
-  >
+  <video width="100%" controls>
     <source src="/video/cdc2022/teaser.webm" type="video/webm" />
     <source src="/video/cdc2022/teaser.mp4" type="video/mp4" />
     Your browser does not support the video tag.

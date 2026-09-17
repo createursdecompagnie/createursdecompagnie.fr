@@ -17,6 +17,7 @@ const formatCurrency = (value: number) =>
   }).format(value);
 
 const FILTRABLE_GROUPS: Partial<Record<Group, string>> = {
+  [Group.cdc2026]: 'CDC 2026',
   [Group.cdc2025]: 'CDC 2025',
   [Group.cdc2022]: 'CDC 2022',
   [Group.sct]: 'Sans Croquettes Twitch',
@@ -59,8 +60,8 @@ function splitMembersByLiveStatus(
   live.sort((a, b) => {
     const aId = a.socials!.twitch!.id!;
     const bId = b.socials!.twitch!.id!;
-    const aTime = new Date(liveInfo[aId]?.stream?.createdAt).getTime() || 0;
-    const bTime = new Date(liveInfo[bId]?.stream?.createdAt).getTime() || 0;
+    const aTime = new Date(liveInfo[aId]?.stream?.createdAt ?? 0).getTime();
+    const bTime = new Date(liveInfo[bId]?.stream?.createdAt ?? 0).getTime();
     return bTime - aTime;
   });
 
@@ -117,7 +118,7 @@ function LiveBadges({ gameName, viewersCount, elapsed, centered = false }: LiveB
         <>
           &nbsp;
           <span className="badge badge--transparent">
-            👁️ <AnimatedNumber value={viewersCount} defaultStartValue={null} />
+            👁️ <AnimatedNumber value={viewersCount} />
           </span>
         </>
       )}
@@ -262,29 +263,29 @@ interface DonationButtonsProps {
 
 function DonationButtons({ member }: DonationButtonsProps) {
   const streamlabsCharity = useStreamlabsCharity();
-  const { cdc2025, groups } = member;
+  const { cdc2026, groups } = member;
 
-  if (!cdc2025 || !groups?.includes(Group.cdc2025)) return null;
+  if (!cdc2026 || !groups?.includes(Group.cdc2026)) return null;
 
   const baseUrl =
-    "https://streamlabscharity.com/teams/@createurs-de-compagnie-2025/cdc2025";
+    "https://streamlabscharity.com/teams/@createurs-de-compagnie-2026/cdc2026";
 
-  const donationUrl = cdc2025.streamlabscharityId
-    ? `${baseUrl}?member=${cdc2025.streamlabscharityId}`
+  const donationUrl = cdc2026.streamlabscharityId
+    ? `${baseUrl}?member=${cdc2026.streamlabscharityId}`
     : `${baseUrl}?member=452020463900692480`;
 
   const charityMember = streamlabsCharity.members.find(
-    (m) => m.memberId === cdc2025.streamlabscharityId
+    (m) => m.memberId === cdc2026.streamlabscharityId
   );
 
-  const personalTotal = ((charityMember?.totalAmount / 100) || 0);
+const personalTotal = (charityMember?.totalAmount ?? 0) / 100;
   const globalTotal = streamlabsCharity.totalRaised / 100;
 
   return (
     <div className="row row--no-gutters margin--none padding--none margin-top--md donations">
       <div className="col col--6 margin-bottom--md">
         <a href={donationUrl} target="_blank" rel="noopener noreferrer">
-          {cdc2025.streamlabscharityId ? (
+          {cdc2026.streamlabscharityId ? (
             <>
               <button className="button button--primary donate">
                 Faire un don sur sa cagnotte :
@@ -295,7 +296,7 @@ function DonationButtons({ member }: DonationButtonsProps) {
             </>
           ) : (
             <button className="button button--primary">
-              Faire un don pour CDC 2025
+              Faire un don pour CDC 2026
             </button>
           )}
         </a>
@@ -316,18 +317,18 @@ interface DonationGoalsProps {
 }
 
 function DonationGoals({ member }: DonationGoalsProps) {
-  const { cdc2025, groups } = member;
-  const goals = member?.cdc2025?.goals ?? [];
+  const { cdc2026, groups } = member;
+  const goals = member?.cdc2026?.goals ?? [];
   const streamlabsCharity = useStreamlabsCharity();
 
-  if (!cdc2025 || !groups?.includes(Group.cdc2025) || !goals || goals.length === 0)
+  if (!cdc2026 || !groups?.includes(Group.cdc2026) || !goals || goals.length === 0)
     return null;
 
   const charityMember = streamlabsCharity.members.find(
-    (m) => m.memberId === cdc2025.streamlabscharityId
+    (m) => m.memberId === cdc2026.streamlabscharityId
   );
 
-  const personalTotal = (charityMember?.totalAmount / 100) || 0;
+  const personalTotal = (charityMember?.totalAmount ?? 0) / 100;
 
   return (
     <>
@@ -433,15 +434,15 @@ export default function MemberPage() {
             </div>
 
             <TwitchPlayer 
-              channelLogin={member.socials.twitch.user_data.login} 
+              channelLogin={member.socials?.twitch?.user_data?.login ?? ''} 
               parent={parent} 
             />
-            <DonationButtons
+            {/* <DonationButtons
               member={member}
             />
             <DonationGoals
               member={member}
-            />
+            /> */}
           </>
         )}
 
