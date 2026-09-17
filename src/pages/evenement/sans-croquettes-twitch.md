@@ -33,10 +33,6 @@ Pendant **plus de 72h** auront eu lieu : plusieurs **sessions de jeu** entre les
 
 Sous l'impulsion de cet évènement, [***MisterNooton***](https://www.twitch.tv/misternooton) (l'initiateur du projet) décide de créer le collectif ***Créateurs de Compagnie***.
 
-{/* ## L'association {/* #l-association */}
-
-Infos sur l'association*/}
-
 ## Les participant·es
 
 <CommunityListEvent group='sct' />
