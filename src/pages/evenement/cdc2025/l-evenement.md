@@ -26,7 +26,7 @@ import { CommunityListEvent } from '/src/components/social-community'
 
 <h1 className="text--center">CDC 2025</h1>
 
-## L'évènement {#l-évènement}
+## L'évènement {/* #l-évènement */}
 
 Du <a href="/evenement/cdc2025/planning">7 au 9 novembre 2025</a>, participez à ***CDC 2025***, un événement caritatif unique qui réunit les streameur·euses et leurs communautés autour d’une belle cause. Pendant trois jours, tous·tes les créateur·ices de contenu sont invité·es à lancer leurs lives pour contribuer à un objectif commun : soutenir une association et faire la différence grâce à la force de nos communautés.
 
@@ -37,7 +37,7 @@ L’idée est simple : vous streamez, vos spectateur·ices peuvent faire des don
 
 👉 <a href="https://chk.me/onvgyRM">**Inscrivez-vous dès maintenant**</a>, préparez vos lives et invitez vos ami·es streameur·euses à se joindre à cette grande aventure caritative. Chaque contribution compte, et chaque live fait la différence !
 
-## L'association {#l-association}
+## L'association {/* #l-association */}
 
 <a href="https://www.potironfamily.fr"><p className="text--center"><img src="/img/cdc2025/logo-potiron-family.png" alt="Logo Potiron Family" width="400" height="400" loading="lazy" /></p></a>
 
