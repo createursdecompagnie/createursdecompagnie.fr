@@ -2,6 +2,7 @@ import type { Member } from '../plugins/social-community/data/types';
 import { Group, Social } from '../plugins/social-community/data/types';
 
 const members: Member[] = [
+
     {
         id: "47b5c89e-2c12-40a4-8e12-fcff912107a9",
         name: 'Créateurs de Compagnie',
@@ -83,7 +84,7 @@ const members: Member[] = [
     {
         id: "19ba2da0-6f0c-4f46-a0fc-4bb406bdacb7",
         name: 'Netouss',
-        groups: [Group.member, Group.sct, Group.cdc2022, Group.playtogether2024, Group.cdc2025],
+        groups: [Group.member, Group.sct, Group.cdc2022, Group.playtogether2024, Group.cdc2025, Group.cdc2026],
         socials: {
             main_social: Social.twitch,
             twitch: {
@@ -227,7 +228,7 @@ const members: Member[] = [
     {
         id: "5570ceb0-23f3-4441-af6f-c0fd8e01f440",
         name: 'Buddakhiin',
-        groups: [Group.member, Group.sct, Group.playtogether2024, Group.cdc2025],
+        groups: [Group.member, Group.sct, Group.playtogether2024, Group.cdc2025, Group.cdc2026],
         socials: {
             main_social: Social.twitch,
             twitch: {
@@ -253,7 +254,7 @@ const members: Member[] = [
     {
         id: "df179a7a-837c-4c80-8b19-a5740e8b120e",
         name: 'Misterkiva',
-        groups: [Group.member, Group.sct, Group.cdc2022, Group.cdc2025],
+        groups: [Group.member, Group.sct, Group.cdc2022, Group.cdc2025, Group.cdc2026],
         socials: {
             main_social: Social.twitch,
             twitch: {
@@ -381,7 +382,7 @@ const members: Member[] = [
     {
         id: "355362d7-58c0-413d-aebb-c02693ed1282",
         name: 'MlleCkat',
-        groups: [Group.sct, Group.cdc2025],
+        groups: [Group.sct, Group.cdc2025, Group.cdc2026],
         socials: {
             main_social: Social.twitch,
             twitch: {
@@ -454,7 +455,7 @@ const members: Member[] = [
     {
         id: "41d93a01-4dfa-45fd-81c5-88b533cb5a2f",
         name: 'PiikaShall',
-        groups: [Group.member, Group.cdc2022, Group.cdc2025],
+        groups: [Group.member, Group.cdc2022, Group.cdc2025, Group.cdc2026],
         socials: {
             main_social: Social.twitch,
             twitch: {
@@ -568,7 +569,7 @@ const members: Member[] = [
     {
         id: "84ba1d10-ba7e-40cc-920c-8758575b5206",
         name: 'Stormy',
-        groups: [Group.cdc2022, Group.cdc2025],
+        groups: [Group.cdc2022, Group.cdc2025, Group.cdc2026],
         socials: {
             main_social: Social.twitch,
             twitch: {
@@ -641,7 +642,7 @@ const members: Member[] = [
     {
         id: "4d22f7c3-8425-4ac9-a05a-0fc851ca7dca",
         name: 'ExyTV',
-        groups: [Group.cdc2025],
+        groups: [Group.cdc2025, Group.cdc2026],
         socials: {
             main_social: Social.twitch,
             twitch: {
@@ -685,7 +686,7 @@ const members: Member[] = [
     {
         id: "b5732cf6-c7f8-4fe3-bbe7-6dd457ac8d1e",
         name: 'FLaPiiX',
-        groups: [Group.cdc2025],
+        groups: [Group.cdc2025, Group.cdc2026],
         socials: {
             main_social: Social.twitch,
             twitch: {
@@ -726,7 +727,7 @@ const members: Member[] = [
     {
         id: "67d20242-111b-4e7b-b6ca-706ef335ae99",
         name: 'Oceadolphine',
-        groups: [],
+        groups: [Group.cdc2026],
         socials: {
             main_social: Social.twitch,
             twitch: {
@@ -752,7 +753,7 @@ const members: Member[] = [
     {
         id: "d855e5c4-a467-4942-b447-b4cbd7728644",
         name: 'EosCall',
-        groups: [Group.cdc2025],
+        groups: [Group.cdc2025, Group.cdc2026],
         socials: {
             main_social: Social.twitch,
             twitch: {
@@ -767,7 +768,7 @@ const members: Member[] = [
     {
         id: "2c88aa08-2e73-42a3-84fc-420b4a837eef",
         name: 'Aurorexpress',
-        groups: [Group.cdc2025],
+        groups: [Group.cdc2025, Group.cdc2026],
         socials: {
             main_social: Social.twitch,
             twitch: {
@@ -782,7 +783,7 @@ const members: Member[] = [
     {
         id: "af0c6fdc-ec4f-41ca-91a1-66ffc551001d",
         name: 'Le Maty',
-        groups: [Group.cdc2025],
+        groups: [Group.cdc2025, Group.cdc2026],
         socials: {
             main_social: Social.twitch,
             twitch: {
@@ -823,7 +824,7 @@ const members: Member[] = [
     {
         id: "54e7a7c6-c30f-4685-925d-68a8933c1c69",
         name: 'Yunaleska',
-        groups: [Group.cdc2025],
+        groups: [Group.cdc2025, Group.cdc2026],
         socials: {
             main_social: Social.twitch,
             twitch: {
@@ -926,7 +927,7 @@ const members: Member[] = [
     {
         id: "5a648a52-02dd-4a7d-bccd-c1b9e691240f",
         name: 'KhalWirgo',
-        groups: [],
+        groups: [Group.cdc2026],
         socials: {
             main_social: Social.twitch,
             twitch: {
