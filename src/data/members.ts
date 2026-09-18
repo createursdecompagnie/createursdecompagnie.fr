@@ -2,7 +2,6 @@ import type { Member } from '../plugins/social-community/data/types';
 import { Group, Social } from '../plugins/social-community/data/types';
 
 const members: Member[] = [
-
     {
         id: "47b5c89e-2c12-40a4-8e12-fcff912107a9",
         name: 'Créateurs de Compagnie',
@@ -738,7 +737,7 @@ const members: Member[] = [
     {
         id: "28e98092-f606-46ae-a447-98b41e6b228d",
         name: 'Phijese',
-        groups: [Group.cdc2025],
+        groups: [Group.cdc2025, Group.cdc2026],
         socials: {
             main_social: Social.twitch,
             twitch: {
@@ -808,8 +807,8 @@ const members: Member[] = [
     },
     {
         id: "a1aa3b60-ed53-4490-b378-eb5786b8e189",
-        name: 'GamPlethore',
-        groups: [Group.cdc2025],
+        name: 'NacaratTV',
+        groups: [Group.cdc2025, Group.cdc2026],
         socials: {
             main_social: Social.twitch,
             twitch: {
@@ -950,6 +949,39 @@ const members: Member[] = [
             goals: []
         }
     },
+    {
+        id: "82364f2b-97e5-43dd-b5ed-0a8dd87af2c6",
+        name: 'LoonaLiya',
+        groups: [Group.cdc2026],
+        socials: {
+            main_social: Social.twitch,
+            twitch: {
+                id: '707010896'
+            },
+        }
+    },
+    {
+        id: "fc7e78e9-b879-4573-9861-2709ee4ecfb6",
+        name: 'MaddieRme',
+        groups: [Group.cdc2026],
+        socials: {
+            main_social: Social.twitch,
+            twitch: {
+                id: '264655646'
+            },
+        }
+    },
+    {
+        id: "6a29be47-4524-4559-aa7f-69084a005329",
+        name: 'Sanjo_o',
+        groups: [Group.cdc2026],
+        socials: {
+            main_social: Social.twitch,
+            twitch: {
+                id: '495430567'
+            },
+        }
+    }
 ] as const;
 
 export default members;
