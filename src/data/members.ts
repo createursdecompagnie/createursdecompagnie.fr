@@ -992,6 +992,17 @@ const members: Member[] = [
                 id: '914098198'
             },
         }
+    },
+    {
+        id: "baaf1182-187d-470c-828f-fc552076b29f",
+        name: 'ezio_33',
+        groups: [Group.cdc2026],
+        socials: {
+            main_social: Social.twitch,
+            twitch: {
+                id: '164535798'
+            },
+        }
     }
 ] as const;
 
