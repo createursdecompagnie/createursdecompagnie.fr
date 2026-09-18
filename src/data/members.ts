@@ -726,7 +726,7 @@ const members: Member[] = [
     {
         id: "67d20242-111b-4e7b-b6ca-706ef335ae99",
         name: 'Oceadolphine',
-        groups: [Group.cdc2026],
+        groups: [],
         socials: {
             main_social: Social.twitch,
             twitch: {
@@ -979,6 +979,17 @@ const members: Member[] = [
             main_social: Social.twitch,
             twitch: {
                 id: '495430567'
+            },
+        }
+    },
+    {
+        id: "82f3441d-099a-42ae-856d-9644b0dc80ec",
+        name: 'el_pepiito7',
+        groups: [Group.cdc2026],
+        socials: {
+            main_social: Social.twitch,
+            twitch: {
+                id: '914098198'
             },
         }
     }
