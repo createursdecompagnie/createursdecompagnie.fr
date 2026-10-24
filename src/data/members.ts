@@ -1003,6 +1003,61 @@ const members: Member[] = [
                 id: '164535798'
             },
         }
+    },
+    {
+        id: "e5baec10-5592-4cc2-b18d-de05fd2bae94",
+        name: 'Patschou',
+        groups: [Group.cdc2026],
+        socials: {
+            main_social: Social.twitch,
+            twitch: {
+                id: '506410839'
+            },
+        }
+    },
+    {
+        id: "6d48534c-6932-4e3e-b854-14fc6c100e56",
+        name: 'Ariilegrand',
+        groups: [Group.cdc2026],
+        socials: {
+            main_social: Social.twitch,
+            twitch: {
+                id: '740913122'
+            },
+        }
+    },
+    {
+        id: "8694ba73-6c57-4d76-821c-88719a4b7f69",
+        name: 'Muka',
+        groups: [Group.cdc2026],
+        socials: {
+            main_social: Social.twitch,
+            twitch: {
+                id: '124205785'
+            },
+        }
+    },
+    {
+        id: "0145dae6-8579-4d2d-8010-cee37489fe25",
+        name: 'Tensa',
+        groups: [Group.cdc2026],
+        socials: {
+            main_social: Social.twitch,
+            twitch: {
+                id: '49272238'
+            },
+        }
+    },
+    {
+        id: "fe1bc4d7-15f0-4258-87f6-0aa8c10f8108",
+        name: 'Atazae',
+        groups: [Group.cdc2026],
+        socials: {
+            main_social: Social.twitch,
+            twitch: {
+                id: '80750658'
+            },
+        }
     }
 ] as const;
 
