@@ -93,6 +93,10 @@ const members: Member[] = [
         cdc2025: {
             streamlabscharityId: '470641151276355584',
             goals: []
+        },
+        cdc2026: {
+            streamlabscharityId: undefined,
+            goals: []
         }
     },
     {
@@ -263,6 +267,10 @@ const members: Member[] = [
         cdc2025: {
             streamlabscharityId: '299598039427977216',
             goals: []
+        },
+        cdc2026: {
+            streamlabscharityId: undefined,
+            goals: []
         }
     },
     {
@@ -390,6 +398,10 @@ const members: Member[] = [
         },
         cdc2025: {
             streamlabscharityId: '565576656341834841',
+            goals: []
+        },
+        cdc2026: {
+            streamlabscharityId: undefined,
             goals: []
         }
     },
@@ -578,6 +590,10 @@ const members: Member[] = [
         cdc2025: {
             streamlabscharityId: '470683929368727552',
             goals: []
+        },
+        cdc2026: {
+            streamlabscharityId: undefined,
+            goals: []
         }
     },
     {
@@ -651,6 +667,10 @@ const members: Member[] = [
         cdc2025: {
             streamlabscharityId: '385430471863046144',
             goals: []
+        },
+        cdc2026: {
+            streamlabscharityId: undefined,
+            goals: []
         }
     },
     {
@@ -694,6 +714,10 @@ const members: Member[] = [
         },
         cdc2025: {
             streamlabscharityId: '386518854421057536',
+            goals: []
+        },
+        cdc2026: {
+            streamlabscharityId: undefined,
             goals: []
         }
     },
@@ -747,6 +771,10 @@ const members: Member[] = [
         cdc2025: {
             streamlabscharityId: '506911024125974124',
             goals: []
+        },
+        cdc2026: {
+            streamlabscharityId: undefined,
+            goals: []
         }
     },
     {
@@ -761,6 +789,10 @@ const members: Member[] = [
         },
         cdc2025: {
             streamlabscharityId: '872236337347043229',
+            goals: []
+        },
+        cdc2026: {
+            streamlabscharityId: undefined,
             goals: []
         }
     },
@@ -777,6 +809,10 @@ const members: Member[] = [
         cdc2025: {
             streamlabscharityId: '811527285994820625',
             goals: []
+        },
+        cdc2026: {
+            streamlabscharityId: undefined,
+            goals: []
         }
     },
     {
@@ -791,6 +827,10 @@ const members: Member[] = [
         },
         cdc2025: {
             streamlabscharityId: '603551372377462231',
+            goals: []
+        },
+        cdc2026: {
+            streamlabscharityId: undefined,
             goals: []
         }
     },
@@ -832,6 +872,10 @@ const members: Member[] = [
         },
         cdc2025: {
             streamlabscharityId: '865204311938964980',
+            goals: []
+        },
+        cdc2026: {
+            streamlabscharityId: undefined,
             goals: []
         }
     },
@@ -958,6 +1002,10 @@ const members: Member[] = [
             twitch: {
                 id: '707010896'
             },
+        },
+        cdc2026: {
+            streamlabscharityId: undefined,
+            goals: []
         }
     },
     {
@@ -969,6 +1017,10 @@ const members: Member[] = [
             twitch: {
                 id: '264655646'
             },
+        },
+        cdc2026: {
+            streamlabscharityId: undefined,
+            goals: []
         }
     },
     {
@@ -980,6 +1032,10 @@ const members: Member[] = [
             twitch: {
                 id: '495430567'
             },
+        },
+        cdc2026: {
+            streamlabscharityId: undefined,
+            goals: []
         }
     },
     {
@@ -991,6 +1047,10 @@ const members: Member[] = [
             twitch: {
                 id: '914098198'
             },
+        },
+        cdc2026: {
+            streamlabscharityId: undefined,
+            goals: []
         }
     },
     {
@@ -1002,6 +1062,10 @@ const members: Member[] = [
             twitch: {
                 id: '164535798'
             },
+        },
+        cdc2026: {
+            streamlabscharityId: undefined,
+            goals: []
         }
     },
     {
@@ -1013,6 +1077,10 @@ const members: Member[] = [
             twitch: {
                 id: '506410839'
             },
+        },
+        cdc2026: {
+            streamlabscharityId: undefined,
+            goals: []
         }
     },
     {
@@ -1024,6 +1092,10 @@ const members: Member[] = [
             twitch: {
                 id: '740913122'
             },
+        },
+        cdc2026: {
+            streamlabscharityId: undefined,
+            goals: []
         }
     },
     {
@@ -1035,6 +1107,10 @@ const members: Member[] = [
             twitch: {
                 id: '124205785'
             },
+        },
+        cdc2026: {
+            streamlabscharityId: undefined,
+            goals: []
         }
     },
     {
@@ -1046,6 +1122,10 @@ const members: Member[] = [
             twitch: {
                 id: '49272238'
             },
+        },
+        cdc2026: {
+            streamlabscharityId: undefined,
+            goals: []
         }
     },
     {
@@ -1057,6 +1137,10 @@ const members: Member[] = [
             twitch: {
                 id: '80750658'
             },
+        },
+        cdc2026: {
+            streamlabscharityId: undefined,
+            goals: []
         }
     }
 ] as const;
