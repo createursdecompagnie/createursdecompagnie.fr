@@ -227,7 +227,7 @@ const members: Member[] = [
     {
         id: "5570ceb0-23f3-4441-af6f-c0fd8e01f440",
         name: 'Buddakhiin',
-        groups: [Group.member, Group.sct, Group.playtogether2024, Group.cdc2025, Group.cdc2026],
+        groups: [Group.member, Group.sct, Group.playtogether2024, Group.cdc2025],
         socials: {
             main_social: Social.twitch,
             twitch: {
@@ -454,7 +454,7 @@ const members: Member[] = [
     {
         id: "41d93a01-4dfa-45fd-81c5-88b533cb5a2f",
         name: 'PiikaShall',
-        groups: [Group.member, Group.cdc2022, Group.cdc2025, Group.cdc2026],
+        groups: [Group.member, Group.cdc2022, Group.cdc2025],
         socials: {
             main_social: Social.twitch,
             twitch: {
@@ -808,7 +808,7 @@ const members: Member[] = [
     {
         id: "a1aa3b60-ed53-4490-b378-eb5786b8e189",
         name: 'NacaratTV',
-        groups: [Group.cdc2025, Group.cdc2026],
+        groups: [Group.cdc2025],
         socials: {
             main_social: Social.twitch,
             twitch: {
@@ -926,7 +926,7 @@ const members: Member[] = [
     {
         id: "5a648a52-02dd-4a7d-bccd-c1b9e691240f",
         name: 'KhalWirgo',
-        groups: [Group.cdc2026],
+        groups: [],
         socials: {
             main_social: Social.twitch,
             twitch: {
