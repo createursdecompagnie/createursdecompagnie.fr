@@ -21,7 +21,7 @@ export default function DonationPage() {
     member?.cdc2026 &&
     member.groups?.includes(Group.cdc2026) &&
     member.cdc2026.streamlabscharityId
-      ? `https://streamlabscharity.com/teams/@createurs-de-compagnie-2025/cdc2026?member=${member.cdc2026.streamlabscharityId}`
+      ? `https://streamlabscharity.com/teams/@cdc2026/cdc2026?member=${member.cdc2026.streamlabscharityId}`
       : null;
 
   useEffect(() => {

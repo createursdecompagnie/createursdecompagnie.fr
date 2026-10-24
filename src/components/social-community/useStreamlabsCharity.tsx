@@ -59,7 +59,7 @@ interface CharityData {
   lastPageWithData: number;
 }
 
-const TEAM_ID = '851906625861196529';
+const TEAM_ID = '989985224362431797';
 const API_BASE_URL = 'https://streamlabscharity.com/api/v1';
 const CACHE_KEY = 'streamlabs_charity_cache_v5';
 const CACHE_DURATION = 24 * 60 * 60 * 1000;

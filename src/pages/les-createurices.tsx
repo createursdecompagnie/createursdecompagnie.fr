@@ -268,7 +268,7 @@ function DonationButtons({ member }: DonationButtonsProps) {
   if (!cdc2026 || !groups?.includes(Group.cdc2026)) return null;
 
   const baseUrl =
-    "https://streamlabscharity.com/teams/@createurs-de-compagnie-2026/cdc2026";
+    "https://streamlabscharity.com/teams/@cdc2026/cdc2026";
 
   const donationUrl = cdc2026.streamlabscharityId
     ? `${baseUrl}?member=${cdc2026.streamlabscharityId}`
@@ -437,12 +437,12 @@ export default function MemberPage() {
               channelLogin={member.socials?.twitch?.user_data?.login ?? ''} 
               parent={parent} 
             />
-            {/* <DonationButtons
+            <DonationButtons
               member={member}
             />
             <DonationGoals
               member={member}
-            /> */}
+            />
           </>
         )}
 
