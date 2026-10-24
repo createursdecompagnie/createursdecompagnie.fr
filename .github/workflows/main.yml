@@ -1,12 +1,10 @@
 name: Deploy to github pages
 
 env:
-  TWITCH_CLIENTID: '${{ secrets.TWITCH_CLIENTID }}'
-  TWITCH_CLIENTSECRET: '${{ secrets.TWITCH_CLIENTSECRET }}'
-  CDC2022_PLANNING: '${{ secrets.CDC2022_PLANNING }}'
-  CDC2025_PLANNING: '${{ secrets.CDC2025_PLANNING }}'
-  CDC2026_PLANNING: '${{ secrets.CDC2026_PLANNING }}'
-  CDC2025_GOALS: '${{ secrets.CDC2025_GOALS }}'
+  TWITCH_CLIENTID: "${{ secrets.TWITCH_CLIENTID }}"
+  TWITCH_CLIENTSECRET: "${{ secrets.TWITCH_CLIENTSECRET }}"
+  CDC2026_PLANNING: "${{ secrets.CDC2026_PLANNING }}"
+  CDC2026_GOALS: "${{ secrets.CDC2026_GOALS }}"
 
 on:
   workflow_dispatch:
@@ -15,7 +13,7 @@ on:
   push:
     branches: [main]
   schedule:
-    - cron:  '30 10,22 * * *'
+    - cron: "30 10,22 * * *"
 
 jobs:
   checks:
@@ -25,7 +23,7 @@ jobs:
       - uses: actions/checkout@v1
       - uses: actions/setup-node@v1
         with:
-          node-version: '22.x'
+          node-version: "22.x"
       - name: Test Build
         run: |
           if [ -e yarn.lock ]; then
@@ -43,7 +41,7 @@ jobs:
       - uses: actions/checkout@v1
       - uses: actions/setup-node@v1
         with:
-          node-version: '22.x'
+          node-version: "22.x"
       - uses: webfactory/ssh-agent@v0.5.0
         with:
           ssh-private-key: ${{ secrets.SSH_PRIVATE_KEY }}

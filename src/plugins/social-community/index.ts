@@ -209,9 +209,9 @@ function assignGoalsToMembers(
 ): void {
   members.forEach(member => {
     const name = member.socials?.twitch?.user_data?.login?.trim().toLowerCase();
-    
-    if (name && goalsByStreamer[name] && member.cdc2025) {
-      member.cdc2025.goals = goalsByStreamer[name];
+
+    if (name && goalsByStreamer[name] && member.cdc2026) {
+      member.cdc2026.goals = goalsByStreamer[name];
     }
   });
 }
@@ -349,9 +349,9 @@ module.exports = function SocialCommunityPlugin(
       await processAllAvatars(members);
       assignAvatarsToMembers(members);
 
-      if (process.env.CDC2025_GOALS) {
+      if (process.env.CDC2026_GOALS) {
         const goalsByStreamer = await fetchAndParseGoalsCSV(
-          process.env.CDC2025_GOALS
+          process.env.CDC2026_GOALS
         );
         assignGoalsToMembers(members, goalsByStreamer);
       }
