@@ -2,6 +2,7 @@
 title: CDC 2025
 description: L'évènement caritatif de Créateurs de Compagnie au profit de Potiron Family
 ---
+
 import { Planning, Group } from '/src/components/planning'
 import { CommunityListEvent } from '/src/components/social-community'
 
@@ -28,13 +29,13 @@ import { CommunityListEvent } from '/src/components/social-community'
 
 ## L'évènement {/* #l-évènement */}
 
-***CDC 2025*** est un évènement caritatif qui s'est tenu sur [***Twitch***](https://www.twitch.tv/createursdecompagnie) du **7 au 9 novembre 2025** au profit de l'association <a href="https://www.potironfamily.fr">***Potiron Family***</a>. Celui-ci a permis de récolter plus de **16 300 €** et a impliqué plus d'une trentaine de créateur·ices.
+**_CDC 2025_** est un évènement caritatif qui s'est tenu sur [**_Twitch_**](https://www.twitch.tv/createursdecompagnie) du **7 au 9 novembre 2025** au profit de l'association <a href="https://www.potironfamily.fr">**_Potiron Family_**</a>. Celui-ci a permis de récolter plus de **17 500 €** et a impliqué plus d'une trentaine de créateur·ices.
 
 ## L'association {/* #l-association */}
 
 <a href="https://www.potironfamily.fr"><p className="text--center"><img src="/img/cdc2025/logo-potiron-family.png" alt="Logo Potiron Family" width="400" height="400" loading="lazy" /></p></a>
 
-<a href="https://www.potironfamily.fr">***Potiron Family***</a> est une association dédiée aux animaux en situation de handicap ou atteints de pathologies. Leur mission : changer le regard sur le handicap animal.
+<a href="https://www.potironfamily.fr">**_Potiron Family_**</a> est une association dédiée aux animaux en situation de handicap ou atteints de pathologies. Leur mission : changer le regard sur le handicap animal.
 
 Iels accueillent des chat·tes ataxiques, aveugles, FIV+, tri-pattes ou avec d’autres particularités, les soignent, leur offrent de l’amour et les proposent à l’adoption quand iels sont prêts. Certains deviennent des pensionnaires permanents, comme :
 

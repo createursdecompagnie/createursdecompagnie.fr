@@ -1069,21 +1069,6 @@ const members: Member[] = [
         }
     },
     {
-        id: "e5baec10-5592-4cc2-b18d-de05fd2bae94",
-        name: 'Patschou',
-        groups: [Group.cdc2026],
-        socials: {
-            main_social: Social.twitch,
-            twitch: {
-                id: '506410839'
-            },
-        },
-        cdc2026: {
-            streamlabscharityId: undefined,
-            goals: []
-        }
-    },
-    {
         id: "6d48534c-6932-4e3e-b854-14fc6c100e56",
         name: 'Ariilegrand',
         groups: [Group.cdc2026],
@@ -1091,21 +1076,6 @@ const members: Member[] = [
             main_social: Social.twitch,
             twitch: {
                 id: '740913122'
-            },
-        },
-        cdc2026: {
-            streamlabscharityId: undefined,
-            goals: []
-        }
-    },
-    {
-        id: "8694ba73-6c57-4d76-821c-88719a4b7f69",
-        name: 'Muka',
-        groups: [Group.cdc2026],
-        socials: {
-            main_social: Social.twitch,
-            twitch: {
-                id: '124205785'
             },
         },
         cdc2026: {
@@ -1136,6 +1106,21 @@ const members: Member[] = [
             main_social: Social.twitch,
             twitch: {
                 id: '80750658'
+            },
+        },
+        cdc2026: {
+            streamlabscharityId: undefined,
+            goals: []
+        }
+    },
+    {
+        id: "2631cc3c-8312-47e9-83b4-96efa393a158",
+        name: 'Zekyels',
+        groups: [Group.cdc2026],
+        socials: {
+            main_social: Social.twitch,
+            twitch: {
+                id: '1113844977'
             },
         },
         cdc2026: {
