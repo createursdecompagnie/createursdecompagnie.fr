@@ -437,12 +437,12 @@ export default function MemberPage() {
               channelLogin={member.socials?.twitch?.user_data?.login ?? ''} 
               parent={parent} 
             />
-            {/* <DonationButtons
+            <DonationButtons
               member={member}
             />
             <DonationGoals
               member={member}
-            /> */}
+            />
           </>
         )}
 
