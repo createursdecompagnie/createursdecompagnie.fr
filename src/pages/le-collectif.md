@@ -2,6 +2,7 @@
 title: Le collectif
 description: Des streameurs et des streameuses engagé-e-s dans la cause animale !
 ---
+
 import { CommunityListEvent } from '/src/components/social-community'
 
 <nav aria-label="breadcrumbs" className="page-breadcrumbs">
@@ -24,11 +25,12 @@ import { CommunityListEvent } from '/src/components/social-community'
 
 ## Création
 
-***Créateurs de Compagnie*** a été fondée par les organisateurs de l'événement [***Sans Croquettes Twitch***](/evenement/sans-croquettes-twitch) qui s'était tenu du 21 au 24 mai 2021 et avait récolté via ses 33 créateurs participants plus de 12 000 € au profit de l'association Lyonnaise [***Sans Croquettes Fixes***](https://sanscroquettesfixes.fr).
+**_Créateurs de Compagnie_** a été fondée par les organisateurs de l'événement [**_Sans Croquettes Twitch_**](/evenement/sans-croquettes-twitch) qui s'était tenu du 21 au 24 mai 2021 et avait récolté via ses 33 créateurs participants plus de 12 000 € au profit de l'association Lyonnaise [**_Sans Croquettes Fixes_**](https://sanscroquettesfixes.fr).
 
 ## Objectifs
 
-***Créateurs de Compagnie*** "CDC" est une association de fait réunissant des créateurs de contenus sensible à la cause animale dont les objectifs sont de :
+**_Créateurs de Compagnie_** "CDC" est une association de fait réunissant des créateurs de contenus sensible à la cause animale dont les objectifs sont de :
+
 - Réunir des créateurs et leurs communautés autour de la cause animale
 - Faire de la sensibilisation autour de la cause animale
 - Organiser des événements caritatifs au profit d'associations loi 1901 agissant pour la cause animale
@@ -37,12 +39,11 @@ import { CommunityListEvent } from '/src/components/social-community'
 
 ## Les évènements
 
-- [***CDC 2026***](/evenement/cdc2026/l-evenement) du **6 au 8 novembre 2026** pour le sanctuaire [***Le repère***](https://www.facebook.com/lerepereasso/)
-- [***CDC 2025***](/evenement/cdc2025/l-evenement) du **7 au 9 novembre 2025** pour l'association [***Potiron Family***](https://www.potironfamily.fr) : **16 300 €** de récoltés
-- [***PlayTogether "Édition Spéciale"***](/evenement/playtogether2024) du **8 au 10 novembre 2024** pour l'association [***L'Hirondelle***](https://hirondelle.ovh)
-- [***CDC 2022***](/evenement/cdc2022) du **21 au 23 octobre 2022** pour l'association [***L'Hirondelle***](https://hirondelle.ovh) : **17 300 €** de récoltés
-- [***Sans Croquettes Twitch***](/evenement/sans-croquettes-twitch) du **21 au 24 mai 2021** pour l'association [***Sans Croquettes Fixes***](https://sanscroquettesfixes.fr) : **12 200 €** de récoltés
-
+- [**_CDC 2026_**](/evenement/cdc2026/l-evenement) du **6 au 8 novembre 2026** pour le sanctuaire [**_Le repère_**](https://www.facebook.com/lerepereasso/)
+- [**_CDC 2025_**](/evenement/cdc2025/l-evenement) du **7 au 9 novembre 2025** pour l'association [**_Potiron Family_**](https://www.potironfamily.fr) : **17 500 €** de récoltés
+- [**_PlayTogether "Édition Spéciale"_**](/evenement/playtogether2024) du **8 au 10 novembre 2024** pour l'association [**_L'Hirondelle_**](https://hirondelle.ovh)
+- [**_CDC 2022_**](/evenement/cdc2022) du **21 au 23 octobre 2022** pour l'association [**_L'Hirondelle_**](https://hirondelle.ovh) : **17 300 €** de récoltés
+- [**_Sans Croquettes Twitch_**](/evenement/sans-croquettes-twitch) du **21 au 24 mai 2021** pour l'association [**_Sans Croquettes Fixes_**](https://sanscroquettesfixes.fr) : **12 200 €** de récoltés
 
 ## Les membres
 
