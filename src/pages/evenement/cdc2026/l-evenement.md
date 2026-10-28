@@ -2,6 +2,7 @@
 title: CDC 2026
 description: L'évènement caritatif de Créateurs de Compagnie au profit du sanctuaire Le Repère
 ---
+
 import { Planning, Group } from '/src/components/planning'
 import { CommunityListEvent } from '/src/components/social-community'
 
@@ -28,7 +29,7 @@ import { CommunityListEvent } from '/src/components/social-community'
 
 ## L'évènement {/* #l-évènement */}
 
-Du <a href="/evenement/cdc2026/planning">6 au 8 novembre 2026</a>, participez à ***CDC 2026***, un événement caritatif unique qui réunit les streameur·euses et leurs communautés autour d’une belle cause. Pendant trois jours, tous·tes les créateur·ices de contenu sont invité·es à lancer leurs lives pour contribuer à un objectif commun : soutenir une association et faire la différence grâce à la force de nos communautés.
+Du <a href="/evenement/cdc2026/planning">6 au 8 novembre 2026</a>, participez à **_CDC 2026_**, un événement caritatif unique qui réunit les streameur·euses et leurs communautés autour d’une belle cause. Pendant trois jours, tous·tes les créateur·ices de contenu sont invité·es à lancer leurs lives pour contribuer à un objectif commun : soutenir une association et faire la différence grâce à la force de nos communautés.
 
 💻 Que vous soyez petit ou grand créateur·ice, tous·tes les streameur·euses sensibles à la cause peuvent participer !
 L’idée est simple : vous streamez, vos spectateur·ices peuvent faire des dons via un lien unique vers la cagnotte, et ensemble nous créons un week-end solidaire, fun et fédérateur. Pas de contraintes de créneau, pas de format imposé, juste votre énergie, vos idées et votre envie de soutenir la cause.
@@ -41,11 +42,15 @@ L’idée est simple : vous streamez, vos spectateur·ices peuvent faire des don
 
 <a href="https://www.facebook.com/lerepereasso"><p className="text--center"><img src="/img/cdc2026/logo-le-repere.png" alt="Le Repère" width="400" height="400" loading="lazy" /></p></a>
 
-Le sanctuaire <a href="https://www.facebook.com/lerepereasso">Le Repère</a> est un havre de paix pour les animaux, situé en plein cœur de la Mayenne.
+Installé en Mayenne depuis 2020, **<a href="https://www.facebook.com/lerepereasso">Le Repère</a>** est un **centre d’accueil et un sanctuaire animalier disposant de personnel agréé pour la prise en charge d’animaux sauvages et de ferme**. Après les prises en charge en urgence, **l’association recherche des solutions adaptées à chaque animal**, comme un transfert vers un centre spécialisé ou une remise en liberté sécurisée. **Lorsqu’aucune solution n’est possible**, notamment pour les animaux malades, impossibles à relâcher ou faute de places dans d’autres structures, **<a href="https://www.facebook.com/lerepereasso">Le Repère</a> leur ouvre les portes de son sanctuaire pour leur offrir une vie digne, quels que soient les frais nécessaires**.
 
-L’association a pour mission d’offrir un refuge à des animaux issus de sauvetages, de saisies, de placements, de retraites ou d’abandons. Elle œuvre au quotidien pour améliorer leurs conditions de vie, répondre à leurs besoins et veiller à leur bien-être.
+Il accueille ainsi **des animaux issus de sauvetages, d’abandons, de saisies, de retraites ou encore de cirques**. Près de 150 pensionnaires peuvent y trouver un lieu de vie adapté, des soins et une seconde chance. <a href="https://www.facebook.com/lerepereasso">Le Repère</a> mène également un **important travail de sensibilisation au bien-être animal**, à travers des visites guidées et des rencontres avec les animaux. «Un sanctuaire pour les animaux, sans distinction d’espèce. Nous accueillons, protégeons et accompagnons ceux qui ont connu l’abandon, la maltraitance ou la détresse.
 
-Le Repère mène également des actions de sensibilisation auprès du public, enfants comme adultes, afin de mieux faire connaître les conditions de vie des animaux sauvages et des animaux de ferme. Des activités pédagogiques sont ainsi organisées au sein du sanctuaire, telles que des après-midis "soigneur animalier" ou encore des visites guidées permettant de découvrir l’histoire et le parcours de chacun des animaux accueillis.
+> «Un sanctuaire pour les animaux, sans distinction d’espèce. Nous accueillons, protégeons et accompagnons ceux qui ont connu l’abandon, la maltraitance ou la détresse. Chaque animal arrive avec son histoire, ses blessures et ses besoins. Notre mission est de lui offrir sécurité, soins et une place où vivre dignement. Parce qu’au REPÈRE, chaque vie mérite d’être considérée. »
+>
+> **Marjorie, présidente de l'association Le Repère**
+
+L’association fonctionne principalement grâce aux dons et aux visites du sanctuaire, qui permettent de financer l’alimentation, les soins vétérinaires, l’entretien et l’aménagement des enclos. Les **fonds récoltés lors de l’événement CDC2026** pourront notamment contribuer à la prise en charge des nombreux soins nécessaires aux pensionnaires, mais aussi **au développement d’une infirmerie dédiée**, indispensable pour accueillir et soigner les animaux fragiles, vieillissants, malades ou blessés, ainsi que la faune sauvage recueillie en urgence.
 
 ## Les participant·es
 
