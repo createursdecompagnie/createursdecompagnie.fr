@@ -139,7 +139,7 @@ const members: Member[] = [
     {
         id: "bb35a648-a199-46d6-9660-37c938c3bb75",
         name: 'RenegadesLive',
-        groups: [Group.member, Group.sct, Group.cdc2022, Group.playtogether2024, Group.cdc2025],
+        groups: [Group.member, Group.sct, Group.cdc2022, Group.playtogether2024, Group.cdc2025, Group.cdc2026],
         socials: {
             main_social: Social.twitch,
             twitch: {
@@ -148,6 +148,10 @@ const members: Member[] = [
         },
         cdc2025: {
             streamlabscharityId: '470817864576798720',
+            goals: []
+        },
+        cdc2026: {
+            streamlabscharityId: undefined,
             goals: []
         }
     },
@@ -910,7 +914,7 @@ const members: Member[] = [
     {
         id: "0dc4e502-0233-463c-9f50-0c8e6a226478",
         name: 'Princesse_piche',
-        groups: [Group.cdc2025],
+        groups: [Group.cdc2025, Group.cdc2026],
         socials: {
             main_social: Social.twitch,
             twitch: {
@@ -919,6 +923,10 @@ const members: Member[] = [
         },
         cdc2025: {
             streamlabscharityId: '873838163754359796',
+            goals: []
+        },
+        cdc2026: {
+            streamlabscharityId: undefined,
             goals: []
         }
     },
@@ -1121,6 +1129,111 @@ const members: Member[] = [
             main_social: Social.twitch,
             twitch: {
                 id: '1113844977'
+            },
+        },
+        cdc2026: {
+            streamlabscharityId: undefined,
+            goals: []
+        }
+    },
+    {
+        id: "c3506ae3-478e-4542-8796-97a777b2fc60",
+        name: 'BotaLeaf',
+        groups: [Group.cdc2026],
+        socials: {
+            main_social: Social.twitch,
+            twitch: {
+                id: '647724811'
+            },
+        },
+        cdc2026: {
+            streamlabscharityId: undefined,
+            goals: []
+        }
+    },
+    {
+        id: "6f5c3165-fd35-4aeb-91d3-fa7471a1399b",
+        name: 'Lysterie_',
+        groups: [Group.cdc2026],
+        socials: {
+            main_social: Social.twitch,
+            twitch: {
+                id: '206834718'
+            },
+        },
+        cdc2026: {
+            streamlabscharityId: undefined,
+            goals: []
+        }
+    },
+    {
+        id: "c1345212-c794-49ca-9950-421a40d5623f",
+        name: 'bysouaip',
+        groups: [Group.cdc2026],
+        socials: {
+            main_social: Social.twitch,
+            twitch: {
+                id: '125504539'
+            },
+        },
+        cdc2026: {
+            streamlabscharityId: undefined,
+            goals: []
+        }
+    },
+    {
+        id: "dcb7a5cc-963c-4c84-8be2-ff2a6dcb893e",
+        name: 'xianah_',
+        groups: [Group.cdc2026],
+        socials: {
+            main_social: Social.twitch,
+            twitch: {
+                id: '277812399'
+            },
+        },
+        cdc2026: {
+            streamlabscharityId: undefined,
+            goals: []
+        }
+    },
+    {
+        id: "65608cb0-5a55-4cfc-88b5-d8e30f9134a8",
+        name: 'flamyria',
+        groups: [Group.cdc2026],
+        socials: {
+            main_social: Social.twitch,
+            twitch: {
+                id: '589733542'
+            },
+        },
+        cdc2026: {
+            streamlabscharityId: undefined,
+            goals: []
+        }
+    },
+    {
+        id: "8ece98dd-32c5-4519-a187-e8164bb06e21",
+        name: 'loupsolitair3',
+        groups: [Group.cdc2026],
+        socials: {
+            main_social: Social.twitch,
+            twitch: {
+                id: '496768700'
+            },
+        },
+        cdc2026: {
+            streamlabscharityId: undefined,
+            goals: []
+        }
+    },
+    {
+        id: "03b8659d-5a8c-4c89-946e-1736c42b3fc8",
+        name: 'firengan',
+        groups: [Group.cdc2026],
+        socials: {
+            main_social: Social.twitch,
+            twitch: {
+                id: '94457916'
             },
         },
         cdc2026: {
