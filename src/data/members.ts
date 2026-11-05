@@ -151,7 +151,7 @@ const members: Member[] = [
             goals: []
         },
         cdc2026: {
-            streamlabscharityId: undefined,
+            streamlabscharityId: '470817864576798720',
             goals: []
         }
     },
@@ -926,7 +926,7 @@ const members: Member[] = [
             goals: []
         },
         cdc2026: {
-            streamlabscharityId: undefined,
+            streamlabscharityId: '873838163754359796',
             goals: []
         }
     },
@@ -1012,7 +1012,7 @@ const members: Member[] = [
             },
         },
         cdc2026: {
-            streamlabscharityId: undefined,
+            streamlabscharityId: '1005550328323642144',
             goals: []
         }
     },
@@ -1027,7 +1027,7 @@ const members: Member[] = [
             },
         },
         cdc2026: {
-            streamlabscharityId: undefined,
+            streamlabscharityId: '1003676927640345884',
             goals: []
         }
     },
@@ -1042,7 +1042,7 @@ const members: Member[] = [
             },
         },
         cdc2026: {
-            streamlabscharityId: undefined,
+            streamlabscharityId: '1003859262025373824',
             goals: []
         }
     },
@@ -1072,7 +1072,7 @@ const members: Member[] = [
             },
         },
         cdc2026: {
-            streamlabscharityId: undefined,
+            streamlabscharityId: '1003738480955759055',
             goals: []
         }
     },
@@ -1102,7 +1102,7 @@ const members: Member[] = [
             },
         },
         cdc2026: {
-            streamlabscharityId: undefined,
+            streamlabscharityId: '329612129067995136',
             goals: []
         }
     },
@@ -1117,7 +1117,7 @@ const members: Member[] = [
             },
         },
         cdc2026: {
-            streamlabscharityId: undefined,
+            streamlabscharityId: '983100458690288583',
             goals: []
         }
     },
@@ -1132,7 +1132,7 @@ const members: Member[] = [
             },
         },
         cdc2026: {
-            streamlabscharityId: undefined,
+            streamlabscharityId: '1003731224281358118',
             goals: []
         }
     },
@@ -1147,7 +1147,7 @@ const members: Member[] = [
             },
         },
         cdc2026: {
-            streamlabscharityId: undefined,
+            streamlabscharityId: '1005391180688659352',
             goals: []
         }
     },
@@ -1162,7 +1162,7 @@ const members: Member[] = [
             },
         },
         cdc2026: {
-            streamlabscharityId: undefined,
+            streamlabscharityId: '1003729127951440897',
             goals: []
         }
     },
@@ -1177,7 +1177,7 @@ const members: Member[] = [
             },
         },
         cdc2026: {
-            streamlabscharityId: undefined,
+            streamlabscharityId: '1005469631005204189',
             goals: []
         }
     },
@@ -1192,7 +1192,7 @@ const members: Member[] = [
             },
         },
         cdc2026: {
-            streamlabscharityId: undefined,
+            streamlabscharityId: '1005558861727404310',
             goals: []
         }
     },
@@ -1207,7 +1207,7 @@ const members: Member[] = [
             },
         },
         cdc2026: {
-            streamlabscharityId: undefined,
+            streamlabscharityId: '1005500251487998273',
             goals: []
         }
     },
@@ -1222,7 +1222,7 @@ const members: Member[] = [
             },
         },
         cdc2026: {
-            streamlabscharityId: undefined,
+            streamlabscharityId: '1005501486819581101',
             goals: []
         }
     },
@@ -1237,7 +1237,7 @@ const members: Member[] = [
             },
         },
         cdc2026: {
-            streamlabscharityId: undefined,
+            streamlabscharityId: '1005494109965783675',
             goals: []
         }
     }
