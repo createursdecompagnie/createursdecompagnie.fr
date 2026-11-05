@@ -239,6 +239,7 @@ async function fetchAndParsePlanningCSV(
   const planning = data
     .map(item => parsePlanningItem(item, allowedMembers))
     .filter(item => (item.presenters.length + item.attendees.length) > 0)
+    .filter(item => item.start >= new Date('2026-11-01')) // HACK Clean planning CDC 2026
     .sort(sortPlanningEvents);
 
   return planning;
