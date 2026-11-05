@@ -71,10 +71,10 @@ const config: Config = {
               label: 'L\'évènement',
               to: '/evenement/cdc2026/l-evenement',
             },
-            // {
-            //   label: 'Le planning',
-            //   to: '/evenement/cdc2026/planning',
-            // },
+            {
+              label: 'Le planning',
+              to: '/evenement/cdc2026/planning',
+            },
             {
               label: 'Les créateur·ices',
               to: '/les-createurices?group=cdc2026',
