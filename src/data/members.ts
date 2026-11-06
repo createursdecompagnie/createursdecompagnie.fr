@@ -584,7 +584,7 @@ const members: Member[] = [
     {
         id: "84ba1d10-ba7e-40cc-920c-8758575b5206",
         name: 'Stormy',
-        groups: [Group.cdc2022, Group.cdc2025, Group.cdc2026],
+        groups: [Group.cdc2022, Group.cdc2025],
         socials: {
             main_social: Social.twitch,
             twitch: {
@@ -592,10 +592,6 @@ const members: Member[] = [
             },
         },
         cdc2025: {
-            streamlabscharityId: '470683929368727552',
-            goals: []
-        },
-        cdc2026: {
             streamlabscharityId: '470683929368727552',
             goals: []
         }
@@ -1049,16 +1045,12 @@ const members: Member[] = [
     {
         id: "82f3441d-099a-42ae-856d-9644b0dc80ec",
         name: 'el_pepiito7',
-        groups: [Group.cdc2026],
+        groups: [],
         socials: {
             main_social: Social.twitch,
             twitch: {
                 id: '914098198'
             },
-        },
-        cdc2026: {
-            streamlabscharityId: undefined,
-            goals: []
         }
     },
     {
